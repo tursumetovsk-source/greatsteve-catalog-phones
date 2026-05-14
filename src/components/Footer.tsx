@@ -104,11 +104,11 @@ export default function Footer() {
         />
 
         <div className="max-w-[88rem] mx-auto relative z-10 flex flex-col md:flex-row items-start md:items-end justify-between gap-8">
-          <div className="flex flex-col sm:flex-row gap-3">
+          <div className="flex flex-row gap-2 sm:gap-3">
             <a
               href="https://wa.me/77775181111?text=Здравствуйте%20пишу%20вам%20с%20сайта"
               target="_blank" rel="noopener noreferrer"
-              className="inline-flex items-center gap-2.5 bg-white text-black px-6 py-3.5 rounded-full font-medium text-sm hover:bg-gray-100 transition-colors"
+              className="inline-flex items-center gap-1.5 sm:gap-2.5 bg-white text-black px-4 sm:px-6 py-3 sm:py-3.5 rounded-full font-medium text-xs sm:text-sm hover:bg-gray-100 transition-colors"
             >
               <WhatsAppIcon />
               WhatsApp
@@ -116,7 +116,7 @@ export default function Footer() {
             <a
               href="https://t.me/+77775181111"
               target="_blank" rel="noopener noreferrer"
-              className="inline-flex items-center gap-2.5 bg-white/10 text-white border border-white/10 px-6 py-3.5 rounded-full font-medium text-sm hover:bg-white/15 transition-colors"
+              className="inline-flex items-center gap-1.5 sm:gap-2.5 bg-white/10 text-white border border-white/10 px-4 sm:px-6 py-3 sm:py-3.5 rounded-full font-medium text-xs sm:text-sm hover:bg-white/15 transition-colors"
             >
               <TelegramIcon />
               Telegram
@@ -124,7 +124,7 @@ export default function Footer() {
             <a
               href="https://www.instagram.com/greatstevekz?igsh=emFueHdkODYwNnA1"
               target="_blank" rel="noopener noreferrer"
-              className="inline-flex items-center gap-2.5 bg-white/10 text-white border border-white/10 px-6 py-3.5 rounded-full font-medium text-sm hover:bg-white/15 transition-colors"
+              className="inline-flex items-center gap-1.5 sm:gap-2.5 bg-white/10 text-white border border-white/10 px-4 sm:px-6 py-3 sm:py-3.5 rounded-full font-medium text-xs sm:text-sm hover:bg-white/15 transition-colors"
             >
               <InstagramIcon />
               Instagram
