@@ -243,9 +243,9 @@ const Conditions = () => {
           </div>
           <div className="mt-12">
             <h4 className="text-xs font-bold uppercase tracking-widest text-[#86868b] mb-4">Доступные модели</h4>
-            <div className="flex flex-wrap gap-3">
+            <div className="grid grid-cols-2 gap-3">
               {['iPhone 13 · 128 GB', 'iPhone 13 · 256 GB', 'iPhone 14 · 128 GB', 'iPhone 14 · 256 GB', 'iPhone 15 · 128 GB', 'iPhone 15 · 256 GB'].map((model) => (
-                <div key={model} className="px-4 py-2 rounded-full border border-[#25D366]/30 bg-[#25D366]/5 text-sm text-[#25D366] font-medium">{model}</div>
+                <div key={model} className="px-4 py-2 rounded-full border border-[#25D366]/30 bg-[#25D366]/5 text-sm text-[#25D366] font-medium text-center">{model}</div>
               ))}
             </div>
           </div>
