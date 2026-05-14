@@ -51,8 +51,8 @@ export default function MainHero() {
             backgroundClip: 'text',
           }}
         >
-          Ремонт и продажа<br className="hidden md:block" />
-          техники Apple<br className="hidden md:block" />
+          Ремонт и продажа{' '}<br className="hidden md:block" />
+          техники Apple{' '}<br className="hidden md:block" />
           в Алматы
         </motion.h1>
 
