@@ -1,0 +1,9 @@
+{
+  "name": "GreatSteve — Оригинальный iPhone",
+  "description": "Оригинальный iPhone по выгодной цене. Без банка и без справок.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone",
+    "geolocation"
+  ]
+}
