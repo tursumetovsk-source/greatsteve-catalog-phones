@@ -111,13 +111,13 @@ function CameraUpdater({ mobile }: { mobile: boolean }) {
   useEffect(() => {
     const cam = camera as THREE.PerspectiveCamera;
     cam.fov = mobile ? 75 : 45;
-    cam.position.set(0, mobile ? 0.4 : 0.8, mobile ? 4.5 : 3.8);
+    cam.position.set(0, mobile ? 1.8 : 0.8, mobile ? 4.5 : 3.8);
     cam.updateProjectionMatrix();
   }, [camera, mobile]);
   return null;
 }
 
-function IPhoneModel() {
+function IPhoneModel({ mobile }: { mobile: boolean }) {
   const { scene } = useGLTF(`${BASE}/iphone_15_pro.glb`);
   const ref = useRef<THREE.Group>(null);
   const mats = useRef<THREE.Material[]>([]);
@@ -136,12 +136,10 @@ function IPhoneModel() {
     if (!ref.current) return;
     const t = state.clock.getElapsedTime();
 
-    // intro: 0→1 за 1.6с, старт через 0.1с
     const intro = easeOutExpo(Math.min(1, Math.max(0, (t - 0.5) / 1.6)));
 
-    // float позиция — точно такая же как была
-    const floatY = -0.9 + Math.sin(t * 0.8) * 0.08;
-    // intro offset: начинает -3 ниже, к концу = 0 → позиция не меняется
+    const baseY = mobile ? -1.6 : -0.9;
+    const floatY = baseY + Math.sin(t * 0.8) * 0.08;
     ref.current.position.y = floatY + (1 - intro) * -3.0;
 
     ref.current.rotation.x = -0.1 + state.pointer.y * 0.04;
@@ -188,7 +186,7 @@ function MacBookModel({ mobile }: { mobile: boolean }) {
     mats.current.forEach(m => { m.opacity = intro; });
   });
 
-  return <primitive ref={ref} object={scene} scale={mobile ? 2.2 : 3} position={[mobile ? -1.1 : -2.4, 0.1, -0.5]} rotation={[0, 0.4, 0]} />;
+  return <primitive ref={ref} object={scene} scale={mobile ? 2.2 : 3} position={[mobile ? -1.1 : -2.4, mobile ? -1.1 : 0.1, -0.5]} rotation={[0, 0.4, 0]} />;
 }
 
 function AppleWatchModel({ mobile }: { mobile: boolean }) {
@@ -220,7 +218,7 @@ function AppleWatchModel({ mobile }: { mobile: boolean }) {
     mats.current.forEach(m => { m.opacity = intro; });
   });
 
-  return <primitive ref={ref} object={scene} scale={mobile ? 8 : 10} position={[mobile ? 1.0 : 1.8, mobile ? 0.4 : 0.6, 0.2]} rotation={[0.1, -0.3, 0]} />;
+  return <primitive ref={ref} object={scene} scale={mobile ? 8 : 10} position={[mobile ? 1.0 : 1.8, mobile ? -0.7 : 0.6, 0.2]} rotation={[0.1, -0.3, 0]} />;
 }
 
 function Scene({ mobile }: { mobile: boolean }) {
@@ -238,7 +236,7 @@ function Scene({ mobile }: { mobile: boolean }) {
       <spotLight position={[0, 8, 0]} intensity={0.8} angle={0.5} />
 
       <Suspense fallback={null}>
-        <IPhoneModel />
+        <IPhoneModel mobile={mobile} />
         <MacBookModel mobile={mobile} />
         <AppleWatchModel mobile={mobile} />
         <Environment preset="city" />
