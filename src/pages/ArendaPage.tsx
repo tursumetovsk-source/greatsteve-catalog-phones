@@ -338,7 +338,7 @@ const CTA = () => (
       <div className="absolute inset-0 bg-black/50" />
     </div>
     <div className="max-w-3xl mx-auto bg-white/5 backdrop-blur-md border border-white/10 rounded-[2rem] md:rounded-[3rem] p-8 md:p-20 relative z-10">
-      <h2 className="text-3xl md:text-6xl font-bold tracking-tight mb-4 md:mb-6 text-white">Готовы к новому iPhone?</h2>
+      <h2 className="text-3xl md:text-6xl font-bold tracking-tight mb-4 md:mb-6 text-white">Хотите узнать как получить iPhone с самой выгодной ценой?</h2>
       <p className="text-[#86868b] text-base md:text-lg mb-8 md:mb-12 max-w-xl mx-auto">
         Оставь заявку — подберём модель под бюджет и свяжемся за 15 минут.
       </p>
