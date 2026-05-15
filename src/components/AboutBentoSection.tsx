@@ -33,7 +33,7 @@ export default function AboutBentoSection() {
             />
             {/* Видео поверх изображения с opacity-50 — создаёт эффект наложения */}
             <video
-              autoPlay loop muted playsInline
+              autoPlay loop muted playsInline preload="auto"
               className="absolute inset-0 w-full h-full object-cover opacity-50"
             >
               <source src="/video.mp4" type="video/mp4" />
