@@ -153,7 +153,7 @@ function ModelCardUI({ name, img, fallbackImg, href, to }: { name: string; img: 
         <img src={img} alt={name} className="max-h-full max-w-full object-contain drop-shadow-sm"
           onError={e => {
             const el = e.currentTarget as HTMLImageElement;
-            if (fallbackImg && el.src !== fallbackImg) { el.src = fallbackImg; return; }
+            if (fallbackImg && el.src.endsWith('.png')) { el.src = fallbackImg; return; }
             el.style.display = 'none';
             const p = el.parentElement;
             if (p) { p.style.background = '#F5F5F7'; p.style.borderRadius = '12px'; }
@@ -424,7 +424,7 @@ export default function DeviceRepairSection() {
                               {models.map(m => (
                                 <ModelCardUI key={m.slug}
                                   name={m.name.replace('Samsung Galaxy ', '')}
-                                  img={`/devices/models/${m.slug}.webp`}
+                                  img={`/devices/models/${m.slug}.jpg`}
                                   to={`/remont/${m.slug}`}
                                 />
                               ))}
