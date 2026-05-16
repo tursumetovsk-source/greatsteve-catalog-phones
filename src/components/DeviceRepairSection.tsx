@@ -331,7 +331,7 @@ export default function DeviceRepairSection() {
                     >
                       {APPLE_DEVICES.map(d => (
                         <button key={d.id} onClick={() => openDevice(d.id)}
-                          className="bg-[#F5F5F7] rounded-2xl p-5 flex flex-col items-center gap-3 hover:bg-gray-200 transition-colors text-center group">
+                          className="bg-white rounded-2xl p-5 flex flex-col items-center gap-3 hover:bg-gray-50 transition-colors text-center group border border-gray-100">
                           <div className="w-full h-24 flex items-center justify-center">
                             <img src={d.img} alt={d.name} className="max-h-full object-contain drop-shadow-sm"
                               onError={e => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }} />
