@@ -25,7 +25,7 @@ const SCHEMA = {
   openingHoursSpecification: {
     '@type': 'OpeningHoursSpecification',
     dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'],
-    opens: '09:00',
+    opens: '10:00',
     closes: '20:00',
   },
   aggregateRating: {
@@ -274,7 +274,7 @@ export default function CompanyPage() {
     <div className="flex flex-col min-h-screen overflow-x-clip" style={{ background: C.cream, color: C.text }}>
       <SEOHead
         title="О компании GreatSteve — Сервисный центр в Алматы с 2019 года"
-        description="GreatSteve — сервисный центр Apple в Алматы с 2019 года. 5 000+ клиентов, рейтинг 4.9★ на Google и 2ГИС. Ремонт iPhone и MacBook на Гоголя 75/1 уг. ул.Тулебаева. Ежедневно 09:00–20:00."
+        description="GreatSteve — сервисный центр Apple в Алматы с 2019 года. 5 000+ клиентов, рейтинг 4.9★ на Google и 2ГИС. Ремонт iPhone и MacBook на Гоголя 75/1 уг. ул.Тулебаева. Ежедневно 10:00–20:00."
         keywords="GreatSteve Алматы, сервисный центр Apple Алматы, о компании GreatSteve, GreatSteve отзывы, сервис Гоголя 75/1 уг. ул.Тулебаева Алматы, ремонт iPhone отзывы Алматы, сервисный центр рейтинг Алматы"
         canonical="/company"
         ogImage="/company/great.webp"

@@ -126,7 +126,7 @@ export default function RequestForm() {
               {[
                 { icon: Phone,   text: '8 777 518 11 11' },
                 { icon: MapPin,  text: 'Алматы, Гоголя 75/1 уг. ул.Тулебаева' },
-                { icon: Clock,   text: 'Ежедневно 09:00 — 20:00' },
+                { icon: Clock,   text: 'Ежедневно 10:00 — 20:00' },
               ].map(({ icon: Icon, text }, i) => (
                 <div key={i} className="flex items-center gap-3 text-white/40 text-base">
                   <Icon className="w-5 h-5 shrink-0" strokeWidth={1.5} />

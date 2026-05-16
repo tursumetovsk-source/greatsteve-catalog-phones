@@ -34,7 +34,7 @@ const SCHEMA = {
           'Monday', 'Tuesday', 'Wednesday', 'Thursday',
           'Friday', 'Saturday', 'Sunday',
         ],
-        opens: '09:00',
+        opens: '10:00',
         closes: '20:00',
       },
       aggregateRating: {
@@ -164,7 +164,7 @@ export default function MainPage() {
     <div className="flex flex-col bg-[#F5F5F5] min-h-screen text-black">
       <SEOHead
         title="Ремонт iPhone и Android в Алматы — Сервисный центр GreatSteve"
-        description="Профессиональный ремонт iPhone, MacBook, Samsung и Android в Алматы. Оригинальные запчасти, гарантия до 12 месяцев. Trade-in, скупка и продажа техники. Ежедневно 09:00–20:00."
+        description="Профессиональный ремонт iPhone, MacBook, Samsung и Android в Алматы. Оригинальные запчасти, гарантия до 12 месяцев. Trade-in, скупка и продажа техники. Ежедневно 10:00–20:00."
         keywords="ремонт iPhone Алматы, ремонт телефонов Алматы, сервисный центр Apple Алматы, ремонт MacBook Алматы, ремонт Samsung Алматы, скупка iPhone Алматы, Trade-in Apple Алматы, продажа iPhone Алматы, купить б/у iPhone Алматы, GreatSteve"
         canonical="/"
         ogImage="/main/gs-main1.jpeg"

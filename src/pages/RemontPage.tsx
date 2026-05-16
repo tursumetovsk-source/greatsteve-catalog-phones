@@ -1,8 +1,7 @@
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import HeroSection from '../components/HeroSection';
-import InfoSection from '../components/InfoSection';
-import RepairTypesSection from '../components/RepairTypesSection';
+import DeviceRepairSection from '../components/DeviceRepairSection';
 import UseCasesSection from '../components/UseCasesSection';
 import Footer from '../components/Footer';
 import SEOHead from '../components/SEOHead';
@@ -25,7 +24,7 @@ const SCHEMA = {
   openingHoursSpecification: {
     '@type': 'OpeningHoursSpecification',
     dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'],
-    opens: '09:00',
+    opens: '10:00',
     closes: '20:00',
   },
   hasOfferCatalog: {
@@ -62,7 +61,7 @@ const FAQ = {
     {
       '@type': 'Question',
       name: 'Сколько времени занимает ремонт iPhone?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Замена экрана или аккумулятора — 20–60 минут прямо при вас. Ремонт платы или сложные случаи — от 1 дня. Работаем ежедневно 09:00–20:00, Алматы, Гоголя 75/1 уг. ул.Тулебаева.' },
+      acceptedAnswer: { '@type': 'Answer', text: 'Замена экрана или аккумулятора — 20–60 минут прямо при вас. Ремонт платы или сложные случаи — от 1 дня. Работаем ежедневно 10:00–20:00, Алматы, Гоголя 75/1 уг. ул.Тулебаева.' },
     },
     {
       '@type': 'Question',
@@ -77,7 +76,7 @@ const FAQ = {
     {
       '@type': 'Question',
       name: 'Можно ли сделать бесплатную диагностику телефона?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Да, диагностика бесплатна при ремонте. Приходите на Гоголя 75/1 уг. ул.Тулебаева или звоните на 8 777 518 11 11. Работаем ежедневно с 09:00 до 20:00.' },
+      acceptedAnswer: { '@type': 'Answer', text: 'Да, диагностика бесплатна при ремонте. Приходите на Гоголя 75/1 уг. ул.Тулебаева или звоните на 8 777 518 11 11. Работаем ежедневно с 10:00 до 20:00.' },
     },
   ],
 };
@@ -87,7 +86,7 @@ const GUARANTEES = [
   'Гарантия до 12 месяцев на все работы',
   'Ремонт при вас — видите весь процесс',
   'Бесплатная диагностика',
-  'Работаем ежедневно 09:00 — 20:00',
+  'Работаем ежедневно 10:00 — 20:00',
   'Оплата после — только за результат',
 ];
 
@@ -111,9 +110,7 @@ export default function RemontPage() {
       />
       <Navbar />
       <HeroSection />
-      <InfoSection />
-      <RepairTypesSection />
-      <UseCasesSection />
+      <DeviceRepairSection />
 
       {/* Почему выбирают нас */}
       <section className="px-4 md:px-6 py-16 md:py-24 bg-white">
@@ -139,6 +136,8 @@ export default function RemontPage() {
           </div>
         </div>
       </section>
+
+      <UseCasesSection />
 
       {/* Внутренняя ссылка */}
       <section className="px-4 md:px-6 py-8 bg-white border-t border-gray-100">

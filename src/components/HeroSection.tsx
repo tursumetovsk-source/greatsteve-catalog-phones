@@ -37,15 +37,23 @@ export default function HeroSection() {
           <p className="text-white/80 text-sm sm:text-base md:text-lg max-w-sm mb-8 md:mb-10 leading-relaxed" style={{ fontFamily: "'Inter', sans-serif" }}>
             Оригинальные запчасти и гарантия на ремонт от 3 до 12 месяцев
           </p>
-          <a
-            href="https://wa.me/77775181111?text=Здравствуйте%20пишу%20вам%20с%20сайта"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 liquid-glass text-white px-7 py-3.5 rounded-full font-medium text-sm hover:bg-white/10 transition-colors duration-200 w-max"
-          >
-            <MessageCircle className="w-5 h-5" />
-            WhatsApp
-          </a>
+          <div className="flex items-center gap-3 flex-wrap">
+            <a
+              href="https://wa.me/77775181111?text=Здравствуйте%20пишу%20вам%20с%20сайта"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 liquid-glass text-white px-7 py-3.5 rounded-full font-medium text-sm hover:bg-white/10 transition-colors duration-200 w-max"
+            >
+              <MessageCircle className="w-5 h-5" />
+              WhatsApp
+            </a>
+            <a
+              href="#devices"
+              className="inline-flex items-center gap-2 text-white/80 px-7 py-3.5 rounded-full font-medium text-sm border border-white/30 hover:bg-white/10 hover:text-white hover:border-white/60 transition-all duration-200 w-max"
+            >
+              Выберите модель
+            </a>
+          </div>
         </div>
 
         <div className="w-full overflow-hidden">

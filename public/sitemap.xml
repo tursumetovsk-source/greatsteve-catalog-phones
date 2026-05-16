@@ -1,28 +1,89 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://greatsteve.kz/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://greatsteve.kz/remont</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://greatsteve.kz/tradein</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://greatsteve.kz/company</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://greatsteve.kz/arenda</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
+  <url><loc>https://greatsteve.kz/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://greatsteve.kz/remont</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://greatsteve.kz/tradein</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://greatsteve.kz/company</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://greatsteve.kz/arenda</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+
+  <!-- iPhone 17 -->
+  <url><loc>https://greatsteve.kz/remont/iphone-17-pro-max</loc><changefreq>weekly</changefreq><priority>0.95</priority></url>
+  <url><loc>https://greatsteve.kz/remont/iphone-17-pro</loc><changefreq>weekly</changefreq><priority>0.95</priority></url>
+  <url><loc>https://greatsteve.kz/remont/iphone-17-air</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://greatsteve.kz/remont/iphone-17</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+
+  <!-- iPhone 16 -->
+  <url><loc>https://greatsteve.kz/remont/iphone-16-pro-max</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://greatsteve.kz/remont/iphone-16-pro</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://greatsteve.kz/remont/iphone-16-plus</loc><changefreq>weekly</changefreq><priority>0.87</priority></url>
+  <url><loc>https://greatsteve.kz/remont/iphone-16</loc><changefreq>weekly</changefreq><priority>0.87</priority></url>
+
+  <!-- iPhone 15 -->
+  <url><loc>https://greatsteve.kz/remont/iphone-15-pro-max</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://greatsteve.kz/remont/iphone-15-pro</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://greatsteve.kz/remont/iphone-15</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+
+  <!-- iPhone 14 -->
+  <url><loc>https://greatsteve.kz/remont/iphone-14-pro-max</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://greatsteve.kz/remont/iphone-14-pro</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://greatsteve.kz/remont/iphone-14</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+
+  <!-- iPhone 13 -->
+  <url><loc>https://greatsteve.kz/remont/iphone-13-pro-max</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://greatsteve.kz/remont/iphone-13-pro</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://greatsteve.kz/remont/iphone-13</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+
+  <!-- iPhone 12 -->
+  <url><loc>https://greatsteve.kz/remont/iphone-12-pro-max</loc><changefreq>weekly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://greatsteve.kz/remont/iphone-12</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+
+  <!-- iPhone 11 -->
+  <url><loc>https://greatsteve.kz/remont/iphone-11-pro-max</loc><changefreq>weekly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://greatsteve.kz/remont/iphone-11</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+
+  <!-- iPhone X -->
+  <url><loc>https://greatsteve.kz/remont/iphone-xr</loc><changefreq>weekly</changefreq><priority>0.75</priority></url>
+
+  <!-- Samsung S25 -->
+  <url><loc>https://greatsteve.kz/remont/samsung-s25-ultra</loc><changefreq>weekly</changefreq><priority>0.92</priority></url>
+  <url><loc>https://greatsteve.kz/remont/samsung-s25-plus</loc><changefreq>weekly</changefreq><priority>0.88</priority></url>
+  <url><loc>https://greatsteve.kz/remont/samsung-s25</loc><changefreq>weekly</changefreq><priority>0.88</priority></url>
+
+  <!-- Samsung S24 -->
+  <url><loc>https://greatsteve.kz/remont/samsung-s24-ultra</loc><changefreq>weekly</changefreq><priority>0.88</priority></url>
+  <url><loc>https://greatsteve.kz/remont/samsung-s24-plus</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://greatsteve.kz/remont/samsung-s24</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://greatsteve.kz/remont/samsung-s24-fe</loc><changefreq>weekly</changefreq><priority>0.82</priority></url>
+
+  <!-- Samsung S23 -->
+  <url><loc>https://greatsteve.kz/remont/samsung-s23-ultra</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://greatsteve.kz/remont/samsung-s23-plus</loc><changefreq>weekly</changefreq><priority>0.82</priority></url>
+  <url><loc>https://greatsteve.kz/remont/samsung-s23</loc><changefreq>weekly</changefreq><priority>0.82</priority></url>
+  <url><loc>https://greatsteve.kz/remont/samsung-s23-fe</loc><changefreq>weekly</changefreq><priority>0.78</priority></url>
+
+  <!-- Samsung S22 -->
+  <url><loc>https://greatsteve.kz/remont/samsung-s22-ultra</loc><changefreq>weekly</changefreq><priority>0.82</priority></url>
+  <url><loc>https://greatsteve.kz/remont/samsung-s22-plus</loc><changefreq>weekly</changefreq><priority>0.78</priority></url>
+  <url><loc>https://greatsteve.kz/remont/samsung-s22</loc><changefreq>weekly</changefreq><priority>0.78</priority></url>
+
+  <!-- Samsung S21 -->
+  <url><loc>https://greatsteve.kz/remont/samsung-s21-ultra</loc><changefreq>weekly</changefreq><priority>0.78</priority></url>
+  <url><loc>https://greatsteve.kz/remont/samsung-s21</loc><changefreq>weekly</changefreq><priority>0.75</priority></url>
+
+  <!-- Samsung Z -->
+  <url><loc>https://greatsteve.kz/remont/samsung-z-fold-6</loc><changefreq>weekly</changefreq><priority>0.82</priority></url>
+  <url><loc>https://greatsteve.kz/remont/samsung-z-fold-5</loc><changefreq>weekly</changefreq><priority>0.78</priority></url>
+  <url><loc>https://greatsteve.kz/remont/samsung-z-flip-6</loc><changefreq>weekly</changefreq><priority>0.82</priority></url>
+  <url><loc>https://greatsteve.kz/remont/samsung-z-flip-5</loc><changefreq>weekly</changefreq><priority>0.78</priority></url>
+  <url><loc>https://greatsteve.kz/remont/samsung-z-flip-4</loc><changefreq>weekly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://greatsteve.kz/remont/samsung-z-flip-3</loc><changefreq>weekly</changefreq><priority>0.75</priority></url>
+
+  <!-- Samsung A -->
+  <url><loc>https://greatsteve.kz/remont/samsung-a56</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://greatsteve.kz/remont/samsung-a55</loc><changefreq>weekly</changefreq><priority>0.78</priority></url>
+  <url><loc>https://greatsteve.kz/remont/samsung-a54</loc><changefreq>weekly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://greatsteve.kz/remont/samsung-a35</loc><changefreq>weekly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://greatsteve.kz/remont/samsung-a34</loc><changefreq>weekly</changefreq><priority>0.73</priority></url>
+  <url><loc>https://greatsteve.kz/remont/samsung-a25</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://greatsteve.kz/remont/samsung-a15</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
 </urlset>

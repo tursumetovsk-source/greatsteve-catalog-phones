@@ -26,7 +26,7 @@ const SCHEMA = {
   openingHoursSpecification: {
     '@type': 'OpeningHoursSpecification',
     dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'],
-    opens: '09:00',
+    opens: '10:00',
     closes: '20:00',
   },
   hasOfferCatalog: {
@@ -92,14 +92,14 @@ const FAQ = {
     {
       '@type': 'Question',
       name: 'Можно ли купить б/у iPhone с гарантией в Алматы?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Да. Все б/у iPhone в GreatSteve проходят полную диагностику — проверяем экран, аккумулятор, камеру и Face ID. Продаём с гарантией. Алматы, Гоголя 75/1 уг. ул.Тулебаева, ежедневно 09:00–20:00.' },
+      acceptedAnswer: { '@type': 'Answer', text: 'Да. Все б/у iPhone в GreatSteve проходят полную диагностику — проверяем экран, аккумулятор, камеру и Face ID. Продаём с гарантией. Алматы, Гоголя 75/1 уг. ул.Тулебаева, ежедневно 10:00–20:00.' },
     },
   ],
 };
 
 const STEPS = [
   { num: '01', title: 'Оценка',  desc: 'Пришлите фото в WhatsApp — ответим с ценой за 10 минут.' },
-  { num: '02', title: 'Осмотр', desc: 'Приедьте на Гоголя 75/1 уг. ул.Тулебаева. Проверим устройство на месте.' },
+  { num: '02', title: 'Осмотр', desc: 'Ждём Вас на Гоголя 75/1 уг. ул. Тулебаева. Проверим устройство на месте.' },
   { num: '03', title: 'Оплата', desc: 'Выплатим сразу наличными или переводом. Без ожиданий.' },
 ];
 
@@ -117,10 +117,12 @@ function CameraUpdater({ mobile }: { mobile: boolean }) {
   return null;
 }
 
+
 function IPhoneModel({ mobile }: { mobile: boolean }) {
   const { scene } = useGLTF(`${BASE}/iphone_15_pro.glb`);
   const ref = useRef<THREE.Group>(null);
   const mats = useRef<THREE.Material[]>([]);
+  const startTime = useRef<number | null>(null);
 
   useEffect(() => {
     scene.traverse((child) => {
@@ -135,12 +137,14 @@ function IPhoneModel({ mobile }: { mobile: boolean }) {
   useFrame((state) => {
     if (!ref.current) return;
     const t = state.clock.getElapsedTime();
+    if (startTime.current === null) startTime.current = t;
+    const elapsed = t - startTime.current;
 
-    const intro = easeOutExpo(Math.min(1, Math.max(0, (t - 0.5) / 1.6)));
+    const intro = easeOutExpo(Math.min(1, Math.max(0, (elapsed - 2.4) / 0.9)));
 
     const baseY = mobile ? -1.6 : -0.9;
     const floatY = baseY + Math.sin(t * 0.8) * 0.08;
-    ref.current.position.y = floatY + (1 - intro) * -3.0;
+    ref.current.position.y = floatY + (1 - intro) * -5.0;
 
     ref.current.rotation.x = -0.1 + state.pointer.y * 0.04;
     ref.current.rotation.y = state.pointer.x * 0.06 + Math.sin(t * 0.3) * 0.03;
@@ -161,6 +165,7 @@ function MacBookModel({ mobile }: { mobile: boolean }) {
   const { scene } = useGLTF(`${BASE}/macbook.glb`);
   const ref = useRef<THREE.Group>(null);
   const mats = useRef<THREE.Material[]>([]);
+  const startTime = useRef<number | null>(null);
 
   useEffect(() => {
     scene.traverse((child) => {
@@ -176,10 +181,13 @@ function MacBookModel({ mobile }: { mobile: boolean }) {
     if (!ref.current) return;
     const t = state.clock.getElapsedTime();
 
-    const intro = easeOutExpo(Math.min(1, Math.max(0, (t - 1.3) / 1.6)));
+    if (startTime.current === null) startTime.current = t;
+    const elapsed = t - startTime.current;
+
+    const intro = easeOutExpo(Math.min(1, Math.max(0, (elapsed - 0.2) / 0.9)));
 
     const floatY = 0.1 + Math.sin(t * 0.9 + 1.5) * 0.14;
-    ref.current.position.y = floatY + (1 - intro) * -3.0;
+    ref.current.position.y = floatY + (1 - intro) * -5.0;
 
     ref.current.rotation.y = t * 0.2 + state.pointer.x * 0.05;
 
@@ -193,6 +201,7 @@ function AppleWatchModel({ mobile }: { mobile: boolean }) {
   const { scene } = useGLTF(`${BASE}/apple_watch_series_7_-_free_watch-face_sdctm.glb`);
   const ref = useRef<THREE.Group>(null);
   const mats = useRef<THREE.Material[]>([]);
+  const startTime = useRef<number | null>(null);
 
   useEffect(() => {
     scene.traverse((child) => {
@@ -208,10 +217,13 @@ function AppleWatchModel({ mobile }: { mobile: boolean }) {
     if (!ref.current) return;
     const t = state.clock.getElapsedTime();
 
-    const intro = easeOutExpo(Math.min(1, Math.max(0, (t - 0.9) / 1.6)));
+    if (startTime.current === null) startTime.current = t;
+    const elapsed = t - startTime.current;
+
+    const intro = easeOutExpo(Math.min(1, Math.max(0, (elapsed - 1.4) / 0.9)));
 
     const floatY = 0.6 + Math.sin(t * 1.3 + 2.0) * 0.13;
-    ref.current.position.y = floatY + (1 - intro) * -3.0;
+    ref.current.position.y = floatY + (1 - intro) * -5.0;
 
     ref.current.rotation.y = t * 0.3 + state.pointer.x * 0.06;
 
@@ -227,7 +239,8 @@ function Scene({ mobile }: { mobile: boolean }) {
       camera={{ position: [0, 0.8, 3.8], fov: 45 }}
       dpr={mobile ? 1 : [1, 2]}
       style={{ width: '100%', height: '100%' }}
-      gl={{ alpha: true, antialias: true }}
+      gl={{ antialias: true, alpha: true }}
+      onCreated={({ gl }) => { gl.setClearColor(0x000000, 0); }}
     >
       <CameraUpdater mobile={mobile} />
       <ambientLight intensity={0.6} />
@@ -239,7 +252,7 @@ function Scene({ mobile }: { mobile: boolean }) {
         <IPhoneModel mobile={mobile} />
         <MacBookModel mobile={mobile} />
         <AppleWatchModel mobile={mobile} />
-        <Environment preset="city" />
+        <Environment preset="city" background={false} />
         <ContactShadows position={[0, -1.8, 0]} opacity={0.5} scale={16} blur={2.5} />
       </Suspense>
     </Canvas>
@@ -279,7 +292,7 @@ export default function TradeinPage() {
         description="Купите б/у iPhone 13, 14, 15 с гарантией или продайте свой за 10 минут. Выкуп MacBook, Samsung, Android. Trade-in. Оплата сразу наличными. Алматы, Гоголя 75/1 уг. ул.Тулебаева."
         keywords="купить б/у iPhone Алматы, продать iPhone Алматы, скупка iPhone Алматы, б/у iPhone с гарантией, купить подержанный iPhone, б/у MacBook Алматы, продать MacBook Алматы, trade-in iPhone Алматы, выкуп телефонов Алматы, скупка Samsung Алматы, б/у телефоны Алматы"
         canonical="/tradein"
-        ogImage="/Trade-in/white.jpg"
+        ogImage="/tradein-bg.jpg"
         schema={[SCHEMA, FAQ, BREADCRUMB]}
       />
       <Navbar />
@@ -289,18 +302,24 @@ export default function TradeinPage() {
         aria-label="Купить и продать iPhone, MacBook, Samsung в Алматы — GreatSteve"
         style={{
           position: 'relative', width: '100%', minHeight: '100dvh', overflow: 'hidden',
-          backgroundImage: 'url("/Trade-in/white.jpg")',
-          backgroundSize: 'cover', backgroundPosition: 'center',
         }}
       >
+        {/* Background image */}
+        <img
+          src="/tradein-bg.jpg"
+          alt=""
+          aria-hidden="true"
+          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', zIndex: 0 }}
+        />
+
         {/* 3D Canvas */}
-        <div style={{ position: 'absolute', inset: 0 }}>
+        <div style={{ position: 'absolute', inset: 0, zIndex: 1 }}>
           <Scene mobile={isMobile} />
         </div>
 
         {/* Hero текст — поверх 3D сцены */}
         <div style={{
-          position: 'absolute', inset: 0, zIndex: 10,
+          position: 'absolute', inset: 0, zIndex: 20,
           display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center',
           textAlign: 'center',
           paddingBottom: 'clamp(0px, 30vh, 30vh)',

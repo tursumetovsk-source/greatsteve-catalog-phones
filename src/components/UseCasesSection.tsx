@@ -70,7 +70,7 @@ export default function UseCasesSection() {
             </a>
             <div className="flex items-center gap-3 text-gray-500 text-sm">
               <Clock className="w-4 h-4 text-gray-400 shrink-0" strokeWidth={1.5} />
-              Ежедневно 09:00 — 20:00
+              Ежедневно 10:00 — 20:00
             </div>
             <a href="tel:+77775181111"
               className="flex items-center gap-3 text-gray-500 hover:text-gray-900 transition-colors text-sm group">

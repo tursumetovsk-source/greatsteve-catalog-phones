@@ -174,7 +174,7 @@ export default function Footer() {
           <div className="flex flex-col gap-3">
             <p className="text-xs font-semibold uppercase tracking-widest text-white/30 mb-1">Где нас найти</p>
             <p className="text-base font-medium text-white/70">Алматы, Гоголя 75/1 уг. ул.Тулебаева</p>
-            <p className="text-base text-white/40">Ежедневно 09:00 — 20:00</p>
+            <p className="text-base text-white/40">Ежедневно 10:00 — 20:00</p>
             <p className="text-base text-white/40 mt-1">БИН: 901128401389</p>
           </div>
 
