@@ -146,20 +146,16 @@ const SamsungLogo = ({ className }: { className?: string }) => (
   </svg>
 );
 
-function ModelCardUI({ name, img, fallbackImg, href, to }: { name: string; img: string; fallbackImg?: string; href?: string; to?: string }) {
+function ModelCardUI({ name, img, href, to }: { name: string; img?: string; href?: string; to?: string }) {
   const inner = (
     <div className="bg-white rounded-2xl p-3 flex flex-col items-center gap-2 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 cursor-pointer border border-gray-100 hover:border-blue-200">
-      <div className="w-full h-20 flex items-center justify-center">
-        <img src={img} alt={name} className="max-h-full max-w-full object-contain drop-shadow-sm"
-          onError={e => {
-            const el = e.currentTarget as HTMLImageElement;
-            if (fallbackImg && el.src.endsWith('.png')) { el.src = fallbackImg; return; }
-            el.style.display = 'none';
-            const p = el.parentElement;
-            if (p) { p.style.background = '#F5F5F7'; p.style.borderRadius = '12px'; }
-          }}
-        />
-      </div>
+      {img && (
+        <div className="w-full h-20 flex items-center justify-center">
+          <img src={img} alt={name} className="max-h-full max-w-full object-contain drop-shadow-sm"
+            onError={e => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
+          />
+        </div>
+      )}
       <p className="text-xs font-semibold text-[#1D1D1F] text-center leading-tight">{name}</p>
     </div>
   );
@@ -368,7 +364,9 @@ export default function DeviceRepairSection() {
                                 <p className="text-xs font-semibold text-[#6E6E73] uppercase tracking-widest mb-3">{label}</p>
                                 <div className="grid grid-cols-3 sm:grid-cols-4 gap-3">
                                   {models.map(m => (
-                                    <ModelCardUI key={m.slug} name={m.name} img={`/devices/models/${m.slug}.png`} fallbackImg={`/devices/models/${m.slug}.jpg`} to={`/remont/${m.slug}`} />
+                                    <ModelCardUI key={m.slug} name={m.name}
+                                      img={['iphone-17-pro-max','iphone-17-pro'].includes(m.slug) ? `/devices/models/${m.slug}.png` : undefined}
+                                      to={`/remont/${m.slug}`} />
                                   ))}
                                 </div>
                               </div>
