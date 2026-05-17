@@ -70,82 +70,77 @@ export default function ModelRepairPage() {
       <Navbar />
 
       {/* HERO */}
-      <section style={{ background: '#1d1d1f', paddingTop: 120, paddingBottom: 80, textAlign: 'center', paddingLeft: 24, paddingRight: 24 }}>
-        {/* Breadcrumb */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          style={{ display: 'flex', justifyContent: 'center', gap: 8, marginBottom: 32, fontSize: 13, color: 'rgba(255,255,255,0.4)', flexWrap: 'wrap' }}
-        >
-          <Link to="/" style={{ color: 'rgba(255,255,255,0.4)', textDecoration: 'none' }}>GreatSteve</Link>
-          <span>/</span>
-          <Link to="/remont" style={{ color: 'rgba(255,255,255,0.4)', textDecoration: 'none' }}>Ремонт</Link>
-          <span>/</span>
-          <span style={{ color: 'rgba(255,255,255,0.7)' }}>{data.name}</span>
-        </motion.div>
+      <section style={{ background: '#1d1d1f', paddingTop: 100, paddingBottom: 60, paddingLeft: 24, paddingRight: 24 }}>
+        <div style={{ maxWidth: 1400, margin: '0 auto' }} className="grid grid-cols-1 md:grid-cols-2 gap-4">
 
-        <motion.p
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4 }}
-          style={{ fontSize: 11, textTransform: 'uppercase', letterSpacing: '0.28em', color: 'rgba(255,255,255,0.5)', marginBottom: 16 }}
-        >
-          Алматы · Гоголя 75/1 · Ежедневно 10:00–20:00
-        </motion.p>
-
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.05 }}
-          style={{ fontSize: 'clamp(32px, 6vw, 72px)', fontWeight: 800, letterSpacing: '-0.03em', lineHeight: 1.05, color: '#fff', marginBottom: 16 }}
-        >
-          Ремонт {data.name}<br />
-          <span style={{ background: 'linear-gradient(135deg, #60a5fa, #a78bfa)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
-            в Алматы
-          </span>
-        </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.2 }}
-          style={{ fontSize: 17, color: 'rgba(255,255,255,0.55)', marginBottom: 40, maxWidth: 560, margin: '0 auto 40px' }}
-        >
-          {data.intro}
-        </motion.p>
-
-        {['iphone-17-pro-max', 'iphone-17-pro'].includes(data.slug) && (
-          <motion.img
-            src={`/devices/models/${data.slug}.webp`}
-            alt={data.name}
+          {/* Левая карточка — текст */}
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.25, duration: 0.5 }}
-            onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
-            style={{ height: 280, width: 'auto', objectFit: 'contain', margin: '0 auto 40px', display: 'block', filter: 'drop-shadow(0 20px 60px rgba(0,0,0,0.5))' }}
-          />
-        )}
+            transition={{ duration: 0.5 }}
+            style={{ background: 'rgba(255,255,255,0.06)', borderRadius: 28, padding: 'clamp(32px,4vw,52px)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', gap: 32 }}
+          >
+            <div>
+              {/* Breadcrumb */}
+              <div style={{ display: 'flex', gap: 8, fontSize: 13, color: 'rgba(255,255,255,0.4)', flexWrap: 'wrap', marginBottom: 28 }}>
+                <Link to="/" style={{ color: 'rgba(255,255,255,0.4)', textDecoration: 'none' }}>GreatSteve</Link>
+                <span>/</span>
+                <Link to="/remont" style={{ color: 'rgba(255,255,255,0.4)', textDecoration: 'none' }}>Ремонт</Link>
+                <span>/</span>
+                <span style={{ color: 'rgba(255,255,255,0.7)' }}>{data.name}</span>
+              </div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.3 }}
-          style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}
-        >
-          <a
-            href={`${WA_URL}?text=${waMsg}`}
-            target="_blank" rel="noopener noreferrer"
-            style={{ background: '#fff', color: '#111', borderRadius: 100, padding: '14px 32px', fontSize: 15, fontWeight: 600, textDecoration: 'none' }}
+              <p style={{ fontSize: 11, textTransform: 'uppercase', letterSpacing: '0.28em', color: 'rgba(255,255,255,0.45)', marginBottom: 16 }}>
+                Алматы · Гоголя 75/1 · Ежедневно 10:00–20:00
+              </p>
+
+              <h1 style={{ fontSize: 'clamp(28px, 4vw, 60px)', fontWeight: 800, letterSpacing: '-0.03em', lineHeight: 1.07, color: '#fff', marginBottom: 20 }}>
+                Ремонт {data.name}<br />
+                <span style={{ background: 'linear-gradient(135deg, #60a5fa, #a78bfa)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+                  в Алматы
+                </span>
+              </h1>
+
+              <p style={{ fontSize: 16, color: 'rgba(255,255,255,0.5)', lineHeight: 1.6 }}>
+                {data.intro}
+              </p>
+            </div>
+
+            <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+              <a
+                href={`${WA_URL}?text=${waMsg}`}
+                target="_blank" rel="noopener noreferrer"
+                style={{ background: '#fff', color: '#111', borderRadius: 100, padding: '14px 32px', fontSize: 15, fontWeight: 600, textDecoration: 'none' }}
+              >
+                Узнать точную цену
+              </a>
+              <a
+                href="tel:+77775181111"
+                style={{ border: '1px solid rgba(255,255,255,0.25)', color: '#fff', borderRadius: 100, padding: '14px 32px', fontSize: 15, fontWeight: 500, textDecoration: 'none' }}
+              >
+                8 777 518 11 11
+              </a>
+            </div>
+          </motion.div>
+
+          {/* Правая карточка — картинка */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            style={{ background: 'rgba(255,255,255,0.06)', borderRadius: 28, display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: 320 }}
           >
-            Узнать точную цену
-          </a>
-          <a
-            href="tel:+77775181111"
-            style={{ border: '1px solid rgba(255,255,255,0.3)', color: '#fff', borderRadius: 100, padding: '14px 32px', fontSize: 15, fontWeight: 500, textDecoration: 'none' }}
-          >
-            8 777 518 11 11
-          </a>
-        </motion.div>
+            {['iphone-17-pro-max', 'iphone-17-pro'].includes(data.slug) && (
+              <img
+                src={`/devices/models/${data.slug}.webp`}
+                alt={data.name}
+                onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
+                style={{ height: 300, width: 'auto', objectFit: 'contain', filter: 'drop-shadow(0 24px 64px rgba(0,0,0,0.6))' }}
+              />
+            )}
+          </motion.div>
+
+        </div>
       </section>
 
       {/* REPAIRS TABLE */}
