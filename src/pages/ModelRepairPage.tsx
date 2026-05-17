@@ -188,6 +188,37 @@ export default function ModelRepairPage() {
         </div>
       </section>
 
+      {/* ТИПИЧНЫЕ ПОЛОМКИ */}
+      {data.problems && data.problems.length > 0 && (
+        <section style={{ background: '#fff', padding: 'clamp(32px, 6vw, 72px) 24px' }}>
+          <div style={{ maxWidth: 1400, margin: '0 auto' }}>
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              style={{ fontSize: 'clamp(22px, 3vw, 34px)', fontWeight: 700, letterSpacing: '-0.02em', color: '#111', marginBottom: 28, textAlign: 'center' }}
+            >
+              Типичные поломки {data.name}
+            </motion.h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2" style={{ gap: 12, maxWidth: 900, margin: '0 auto' }}>
+              {data.problems.map((p, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.07 }}
+                  style={{ background: '#f5f5f7', borderRadius: 16, padding: '18px 22px', display: 'flex', gap: 14, alignItems: 'flex-start' }}
+                >
+                  <div style={{ width: 8, height: 8, borderRadius: '50%', background: '#ef4444', flexShrink: 0, marginTop: 6 }} />
+                  <span style={{ fontSize: 15, color: '#111', fontWeight: 500, lineHeight: 1.5 }}>{p}</span>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* SPECS + GUARANTEES */}
       <section style={{ background: '#fff', padding: 'clamp(48px, 8vw, 96px) 24px' }}>
         <div style={{ maxWidth: 1400, margin: '0 auto' }}>
