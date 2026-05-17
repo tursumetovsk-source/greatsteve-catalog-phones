@@ -114,19 +114,17 @@ export default function ModelRepairPage() {
           {data.intro}
         </motion.p>
 
-        <motion.img
-          src={`/devices/models/${data.slug}.png`}
-          alt={data.name}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.25, duration: 0.5 }}
-          onError={(e) => {
-            const img = e.currentTarget as HTMLImageElement;
-            if (img.src.endsWith('.png')) { img.src = `/devices/models/${data.slug}.jpg`; }
-            else { img.style.display = 'none'; }
-          }}
-          style={{ height: 280, width: 'auto', objectFit: 'contain', margin: '0 auto 40px', display: 'block', filter: 'drop-shadow(0 20px 60px rgba(0,0,0,0.5))' }}
-        />
+        {['iphone-17-pro-max', 'iphone-17-pro'].includes(data.slug) && (
+          <motion.img
+            src={`/devices/models/${data.slug}.png`}
+            alt={data.name}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.25, duration: 0.5 }}
+            onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
+            style={{ height: 280, width: 'auto', objectFit: 'contain', margin: '0 auto 40px', display: 'block', filter: 'drop-shadow(0 20px 60px rgba(0,0,0,0.5))' }}
+          />
+        )}
 
         <motion.div
           initial={{ opacity: 0 }}
