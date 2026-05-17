@@ -365,7 +365,7 @@ export default function DeviceRepairSection() {
                                 <div className="grid grid-cols-3 sm:grid-cols-4 gap-3">
                                   {models.map(m => (
                                     <ModelCardUI key={m.slug} name={m.name}
-                                      img={['iphone-17-pro-max','iphone-17-pro'].includes(m.slug) ? `/devices/models/${m.slug}.png` : undefined}
+                                      img={['iphone-17-pro-max','iphone-17-pro'].includes(m.slug) ? `/devices/models/${m.slug}.webp` : undefined}
                                       to={`/remont/${m.slug}`} />
                                   ))}
                                 </div>

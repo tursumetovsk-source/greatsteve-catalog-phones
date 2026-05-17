@@ -116,7 +116,7 @@ export default function ModelRepairPage() {
 
         {['iphone-17-pro-max', 'iphone-17-pro'].includes(data.slug) && (
           <motion.img
-            src={`/devices/models/${data.slug}.png`}
+            src={`/devices/models/${data.slug}.webp`}
             alt={data.name}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
