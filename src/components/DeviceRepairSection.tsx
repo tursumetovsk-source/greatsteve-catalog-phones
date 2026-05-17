@@ -82,11 +82,11 @@ const OTHER_BRANDS: { id: Brand; name: string; sub: string; color: string; model
   },
 ];
 
-const APPLE_DEVICES: { id: DeviceType; name: string; sub: string; img: string; from: string }[] = [
-  { id: 'iPhone',      name: 'iPhone',      sub: 'с X по 17 Pro Max',  img: '/devices/iphone.jpg',      from: 'от 15 000 ₸' },
-  { id: 'MacBook',     name: 'MacBook',     sub: 'Air, Pro, M1–M4',    img: '/devices/macbook.jpg',     from: 'от 20 000 ₸' },
-  { id: 'iPad',        name: 'iPad',        sub: 'Air, Pro, Mini',      img: '/devices/ipad.jpg',        from: 'от 12 000 ₸' },
-  { id: 'Apple Watch', name: 'Apple Watch', sub: 'Series 4–10, Ultra', img: '/devices/apple-watch.jpg', from: 'от 8 000 ₸'  },
+const APPLE_DEVICES: { id: DeviceType; name: string; sub: string; img?: string; from: string }[] = [
+  { id: 'iPhone',      name: 'iPhone',      sub: 'с X по 17 Pro Max',  img: '/devices/models/iphone-17-pro-max.png', from: 'от 15 000 ₸' },
+  { id: 'MacBook',     name: 'MacBook',     sub: 'Air, Pro, M1–M4',                                                  from: 'от 20 000 ₸' },
+  { id: 'iPad',        name: 'iPad',        sub: 'Air, Pro, Mini',                                                   from: 'от 12 000 ₸' },
+  { id: 'Apple Watch', name: 'Apple Watch', sub: 'Series 4–10, Ultra',                                              from: 'от 8 000 ₸'  },
 ];
 
 type ModelCard = { name: string; img: string };
@@ -333,10 +333,12 @@ export default function DeviceRepairSection() {
                       {APPLE_DEVICES.map(d => (
                         <button key={d.id} onClick={() => openDevice(d.id)}
                           className="bg-white rounded-2xl p-5 flex flex-col items-center gap-3 hover:bg-gray-50 transition-colors text-center group border border-gray-100">
-                          <div className="w-full h-24 flex items-center justify-center">
-                            <img src={d.img} alt={d.name} className="max-h-full object-contain drop-shadow-sm"
-                              onError={e => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }} />
-                          </div>
+                          {d.img && (
+                            <div className="w-full h-24 flex items-center justify-center">
+                              <img src={d.img} alt={d.name} className="max-h-full object-contain drop-shadow-sm"
+                                onError={e => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }} />
+                            </div>
+                          )}
                           <div>
                             <p className="text-sm font-bold text-[#1D1D1F]">{d.name}</p>
                             <p className="text-xs text-gray-400">{d.sub}</p>
