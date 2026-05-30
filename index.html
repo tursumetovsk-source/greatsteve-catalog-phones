@@ -8,6 +8,7 @@
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#000000" />
     <link rel="icon" href="/favicon.jpg" type="image/jpeg" />
+    <link rel="preload" as="image" href="/main/gs-main1.webp" type="image/webp" fetchpriority="high" />
     <link rel="apple-touch-icon" href="/favicon.jpg" />
     <!-- Preconnect: ускоряет загрузку внешних ресурсов -->
     <link rel="preconnect" href="https://www.googletagmanager.com" />
@@ -18,6 +19,14 @@
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="ru_KZ" />
     <meta property="og:site_name" content="GreatSteve" />
+    <script>
+      (function() {
+        var l = document.createElement('link');
+        l.rel = 'canonical';
+        l.href = 'https://greatsteve.kz' + window.location.pathname;
+        document.head.appendChild(l);
+      })();
+    </script>
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],

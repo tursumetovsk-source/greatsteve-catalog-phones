@@ -1,14 +1,21 @@
-import { Suspense, lazy, useEffect, useState } from 'react';
+import { useEffect, useState, useCallback, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import Navbar from '../components/Navbar';
-
-const TradeinScene3D = lazy(() => import('../components/TradeinScene3D'));
 import Footer from '../components/Footer';
 import SEOHead from '../components/SEOHead';
 import { Link } from 'react-router-dom';
-import { Smartphone, Laptop, Tablet, Headphones, Watch } from 'lucide-react';
+import { Smartphone, Laptop, Tablet, Headphones, Watch, ArrowLeft, ArrowRight } from 'lucide-react';
 
 const WA_URL = 'https://wa.me/77775181111';
+
+const CAROUSEL_IMAGES = [
+  { src: '/devices/models/iphone-17-pro-max.webp', bg: '#1a1a2e', panel: '#2a2a4e' },
+  { src: '/devices/models/iphone-16-pro.jpg', bg: '#0f3460', panel: '#1a4a7a' },
+  { src: '/devices/models/iphone-15-pro-max.jpg', bg: '#533483', panel: '#6a4a9a' },
+  { src: '/devices/models/iphone-14-pro.jpg', bg: '#e94560', panel: '#f06070' },
+];
+
+const GRAIN_SVG = "data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E";
 
 const SCHEMA = {
   '@context': 'https://schema.org',
@@ -113,6 +120,46 @@ export default function TradeinPage() {
     return () => window.removeEventListener('resize', check);
   }, []);
 
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const animTimer = useRef<ReturnType<typeof setTimeout>>(null);
+
+  useEffect(() => {
+    CAROUSEL_IMAGES.forEach((img) => {
+      const i = new Image();
+      i.src = img.src;
+    });
+  }, []);
+
+  useEffect(() => {
+    return () => { if (animTimer.current) clearTimeout(animTimer.current); };
+  }, []);
+
+  const navigate = useCallback((dir: 'next' | 'prev') => {
+    if (isAnimating) return;
+    setIsAnimating(true);
+    setActiveIndex((prev) => dir === 'next' ? (prev + 1) % 4 : (prev + 3) % 4);
+    animTimer.current = setTimeout(() => setIsAnimating(false), 650);
+  }, [isAnimating]);
+
+  const center = activeIndex;
+  const left = (activeIndex + 3) % 4;
+  const right = (activeIndex + 1) % 4;
+  const back = (activeIndex + 2) % 4;
+
+  const getCarouselStyle = (idx: number): React.CSSProperties => {
+    const base: React.CSSProperties = {
+      position: 'absolute',
+      aspectRatio: '0.55 / 1',
+      transition: 'transform 650ms cubic-bezier(0.4,0,0.2,1), filter 650ms cubic-bezier(0.4,0,0.2,1), opacity 650ms cubic-bezier(0.4,0,0.2,1), left 650ms cubic-bezier(0.4,0,0.2,1)',
+      willChange: 'transform, filter, opacity',
+    };
+    if (idx === center) return { ...base, transform: `translateX(-50%) scale(${isMobile ? 1.1 : 1.4})`, filter: 'none', opacity: 1, zIndex: 20, left: '50%', height: isMobile ? '55%' : '75%', bottom: isMobile ? '22%' : '5%' };
+    if (idx === left) return { ...base, transform: 'translateX(-50%) scale(0.8)', filter: 'blur(2px)', opacity: 0.7, zIndex: 10, left: isMobile ? '15%' : '25%', height: isMobile ? '20%' : '32%', bottom: isMobile ? '30%' : '15%' };
+    if (idx === right) return { ...base, transform: 'translateX(-50%) scale(0.8)', filter: 'blur(2px)', opacity: 0.7, zIndex: 10, left: isMobile ? '85%' : '75%', height: isMobile ? '20%' : '32%', bottom: isMobile ? '30%' : '15%' };
+    return { ...base, transform: 'translateX(-50%) scale(0.7)', filter: 'blur(4px)', opacity: 0.4, zIndex: 5, left: '50%', height: isMobile ? '15%' : '25%', bottom: isMobile ? '30%' : '15%' };
+  };
+
   const tabContent: Record<string, { title: string, text: string }> = {
     'Продажа': {
       title: 'Продаём',
@@ -140,105 +187,89 @@ export default function TradeinPage() {
       />
       <Navbar />
 
-      {/* ─── HERO ─── */}
+      {/* ─── HERO CAROUSEL ─── */}
       <section
         aria-label="Купить и продать iPhone, MacBook, Samsung в Алматы — GreatSteve"
         style={{
-          position: 'relative', width: '100%', minHeight: '100dvh', overflow: 'hidden',
+          position: 'relative', width: '100%', height: '100vh', overflow: 'hidden',
+          backgroundColor: CAROUSEL_IMAGES[activeIndex].bg,
+          transition: 'background-color 650ms cubic-bezier(0.4,0,0.2,1)',
+          fontFamily: 'Inter, sans-serif',
         }}
       >
-        {/* Background image */}
-        <img
-          src="/tradein-bg.jpg"
-          alt=""
-          aria-hidden="true"
-          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', zIndex: 0 }}
-        />
+        {/* Grain overlay */}
+        <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none', zIndex: 50, opacity: 0.4, backgroundImage: `url("${GRAIN_SVG}")`, backgroundSize: '200px 200px', backgroundRepeat: 'repeat' }} />
 
-        {/* 3D Canvas */}
-        <div style={{ position: 'absolute', inset: 0, zIndex: 1 }}>
-          <Suspense fallback={null}>
-            <TradeinScene3D mobile={isMobile} />
-          </Suspense>
+        {/* Ghost text */}
+        <div style={{ position: 'absolute', inset: '0', top: '18%', display: 'flex', alignItems: 'center', justifyContent: 'center', pointerEvents: 'none', userSelect: 'none', zIndex: 2 }}>
+          <span style={{ fontFamily: "'Anton', sans-serif", fontSize: 'clamp(90px, 28vw, 380px)', fontWeight: 900, color: '#fff', opacity: 0.08, lineHeight: 1, textTransform: 'uppercase', letterSpacing: '-0.02em', whiteSpace: 'nowrap' }}>
+            TRADE-IN
+          </span>
         </div>
 
-        {/* Hero текст — поверх 3D сцены */}
-        <div style={{
-          position: 'absolute', inset: 0, zIndex: 20,
-          display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center',
-          textAlign: 'center',
-          paddingBottom: 'clamp(0px, 30vh, 30vh)',
-          paddingLeft: 16, paddingRight: 16,
-          pointerEvents: 'none',
-        }}>
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            style={{
-              fontSize: 11, textTransform: 'uppercase', letterSpacing: '0.28em',
-              color: 'rgba(255,255,255,0.7)', marginBottom: 16, fontWeight: 500,
-            }}
-          >
-            Продажа · Выкуп · Trade-in · Алматы
-          </motion.p>
+        {/* Carousel */}
+        <div style={{ position: 'absolute', inset: 0, zIndex: 3 }}>
+          {CAROUSEL_IMAGES.map((img, idx) => (
+            <div key={idx} style={getCarouselStyle(idx)}>
+              <img src={img.src} alt="" draggable={false} style={{ width: '100%', height: '100%', objectFit: 'contain', objectPosition: 'bottom center', borderRadius: 20 }} />
+            </div>
+          ))}
+        </div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            style={{
-              fontSize: 'clamp(38px, 6.5vw, 82px)',
-              fontWeight: 800, letterSpacing: '-0.03em', lineHeight: 1.05,
-              marginBottom: 32,
-              background: 'linear-gradient(160deg, #ffffff 0%, #bfdbfe 60%, #93c5fd 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
-            }}
-          >
-            Купить · Продать<br />
-            iPhone · MacBook · Samsung
-          </motion.h1>
-
-
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.35 }}
-            style={{ display: 'flex', gap: 12, flexWrap: 'wrap', pointerEvents: 'auto', justifyContent: 'center' }}
-          >
-            <a
-              href={WA_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                display: 'inline-flex', alignItems: 'center',
-                background: 'rgba(255,255,255,0.95)', color: '#111',
-                borderRadius: 100, padding: '14px 36px',
-                fontSize: 14, fontWeight: 600, textDecoration: 'none',
-                transition: 'background 0.2s',
-              }}
-              onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = '#fff'; }}
-              onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.95)'; }}
+        {/* Bottom-left: text + nav */}
+        <div className="absolute bottom-6 left-4 sm:bottom-20 sm:left-24" style={{ zIndex: 60, maxWidth: 360 }}>
+          <p className="mb-2 sm:mb-3 text-base sm:text-[22px]" style={{ fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: '#fff', opacity: 0.95 }}>
+            Продажа · Выкуп · Trade-in
+          </p>
+          <p className="hidden sm:block text-xs sm:text-sm" style={{ color: '#fff', opacity: 0.85, lineHeight: 1.6, marginBottom: 16 }}>
+            Купить и продать iPhone, MacBook, Samsung в Алматы. Оценка за 10 минут, оплата сразу наличными или переводом.
+          </p>
+          <div style={{ display: 'flex', gap: 12 }}>
+            <button
+              onClick={() => navigate('prev')}
+              className="w-12 h-12 sm:w-16 sm:h-16"
+              style={{ background: 'transparent', border: '2px solid #fff', borderRadius: '50%', color: '#fff', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'transform 150ms, background-color 150ms' }}
+              onMouseEnter={(e) => { e.currentTarget.style.transform = 'scale(1.08)'; e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.12)'; }}
+              onMouseLeave={(e) => { e.currentTarget.style.transform = 'scale(1)'; e.currentTarget.style.backgroundColor = 'transparent'; }}
             >
-              Узнать цену
-            </a>
-            <a
-              href="tel:+77775181111"
-              style={{
-                display: 'inline-flex', alignItems: 'center',
-                border: '1px solid rgba(255,255,255,0.5)', color: '#fff',
-                borderRadius: 100, padding: '14px 36px',
-                fontSize: 14, fontWeight: 500, textDecoration: 'none',
-                transition: 'border-color 0.2s, background 0.2s',
-              }}
-              onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.borderColor = '#fff'; (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.1)'; }}
-              onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.5)'; (e.currentTarget as HTMLElement).style.background = 'transparent'; }}
+              <ArrowLeft size={26} strokeWidth={2.25} />
+            </button>
+            <button
+              onClick={() => navigate('next')}
+              className="w-12 h-12 sm:w-16 sm:h-16"
+              style={{ background: 'transparent', border: '2px solid #fff', borderRadius: '50%', color: '#fff', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'transform 150ms, background-color 150ms' }}
+              onMouseEnter={(e) => { e.currentTarget.style.transform = 'scale(1.08)'; e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.12)'; }}
+              onMouseLeave={(e) => { e.currentTarget.style.transform = 'scale(1)'; e.currentTarget.style.backgroundColor = 'transparent'; }}
             >
-              8 777 518 11 11
-            </a>
-          </motion.div>
+              <ArrowRight size={26} strokeWidth={2.25} />
+            </button>
+          </div>
+          <a href="tel:+77775181111" className="text-xs" style={{ color: '#fff', opacity: 0.6, marginTop: 12, display: 'inline-block', textDecoration: 'none' }}>
+            8 777 518 11 11
+          </a>
+        </div>
+
+        {/* Bottom-right: CTA */}
+        <div className="absolute bottom-6 right-4 sm:bottom-20 sm:right-10" style={{ zIndex: 60 }}>
+          <a
+            href={WA_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: 'flex', alignItems: 'center', gap: 8,
+              fontFamily: "'Anton', sans-serif",
+              fontSize: 'clamp(20px, 4vw, 56px)',
+              fontWeight: 400, color: '#fff', opacity: 0.95,
+              letterSpacing: '-0.02em', lineHeight: 1,
+              textTransform: 'uppercase', textDecoration: 'none',
+              transition: 'opacity 200ms',
+            }}
+            onMouseEnter={(e) => { e.currentTarget.style.opacity = '1'; }}
+            onMouseLeave={(e) => { e.currentTarget.style.opacity = '0.95'; }}
+          >
+            УЗНАТЬ ЦЕНУ
+            <ArrowRight className="w-5 h-5 sm:w-8 sm:h-8" strokeWidth={2.25} />
+          </a>
         </div>
       </section>
 
@@ -598,8 +629,3 @@ export default function TradeinPage() {
   );
 }
 
-useGLTF.preload('/3d%20models/iphone_15_pro.glb');
-
-useGLTF.preload('/3d%20models/macbook.glb');
-
-useGLTF.preload('/3d%20models/apple_watch_series_7_-_free_watch-face_sdctm.glb');

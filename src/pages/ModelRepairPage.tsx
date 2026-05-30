@@ -200,7 +200,7 @@ export default function ModelRepairPage() {
             >
               Типичные поломки {data.name}
             </motion.h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2" style={{ gap: 12, maxWidth: 900, margin: '0 auto' }}>
+            <div className="grid grid-cols-1 sm:grid-cols-2" style={{ gap: 12, maxWidth: 1400, margin: '0 auto' }}>
               {data.problems.map((p, i) => (
                 <motion.div
                   key={i}
@@ -276,7 +276,7 @@ export default function ModelRepairPage() {
 
       {/* FAQ */}
       <section style={{ background: '#f5f5f7', padding: 'clamp(48px, 8vw, 96px) 24px' }}>
-        <div style={{ maxWidth: 760, margin: '0 auto' }}>
+        <div style={{ maxWidth: 1400, margin: '0 auto' }}>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -286,7 +286,7 @@ export default function ModelRepairPage() {
             Частые вопросы
           </motion.h2>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+          <div className="grid grid-cols-1 sm:grid-cols-2" style={{ gap: 8 }}>
             {data.faq.map((f, i) => (
               <motion.div
                 key={i}

@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
 const SLIDES = [
-  { src: '/main/gs-main1.jpeg', alt: 'Сервисный центр GreatSteve — ремонт iPhone в Алматы' },
-  { src: '/main/gs-main3.jpeg', alt: 'Ремонт и скупка техники Apple в Алматы' },
+  { src: '/main/gs-main1.jpeg', webp: '/main/gs-main1.webp', webpMobile: '/main/gs-main1-mobile.webp', alt: 'Сервисный центр GreatSteve — ремонт iPhone в Алматы' },
+  { src: '/main/gs-main3.jpeg', webp: '/main/gs-main3.webp', webpMobile: '/main/gs-main3-mobile.webp', alt: 'Ремонт и скупка техники Apple в Алматы' },
 ];
 
 export default function MainHero() {
@@ -22,17 +22,25 @@ export default function MainHero() {
     <section className="relative pt-40 pb-20 md:pt-52 md:pb-32 px-6 overflow-hidden min-h-screen flex items-center bg-black">
       <div className="absolute inset-0 z-0">
         <AnimatePresence mode="popLayout">
-          <motion.img
+          <motion.div
             key={currentSlide}
-            src={SLIDES[currentSlide].src}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 1.2, ease: "easeInOut" }}
-            className="absolute inset-0 w-full h-full object-cover"
-            alt={SLIDES[currentSlide].alt}
-            fetchPriority="high"
-          />
+            className="absolute inset-0"
+          >
+            <picture>
+              <source media="(max-width: 768px)" srcSet={SLIDES[currentSlide].webpMobile} type="image/webp" />
+              <source srcSet={SLIDES[currentSlide].webp} type="image/webp" />
+              <img
+                src={SLIDES[currentSlide].src}
+                alt={SLIDES[currentSlide].alt}
+                className="absolute inset-0 w-full h-full object-cover"
+                fetchPriority="high"
+              />
+            </picture>
+          </motion.div>
         </AnimatePresence>
         <div className="absolute inset-0 bg-black/65 z-10"></div>
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/50 z-10"></div>

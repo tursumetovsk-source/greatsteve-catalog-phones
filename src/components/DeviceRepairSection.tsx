@@ -83,7 +83,7 @@ const OTHER_BRANDS: { id: Brand; name: string; sub: string; color: string; model
 ];
 
 const APPLE_DEVICES: { id: DeviceType; name: string; sub: string; img?: string; from: string }[] = [
-  { id: 'iPhone',      name: 'iPhone',      sub: 'с X по 17 Pro Max',  img: '/devices/models/iphone-17-pro-max.png', from: 'от 15 000 ₸' },
+  { id: 'iPhone',      name: 'iPhone',      sub: 'с X по 17 Pro Max',  img: '/devices/models/iphone-17-pro-max.webp', from: 'от 15 000 ₸' },
   { id: 'MacBook',     name: 'MacBook',     sub: 'Air, Pro, M1–M4',                                                  from: 'от 20 000 ₸' },
   { id: 'iPad',        name: 'iPad',        sub: 'Air, Pro, Mini',                                                   from: 'от 12 000 ₸' },
   { id: 'Apple Watch', name: 'Apple Watch', sub: 'Series 4–10, Ultra',                                              from: 'от 8 000 ₸'  },
