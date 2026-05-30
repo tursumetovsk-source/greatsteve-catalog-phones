@@ -217,11 +217,11 @@ export default function TradeinPage() {
         </div>
 
         {/* Bottom-left: text + nav */}
-        <div className="absolute bottom-6 left-4 sm:bottom-20 sm:left-24" style={{ zIndex: 60, maxWidth: 360 }}>
-          <p className="mb-2 sm:mb-3 text-base sm:text-[22px]" style={{ fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: '#fff', opacity: 0.95 }}>
+        <div className="absolute bottom-16 left-4 sm:bottom-36 sm:left-24" style={{ zIndex: 60, maxWidth: 420 }}>
+          <p className="mb-2 sm:mb-4 text-xl sm:text-[32px]" style={{ fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: '#fff', opacity: 0.95, lineHeight: 1.2 }}>
             Продажа · Выкуп · Trade-in
           </p>
-          <p className="hidden sm:block text-xs sm:text-sm" style={{ color: '#fff', opacity: 0.85, lineHeight: 1.6, marginBottom: 16 }}>
+          <p className="hidden sm:block text-sm sm:text-base" style={{ color: '#fff', opacity: 0.85, lineHeight: 1.6, marginBottom: 20 }}>
             Купить и продать iPhone, MacBook, Samsung в Алматы. Оценка за 10 минут, оплата сразу наличными или переводом.
           </p>
           <div style={{ display: 'flex', gap: 12 }}>
@@ -244,13 +244,13 @@ export default function TradeinPage() {
               <ArrowRight size={26} strokeWidth={2.25} />
             </button>
           </div>
-          <a href="tel:+77775181111" className="text-xs" style={{ color: '#fff', opacity: 0.6, marginTop: 12, display: 'inline-block', textDecoration: 'none' }}>
+          <a href="tel:+77775181111" className="text-base sm:text-lg" style={{ color: '#fff', opacity: 0.7, marginTop: 16, display: 'inline-block', textDecoration: 'none', fontWeight: 500, letterSpacing: '0.04em' }}>
             8 777 518 11 11
           </a>
         </div>
 
         {/* Bottom-right: CTA */}
-        <div className="absolute bottom-6 right-4 sm:bottom-20 sm:right-10" style={{ zIndex: 60 }}>
+        <div className="absolute bottom-16 right-4 sm:bottom-36 sm:right-10" style={{ zIndex: 60 }}>
           <a
             href={WA_URL}
             target="_blank"
