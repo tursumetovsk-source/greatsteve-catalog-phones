@@ -1,4 +1,4 @@
-import { motion, AnimatePresence } from 'motion/react';
+import { motion } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
@@ -21,27 +21,24 @@ export default function MainHero() {
   return (
     <section className="relative pt-40 pb-20 md:pt-52 md:pb-32 px-6 overflow-hidden min-h-screen flex items-center bg-black">
       <div className="absolute inset-0 z-0">
-        <AnimatePresence mode="sync">
-          <motion.div
-            key={currentSlide}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 1.2, ease: "easeInOut" }}
+        {SLIDES.map((slide, i) => (
+          <div
+            key={i}
             className="absolute inset-0"
+            style={{ opacity: i === currentSlide ? 1 : 0, transition: 'opacity 1.2s ease-in-out' }}
           >
             <picture>
-              <source media="(max-width: 768px)" srcSet={SLIDES[currentSlide].webpMobile} type="image/webp" />
-              <source srcSet={SLIDES[currentSlide].webp} type="image/webp" />
+              <source media="(max-width: 768px)" srcSet={slide.webpMobile} type="image/webp" />
+              <source srcSet={slide.webp} type="image/webp" />
               <img
-                src={SLIDES[currentSlide].src}
-                alt={SLIDES[currentSlide].alt}
+                src={slide.src}
+                alt={slide.alt}
                 className="absolute inset-0 w-full h-full object-cover"
-                fetchPriority="high"
+                fetchPriority={i === 0 ? 'high' : 'low'}
               />
             </picture>
-          </motion.div>
-        </AnimatePresence>
+          </div>
+        ))}
         <div className="absolute inset-0 bg-black/65 z-10"></div>
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/50 z-10"></div>
       </div>
