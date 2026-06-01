@@ -21,7 +21,7 @@ export default function MainHero() {
   return (
     <section className="relative pt-40 pb-20 md:pt-52 md:pb-32 px-6 overflow-hidden min-h-screen flex items-center bg-black">
       <div className="absolute inset-0 z-0">
-        <AnimatePresence mode="popLayout">
+        <AnimatePresence mode="sync">
           <motion.div
             key={currentSlide}
             initial={{ opacity: 0 }}
