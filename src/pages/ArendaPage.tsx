@@ -1,7 +1,8 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Smartphone, CheckCircle, CreditCard, Building, XCircle } from 'lucide-react';
+import { Smartphone, CheckCircle, CreditCard, Building, XCircle, ArrowRight, CheckCircle2, ChevronDown } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import SEOHead from '../components/SEOHead';
@@ -329,31 +330,182 @@ const Comparison = () => {
   );
 };
 
-const CTA = () => (
-  <section id="cta" className="relative py-20 md:py-32 px-6 text-center overflow-hidden">
-    <div className="absolute inset-0 z-0">
-      <img src="/arenda/d.jpg" alt="" loading="lazy" className="w-full h-full object-cover opacity-30 mix-blend-screen grayscale scale-105"
-        onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
-      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent" />
-      <div className="absolute inset-0 bg-black/50" />
-    </div>
-    <div className="max-w-3xl mx-auto bg-white/5 backdrop-blur-md border border-white/10 rounded-[2rem] md:rounded-[3rem] p-8 md:p-20 relative z-10">
-      <h2 className="text-3xl md:text-6xl font-bold tracking-tight mb-4 md:mb-6 text-white">Хотите узнать как получить iPhone с самой выгодной ценой?</h2>
-      <p className="text-[#86868b] text-base md:text-lg mb-8 md:mb-12 max-w-xl mx-auto">
-        Оставь заявку — подберём модель под бюджет и свяжемся за 15 минут.
-      </p>
-      <div className="flex flex-col sm:flex-row justify-center gap-4">
-        <a href={WA_URL} target="_blank" rel="noreferrer"
-          className="bg-white text-black px-8 py-4 rounded-full font-semibold text-[15px] hover:scale-[1.03] transition-transform">
-          Написать в WhatsApp
-        </a>
-        <a href="#" className="bg-white/10 border border-white/10 text-white px-8 py-4 rounded-full font-semibold text-[15px] hover:bg-white/15 transition-colors">
-          Вернуться наверх
-        </a>
+const MODELS = ['iPhone 13 · 128 GB', 'iPhone 13 · 256 GB', 'iPhone 14 · 128 GB', 'iPhone 14 · 256 GB', 'iPhone 15 · 128 GB', 'iPhone 15 · 256 GB'];
+
+const CTA = () => {
+  const [name, setName] = useState('');
+  const [phone, setPhone] = useState('+7 ');
+  const [model, setModel] = useState('');
+  const [modelOpen, setModelOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [done, setDone] = useState(false);
+
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    let v = e.target.value;
+    if (!v.startsWith('+7 ')) v = '+7 ' + v.replace(/^\+?7?\s*/, '');
+    setPhone(v);
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const digits = phone.replace(/\D/g, '');
+    if (digits.length < 11) return;
+    setLoading(true);
+
+    const text = [
+      '📱 *Заявка на рассрочку iPhone — GreatSteve*',
+      name ? `👤 Имя: ${name}` : null,
+      `📞 Телефон: ${phone}`,
+      model ? `📦 Модель: ${model}` : null,
+    ].filter(Boolean).join('\n');
+
+    try {
+      await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ text }),
+      });
+    } catch (_) {}
+
+    const waText = [
+      'Здравствуйте, оставляю заявку на рассрочку iPhone.',
+      name ? `Имя: ${name}` : null,
+      `Телефон: ${phone}`,
+      model ? `Модель: ${model}` : null,
+    ].filter(Boolean).join('\n');
+    window.open(`https://wa.me/77775183311?text=${encodeURIComponent(waText)}`, '_blank');
+
+    setLoading(false);
+    setDone(true);
+  };
+
+  return (
+    <section id="cta" className="relative py-20 md:py-32 px-6 overflow-hidden">
+      <div className="absolute inset-0 z-0">
+        <img src="/arenda/d.jpg" alt="" loading="lazy" className="w-full h-full object-cover opacity-30 mix-blend-screen grayscale scale-105"
+          onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent" />
+        <div className="absolute inset-0 bg-black/50" />
       </div>
-    </div>
-  </section>
-);
+      <div className="max-w-xl mx-auto bg-white/5 backdrop-blur-md border border-white/10 rounded-[2rem] md:rounded-[3rem] p-8 md:p-12 relative z-10">
+        <AnimatePresence mode="wait">
+          {done ? (
+            <motion.div
+              key="done"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0 }}
+              className="flex flex-col items-center justify-center py-12 text-center gap-5"
+            >
+              <div className="w-16 h-16 bg-[#25D366]/20 rounded-full flex items-center justify-center">
+                <CheckCircle2 className="w-8 h-8 text-[#25D366]" strokeWidth={1.5} />
+              </div>
+              <div>
+                <h3 className="text-2xl font-bold text-white mb-2">Заявка принята!</h3>
+                <p className="text-white/50 text-sm leading-relaxed">
+                  WhatsApp открылся — мы уже видим ваш запрос<br />и свяжемся в течение 15 минут.
+                </p>
+              </div>
+              <button
+                onClick={() => { setDone(false); setName(''); setPhone('+7 '); setModel(''); }}
+                className="text-xs text-white/30 hover:text-white/60 transition-colors underline underline-offset-4"
+              >
+                Отправить ещё одну
+              </button>
+            </motion.div>
+          ) : (
+            <motion.form
+              key="form"
+              onSubmit={handleSubmit}
+              className="flex flex-col gap-5"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            >
+              <div className="text-center mb-2">
+                <h2 className="text-2xl md:text-4xl font-bold tracking-tight text-white mb-3">Хотите узнать как получить iPhone с самой выгодной ценой?</h2>
+                <p className="text-[#86868b] text-sm md:text-base">Оставь заявку — подберём модель под бюджет и свяжемся за 15 минут.</p>
+              </div>
+
+              <div className="flex flex-col gap-1.5">
+                <label className="text-xs font-medium text-white/40 ml-1 uppercase tracking-wider">Ваше имя</label>
+                <input
+                  type="text"
+                  value={name}
+                  onChange={e => setName(e.target.value)}
+                  placeholder="Как к вам обращаться?"
+                  className="bg-white/5 border border-white/10 rounded-xl px-5 py-3.5 text-sm text-white placeholder:text-white/20 focus:outline-none focus:border-white/25 transition-all"
+                />
+              </div>
+
+              <div className="flex flex-col gap-1.5">
+                <label className="text-xs font-medium text-white/40 ml-1 uppercase tracking-wider">Телефон *</label>
+                <input
+                  type="tel"
+                  required
+                  value={phone}
+                  onChange={handlePhoneChange}
+                  placeholder="+7 (___) ___ __ __"
+                  className="bg-white/5 border border-white/10 rounded-xl px-5 py-3.5 text-sm text-white placeholder:text-white/20 focus:outline-none focus:border-white/25 transition-all"
+                />
+              </div>
+
+              <div className="flex flex-col gap-1.5">
+                <label className="text-xs font-medium text-white/40 ml-1 uppercase tracking-wider">Интересующая модель</label>
+                <div className="relative">
+                  <button
+                    type="button"
+                    onClick={() => setModelOpen(!modelOpen)}
+                    className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-3.5 text-sm text-left flex items-center justify-between focus:outline-none focus:border-white/25 transition-all"
+                  >
+                    <span className={model ? 'text-white' : 'text-white/20'}>{model || 'Выберите модель'}</span>
+                    <ChevronDown className={`w-4 h-4 text-white/30 transition-transform ${modelOpen ? 'rotate-180' : ''}`} strokeWidth={1.5} />
+                  </button>
+                  <AnimatePresence>
+                    {modelOpen && (
+                      <motion.ul
+                        initial={{ opacity: 0, y: -8 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -8 }}
+                        transition={{ duration: 0.15 }}
+                        className="absolute z-20 mt-2 w-full bg-[#1a1a1a] border border-white/10 rounded-xl overflow-hidden shadow-2xl"
+                      >
+                        {MODELS.map(m => (
+                          <li key={m}>
+                            <button
+                              type="button"
+                              onClick={() => { setModel(m); setModelOpen(false); }}
+                              className="w-full text-left px-5 py-3 text-sm text-white/70 hover:text-white hover:bg-white/5 transition-colors"
+                            >
+                              {m}
+                            </button>
+                          </li>
+                        ))}
+                      </motion.ul>
+                    )}
+                  </AnimatePresence>
+                </div>
+              </div>
+
+              <button
+                type="submit"
+                disabled={loading}
+                className="mt-2 w-full bg-white text-black py-4 rounded-xl font-semibold text-base flex items-center justify-center gap-2 hover:bg-gray-100 active:scale-[0.98] transition-all disabled:opacity-60"
+              >
+                {loading ? 'Отправляем...' : 'Оформить заявку'}
+                {!loading && <ArrowRight className="w-4 h-4" />}
+              </button>
+
+              <p className="text-center text-xs text-white/20 leading-relaxed">
+                Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности
+              </p>
+            </motion.form>
+          )}
+        </AnimatePresence>
+      </div>
+    </section>
+  );
+};
 
 export default function ArendaPage() {
   return (
