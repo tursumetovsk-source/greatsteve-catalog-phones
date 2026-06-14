@@ -62,7 +62,7 @@ export default function ModelRepairPage() {
     <div className="min-h-screen overflow-x-hidden bg-white">
       <SEOHead
         title={`Ремонт ${data.name} в Алматы — GreatSteve | Цены и гарантия`}
-        description={`Ремонт ${data.name} в Алматы. Замена экрана от ${data.repairs[0].price}, аккумулятора от ${data.repairs[1].price}. Гарантия 12 месяцев. Ежедневно 10:00–20:00. Гоголя 75/1 уг. ул.Тулебаева.`}
+        description={`Ремонт ${data.name} в Алматы. Замена экрана ${data.repairs[0].price}, аккумулятора ${data.repairs[1].price}. Гарантия 12 месяцев. Ежедневно 10:00–20:00. Гоголя 75/1 уг. ул.Тулебаева.`}
         keywords={`ремонт ${data.name} Алматы, замена экрана ${data.name} Алматы, замена аккумулятора ${data.name} Алматы, сервис ${data.name} Алматы`}
         canonical={`/remont/${data.slug}`}
         schema={schema}

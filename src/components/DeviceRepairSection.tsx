@@ -27,7 +27,7 @@ const HuaweiMark = ({ className }: { className?: string }) => (
   </svg>
 );
 
-const BRAND_MARKS: Record<string, ({ className }: { className?: string }) => JSX.Element> = {
+const BRAND_MARKS: Record<string, ({ className }: { className?: string }) => React.JSX.Element> = {
   Xiaomi: XiaomiMark,
   Huawei: HuaweiMark,
 };
