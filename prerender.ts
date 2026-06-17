@@ -130,11 +130,14 @@ function render(template: string, r: Route): string {
     .replace(
       /<meta\s+name="description"[^>]*>/,
       `<meta name="description" content="${escAttr(r.description)}" />`,
+    )
+    .replace(
+      /<link\s+rel="canonical"[^>]*>/,
+      `<link rel="canonical" href="${url}" />`,
     );
 
   const tags: string[] = [];
   if (r.keywords) tags.push(`<meta name="keywords" content="${escAttr(r.keywords)}" />`);
-  tags.push(`<link rel="canonical" href="${url}" />`);
   tags.push(`<meta property="og:title" content="${escAttr(r.title)}" />`);
   tags.push(`<meta property="og:description" content="${escAttr(r.description)}" />`);
   tags.push(`<meta property="og:url" content="${url}" />`);
