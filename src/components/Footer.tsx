@@ -4,7 +4,6 @@ import { ArrowUpRight } from 'lucide-react';
 const NAV = [
   { label: 'Ремонт', to: '/remont' },
   { label: 'Купить / Продать', to: '/tradein' },
-  { label: 'Аренда', to: '/arenda' },
   { label: 'О компании', to: '/company' },
 ];
 

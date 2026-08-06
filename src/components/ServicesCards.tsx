@@ -5,7 +5,7 @@ export default function ServicesCards() {
   return (
     <section className="py-10 md:py-12 px-4 md:px-6 bg-[#F5F5F7]">
       <div className="max-w-[88rem] mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 h-auto md:h-[600px]">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 h-auto md:h-[600px]">
 
           {/* Card 1: Сервисный центр */}
           <motion.div
@@ -70,36 +70,6 @@ export default function ServicesCards() {
                   to="/tradein"
                   className="inline-block bg-white text-black hover:bg-gray-100 transition-colors px-8 py-3.5 rounded-full font-medium text-base"
                 >
-                  Подробнее
-                </Link>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Card 3: Аренда */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="group relative overflow-hidden rounded-[2rem] md:rounded-[2.5rem] text-white flex flex-col justify-between min-h-[340px] sm:min-h-[400px]"
-          >
-            <div
-              className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-              style={{ backgroundImage: 'url("/arenda/arenda.jpg")', filter: 'grayscale(60%) brightness(0.6)' }}
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20" />
-            <div className="relative z-10 p-7 md:p-14 flex flex-col justify-between h-full">
-              <div>
-                <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-3 drop-shadow-lg">
-                  Аренда iPhone
-                </h2>
-                <p className="text-base md:text-lg text-white/90 leading-relaxed max-w-sm drop-shadow">
-                  Оригинальный iPhone без банка и справок. Первый взнос от 45 000 ₸ — и телефон уже у вас.
-                </p>
-              </div>
-              <div className="mt-10">
-                <Link to="/arenda" className="inline-block bg-white text-black hover:bg-gray-100 transition-colors px-8 py-3.5 rounded-full font-medium text-base">
                   Подробнее
                 </Link>
               </div>

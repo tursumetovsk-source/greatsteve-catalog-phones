@@ -20,7 +20,7 @@
     { "src": "/company/", "status": 301, "headers": { "Location": "/company" } },
     { "src": "/remont/", "status": 301, "headers": { "Location": "/remont" } },
     { "src": "/tradein/", "status": 301, "headers": { "Location": "/tradein" } },
-    { "src": "/arenda/", "status": 301, "headers": { "Location": "/arenda" } },
+    { "src": "/arenda(/.*)?", "status": 301, "headers": { "Location": "/" } },
     { "src": "/company/reviews(/.*)?", "status": 301, "headers": { "Location": "/company" } },
     { "src": "/company/consent(/.*)?", "status": 301, "headers": { "Location": "/" } },
     { "src": "/tproduct(/.*)?", "status": 301, "headers": { "Location": "/remont" } },

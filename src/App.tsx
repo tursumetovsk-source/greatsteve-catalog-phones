@@ -6,7 +6,6 @@ import FloatingContacts from './components/FloatingContacts';
 
 const RemontPage      = lazy(() => import('./pages/RemontPage'));
 const CompanyPage     = lazy(() => import('./pages/CompanyPage'));
-const ArendaPage      = lazy(() => import('./pages/ArendaPage'));
 const TradeinPage     = lazy(() => import('./pages/TradeinPage'));
 const ModelRepairPage = lazy(() => import('./pages/ModelRepairPage'));
 
@@ -26,7 +25,6 @@ export default function App() {
           <Route path="/remont"           element={<RemontPage />} />
           <Route path="/remont/:model"    element={<ModelRepairPage />} />
           <Route path="/company"          element={<CompanyPage />} />
-          <Route path="/arenda"  element={<ArendaPage />} />
           <Route path="/tradein" element={<TradeinPage />} />
           <Route path="/uslugi"  element={<Navigate to="/remont" replace />} />
           <Route path="*"        element={<Navigate to="/" replace />} />

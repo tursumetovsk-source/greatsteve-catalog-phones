@@ -12,7 +12,6 @@ type NavLink = {
 const NAV_LINKS: NavLink[] = [
   { label: 'Ремонт', to: '/remont' },
   { label: 'Купить / Продать', to: '/tradein' },
-  { label: 'Аренда', to: '/arenda' },
   { label: 'О компании', to: '/company' },
 ];
 

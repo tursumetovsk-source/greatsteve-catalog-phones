@@ -83,9 +83,6 @@ export default function MainHero() {
           <Link to="/tradein" className="inline-flex items-center justify-center gap-2 bg-black/50 backdrop-blur-md text-white border border-white/20 px-7 py-3.5 rounded-full font-medium text-base hover:bg-black/70 transition-all duration-200 w-full sm:w-auto">
             Продажа/Скупка
           </Link>
-          <Link to="/arenda" className="inline-flex items-center justify-center gap-2 bg-black/50 backdrop-blur-md text-white border border-white/20 px-7 py-3.5 rounded-full font-medium text-base hover:bg-black/70 transition-all duration-200 w-full sm:w-auto">
-            Аренда
-          </Link>
         </motion.div>
       </div>
     </section>
