@@ -59,7 +59,7 @@ export default function ReviewsSection() {
         {/* Рейтинг */}
         <div className="flex items-center gap-4 self-start md:self-auto shrink-0 bg-white rounded-2xl px-5 py-3.5 md:px-6 md:py-4 shadow-sm border border-gray-100">
           <div>
-            <div className="text-4xl md:text-5xl font-bold text-gray-900 leading-none">4.9</div>
+            <div className="text-4xl md:text-5xl font-bold text-gray-900 leading-none">до 4.9</div>
             <div className="flex gap-0.5 mt-1.5">
               {[...Array(5)].map((_, i) => (
                 <Star key={i} className="w-3.5 h-3.5 md:w-4 md:h-4 fill-amber-400 text-amber-400" />
@@ -69,7 +69,7 @@ export default function ReviewsSection() {
           <div className="w-px h-8 md:h-10 bg-gray-200" />
           <div>
             <div className="text-2xl font-bold text-gray-900">5000+</div>
-            <div className="text-xs text-gray-400 font-medium mt-0.5">довольных клиентов</div>
+            <div className="text-xs text-gray-400 font-medium mt-0.5">выполненных ремонтов</div>
           </div>
         </div>
       </motion.div>

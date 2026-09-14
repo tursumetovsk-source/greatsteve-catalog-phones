@@ -79,7 +79,7 @@ export default function AboutBentoSection() {
                   </span>
                   <span className="liquid-glass inline-flex items-center gap-2 text-white/80 text-sm md:text-base px-4 md:px-5 py-2.5 md:py-3 rounded-full">
                     <Star className="w-4 h-4 fill-amber-400 text-amber-400" strokeWidth={1.5} />
-                    Рейтинг 4.9
+                    Рейтинг до 4.9
                   </span>
                 </div>
                 <Link

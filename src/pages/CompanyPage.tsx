@@ -22,16 +22,16 @@ const SCHEMA = {
     addressLocality: 'Алматы',
     addressCountry: 'KZ',
   },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 43.260296,
+    longitude: 76.947493,
+  },
   openingHoursSpecification: {
     '@type': 'OpeningHoursSpecification',
     dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'],
     opens: '10:00',
     closes: '20:00',
-  },
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: 4.9,
-    reviewCount: 5000,
   },
 };
 
@@ -170,8 +170,8 @@ const TIMELINE: Record<string, string[]> = {
     'Новый просторный офис',
   ],
   '2025': [
-    '5 000+ клиентов — наша гордость',
-    'Рейтинг 4.9 ★',
+    '5 000+ выполненных ремонтов',
+    'Высокие оценки клиентов на картах',
     'Полный спектр услуг: ремонт, скупка, продажа',
   ],
 };
@@ -274,7 +274,7 @@ export default function CompanyPage() {
     <div className="flex flex-col min-h-screen overflow-x-clip" style={{ background: C.cream, color: C.text }}>
       <SEOHead
         title="О компании GreatSteve — Сервисный центр в Алматы с 2019 года"
-        description="GreatSteve — сервисный центр Apple в Алматы с 2019 года. 5 000+ клиентов, рейтинг 4.9★ на Google и 2ГИС. Ремонт iPhone и MacBook на Гоголя 75/1 уг. ул.Тулебаева. Ежедневно 10:00–20:00."
+        description="GreatSteve — сервисный центр телефонов в Алматы с 2019 года. Более 5 000 выполненных ремонтов. Ремонт iPhone, Samsung и MacBook на Гоголя 75/1. Ежедневно 10:00–20:00."
         keywords="GreatSteve Алматы, сервисный центр Apple Алматы, о компании GreatSteve, GreatSteve отзывы, сервис Гоголя 75/1 уг. ул.Тулебаева Алматы, ремонт iPhone отзывы Алматы, сервисный центр рейтинг Алматы"
         canonical="/company"
         ogImage="/company/great.webp"
@@ -414,14 +414,14 @@ export default function CompanyPage() {
                 }}>
                 <img
                   src="/company/100k.jpg"
-                  alt="100К клиентов"
+                  alt="Ремонты техники в GreatSteve"
                   loading="lazy"
                   className="absolute inset-0 w-full h-full object-cover opacity-40"
                 />
                 <div className="relative z-10">
                   <p className="font-black text-white leading-none mb-1"
-                    style={{ fontSize: 'clamp(2.4rem, 5vw, 3.5rem)' }}>100К клиентов</p>
-                  <p className="text-white/60" style={{ fontSize: 'clamp(15px, 1.4vw, 18px)' }}>Доверяющих нам</p>
+                    style={{ fontSize: 'clamp(2.4rem, 5vw, 3.5rem)' }}>5 000+ ремонтов</p>
+                  <p className="text-white/60" style={{ fontSize: 'clamp(15px, 1.4vw, 18px)' }}>Выполнено к 2025 году</p>
                 </div>
               </div>
             </motion.div>
@@ -441,7 +441,7 @@ export default function CompanyPage() {
                   <p className="font-black text-white leading-none mb-2"
                     style={{ fontSize: 'clamp(2.4rem, 5vw, 3.5rem)' }}>Алматы</p>
                   <p className="text-white/80 leading-snug max-w-[220px]" style={{ fontSize: 'clamp(15px, 1.4vw, 18px)' }}>
-                    Единственная франшиза в городе
+                    Сервисный центр в центре города
                   </p>
                 </div>
               </div>
@@ -466,7 +466,7 @@ export default function CompanyPage() {
               {[
                 { Icon: Navigation, title: 'Адрес', text: 'Гоголя 75/1 уг. ул.Тулебаева, Алматы', color: '#3b82f6' },
                 { Icon: Landmark, title: 'Ориентир', text: 'Рядом с Арбатом — пешеходной улицей в центре города', color: '#8b5cf6' },
-                { Icon: TrainFront, title: 'Метро', text: 'Станция «Алмалы» — 3 минуты пешком', color: '#ef4444' },
+                { Icon: TrainFront, title: 'Метро', text: 'Станция «Жибек Жолы» — около 4 минут пешком', color: '#ef4444' },
                 { Icon: ShoppingBag, title: 'ТРЦ', text: 'Mega Park — в 10 минутах езды', color: '#f59e0b' },
               ].map(({ Icon, title, text, color }) => (
                 <div key={title} className="rounded-2xl p-6" style={{ background: '#f5f5f7', border: `1px solid ${C.border}` }}>

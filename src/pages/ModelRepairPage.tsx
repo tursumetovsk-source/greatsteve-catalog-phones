@@ -21,7 +21,7 @@ export default function ModelRepairPage() {
   const schema = [
     {
       '@context': 'https://schema.org',
-      '@type': 'RepairBusiness',
+      '@type': 'LocalBusiness',
       name: 'GreatSteve — Сервисный центр в Алматы',
       url: `https://greatsteve.kz/remont/${data.slug}`,
       telephone: '+77775181111',

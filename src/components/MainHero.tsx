@@ -56,8 +56,7 @@ export default function MainHero() {
             backgroundClip: 'text',
           }}
         >
-          Ремонт и продажа{' '}<br className="hidden md:block" />
-          техники Apple{' '}<br className="hidden md:block" />
+          Ремонт телефонов{' '}<br className="hidden md:block" />
           в Алматы
         </motion.h1>
 
@@ -67,7 +66,7 @@ export default function MainHero() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="text-base md:text-lg text-white/80 mb-8 md:mb-10 max-w-2xl leading-relaxed px-2 sm:px-0"
         >
-          Мы объединяем премиальный уровень сервиса, оригинальные комплектующие и многолетний опыт, чтобы ваша техника служила долго и верно
+          Ремонтируем iPhone, Samsung, Xiaomi и другие смартфоны. Бесплатная диагностика при ремонте, понятные цены и гарантия до 12 месяцев.
         </motion.p>
 
         <motion.div

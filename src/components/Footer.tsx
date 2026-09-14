@@ -51,7 +51,7 @@ export default function Footer() {
               WhatsApp
             </a>
             <a
-              href="https://t.me/+77775181111"
+              href="https://t.me/GreatSteve11"
               target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 sm:gap-2.5 bg-white/10 text-white border border-white/10 px-4 sm:px-6 py-3 sm:py-3.5 rounded-full font-medium text-xs sm:text-sm hover:bg-white/15 transition-colors"
             >
@@ -74,13 +74,9 @@ export default function Footer() {
       <div className="px-4 md:px-6 py-10 md:py-14">
         <div className="max-w-[88rem] mx-auto grid grid-cols-2 md:grid-cols-4 gap-10">
 
-          {/* Логотип + договор */}
+          {/* Логотип */}
           <div className="col-span-2 md:col-span-1 flex flex-col gap-4">
             <img src="/logo-gs.webp" alt="Greatsteve" className="h-7 w-auto object-contain object-left" />
-            <a href="/dogovor.docx" download className="inline-flex items-center gap-1.5 text-sm text-white/60 hover:text-white transition-colors border border-white/20 hover:border-white/40 px-4 py-2 rounded-full self-start mt-3">
-              Договор присоединения
-              <ArrowUpRight className="w-3 h-3" />
-            </a>
           </div>
 
           {/* Контакты */}

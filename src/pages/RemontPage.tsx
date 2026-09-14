@@ -10,7 +10,7 @@ import { CheckCircle } from 'lucide-react';
 
 const SCHEMA = {
   '@context': 'https://schema.org',
-  '@type': 'RepairBusiness',
+  '@type': 'LocalBusiness',
   '@id': 'https://greatsteve.kz/remont#repair',
   name: 'GreatSteve — Ремонт телефонов и ноутбуков в Алматы',
   url: 'https://greatsteve.kz/remont',
@@ -20,6 +20,15 @@ const SCHEMA = {
     streetAddress: 'Гоголя 75/1 уг. ул.Тулебаева',
     addressLocality: 'Алматы',
     addressCountry: 'KZ',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 43.260296,
+    longitude: 76.947493,
+  },
+  areaServed: {
+    '@type': 'City',
+    name: 'Алматы',
   },
   openingHoursSpecification: {
     '@type': 'OpeningHoursSpecification',
@@ -101,8 +110,8 @@ export default function RemontPage() {
   return (
     <div className="flex flex-col bg-[#F5F5F5] min-h-screen text-black">
       <SEOHead
-        title="Ремонт iPhone, MacBook и Android в Алматы — GreatSteve"
-        description="Замена экрана iPhone от 15 000 ₸, батареи от 8 000 ₸. Ремонт MacBook, Samsung, iPad. Оригинальные запчасти, гарантия 12 месяцев. Бесплатная диагностика. Алматы, Гоголя 75/1 уг. ул.Тулебаева."
+        title="Цены на ремонт телефонов в Алматы | GreatSteve"
+        description="Цены на ремонт iPhone, Samsung и других телефонов в Алматы. Замена экрана и аккумулятора, бесплатная диагностика при ремонте, гарантия до 12 месяцев. Гоголя 75/1."
         keywords="ремонт iPhone Алматы, замена экрана iPhone, замена батареи iPhone, ремонт MacBook Алматы, ремонт Samsung Алматы, ремонт iPad Алматы, бесплатная диагностика телефона"
         canonical="/remont"
         ogImage="/main/serivice1.jpg"
@@ -138,6 +147,24 @@ export default function RemontPage() {
       </section>
 
       <UseCasesSection />
+
+      <section className="px-4 md:px-6 py-16 md:py-24 bg-[#F5F5F5]">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-black mb-8">
+            Частые вопросы о ремонте телефонов
+          </h2>
+          <div className="space-y-4">
+            {FAQ.mainEntity.map((item) => (
+              <article key={item.name} className="rounded-3xl bg-white p-6 md:p-8">
+                <h3 className="text-xl md:text-2xl font-semibold text-black mb-3">{item.name}</h3>
+                <p className="text-base md:text-lg leading-relaxed text-gray-600">
+                  {item.acceptedAnswer.text}
+                </p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Внутренняя ссылка */}
       <section className="px-4 md:px-6 py-8 bg-white border-t border-gray-100">

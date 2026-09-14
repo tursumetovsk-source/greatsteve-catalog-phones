@@ -624,8 +624,27 @@ export default function TradeinPage() {
         </div>
       </section>
 
+      <section className="py-16 md:py-24 px-6" style={{ background: '#f5f5f7' }}>
+        <div style={{ maxWidth: 900, margin: '0 auto' }}>
+          <h2 style={{ fontSize: 'clamp(32px, 4vw, 52px)', fontWeight: 700, letterSpacing: '-0.03em', color: '#111', margin: '0 0 32px' }}>
+            Частые вопросы о продаже и Trade-in
+          </h2>
+          <div style={{ display: 'grid', gap: 16 }}>
+            {FAQ.mainEntity.map((item) => (
+              <article key={item.name} style={{ background: '#fff', borderRadius: 28, padding: 'clamp(24px, 4vw, 36px)' }}>
+                <h3 style={{ fontSize: 'clamp(20px, 2vw, 26px)', fontWeight: 600, color: '#111', margin: '0 0 12px' }}>
+                  {item.name}
+                </h3>
+                <p style={{ fontSize: 17, lineHeight: 1.6, color: 'rgba(0,0,0,0.6)', margin: 0 }}>
+                  {item.acceptedAnswer.text}
+                </p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <Footer />
     </div>
   );
 }
-

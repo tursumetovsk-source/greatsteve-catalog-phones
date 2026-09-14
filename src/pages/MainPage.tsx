@@ -28,6 +28,15 @@ const SCHEMA = {
         addressCountry: 'KZ',
         postalCode: '050000',
       },
+      geo: {
+        '@type': 'GeoCoordinates',
+        latitude: 43.260296,
+        longitude: 76.947493,
+      },
+      areaServed: {
+        '@type': 'City',
+        name: 'Алматы',
+      },
       openingHoursSpecification: {
         '@type': 'OpeningHoursSpecification',
         dayOfWeek: [
@@ -36,12 +45,6 @@ const SCHEMA = {
         ],
         opens: '10:00',
         closes: '20:00',
-      },
-      aggregateRating: {
-        '@type': 'AggregateRating',
-        ratingValue: '4.9',
-        bestRating: '5',
-        reviewCount: '5000',
       },
       priceRange: '₸₸',
       sameAs: [
@@ -102,60 +105,6 @@ const SCHEMA = {
         { '@type': 'ListItem', position: 1, name: 'GreatSteve', item: 'https://greatsteve.kz/' },
       ],
     },
-    {
-      '@type': 'Review',
-      author: { '@type': 'Person', name: 'Александр В.' },
-      datePublished: '2025-05-12',
-      reviewBody: 'Разбил экран на iPhone 14 Pro. В официальных сервисах просили ждать неделю. Ребята сделали всё за пару часов прямо при мне. Оригинальный дисплей, True Tone работает.',
-      reviewRating: { '@type': 'Rating', ratingValue: 5, bestRating: 5 },
-      publisher: { '@type': 'Organization', name: 'Google Maps' },
-      itemReviewed: { '@id': 'https://greatsteve.kz/#organization' },
-    },
-    {
-      '@type': 'Review',
-      author: { '@type': 'Person', name: 'Мадина К.' },
-      datePublished: '2025-05-08',
-      reviewBody: 'Покупала здесь MacBook Air на M2. Цены ниже официалов, дали гарантию, быстро перенесли все данные со старого ноута. Сервис на высшем уровне.',
-      reviewRating: { '@type': 'Rating', ratingValue: 5, bestRating: 5 },
-      publisher: { '@type': 'Organization', name: '2GIS' },
-      itemReviewed: { '@id': 'https://greatsteve.kz/#organization' },
-    },
-    {
-      '@type': 'Review',
-      author: { '@type': 'Person', name: 'Ильяс М.' },
-      datePublished: '2025-04-25',
-      reviewBody: 'Восстановили утопленный Samsung S23, хотя в другой мастерской сказали выбросить. Данные сохранили, телефон работает как новый.',
-      reviewRating: { '@type': 'Rating', ratingValue: 5, bestRating: 5 },
-      publisher: { '@type': 'Organization', name: 'Yandex Maps' },
-      itemReviewed: { '@id': 'https://greatsteve.kz/#organization' },
-    },
-    {
-      '@type': 'Review',
-      author: { '@type': 'Person', name: 'Диана С.' },
-      datePublished: '2025-04-14',
-      reviewBody: 'Отличный Trade-in! Сдала свой старый 12 Pro и взяла 15 Pro с минимальной доплатой. Оценили адекватно, не занижали цену как в других местах.',
-      reviewRating: { '@type': 'Rating', ratingValue: 5, bestRating: 5 },
-      publisher: { '@type': 'Organization', name: '2GIS' },
-      itemReviewed: { '@id': 'https://greatsteve.kz/#organization' },
-    },
-    {
-      '@type': 'Review',
-      author: { '@type': 'Person', name: 'Тимур А.' },
-      datePublished: '2025-04-03',
-      reviewBody: 'Заменили батарею на iPhone 13 за 40 минут. Цена приятная, мастер объяснил всё подробно. Теперь телефон держит заряд как новый.',
-      reviewRating: { '@type': 'Rating', ratingValue: 5, bestRating: 5 },
-      publisher: { '@type': 'Organization', name: 'Google Maps' },
-      itemReviewed: { '@id': 'https://greatsteve.kz/#organization' },
-    },
-    {
-      '@type': 'Review',
-      author: { '@type': 'Person', name: 'Айгерим Н.' },
-      datePublished: '2025-03-20',
-      reviewBody: 'Пришла с треснутым стеклом на iPad Pro. Сделали быстро и аккуратно, цена честная. Администратор очень вежливый, предложил кофе пока ждала.',
-      reviewRating: { '@type': 'Rating', ratingValue: 5, bestRating: 5 },
-      publisher: { '@type': 'Organization', name: 'Google Maps' },
-      itemReviewed: { '@id': 'https://greatsteve.kz/#organization' },
-    },
   ],
 };
 
@@ -163,8 +112,8 @@ export default function MainPage() {
   return (
     <div className="flex flex-col bg-[#F5F5F5] min-h-screen text-black">
       <SEOHead
-        title="Ремонт iPhone и Android в Алматы — Сервисный центр GreatSteve"
-        description="Профессиональный ремонт iPhone, MacBook, Samsung и Android в Алматы. Оригинальные запчасти, гарантия до 12 месяцев. Trade-in, скупка и продажа техники. Ежедневно 10:00–20:00."
+        title="Ремонт телефонов в Алматы — iPhone и Android | GreatSteve"
+        description="Ремонт телефонов в Алматы: iPhone, Samsung, Xiaomi и других Android-смартфонов. Цены на сайте, бесплатная диагностика при ремонте, гарантия до 12 месяцев. Гоголя 75/1, ежедневно 10:00–20:00."
         keywords="ремонт iPhone Алматы, ремонт телефонов Алматы, сервисный центр Apple Алматы, ремонт MacBook Алматы, ремонт Samsung Алматы, скупка iPhone Алматы, Trade-in Apple Алматы, продажа iPhone Алматы, купить б/у iPhone Алматы, GreatSteve"
         canonical="/"
         ogImage="/main/gs-main1.jpeg"
