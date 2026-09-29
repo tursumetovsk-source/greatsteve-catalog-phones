@@ -1,1 +1,8 @@
+User-agent: Yandex
+Allow: /
+Clean-param: a&back_url_admin&clear_cache&bxajaxid&AJAX_CALL&action&NAME&QUESTION&PHONE&EMAIL
+
+User-agent: *
+Allow: /
+
 Sitemap: https://greatsteve.kz/sitemap.xml
