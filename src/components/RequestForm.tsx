@@ -21,6 +21,7 @@ export default function RequestForm() {
   const [open, setOpen]       = useState(false);
   const [loading, setLoading] = useState(false);
   const [done, setDone]       = useState(false);
+  const [waMessage, setWaMessage] = useState('');
 
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     let v = e.target.value;
@@ -49,6 +50,7 @@ export default function RequestForm() {
       `Телефон: ${phone}`,
       device ? `Устройство: ${device}` : null,
     ].filter(Boolean).join('\n');
+    setWaMessage(waText);
     openWhatsApp(waText, 'request_form');
 
     // Telegram
@@ -163,6 +165,12 @@ export default function RequestForm() {
                         Нажмите «Отправить» в WhatsApp,<br />чтобы передать нам сообщение.
                       </p>
                     </div>
+                    <button
+                      onClick={() => openWhatsApp(waMessage, 'request_form')}
+                      className="text-sm text-white/70 hover:text-white transition-colors underline underline-offset-4"
+                    >
+                      Открыть WhatsApp
+                    </button>
                     <button
                       onClick={() => { setDone(false); setName(''); setPhone('+7 '); setDevice(''); }}
                       className="text-xs text-white/30 hover:text-white/60 transition-colors underline underline-offset-4"
