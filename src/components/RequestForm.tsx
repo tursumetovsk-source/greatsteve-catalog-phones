@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ArrowRight, CheckCircle2, Phone, MapPin, Clock, ChevronDown } from 'lucide-react';
+import { openWhatsApp } from '../lib/contactTracking';
 
 const DEVICES = [
   'iPhone', 'Samsung', 'Xiaomi', 'iPad / Планшет',
@@ -20,6 +21,7 @@ export default function RequestForm() {
   const [open, setOpen]       = useState(false);
   const [loading, setLoading] = useState(false);
   const [done, setDone]       = useState(false);
+  const [waMessage, setWaMessage] = useState('');
 
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     let v = e.target.value;
@@ -41,6 +43,16 @@ export default function RequestForm() {
       device ? `🔧 Устройство: ${device}` : null,
     ].filter(Boolean).join('\n');
 
+    // Open during the submit gesture so browsers do not block the new tab.
+    const waText = [
+      'Здравствуйте, оставляю заявку с сайта.',
+      name   ? `Имя: ${name}`         : null,
+      `Телефон: ${phone}`,
+      device ? `Устройство: ${device}` : null,
+    ].filter(Boolean).join('\n');
+    setWaMessage(waText);
+    openWhatsApp(waText, 'request_form');
+
     // Telegram
     try {
       await fetch('/api/contact', {
@@ -49,15 +61,6 @@ export default function RequestForm() {
         body: JSON.stringify({ text }),
       });
     } catch (_) { /* если апи нет — просто игнорируем */ }
-
-    // WhatsApp
-    const waText = [
-      'Здравствуйте, оставляю заявку с сайта.',
-      name   ? `Имя: ${name}`         : null,
-      `Телефон: ${phone}`,
-      device ? `Устройство: ${device}` : null,
-    ].filter(Boolean).join('\n');
-    window.open(`https://wa.me/77775181111?text=${encodeURIComponent(waText)}`, '_blank');
 
     setLoading(false);
     setDone(true);
@@ -157,11 +160,17 @@ export default function RequestForm() {
                       <CheckCircle2 className="w-8 h-8 text-green-400" strokeWidth={1.5} />
                     </div>
                     <div>
-                      <h3 className="text-2xl font-bold text-white mb-2">Заявка принята!</h3>
+                      <h3 className="text-2xl font-bold text-white mb-2">Продолжите в WhatsApp</h3>
                       <p className="text-white/50 text-sm leading-relaxed">
-                        WhatsApp открылся — мы уже видим ваш запрос<br />и свяжемся в течение 5 минут.
+                        Нажмите «Отправить» в WhatsApp,<br />чтобы передать нам сообщение.
                       </p>
                     </div>
+                    <button
+                      onClick={() => openWhatsApp(waMessage, 'request_form')}
+                      className="text-sm text-white/70 hover:text-white transition-colors underline underline-offset-4"
+                    >
+                      Открыть WhatsApp
+                    </button>
                     <button
                       onClick={() => { setDone(false); setName(''); setPhone('+7 '); setDevice(''); }}
                       className="text-xs text-white/30 hover:text-white/60 transition-colors underline underline-offset-4"

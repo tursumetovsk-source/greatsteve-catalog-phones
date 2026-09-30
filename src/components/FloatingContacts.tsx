@@ -32,7 +32,8 @@ export default function FloatingContacts() {
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ delay: 0.3, type: 'spring', stiffness: 200 }}
-        href="https://wa.me/77775181111?text=Здравствуйте%20пишу%20вам%20с%20сайта" 
+        href="https://wa.me/77775181111?text=Здравствуйте%20пишу%20вам%20с%20сайта"
+        data-contact-placement="floating_button"
         target="_blank" 
         rel="noopener noreferrer" 
         className="bg-[#25D366] text-white p-3.5 rounded-full shadow-xl hover:bg-[#1EBE5A] hover:-translate-y-1 hover:shadow-2xl transition-all duration-300"

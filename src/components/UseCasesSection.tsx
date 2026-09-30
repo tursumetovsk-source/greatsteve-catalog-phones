@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { MapPin, Clock, Phone, ArrowRight, Coffee, Zap, Search, Package } from 'lucide-react';
+import { openWhatsApp } from '../lib/contactTracking';
 
 const PERKS = [
   { icon: Coffee, text: 'Угостим кофе пока ждёте' },
@@ -21,8 +22,7 @@ export default function UseCasesSection() {
   const handleSubmit = () => {
     const digits = phone.replace(/\D/g, '');
     if (digits.length < 11) return;
-    const text = encodeURIComponent(`Здравствуйте, прошу перезвонить. Мой номер: ${phone}`);
-    window.open(`https://wa.me/77775181111?text=${text}`, '_blank');
+    openWhatsApp(`Здравствуйте, прошу перезвонить. Мой номер: ${phone}`, 'callback_form');
   };
 
   return (
