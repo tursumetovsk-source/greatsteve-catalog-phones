@@ -91,3 +91,17 @@ test('middle click is tracked once; right click is ignored and navigation is not
   assert.equal(s.meta.length, 1);
   assert.equal(s.opened.length, 0);
 });
+
+test('existing site greeting is replaced without losing the device request', () => {
+  const s = site();
+  s.api.openWhatsApp('Здравствуйте! Пишу вам с сайта GREATSTEVE.KZ. Нужен ремонт iPhone 13.', 'request_form');
+  const message = new URL(s.opened[0][0]).searchParams.get('text');
+  assert.equal(message, 'Здравствуйте! Пишу вам с сайта greatsteve.kz.\nНужен ремонт iPhone 13.');
+});
+
+test('Instagram ig campaign alias appears in the customer message', () => {
+  const s = site({ search: '?utm_source=ig' });
+  s.api.openWhatsApp('', 'request_form');
+  assert.equal(new URL(s.opened[0][0]).searchParams.get('text'),
+    'Здравствуйте! Пишу вам с сайта greatsteve.kz.\nПерешел на сайт из Instagram.');
+});

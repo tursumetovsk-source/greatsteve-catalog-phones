@@ -58,8 +58,8 @@ function attributionMessage(message: string) {
   const a = attribution || captureAttribution();
   const greeting = 'Здравствуйте! Пишу вам с сайта greatsteve.kz.';
   const request = message.replace(/^Здравствуйте[!,.\s]*/i, '')
-    .replace(/^(?:пишу вам с сайта|пишу с сайта)(?:\s+Greatsteve\.?)?[.!\s]*/i, '').trim();
-  const source = ['instagram', 'tiktok', 'threads', 'youtube', '2gis'].includes(a.source)
+    .replace(/^(?:пишу вам с сайта|пишу с сайта)(?:\s+Greatsteve(?:\.kz)?)?[.!\s]*/i, '').trim();
+  const source = ['instagram', 'ig', 'tiktok', 'threads', 'youtube', '2gis'].includes(a.source)
     ? `Перешел на сайт из ${sources[a.source]}.` : '';
   return [greeting, request && request[0].toUpperCase() + request.slice(1), source].filter(Boolean).join('\n');
 }
