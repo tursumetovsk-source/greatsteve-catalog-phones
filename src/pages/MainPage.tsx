@@ -1,6 +1,7 @@
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import MainHero from '../components/MainHero';
+import GsiBatteryBanner from '../components/GsiBatteryBanner';
 import ServicesCards from '../components/ServicesCards';
 import AboutBentoSection from '../components/AboutBentoSection';
 import ReviewsSection from '../components/ReviewsSection';
@@ -51,6 +52,9 @@ const SCHEMA = {
         'https://maps.app.goo.gl/Utn9cuXYm2JBEHfg7',
         'https://go.2gis.com/BrzTD',
         'https://yandex.kz/maps/-/CPgzmULh',
+        'https://www.instagram.com/greatstevekz/',
+        'https://www.tiktok.com/@greatstevekz02',
+        'https://www.threads.com/@greatstevekz',
       ],
       hasOfferCatalog: {
         '@type': 'OfferCatalog',
@@ -61,7 +65,7 @@ const SCHEMA = {
             itemOffered: {
               '@type': 'Service',
               name: 'Ремонт iPhone в Алматы',
-              description: 'Замена экрана, батареи, корпуса. Оригинальные запчасти, гарантия 3–12 месяцев.',
+              description: 'Замена экрана, батареи и корпуса. Усиленные аккумуляторы GSI для iPhone 11–16 с заменой и гарантией 6 месяцев. Тип деталей и условия других работ согласуем до ремонта.',
             },
           },
           {
@@ -121,6 +125,7 @@ export default function MainPage() {
       />
       <Navbar />
       <MainHero />
+      <GsiBatteryBanner />
       <ServicesCards />
       <AboutBentoSection />
       <div className="pb-12 md:pb-20"><RequestForm /></div>

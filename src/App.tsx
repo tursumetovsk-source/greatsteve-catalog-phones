@@ -8,6 +8,7 @@ const RemontPage      = lazy(() => import('./pages/RemontPage'));
 const CompanyPage     = lazy(() => import('./pages/CompanyPage'));
 const TradeinPage     = lazy(() => import('./pages/TradeinPage'));
 const ModelRepairPage = lazy(() => import('./pages/ModelRepairPage'));
+const GsiBatteryPage = lazy(() => import('./pages/GsiBatteryPage'));
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -23,6 +24,7 @@ export default function App() {
         <Routes>
           <Route path="/"        element={<MainPage />} />
           <Route path="/remont"           element={<RemontPage />} />
+          <Route path="/remont/akkumulyator-iphone" element={<GsiBatteryPage />} />
           <Route path="/remont/:model"    element={<ModelRepairPage />} />
           <Route path="/company"          element={<CompanyPage />} />
           <Route path="/tradein" element={<TradeinPage />} />

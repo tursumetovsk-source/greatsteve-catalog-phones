@@ -105,3 +105,26 @@ test('Instagram ig campaign alias appears in the customer message', () => {
   assert.equal(new URL(s.opened[0][0]).searchParams.get('text'),
     'Здравствуйте! Пишу вам с сайта greatsteve.kz.\nПерешел на сайт из Instagram.');
 });
+
+test('ChatGPT referral UTM is kept across internal pages and appears in WhatsApp', () => {
+  const s = site({ search: '?utm_source=chatgpt.com', referrer: 'https://google.com/' });
+  const attribution = s.api.captureAttribution();
+  assert.equal(attribution.source, 'chatgpt');
+  const next = site({ saved: attribution, referrer: 'https://greatsteve.kz/remont' });
+  next.api.openWhatsApp('Хочу заменить аккумулятор GSI.', 'gsi_offer');
+  assert.equal(next.meta[0][3].source, 'chatgpt');
+  assert.match(new URL(next.opened[0][0]).searchParams.get('text'), /Перешел на сайт из ChatGPT\./);
+});
+
+test('AI referrers are distinct from Google and lookalike domains stay unknown', () => {
+  for (const [referrer, source] of [
+    ['https://gemini.google.com/app', 'gemini'],
+    ['https://chatgpt.com/', 'chatgpt'],
+    ['https://chat.openai.com/', 'chatgpt'],
+    ['https://www.google.com/search?q=repair', 'google'],
+    ['https://chatgpt.com.example.org/', 'other'],
+  ]) assert.equal(site({ referrer }).api.captureAttribution().source, source);
+  const s = site({ referrer: 'https://gemini.google.com/app' });
+  s.api.openWhatsApp('', 'gsi_offer');
+  assert.match(new URL(s.opened[0][0]).searchParams.get('text'), /Перешел на сайт из Gemini\./);
+});
