@@ -12,6 +12,7 @@ type TrackingWindow = Window & {
 const sources: Record<string, string> = {
   instagram: 'Instagram', ig: 'Instagram', tiktok: 'TikTok', threads: 'Threads',
   youtube: 'YouTube', '2gis': '2ГИС', google: 'Google', yandex: 'Яндекс',
+  chatgpt: 'ChatGPT', gemini: 'Gemini', referral: 'Рекомендация',
   direct: 'Прямой переход', other: 'Другой источник',
 };
 let attribution: Attribution;
@@ -23,7 +24,8 @@ function campaignValue(value: string | null) {
 
 function currentAttribution(): Attribution | undefined {
   const params = new URLSearchParams(window.location.search);
-  const source = params.get('utm_source')?.toLowerCase();
+  const rawSource = params.get('utm_source')?.toLowerCase();
+  const source = rawSource === 'chatgpt.com' ? 'chatgpt' : rawSource;
   if (source) return {
     source: sources[source] ? source : 'other',
     medium: campaignValue(params.get('utm_medium')),
@@ -33,6 +35,11 @@ function currentAttribution(): Attribution | undefined {
   if (!document.referrer) return;
   const host = new URL(document.referrer).hostname;
   if (host === window.location.hostname) return;
+  const aiSources: Record<string, string> = {
+    'chatgpt.com': 'chatgpt', 'chat.openai.com': 'chatgpt', 'gemini.google.com': 'gemini',
+  };
+  const aiDomain = Object.keys(aiSources).find(d => host === d || host.endsWith(`.${d}`));
+  if (aiDomain) return { source: aiSources[aiDomain] };
   const matches = ['instagram.com', 'tiktok.com', 'threads.com', 'threads.net',
     'youtube.com', 'youtu.be', '2gis.kz', '2gis.ru', 'google.com', 'google.kz',
     'yandex.ru', 'yandex.kz', 'ya.ru'];
@@ -59,7 +66,7 @@ function attributionMessage(message: string) {
   const greeting = 'Здравствуйте! Пишу вам с сайта greatsteve.kz.';
   const request = message.replace(/^Здравствуйте[!,.\s]*/i, '')
     .replace(/^(?:пишу вам с сайта|пишу с сайта)(?:\s+Greatsteve(?:\.kz)?)?[.!\s]*/i, '').trim();
-  const source = ['instagram', 'ig', 'tiktok', 'threads', 'youtube', '2gis'].includes(a.source)
+  const source = ['instagram', 'ig', 'tiktok', 'threads', 'youtube', '2gis', 'google', 'yandex', 'chatgpt', 'gemini', 'referral'].includes(a.source)
     ? `Перешел на сайт из ${sources[a.source]}.` : '';
   return [greeting, request && request[0].toUpperCase() + request.slice(1), source].filter(Boolean).join('\n');
 }

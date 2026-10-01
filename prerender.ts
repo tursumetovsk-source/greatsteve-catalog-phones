@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import type { Plugin } from 'vite';
 import { allModels, type ModelData } from './src/data/repairModels';
+import { GSI_DESCRIPTION, GSI_PATH, GSI_TITLE, formatTenge, gsiBatteryOffers, gsiFaq, gsiOfferForModel } from './src/data/gsiBatteryOffers';
 
 /**
  * Build-time SEO rendering.
@@ -59,6 +60,9 @@ const BUSINESS = {
     'https://maps.app.goo.gl/Utn9cuXYm2JBEHfg7',
     'https://2gis.kz/almaty/branches/70000001040518504',
     'https://yandex.kz/maps/ru/org/greatsteve/5393916179/',
+    'https://www.instagram.com/greatstevekz/',
+    'https://www.tiktok.com/@greatstevekz02',
+    'https://www.threads.com/@greatstevekz',
   ],
 };
 
@@ -86,6 +90,17 @@ const pageShell = (title: string, intro: string, body: string) => `
 
 const STATIC_ROUTES: Route[] = [
   {
+    path: GSI_PATH,
+    title: GSI_TITLE,
+    description: GSI_DESCRIPTION,
+    content: pageShell(
+      'Замена аккумулятора iPhone в Алматы — усиленный GSI по акции',
+      'Цена включает усиленный аккумулятор GSI и работу по замене. Гарантия 6 месяцев. Одна цена для всех версий внутри каждой линейки iPhone 11–16. Перед визитом подтвердим наличие для вашей модели.',
+      `<section><h2>Цена с заменой</h2><ul>${gsiBatteryOffers.map(offer => `<li>Линейка iPhone ${offer.series}: <s>${formatTenge(offer.previousPrice)}</s> — ${formatTenge(offer.price)}</li>`).join('')}</ul></section><section><h2>Перед визитом</h2>${gsiFaq.map(item => `<article><h3>${escText(item.q)}</h3><p>${escText(item.a)}</p></article>`).join('')}</section><p><a href="https://wa.me/77775181111?text=${encodeURIComponent('Здравствуйте! Хочу заменить аккумулятор на усиленный GSI по акции. Моя модель iPhone: ')}">Записаться в WhatsApp</a></p>`,
+    ),
+    schema: [BUSINESS, breadcrumb({ name: 'Greatsteve', path: '/' }, { name: 'Ремонт', path: '/remont' }, { name: 'Аккумуляторы GSI', path: GSI_PATH }), { '@context': 'https://schema.org', '@type': 'Service', name: 'Замена усиленного аккумулятора GSI для iPhone в Алматы', url: `${SITE}${GSI_PATH}`, areaServed: { '@type': 'City', name: 'Алматы' }, provider: { '@id': `${SITE}/#organization` } }, { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: gsiFaq.map(item => ({ '@type': 'Question', name: item.q, acceptedAnswer: { '@type': 'Answer', text: item.a } })) }],
+  },
+  {
     path: '/',
     title: 'Ремонт телефонов в Алматы — iPhone и Android | GreatSteve',
     description: 'Ремонт телефонов в Алматы: iPhone, Samsung, Xiaomi и других Android-смартфонов. Цены на сайте, бесплатная диагностика при ремонте, гарантия до 12 месяцев. Гоголя 75/1, ежедневно 10:00–20:00.',
@@ -93,20 +108,20 @@ const STATIC_ROUTES: Route[] = [
     content: pageShell(
       'Ремонт телефонов в Алматы',
       'Ремонтируем iPhone, Samsung, Xiaomi и другие смартфоны. Диагностика бесплатна при ремонте, цены указаны на сайте, гарантия — до 12 месяцев.',
-      '<section><h2>Услуги сервисного центра</h2><ul><li><a href="/remont">Цены на ремонт телефонов</a></li><li>Замена экрана и аккумулятора</li><li>Ремонт после воды и падения</li><li>Ремонт MacBook, iPad и Apple Watch</li></ul></section>',
+      `<section><h2>Услуги сервисного центра</h2><ul><li><a href="/remont">Цены на ремонт телефонов</a></li><li><a href="${GSI_PATH}">Усиленный аккумулятор GSI для iPhone 11–16: от 12 000 ₸ с заменой, гарантия 6 месяцев</a></li><li>Замена экрана и аккумулятора</li><li>Ремонт после воды и падения</li><li>Ремонт MacBook, iPad и Apple Watch</li></ul></section>`,
     ),
     schema: [BUSINESS, breadcrumb({ name: 'GreatSteve', path: '/' })],
   },
   {
     path: '/remont',
     title: 'Цены на ремонт телефонов в Алматы | GreatSteve',
-    description: 'Цены на ремонт iPhone, Samsung и других телефонов в Алматы. Замена экрана и аккумулятора, бесплатная диагностика при ремонте, гарантия до 12 месяцев. Гоголя 75/1.',
+    description: 'Ремонт телефонов в Алматы. Усиленные аккумуляторы GSI для iPhone 11–16 от 12 000 ₸ с заменой и гарантией 6 месяцев. Гоголя 75/1.',
     keywords: 'цены ремонт телефонов Алматы, ремонт iPhone Алматы, замена экрана iPhone, ремонт Samsung Алматы, бесплатная диагностика телефона',
     ogImage: '/main/serivice1.jpg',
     content: pageShell(
       'Цены на ремонт телефонов в Алматы',
       'Ремонтируем iPhone, Samsung и другие телефоны: меняем экраны, аккумуляторы, камеры и разъёмы, восстанавливаем устройства после воды и падения.',
-      '<section><h2>Ремонт с гарантией</h2><p>Диагностика бесплатна при ремонте. Большинство замен экрана и аккумулятора занимает от 20 до 60 минут. Гарантия на работу и запчасти — от 3 до 12 месяцев.</p><p><a href="/remont/iphone-15-pro">Ремонт iPhone 15 Pro</a> · <a href="/remont/iphone-14">Ремонт iPhone 14</a> · <a href="/remont/samsung-s24">Ремонт Samsung S24</a></p></section>',
+      `<section><h2>Усиленные аккумуляторы GSI по акции</h2><p><a href="${GSI_PATH}">iPhone 11–16: от 12 000 ₸ с заменой, гарантия 6 месяцев</a>. Перед визитом подтвердим наличие и время. Диагностика бесплатна при ремонте. Условия гарантии на другие работы согласуем при оформлении заказа.</p><p><a href="/remont/iphone-15-pro">Ремонт iPhone 15 Pro</a> · <a href="/remont/iphone-14">Ремонт iPhone 14</a> · <a href="/remont/samsung-s24">Ремонт Samsung S24</a></p></section>`,
     ),
     schema: [BUSINESS, breadcrumb({ name: 'GreatSteve', path: '/' }, { name: 'Ремонт', path: '/remont' })],
   },
@@ -144,16 +159,17 @@ function modelRoute(m: ModelData): Route {
   const repairs = m.repairs.map((item) => `<li>${escText(item.name)} — ${escText(item.price)}, ${escText(item.time)}</li>`).join('');
   const problems = m.problems.map((item) => `<li>${escText(item)}</li>`).join('');
   const faq = m.faq.map((item) => `<article><h3>${escText(item.q)}</h3><p>${escText(item.a)}</p></article>`).join('');
+  const gsiOffer = gsiOfferForModel(m.slug);
 
   return {
     path: routePath,
     title: `Ремонт ${m.name} в Алматы — GreatSteve | Цены и гарантия`,
-    description: `Ремонт ${m.name} в Алматы. Замена экрана ${m.repairs[0].price}, аккумулятора ${m.repairs[1].price}. Гарантия 12 месяцев. Ежедневно 10:00–20:00. Гоголя 75/1 уг. ул.Тулебаева.`,
+    description: gsiOffer ? `Замена усиленного аккумулятора GSI для ${m.name} в Алматы — ${formatTenge(gsiOffer.price)} с работой. Гарантия 6 месяцев. Гоголя 75/1, ежедневно 10:00–20:00.` : `Ремонт ${m.name} в Алматы. Замена экрана ${m.repairs[0].price}, аккумулятора ${m.repairs[1].price}. Гарантия 12 месяцев. Ежедневно 10:00–20:00. Гоголя 75/1 уг. ул.Тулебаева.`,
     keywords: `ремонт ${m.name} Алматы, замена экрана ${m.name} Алматы, замена аккумулятора ${m.name} Алматы, сервис ${m.name} Алматы`,
     content: pageShell(
       `Ремонт ${m.name} в Алматы`,
       m.intro,
-      `<section><h2>Цены на ремонт ${escText(m.name)}</h2><ul>${repairs}</ul></section><section><h2>Частые неисправности</h2><ul>${problems}</ul></section><section><h2>Частые вопросы</h2>${faq}</section><p><a href="/remont">Все услуги по ремонту телефонов</a></p>`,
+      `<section><h2>Цены на ремонт ${escText(m.name)}</h2><ul>${repairs}</ul>${gsiOffer ? `<p><a href="${GSI_PATH}">Все цены и условия замены аккумуляторов GSI</a></p>` : ''}</section><section><h2>Частые неисправности</h2><ul>${problems}</ul></section><section><h2>Частые вопросы</h2>${faq}</section><p><a href="/remont">Все услуги по ремонту телефонов</a></p>`,
     ),
     schema: [
       BUSINESS,

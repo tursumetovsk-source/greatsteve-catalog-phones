@@ -15,4 +15,6 @@ Example Instagram profile link:
 
 Use distinct lowercase `utm_source` values for `tiktok`, `threads`, `youtube`, `2gis`. Use ASCII campaign identifiers without customer data. Direct social → WhatsApp links bypass the website and must be reconciled separately using the source sentence and the administrator's lead register.
 
+ChatGPT search links with `utm_source=chatgpt.com` are normalized to `chatgpt`. Referrers from `chatgpt.com`, `chat.openai.com` and `gemini.google.com` identify the corresponding AI source, with Gemini checked before the broader Google domain. Google, Yandex and AI sources appear in the WhatsApp source sentence. Missing referrers without campaign data remain direct visits; they are not assumed to be AI referrals. Source parameters contain no referring user's identity.
+
 Validation: `npm run lint`, `npm run build`, `node --test tests/contactTracking.test.mjs`.
