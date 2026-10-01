@@ -1,8 +1,10 @@
 import { useEffect, useRef, useState, type FormEvent } from 'react';
-import { ArrowRight, ArrowLeft, Battery, CalendarDays, Check, ChevronDown, Copy, Database, FileText, Info, MapPin, Menu, Smartphone, Sparkles, Wallet, X } from 'lucide-react';
+import { ArrowRight, ArrowLeft, Battery, CalendarDays, Check, ChevronDown, Copy, Database, FileText, Info, MapPin, Menu, Smartphone, Wallet, X } from 'lucide-react';
 import catalog from './catalog.json';
 import { buildMessage, evaluate, memoryLabel, money, UNKNOWN } from './valuation.mjs';
 import { sourceName, track } from './tracking';
+
+const pawnshops = ['Белый ломбард', 'DEM Ломбард', 'Деньги Маркет', 'Сейф-Ломбард', 'iKomek', 'МФО Белый (СПН)', 'Актив Ломбард', 'TehnoAltyn', 'АСТ Ломбард', 'Другой ломбард'];
 
 function WhatsAppIcon() {
   return <svg viewBox="0 0 24 24" width="23" height="23" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.66 15L2 22l5.13-1.34A10 10 0 1 0 12 2Zm0 18a8 8 0 0 1-4.08-1.12l-.38-.22-3.03.79.8-2.96-.25-.4A8 8 0 1 1 12 20Zm4.6-5.9c-.25-.13-1.49-.73-1.72-.82-.23-.08-.4-.12-.57.13-.16.25-.64.82-.78.99-.15.16-.29.18-.54.06-.25-.13-1.06-.39-2.02-1.25-.75-.66-1.25-1.49-1.4-1.74-.15-.25-.02-.39.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.16.04-.31-.02-.44-.06-.12-.56-1.35-.77-1.85-.2-.49-.4-.42-.57-.43h-.49c-.16 0-.42.06-.65.31-.23.25-.87.85-.87 2.08s.89 2.42 1.02 2.58c.12.17 1.76 2.69 4.26 3.77.6.25 1.06.4 1.42.51.59.19 1.13.16 1.56.1.47-.07 1.49-.61 1.7-1.2.2-.59.2-1.09.14-1.2-.06-.11-.23-.17-.48-.29Z"/></svg>;
@@ -14,7 +16,6 @@ export default function App() {
   const [memory, setMemory] = useState('');
   const [answers, setAnswers] = useState<Record<string, string>>(() => Object.fromEntries(catalog.questions.map(q => [q.key, UNKNOWN])));
   const [pawnshop, setPawnshop] = useState('');
-  const [branch, setBranch] = useState('');
   const [debt, setDebt] = useState('');
   const [debtUnknown, setDebtUnknown] = useState(false);
   const [date, setDate] = useState('');
@@ -27,11 +28,9 @@ export default function App() {
   const readyMessage = useRef('');
   const model = catalog.models.find(item => String(item.id) === modelId);
   const battery = catalog.questions.find(q => q.key === 'batteryHealthManual');
-  const conditionQuestions = catalog.questions.filter(q => q.key !== 'batteryHealthManual');
-  const answered = conditionQuestions.filter(q => answers[q.key] !== UNKNOWN).length;
   const redemption = !debtUnknown && debt !== '' && Number.isSafeInteger(Number(debt)) && Number(debt) >= 0 ? Number(debt) : null;
   const result = evaluate(catalog, modelId, memory, answers, redemption);
-  const message = buildMessage({ catalog, modelId, memory, answers, pawnshop, branch, redemption, date, requestId, source: sourceName });
+  const message = buildMessage({ catalog, modelId, memory, answers, pawnshop, redemption, date, requestId, source: sourceName });
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -86,7 +85,6 @@ export default function App() {
       <header className="header">
         <button type="button" className="brand" onClick={() => setScreen(0)} aria-label="Greatsteve — начало">
           <span>GREAT<span className="brand-accent">STEVE</span></span>
-          <small>ЯРКИЙ ТЕХНО</small>
         </button>
         <span className="city"><MapPin size={15}/><span>Алматы</span><ChevronDown size={12}/></span>
         <button type="button" className="menu-button" aria-label="Информация о выкупе" onClick={() => dialogRef.current?.showModal()}><Menu size={25}/></button>
@@ -116,23 +114,16 @@ export default function App() {
             {model?.specs.map(spec => <option value={spec.memory} key={spec.memory}>{memoryLabel(spec.memory)}</option>)}
           </select><ChevronDown className="select-chevron"/></div>
 
-          <span className="field-label" id="condition-label">Состояние</span>
-          <details className="condition-details">
-            <summary aria-labelledby="condition-label"><Sparkles/><span>{answered ? 'Указано ' + answered + ' из ' + conditionQuestions.length : 'Уточнить состояние'}</span><ChevronDown/></summary>
-            <div className="condition-body">
-              <p>Если телефон в ломбарде и вы не помните детали, оставьте «Не знаю» — мы уточним их перед сделкой.</p>
-              {conditionQuestions.map(q => <div className="detail-field" key={q.key}><label htmlFor={q.key}>{q.label}</label>{questionSelect(q)}</div>)}
-            </div>
-          </details>
-
           {battery && <><label htmlFor={battery.key}>Аккумулятор</label><div className="control"><Battery/>{questionSelect(battery)}<ChevronDown className="select-chevron"/></div></>}
-          <p className="field-help">Ответы «Не знаю» дают верхний ориентир цены, а не подтверждённую стоимость.</p>
+          <p className="field-help">Онлайн показываем верхний ориентир цены. Состояние проверим перед выкупом.</p>
           <button className="primary" type="submit"><span>Далее</span><ArrowRight/></button>
           <button type="button" className="back" onClick={() => setScreen(0)}><ArrowLeft size={15}/> Назад</button>
         </form> : <form className="fields final-fields" ref={formRef} onSubmit={sendWhatsApp}>
-          <label htmlFor="pawnshop">Ломбард и филиал</label>
-          <div className="control"><MapPin/><input id="pawnshop" required pattern=".*\S.*" maxLength={100} placeholder="Укажите название" value={pawnshop} onChange={e => { setPawnshop(e.target.value); setCopyStatus(''); }}/></div>
-          <input className="branch-input" aria-label="Адрес филиала ломбарда" maxLength={140} placeholder="Адрес филиала, если знаете" value={branch} onChange={e => { setBranch(e.target.value); setCopyStatus(''); }}/>
+          <label htmlFor="pawnshop">Ломбард</label>
+          <div className="control"><MapPin/><select id="pawnshop" required value={pawnshop} onChange={e => { setPawnshop(e.target.value); setCopyStatus(''); }}>
+            <option value="">Выберите ломбард</option>
+            {pawnshops.map(name => <option value={name} key={name}>{name}</option>)}
+          </select><ChevronDown className="select-chevron"/></div>
 
           <label htmlFor="debt">Сумма полного погашения, ₸</label>
           <div className="control"><Wallet/><input id="debt" type="number" inputMode="numeric" min="0" max={Number.MAX_SAFE_INTEGER} step="1" required={!debtUnknown} disabled={debtUnknown} placeholder="Укажите сумму" value={debt} onChange={e => { setDebt(e.target.value); setCopyStatus(''); }}/></div>
@@ -150,7 +141,7 @@ export default function App() {
               <div className="result-line"><span>Полное погашение</span><strong>{redemption === null ? 'Уточнить' : money(redemption)}</strong></div>
               <div className="result-payout"><span>Разница после погашения</span><strong>{result.payout === null ? 'Уточним' : result.payout < 0 ? 'Обсудим условия' : (result.status === 'ceiling' ? 'до ' : '') + money(result.payout)}</strong></div>
               {result.payout !== null && result.payout < 0 && <p className="result-note">Ориентир ниже суммы погашения на {money(-result.payout)}. Выплата пока не рассчитана.</p>}
-              {result.status === 'ceiling' && <p className="result-note">Есть неизвестные ответы. Цена может быть ниже; итог согласуем после проверки.</p>}
+              {result.status === 'ceiling' && <p className="result-note">Цена зависит от состояния телефона и может быть ниже. Итог согласуем после проверки.</p>}
             </>}
           </section>
 

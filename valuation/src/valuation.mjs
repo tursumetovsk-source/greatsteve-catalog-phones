@@ -42,10 +42,12 @@ export function evaluate(catalog, modelId, memory, answers, redemption = null) {
     payout: debt === null ? null : amount - debt, unknown, rejected };
 }
 
-export function buildMessage({ catalog, modelId, memory, answers, pawnshop, branch, redemption, date, requestId, source }) {
+export function buildMessage({ catalog, modelId, memory, answers, pawnshop, redemption, date, requestId, source }) {
   const model = catalog.models.find(item => String(item.id) === String(modelId));
   const result = evaluate(catalog, modelId, memory, answers, redemption);
-  const details = catalog.questions.map(question => {
+  const details = catalog.questions.filter(question =>
+    question.key === 'batteryHealthManual' || (answers[question.key] && answers[question.key] !== UNKNOWN)
+  ).map(question => {
     const option = question.options.find(item => String(item.value) === answers[question.key]);
     return question.label + ': ' + (option?.label || 'Не знаю');
   });
@@ -56,7 +58,6 @@ export function buildMessage({ catalog, modelId, memory, answers, pawnshop, bran
     'Память: ' + memoryLabel(Number(memory)),
     ...details,
     'Ломбард: ' + pawnshop.trim(),
-    branch.trim() && 'Филиал: ' + branch.trim(),
     'Полное погашение: ' + (redemption === null ? 'Уточнить' : money(redemption)),
     'Дата выкупа: ' + (date || 'Уточнить'),
     result.amount === null ? 'Нужна индивидуальная оценка.' :

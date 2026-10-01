@@ -48,16 +48,17 @@ test('redemption can exceed value or be zero, but invalid money is not a payout'
 
 test('ready message includes answers and negative difference without promising money', () => {
   const message = buildMessage({ catalog, modelId: '10', memory: '256', answers: unknown,
-    pawnshop: '  Сейф Ломбард  ', branch: ' Гоголя ', redemption: 200000,
+    pawnshop: '  Сейф-Ломбард  ', redemption: 200000,
     date: '2026-10-05', requestId: 'GS-TEST', source: 'Instagram' });
   assert.match(message, /iPhone 13 Pro/);
   assert.match(message, /256 ГБ/);
-  assert.match(message, /Ломбард: Сейф Ломбард/);
-  assert.match(message, /Филиал: Гоголя/);
+  assert.match(message, /Ломбард: Сейф-Ломбард/);
+  assert.doesNotMatch(message, /Филиал:/);
   assert.match(message, /Верхний ориентир, состояние нужно проверить/);
   assert.match(message, /Ориентир ниже полного погашения/);
   assert.match(message, /Instagram/);
-  assert.equal((message.match(/Не знаю/g) || []).length, 8);
+  assert.equal((message.match(/Не знаю/g) || []).length, 1);
+  assert.doesNotMatch(message, /Верификация IMEI:|Комплект:|Корпус:|Экран:|Ремонт и замена деталей:|Контрактный телефон/);
   assert.doesNotMatch(message, /Возможная разница — до -/);
 });
 
