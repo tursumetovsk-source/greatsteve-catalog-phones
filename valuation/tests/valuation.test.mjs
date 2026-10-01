@@ -66,6 +66,8 @@ test('campaign attribution wins over referrer, and financial query data is dropp
   const data = getAttribution('?utm_source=instagram&utm_medium=paid_social&utm_campaign=pawn_buyout&utm_content=ru_video&debt=200000&phone=77775181111&pawnshop=Private', 'https://google.kz/');
   assert.deepEqual(data, { source: 'instagram', medium: 'paid_social', campaign: 'pawn_buyout', content: 'ru_video' });
   assert.equal(sourceLabel(data.source), 'Instagram');
+  assert.equal(sourceLabel(getAttribution('?utm_source=meta', 'https://l.facebook.com/').source), 'рекламы Meta');
+  assert.equal(sourceLabel(getAttribution('?utm_source=fb', '').source), 'Facebook');
   assert.equal(getAttribution('?utm_source=unknown-channel', '').source, 'other');
   assert.equal(getAttribution('?utm_source=constructor', '').source, 'other');
   assert.equal(getAttribution('?utm_campaign=77775181111&utm_content=Name%20Phone', '').campaign, undefined);
@@ -75,6 +77,8 @@ test('AI and organic referrers are recognised without confusing lookalike domain
   assert.equal(getAttribution('', 'https://chatgpt.com/c/test').source, 'chatgpt');
   assert.equal(getAttribution('', 'https://gemini.google.com/app').source, 'gemini');
   assert.equal(getAttribution('', 'https://l.instagram.com/').source, 'instagram');
+  assert.equal(getAttribution('', 'https://l.facebook.com/').source, 'facebook');
+  assert.equal(getAttribution('', 'https://facebook.com.evil.example/').source, 'website');
   assert.equal(getAttribution('', 'https://instagram.com.evil.example/').source, 'website');
   assert.equal(getAttribution('', 'invalid').source, 'direct');
   assert.equal(getAttribution('', '').source, 'direct');

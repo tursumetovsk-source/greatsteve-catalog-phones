@@ -1,5 +1,5 @@
 const names = {
-  instagram: 'Instagram', ig: 'Instagram', tiktok: 'TikTok', threads: 'Threads',
+  instagram: 'Instagram', ig: 'Instagram', facebook: 'Facebook', fb: 'Facebook', meta: 'рекламы Meta', tiktok: 'TikTok', threads: 'Threads',
   youtube: 'YouTube', google: 'Google', yandex: 'Яндекс', '2gis': '2ГИС',
   chatgpt: 'ChatGPT', gemini: 'Gemini', referral: 'Рекомендация',
 };
@@ -12,6 +12,7 @@ export function getAttribution(search, referrer) {
     try {
       const host = new URL(referrer).hostname.toLowerCase();
       const match = [
+        ['facebook', /(^|\.)facebook\.com$/],
         ['instagram', /(^|\.)instagram\.com$/], ['threads', /(^|\.)threads\.(com|net)$/],
         ['tiktok', /(^|\.)tiktok\.com$/], ['youtube', /(^|\.)youtube\.com$/],
         ['chatgpt', /(^|\.)chatgpt\.com$/], ['gemini', /^gemini\.google\.com$/],
