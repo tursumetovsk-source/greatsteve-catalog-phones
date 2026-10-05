@@ -24,10 +24,12 @@ export default function HeroSection() {
         loop
         playsInline
         preload="auto"
-        poster="/remont/ostav-remont.jpeg"
+        poster="/remont/phone-disassembly-20261005.webp"
         className="absolute inset-0 w-full h-full object-cover"
-        src="/remont/remont.mp4"
-      />
+      >
+        <source src="/remont/phone-disassembly-20261005.webm" type='video/webm; codecs="av01.0.08M.08"' />
+        <source src="/remont/phone-disassembly-20261005.mp4" type="video/mp4" />
+      </video>
       <div className="absolute inset-0 bg-black/40"></div>
       <div className="relative z-10 h-full flex flex-col justify-between p-6 md:p-12 pt-[108px] md:pt-[120px]">
         <div className="max-w-xl">
