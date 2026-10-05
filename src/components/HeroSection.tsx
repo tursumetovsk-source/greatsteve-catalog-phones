@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { MessageCircle } from 'lucide-react';
 
 const HERO_BRANDS = [
@@ -16,19 +17,31 @@ const HERO_BRANDS = [
 ];
 
 export default function HeroSection() {
+  const [isMobile, setIsMobile] = useState(() => window.matchMedia('(max-width: 767px)').matches);
+
+  useEffect(() => {
+    const media = window.matchMedia('(max-width: 767px)');
+    const update = () => setIsMobile(media.matches);
+    media.addEventListener('change', update);
+    return () => media.removeEventListener('change', update);
+  }, []);
+
+  const videoPath = `/remont/phone-disassembly-${isMobile ? 'mobile-' : ''}20261005`;
+
   return (
     <section className="relative h-screen w-full overflow-hidden bg-black">
       <video
+        key={videoPath}
         autoPlay
         muted
         loop
         playsInline
         preload="auto"
-        poster="/remont/phone-disassembly-20261005.webp"
+        poster={`${videoPath}.webp`}
         className="absolute inset-0 w-full h-full object-cover"
       >
-        <source src="/remont/phone-disassembly-20261005.webm" type='video/webm; codecs="av01.0.08M.08"' />
-        <source src="/remont/phone-disassembly-20261005.mp4" type="video/mp4" />
+        <source src={`${videoPath}.webm`} type='video/webm; codecs="av01.0.08M.08"' />
+        <source src={`${videoPath}.mp4`} type="video/mp4" />
       </video>
       <div className="absolute inset-0 bg-black/40"></div>
       <div className="relative z-10 h-full flex flex-col justify-between p-6 md:p-12 pt-[108px] md:pt-[120px]">
