@@ -31,6 +31,7 @@
     { "src": "/arenda(/.*)?", "status": 301, "headers": { "Location": "/" } },
     { "src": "/company/reviews(/.*)?", "status": 301, "headers": { "Location": "/company" } },
     { "src": "/company/consent(/.*)?", "status": 301, "headers": { "Location": "/" } },
+    { "src": "/company/iphone/index\\.htm", "status": 301, "headers": { "Location": "/remont" } },
     { "src": "/tproduct(/.*)?", "status": 301, "headers": { "Location": "/remont" } },
     { "src": "/contact", "status": 301, "headers": { "Location": "/company" } },
     { "src": "/page[0-9]+\\.html", "status": 301, "headers": { "Location": "/" } },
