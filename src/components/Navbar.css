@@ -1,0 +1,41 @@
+.gs-glass { position: relative; background: #211018c2; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); box-shadow: inset 0 1px 1px #ffffff15; border: 1px solid #e2b6c71c; }
+.gs-home-nav { position: fixed; top: 24px; left: 3.8%; right: 3.8%; display: flex; align-items: center; justify-content: space-between; gap: 20px; z-index: 50; }
+.gs-home-logo { border-radius: 100px; padding: 15px 20px; }
+.gs-home-logo img { width: 160px; height: auto; }
+.gs-home-links { display: flex; align-items: center; gap: 2px; border-radius: 100px; padding: 5px; }
+.gs-home-links a { padding: 12px 20px; border-radius: 100px; font-size: 13px; color: #c6b4be; text-decoration: none; transition: background .2s, color .2s; }
+.gs-home-links a:hover { background: #ffffff0a; color: #fff; }
+.gs-home-contact { display: flex; align-items: center; gap: 11px; border-radius: 100px; padding: 16px 20px; font-size: 12px; color: #eee3e8; text-decoration: none; }
+.gs-home-contact:hover { background: #502135bf; }
+.gs-home-toggle { display: none; border-radius: 50%; width: 47px; height: 47px; color: #fff; align-items: center; justify-content: center; cursor: pointer; }
+.gs-home-menu { position: fixed; inset: 0; z-index: 120; display: flex; flex-direction: column; justify-content: center; padding: 35px; background: #10090d; color: #f0e7eb; overflow-y: auto; }
+.gs-home-menu-close { position: absolute; right: 24px; top: 24px; width: 48px; height: 48px; display: grid; place-items: center; color: #fff; border-radius: 50%; cursor: pointer; }
+.gs-menu-logo { width: 170px; height: auto; margin-bottom: 54px; }
+.gs-home-menu nav { display: flex; flex-direction: column; gap: 27px; }
+.gs-home-menu nav a { display: flex; justify-content: space-between; align-items: center; gap: 20px; font-size: 30px; letter-spacing: -.03em; text-decoration: none; animation: gs-menu-in .45s both cubic-bezier(.77,0,.18,1); }
+.gs-menu-contact { display: flex; align-items: flex-start; flex-direction: column; gap: 24px; margin-top: 45px; }
+.gs-menu-contact > a { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; }
+.gs-menu-contact p { color: #af95a3; font-size: 13px; line-height: 1.8; }
+.gs-nav-primary { min-height: 49px; padding: 12px 21px; background: #76243b; color: #fff4f7; border-radius: 100px; font-size: 13px; font-weight: 600; transition: background .2s; }
+.gs-nav-primary:hover { background: #96324f; }
+.gs-home-nav a:focus-visible, .gs-home-nav button:focus-visible, .gs-home-menu a:focus-visible, .gs-home-menu button:focus-visible { outline: 2px solid #bf728a; outline-offset: 5px; }
+@keyframes gs-menu-in { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+@media (max-width: 1100px) {
+  .gs-home-links a { padding-inline: 14px; }
+  .gs-home-logo img { width: 137px; }
+}
+@media (max-width: 767px) {
+  .gs-home-nav { top: 18px; left: 20px; right: 20px; }
+  .gs-home-logo { padding: 12px 16px; }
+  .gs-home-logo img { width: 135px; }
+  .gs-home-links, .gs-home-contact { display: none; }
+  .gs-home-toggle { display: flex; }
+}
+@media (max-height: 650px) {
+  .gs-home-menu { justify-content: flex-start; padding-top: 80px; }
+  .gs-menu-logo { margin-bottom: 30px; }
+  .gs-menu-contact { margin-top: 30px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .gs-home-nav *, .gs-home-menu * { animation: none !important; transition: none !important; }
+}

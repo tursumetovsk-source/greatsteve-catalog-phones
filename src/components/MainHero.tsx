@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { ArrowDown, ArrowUpRight, Crosshair, MapPin } from 'lucide-react';
+import { ArrowUpRight, Crosshair, MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import './MainHero.css';
 
@@ -41,7 +41,6 @@ export default function MainHero() {
       const bounds = section.getBoundingClientRect();
       targetX = Math.max(0, Math.min(100, (event.clientX - bounds.left) / bounds.width * 100));
       targetY = Math.max(0, Math.min(100, (event.clientY - bounds.top) / bounds.height * 100));
-      section.dataset.scanning = 'true';
       if (!frame) frame = requestAnimationFrame(draw);
     };
 
@@ -49,7 +48,6 @@ export default function MainHero() {
       if (motion.matches) return;
       targetX = 50;
       targetY = 52;
-      section.dataset.scanning = 'false';
       if (!frame) frame = requestAnimationFrame(draw);
     };
 
@@ -59,7 +57,6 @@ export default function MainHero() {
       x = targetX = 50;
       y = targetY = 52;
       section.removeAttribute('style');
-      section.dataset.scanning = 'false';
     };
 
     section.addEventListener('pointermove', move);
@@ -80,7 +77,6 @@ export default function MainHero() {
       <div className="gs-hero-grid" aria-hidden="true" />
       <div className="gs-hero-glow" aria-hidden="true" />
       <div className="gs-hero-heading">
-        <p className="gs-eyebrow"><span /> СЕРВИС, КОТОРЫЙ ПОНИМАЕТ ТЕХНОЛОГИИ</p>
         <div className="gs-hero-wordmark" aria-hidden="true">GREATSTEVE</div>
       </div>
       <div className="gs-hero-stage" aria-hidden="true">
@@ -94,10 +90,8 @@ export default function MainHero() {
             <source media="(max-width: 767px)" srcSet="/main/phone-sculpture-mobile.webp" />
             <img src="/main/phone-sculpture.webp" width="1254" height="1254" alt="" />
           </picture>
-          <span className="gs-phone-badge"><img src="/logo-gs.webp" alt="" /> TECHNOLOGY, REVEALED</span>
         </div>
         <div className="gs-scan-label"><Crosshair size={14} /> <span>ВНУТРИ — ВНИМАНИЕ К ДЕТАЛЯМ</span></div>
-        <div className="gs-hero-coordinate">43.2603° N / 76.9475° E</div>
       </div>
       <div className="gs-hero-copy">
         <p className="gs-hero-kicker">ДАДИМ ТЕХНИКЕ ВТОРУЮ ЖИЗНЬ</p>
@@ -108,10 +102,8 @@ export default function MainHero() {
           <Link to="/tradein" className="gs-hero-secondary">Купить / Продать <ArrowUpRight size={17} /></Link>
         </div>
       </div>
-      <div className="gs-hero-hint" aria-hidden="true"><Crosshair size={18} /><span>НАВЕДИТЕ КУРСОР<br />И ИССЛЕДУЙТЕ ДЕТАЛИ</span></div>
       <div className="gs-hero-footer">
         <a href="https://go.2gis.com/BrzTD" target="_blank" rel="noopener noreferrer" className="gs-hero-address"><MapPin size={15} /> Алматы, Гоголя 75/1 <span>Ежедневно 10:00–20:00</span></a>
-        <a href="#main-services" className="gs-hero-scroll">ДАЛЬШЕ — БОЛЬШЕ <ArrowDown size={16} /></a>
         <span className="gs-hero-footer-note">APPLE & ANDROID / REPAIR & TRADE-IN</span>
       </div>
     </section>

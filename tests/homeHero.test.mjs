@@ -29,3 +29,31 @@ test('other pages do not preload the homepage-only artwork', () => {
     assert.doesNotMatch(html, /rel="preload"[^>]+instrument-serif/);
   }
 });
+
+test('homepage hero uses the requested burgundy palette without former green accents', () => {
+  const styles = readFileSync(new URL('../src/components/MainHero.css', import.meta.url), 'utf8');
+  assert.match(styles, /background: #76243b/);
+  assert.doesNotMatch(styles, /#(?:d6e9c4|c7e4b3|92b7a1|a7e2d2|bde8d6)/i);
+});
+
+test('requested decorative captions and screen badge are removed without removing the cursor effect', () => {
+  const hero = readFileSync(new URL('../src/components/MainHero.tsx', import.meta.url), 'utf8');
+  const nav = readFileSync(new URL('../src/components/Navbar.tsx', import.meta.url), 'utf8');
+  assert.doesNotMatch(hero, /СЕРВИС, КОТОРЫЙ|43\.2603|НАВЕДИТЕ КУРСОР|ДАЛЬШЕ — БОЛЬШЕ|TECHNOLOGY, REVEALED|gs-phone-badge/);
+  assert.doesNotMatch(nav, /gs-status-dot/);
+  assert.match(hero, /section\.addEventListener\('pointermove', move\)/);
+  assert.match(hero, /gs-phone-reveal/);
+});
+
+test('every page uses the same navigation component with its own stylesheet', () => {
+  for (const page of ['MainPage', 'RemontPage', 'TradeinPage', 'CompanyPage', 'GsiBatteryPage', 'ModelRepairPage']) {
+    const source = readFileSync(new URL(`../src/pages/${page}.tsx`, import.meta.url), 'utf8');
+    assert.match(source, /import Navbar from '\.\.\/components\/Navbar'/);
+    assert.match(source, /<Navbar \/>/);
+    assert.doesNotMatch(source, /HomeNavigation/);
+  }
+  const nav = readFileSync(new URL('../src/components/Navbar.tsx', import.meta.url), 'utf8');
+  assert.match(nav, /import '\.\/Navbar\.css'/);
+  assert.match(nav, /aria-modal="true"/);
+  assert.match(nav, /event\.key === 'Escape'/);
+});
