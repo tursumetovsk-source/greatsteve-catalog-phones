@@ -1,4 +1,5 @@
 import { motion } from 'motion/react';
+import { useLocation } from 'react-router-dom';
 
 const WhatsAppIcon = ({ className }: { className?: string }) => (
   <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
@@ -13,6 +14,9 @@ const TelegramIcon = ({ className }: { className?: string }) => (
 );
 
 export default function FloatingContacts() {
+  const { pathname } = useLocation();
+  if (pathname === '/') return null;
+
   return (
     <div className="fixed bottom-6 right-6 flex flex-col gap-4 z-[100]">
       <motion.a 

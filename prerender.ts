@@ -212,6 +212,10 @@ function render(template: string, route: Route): string {
     .replace(/<meta\s+property="og:image"[^>]*>/, `<meta property="og:image" content="${og}" />`)
     .replace('<div id="root"></div>', `<div id="root">${route.content}</div>`);
 
+  if (route.path !== '/') {
+    html = html.replace(/<link\s+rel="preload"\s+as="(?:image|font)"\s+href="\/(?:main\/phone-sculpture|fonts\/instrument-serif)[^>]*>\s*/g, '');
+  }
+
   const tags = [
     route.keywords ? `<meta name="keywords" content="${escAttr(route.keywords)}" />` : '',
     '<meta name="twitter:card" content="summary_large_image" />',

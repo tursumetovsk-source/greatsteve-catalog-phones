@@ -1,4 +1,4 @@
-import Navbar from '../components/Navbar';
+import HomeNavigation from '../components/HomeNavigation';
 import Footer from '../components/Footer';
 import MainHero from '../components/MainHero';
 import GsiBatteryBanner from '../components/GsiBatteryBanner';
@@ -123,10 +123,12 @@ export default function MainPage() {
         ogImage="/main/gs-main1.jpeg"
         schema={SCHEMA}
       />
-      <Navbar />
+      <HomeNavigation />
       <MainHero />
-      <GsiBatteryBanner />
-      <ServicesCards />
+      <div id="main-services" className="scroll-mt-24">
+        <GsiBatteryBanner />
+        <ServicesCards />
+      </div>
       <AboutBentoSection />
       <div className="pb-12 md:pb-20"><RequestForm /></div>
       <ReviewsSection />
