@@ -36,10 +36,26 @@ test('homepage hero uses the requested burgundy palette without former green acc
   assert.doesNotMatch(styles, /#(?:d6e9c4|c7e4b3|92b7a1|a7e2d2|bde8d6)/i);
 });
 
+test('GSI promotion banner matches the burgundy hero palette', () => {
+  const banner = readFileSync(new URL('../src/components/GsiBatteryBanner.tsx', import.meta.url), 'utf8');
+  assert.match(banner, /background: '#211018'/);
+  assert.match(banner, /background: '#76243B', color: '#FFF4F7'/);
+  assert.doesNotMatch(banner, /#C1FF72|#101210/);
+});
+
+test('mobile wordmark, phone stage and repair copy use separate layout rows', () => {
+  const styles = readFileSync(new URL('../src/components/MainHero.css', import.meta.url), 'utf8');
+  const mobile = styles.split('@media (max-width: 767px) {')[1].split('@media (max-width: 380px) {')[0];
+  assert.match(mobile, /\.gs-hero \{ height: auto;/);
+  for (const selector of ['heading', 'stage', 'copy', 'footer']) {
+    assert.ok(mobile.includes(`.gs-hero-${selector} { position: relative;`));
+  }
+});
+
 test('requested decorative captions and screen badge are removed without removing the cursor effect', () => {
   const hero = readFileSync(new URL('../src/components/MainHero.tsx', import.meta.url), 'utf8');
   const nav = readFileSync(new URL('../src/components/Navbar.tsx', import.meta.url), 'utf8');
-  assert.doesNotMatch(hero, /СЕРВИС, КОТОРЫЙ|43\.2603|НАВЕДИТЕ КУРСОР|ДАЛЬШЕ — БОЛЬШЕ|TECHNOLOGY, REVEALED|gs-phone-badge/);
+  assert.doesNotMatch(hero, /СЕРВИС, КОТОРЫЙ|43\.2603|НАВЕДИТЕ КУРСОР|ДАЛЬШЕ — БОЛЬШЕ|TECHNOLOGY, REVEALED|gs-phone-badge|ВНУТРИ — ВНИМАНИЕ К ДЕТАЛЯМ|gs-scan-label|Crosshair/);
   assert.doesNotMatch(nav, /gs-status-dot/);
   assert.match(hero, /section\.addEventListener\('pointermove', move\)/);
   assert.match(hero, /gs-phone-reveal/);

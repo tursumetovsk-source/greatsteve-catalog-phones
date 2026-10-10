@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { ArrowUpRight, Crosshair, MapPin } from 'lucide-react';
+import { ArrowUpRight, MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import './MainHero.css';
 
@@ -91,7 +91,6 @@ export default function MainHero() {
             <img src="/main/phone-sculpture.webp" width="1254" height="1254" alt="" />
           </picture>
         </div>
-        <div className="gs-scan-label"><Crosshair size={14} /> <span>ВНУТРИ — ВНИМАНИЕ К ДЕТАЛЯМ</span></div>
       </div>
       <div className="gs-hero-copy">
         <p className="gs-hero-kicker">ДАДИМ ТЕХНИКЕ ВТОРУЮ ЖИЗНЬ</p>
