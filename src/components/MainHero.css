@@ -82,9 +82,9 @@
 }
 @media (max-width: 767px) {
   .gs-hero { height: auto; min-height: 800px; padding-top: 90px; }
-  .gs-hero-heading { position: relative; top: auto; left: auto; right: auto; margin: 0 5%; z-index: 1; }
+  .gs-hero-heading { position: relative; top: 11vw; left: auto; right: auto; margin: 0 5%; z-index: 0; }
   .gs-hero-wordmark { font-size: 17.5vw; letter-spacing: -.055em; }
-  .gs-hero-stage { position: relative; inset: auto; height: min(104vw, 580px); }
+  .gs-hero-stage { position: relative; inset: auto; height: min(104vw, 580px); z-index: 1; }
   .gs-hero-phone { top: 50%; left: 52%; width: min(104vw, 580px); }
   .gs-hero-orbit { top: 48%; width: 105vw; height: 100px; }
   .gs-phone-reveal { mask-image: radial-gradient(circle 140px at 52% 50%, #000, transparent); -webkit-mask-image: radial-gradient(circle 140px at 52% 50%, #000, transparent); }

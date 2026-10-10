@@ -43,13 +43,15 @@ test('GSI promotion banner matches the burgundy hero palette', () => {
   assert.doesNotMatch(banner, /#C1FF72|#101210/);
 });
 
-test('mobile wordmark, phone stage and repair copy use separate layout rows', () => {
+test('mobile wordmark sits partly behind the phone without moving the repair copy', () => {
   const styles = readFileSync(new URL('../src/components/MainHero.css', import.meta.url), 'utf8');
   const mobile = styles.split('@media (max-width: 767px) {')[1].split('@media (max-width: 380px) {')[0];
   assert.match(mobile, /\.gs-hero \{ height: auto;/);
   for (const selector of ['heading', 'stage', 'copy', 'footer']) {
     assert.ok(mobile.includes(`.gs-hero-${selector} { position: relative;`));
   }
+  assert.match(mobile, /\.gs-hero-heading \{[^}]*top: 11vw;[^}]*z-index: 0;/);
+  assert.match(mobile, /\.gs-hero-stage \{[^}]*z-index: 1;/);
 });
 
 test('requested decorative captions and screen badge are removed without removing the cursor effect', () => {
