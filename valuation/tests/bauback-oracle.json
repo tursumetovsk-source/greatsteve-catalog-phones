@@ -1,0 +1,4697 @@
+{
+    "generator": "Bauback InspectionConfig::evaluate, read-only",
+    "cases": [
+        {
+            "modelId": 9,
+            "memory": 128,
+            "case": "ideal",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 100184,
+            "rejected": false
+        },
+        {
+            "modelId": 9,
+            "memory": 128,
+            "case": "used",
+            "answers": {
+                "imeiStatus": "one_verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "1",
+                "displayCondition": "display-good",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "85",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 74155,
+            "rejected": false
+        },
+        {
+            "modelId": 9,
+            "memory": 128,
+            "case": "repaired",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "2",
+                "displayCondition": "display-satisfactory",
+                "serviceRepaired": "yes",
+                "batteryHealthManual": "75",
+                "modelNumberStatus": "yes",
+                "contractPhone": "contract_no"
+            },
+            "amount": 0,
+            "rejected": false
+        },
+        {
+            "modelId": 9,
+            "memory": 128,
+            "case": "blocked",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_yes"
+            },
+            "amount": 100184,
+            "rejected": true
+        },
+        {
+            "modelId": 9,
+            "memory": 256,
+            "case": "ideal",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 107566,
+            "rejected": false
+        },
+        {
+            "modelId": 9,
+            "memory": 256,
+            "case": "used",
+            "answers": {
+                "imeiStatus": "one_verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "1",
+                "displayCondition": "display-good",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "85",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 80355,
+            "rejected": false
+        },
+        {
+            "modelId": 9,
+            "memory": 256,
+            "case": "repaired",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "2",
+                "displayCondition": "display-satisfactory",
+                "serviceRepaired": "yes",
+                "batteryHealthManual": "75",
+                "modelNumberStatus": "yes",
+                "contractPhone": "contract_no"
+            },
+            "amount": 0,
+            "rejected": false
+        },
+        {
+            "modelId": 9,
+            "memory": 256,
+            "case": "blocked",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_yes"
+            },
+            "amount": 107566,
+            "rejected": true
+        },
+        {
+            "modelId": 9,
+            "memory": 512,
+            "case": "ideal",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 116004,
+            "rejected": false
+        },
+        {
+            "modelId": 9,
+            "memory": 512,
+            "case": "used",
+            "answers": {
+                "imeiStatus": "one_verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "1",
+                "displayCondition": "display-good",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "85",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 87443,
+            "rejected": false
+        },
+        {
+            "modelId": 9,
+            "memory": 512,
+            "case": "repaired",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "2",
+                "displayCondition": "display-satisfactory",
+                "serviceRepaired": "yes",
+                "batteryHealthManual": "75",
+                "modelNumberStatus": "yes",
+                "contractPhone": "contract_no"
+            },
+            "amount": 0,
+            "rejected": false
+        },
+        {
+            "modelId": 9,
+            "memory": 512,
+            "case": "blocked",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_yes"
+            },
+            "amount": 116004,
+            "rejected": true
+        },
+        {
+            "modelId": 10,
+            "memory": 128,
+            "case": "ideal",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 152914,
+            "rejected": false
+        },
+        {
+            "modelId": 10,
+            "memory": 128,
+            "case": "used",
+            "answers": {
+                "imeiStatus": "one_verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "1",
+                "displayCondition": "display-good",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "85",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 118448,
+            "rejected": false
+        },
+        {
+            "modelId": 10,
+            "memory": 128,
+            "case": "repaired",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "2",
+                "displayCondition": "display-satisfactory",
+                "serviceRepaired": "yes",
+                "batteryHealthManual": "75",
+                "modelNumberStatus": "yes",
+                "contractPhone": "contract_no"
+            },
+            "amount": 0,
+            "rejected": false
+        },
+        {
+            "modelId": 10,
+            "memory": 128,
+            "case": "blocked",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_yes"
+            },
+            "amount": 152914,
+            "rejected": true
+        },
+        {
+            "modelId": 10,
+            "memory": 256,
+            "case": "ideal",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 160295,
+            "rejected": false
+        },
+        {
+            "modelId": 10,
+            "memory": 256,
+            "case": "used",
+            "answers": {
+                "imeiStatus": "one_verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "1",
+                "displayCondition": "display-good",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "85",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 124648,
+            "rejected": false
+        },
+        {
+            "modelId": 10,
+            "memory": 256,
+            "case": "repaired",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "2",
+                "displayCondition": "display-satisfactory",
+                "serviceRepaired": "yes",
+                "batteryHealthManual": "75",
+                "modelNumberStatus": "yes",
+                "contractPhone": "contract_no"
+            },
+            "amount": 0,
+            "rejected": false
+        },
+        {
+            "modelId": 10,
+            "memory": 256,
+            "case": "blocked",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_yes"
+            },
+            "amount": 160295,
+            "rejected": true
+        },
+        {
+            "modelId": 10,
+            "memory": 512,
+            "case": "ideal",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 172950,
+            "rejected": false
+        },
+        {
+            "modelId": 10,
+            "memory": 512,
+            "case": "used",
+            "answers": {
+                "imeiStatus": "one_verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "1",
+                "displayCondition": "display-good",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "85",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 135278,
+            "rejected": false
+        },
+        {
+            "modelId": 10,
+            "memory": 512,
+            "case": "repaired",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "2",
+                "displayCondition": "display-satisfactory",
+                "serviceRepaired": "yes",
+                "batteryHealthManual": "75",
+                "modelNumberStatus": "yes",
+                "contractPhone": "contract_no"
+            },
+            "amount": 0,
+            "rejected": false
+        },
+        {
+            "modelId": 10,
+            "memory": 512,
+            "case": "blocked",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_yes"
+            },
+            "amount": 172950,
+            "rejected": true
+        },
+        {
+            "modelId": 10,
+            "memory": 1024,
+            "case": "ideal",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 230762,
+            "rejected": false
+        },
+        {
+            "modelId": 10,
+            "memory": 1024,
+            "case": "used",
+            "answers": {
+                "imeiStatus": "one_verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "1",
+                "displayCondition": "display-good",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "85",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 183840,
+            "rejected": false
+        },
+        {
+            "modelId": 10,
+            "memory": 1024,
+            "case": "repaired",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "2",
+                "displayCondition": "display-satisfactory",
+                "serviceRepaired": "yes",
+                "batteryHealthManual": "75",
+                "modelNumberStatus": "yes",
+                "contractPhone": "contract_no"
+            },
+            "amount": 0,
+            "rejected": false
+        },
+        {
+            "modelId": 10,
+            "memory": 1024,
+            "case": "blocked",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_yes"
+            },
+            "amount": 230762,
+            "rejected": true
+        },
+        {
+            "modelId": 11,
+            "memory": 128,
+            "case": "ideal",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 168732,
+            "rejected": false
+        },
+        {
+            "modelId": 11,
+            "memory": 128,
+            "case": "used",
+            "answers": {
+                "imeiStatus": "one_verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "1",
+                "displayCondition": "display-good",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "85",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 131735,
+            "rejected": false
+        },
+        {
+            "modelId": 11,
+            "memory": 128,
+            "case": "repaired",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "2",
+                "displayCondition": "display-satisfactory",
+                "serviceRepaired": "yes",
+                "batteryHealthManual": "75",
+                "modelNumberStatus": "yes",
+                "contractPhone": "contract_no"
+            },
+            "amount": 0,
+            "rejected": false
+        },
+        {
+            "modelId": 11,
+            "memory": 128,
+            "case": "blocked",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_yes"
+            },
+            "amount": 168732,
+            "rejected": true
+        },
+        {
+            "modelId": 11,
+            "memory": 256,
+            "case": "ideal",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 177168,
+            "rejected": false
+        },
+        {
+            "modelId": 11,
+            "memory": 256,
+            "case": "used",
+            "answers": {
+                "imeiStatus": "one_verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "1",
+                "displayCondition": "display-good",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "85",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 138821,
+            "rejected": false
+        },
+        {
+            "modelId": 11,
+            "memory": 256,
+            "case": "repaired",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "2",
+                "displayCondition": "display-satisfactory",
+                "serviceRepaired": "yes",
+                "batteryHealthManual": "75",
+                "modelNumberStatus": "yes",
+                "contractPhone": "contract_no"
+            },
+            "amount": 0,
+            "rejected": false
+        },
+        {
+            "modelId": 11,
+            "memory": 256,
+            "case": "blocked",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_yes"
+            },
+            "amount": 177168,
+            "rejected": true
+        },
+        {
+            "modelId": 11,
+            "memory": 512,
+            "case": "ideal",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 189823,
+            "rejected": false
+        },
+        {
+            "modelId": 11,
+            "memory": 512,
+            "case": "used",
+            "answers": {
+                "imeiStatus": "one_verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "1",
+                "displayCondition": "display-good",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "85",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 149451,
+            "rejected": false
+        },
+        {
+            "modelId": 11,
+            "memory": 512,
+            "case": "repaired",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "2",
+                "displayCondition": "display-satisfactory",
+                "serviceRepaired": "yes",
+                "batteryHealthManual": "75",
+                "modelNumberStatus": "yes",
+                "contractPhone": "contract_no"
+            },
+            "amount": 0,
+            "rejected": false
+        },
+        {
+            "modelId": 11,
+            "memory": 512,
+            "case": "blocked",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_yes"
+            },
+            "amount": 189823,
+            "rejected": true
+        },
+        {
+            "modelId": 11,
+            "memory": 1024,
+            "case": "ideal",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 234997,
+            "rejected": false
+        },
+        {
+            "modelId": 11,
+            "memory": 1024,
+            "case": "used",
+            "answers": {
+                "imeiStatus": "one_verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "1",
+                "displayCondition": "display-good",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "85",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 187397,
+            "rejected": false
+        },
+        {
+            "modelId": 11,
+            "memory": 1024,
+            "case": "repaired",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "2",
+                "displayCondition": "display-satisfactory",
+                "serviceRepaired": "yes",
+                "batteryHealthManual": "75",
+                "modelNumberStatus": "yes",
+                "contractPhone": "contract_no"
+            },
+            "amount": 0,
+            "rejected": false
+        },
+        {
+            "modelId": 11,
+            "memory": 1024,
+            "case": "blocked",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_yes"
+            },
+            "amount": 234997,
+            "rejected": true
+        },
+        {
+            "modelId": 12,
+            "memory": 128,
+            "case": "ideal",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 92802,
+            "rejected": false
+        },
+        {
+            "modelId": 12,
+            "memory": 128,
+            "case": "used",
+            "answers": {
+                "imeiStatus": "one_verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "1",
+                "displayCondition": "display-good",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "85",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 67954,
+            "rejected": false
+        },
+        {
+            "modelId": 12,
+            "memory": 128,
+            "case": "repaired",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "2",
+                "displayCondition": "display-satisfactory",
+                "serviceRepaired": "yes",
+                "batteryHealthManual": "75",
+                "modelNumberStatus": "yes",
+                "contractPhone": "contract_no"
+            },
+            "amount": 0,
+            "rejected": false
+        },
+        {
+            "modelId": 12,
+            "memory": 128,
+            "case": "blocked",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_yes"
+            },
+            "amount": 92802,
+            "rejected": true
+        },
+        {
+            "modelId": 12,
+            "memory": 256,
+            "case": "ideal",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 100184,
+            "rejected": false
+        },
+        {
+            "modelId": 12,
+            "memory": 256,
+            "case": "used",
+            "answers": {
+                "imeiStatus": "one_verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "1",
+                "displayCondition": "display-good",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "85",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 74155,
+            "rejected": false
+        },
+        {
+            "modelId": 12,
+            "memory": 256,
+            "case": "repaired",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "2",
+                "displayCondition": "display-satisfactory",
+                "serviceRepaired": "yes",
+                "batteryHealthManual": "75",
+                "modelNumberStatus": "yes",
+                "contractPhone": "contract_no"
+            },
+            "amount": 0,
+            "rejected": false
+        },
+        {
+            "modelId": 12,
+            "memory": 256,
+            "case": "blocked",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_yes"
+            },
+            "amount": 100184,
+            "rejected": true
+        },
+        {
+            "modelId": 12,
+            "memory": 512,
+            "case": "ideal",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 116004,
+            "rejected": false
+        },
+        {
+            "modelId": 12,
+            "memory": 512,
+            "case": "used",
+            "answers": {
+                "imeiStatus": "one_verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "1",
+                "displayCondition": "display-good",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "85",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 87443,
+            "rejected": false
+        },
+        {
+            "modelId": 12,
+            "memory": 512,
+            "case": "repaired",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "2",
+                "displayCondition": "display-satisfactory",
+                "serviceRepaired": "yes",
+                "batteryHealthManual": "75",
+                "modelNumberStatus": "yes",
+                "contractPhone": "contract_no"
+            },
+            "amount": 0,
+            "rejected": false
+        },
+        {
+            "modelId": 12,
+            "memory": 512,
+            "case": "blocked",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_yes"
+            },
+            "amount": 116004,
+            "rejected": true
+        },
+        {
+            "modelId": 13,
+            "memory": 128,
+            "case": "ideal",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 116004,
+            "rejected": false
+        },
+        {
+            "modelId": 13,
+            "memory": 128,
+            "case": "used",
+            "answers": {
+                "imeiStatus": "one_verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "1",
+                "displayCondition": "display-good",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "85",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 87443,
+            "rejected": false
+        },
+        {
+            "modelId": 13,
+            "memory": 128,
+            "case": "repaired",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "2",
+                "displayCondition": "display-satisfactory",
+                "serviceRepaired": "yes",
+                "batteryHealthManual": "75",
+                "modelNumberStatus": "yes",
+                "contractPhone": "contract_no"
+            },
+            "amount": 0,
+            "rejected": false
+        },
+        {
+            "modelId": 13,
+            "memory": 128,
+            "case": "blocked",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_yes"
+            },
+            "amount": 116004,
+            "rejected": true
+        },
+        {
+            "modelId": 13,
+            "memory": 256,
+            "case": "ideal",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 123385,
+            "rejected": false
+        },
+        {
+            "modelId": 13,
+            "memory": 256,
+            "case": "used",
+            "answers": {
+                "imeiStatus": "one_verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "1",
+                "displayCondition": "display-good",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "85",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 93643,
+            "rejected": false
+        },
+        {
+            "modelId": 13,
+            "memory": 256,
+            "case": "repaired",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "2",
+                "displayCondition": "display-satisfactory",
+                "serviceRepaired": "yes",
+                "batteryHealthManual": "75",
+                "modelNumberStatus": "yes",
+                "contractPhone": "contract_no"
+            },
+            "amount": 0,
+            "rejected": false
+        },
+        {
+            "modelId": 13,
+            "memory": 256,
+            "case": "blocked",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_yes"
+            },
+            "amount": 123385,
+            "rejected": true
+        },
+        {
+            "modelId": 13,
+            "memory": 512,
+            "case": "ideal",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 130768,
+            "rejected": false
+        },
+        {
+            "modelId": 13,
+            "memory": 512,
+            "case": "used",
+            "answers": {
+                "imeiStatus": "one_verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "1",
+                "displayCondition": "display-good",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "85",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 99845,
+            "rejected": false
+        },
+        {
+            "modelId": 13,
+            "memory": 512,
+            "case": "repaired",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "2",
+                "displayCondition": "display-satisfactory",
+                "serviceRepaired": "yes",
+                "batteryHealthManual": "75",
+                "modelNumberStatus": "yes",
+                "contractPhone": "contract_no"
+            },
+            "amount": 0,
+            "rejected": false
+        },
+        {
+            "modelId": 13,
+            "memory": 512,
+            "case": "blocked",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_yes"
+            },
+            "amount": 130768,
+            "rejected": true
+        },
+        {
+            "modelId": 14,
+            "memory": 128,
+            "case": "ideal",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 130768,
+            "rejected": false
+        },
+        {
+            "modelId": 14,
+            "memory": 128,
+            "case": "used",
+            "answers": {
+                "imeiStatus": "one_verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "1",
+                "displayCondition": "display-good",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "85",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 99845,
+            "rejected": false
+        },
+        {
+            "modelId": 14,
+            "memory": 128,
+            "case": "repaired",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "2",
+                "displayCondition": "display-satisfactory",
+                "serviceRepaired": "yes",
+                "batteryHealthManual": "75",
+                "modelNumberStatus": "yes",
+                "contractPhone": "contract_no"
+            },
+            "amount": 0,
+            "rejected": false
+        },
+        {
+            "modelId": 14,
+            "memory": 128,
+            "case": "blocked",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_yes"
+            },
+            "amount": 130768,
+            "rejected": true
+        },
+        {
+            "modelId": 14,
+            "memory": 256,
+            "case": "ideal",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 138149,
+            "rejected": false
+        },
+        {
+            "modelId": 14,
+            "memory": 256,
+            "case": "used",
+            "answers": {
+                "imeiStatus": "one_verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "1",
+                "displayCondition": "display-good",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "85",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 106045,
+            "rejected": false
+        },
+        {
+            "modelId": 14,
+            "memory": 256,
+            "case": "repaired",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "2",
+                "displayCondition": "display-satisfactory",
+                "serviceRepaired": "yes",
+                "batteryHealthManual": "75",
+                "modelNumberStatus": "yes",
+                "contractPhone": "contract_no"
+            },
+            "amount": 0,
+            "rejected": false
+        },
+        {
+            "modelId": 14,
+            "memory": 256,
+            "case": "blocked",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_yes"
+            },
+            "amount": 138149,
+            "rejected": true
+        },
+        {
+            "modelId": 14,
+            "memory": 512,
+            "case": "ideal",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 146586,
+            "rejected": false
+        },
+        {
+            "modelId": 14,
+            "memory": 512,
+            "case": "used",
+            "answers": {
+                "imeiStatus": "one_verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "1",
+                "displayCondition": "display-good",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "85",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 113132,
+            "rejected": false
+        },
+        {
+            "modelId": 14,
+            "memory": 512,
+            "case": "repaired",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "2",
+                "displayCondition": "display-satisfactory",
+                "serviceRepaired": "yes",
+                "batteryHealthManual": "75",
+                "modelNumberStatus": "yes",
+                "contractPhone": "contract_no"
+            },
+            "amount": 0,
+            "rejected": false
+        },
+        {
+            "modelId": 14,
+            "memory": 512,
+            "case": "blocked",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_yes"
+            },
+            "amount": 146586,
+            "rejected": true
+        },
+        {
+            "modelId": 15,
+            "memory": 128,
+            "case": "ideal",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 188769,
+            "rejected": false
+        },
+        {
+            "modelId": 15,
+            "memory": 128,
+            "case": "used",
+            "answers": {
+                "imeiStatus": "one_verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "1",
+                "displayCondition": "display-good",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "85",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 148566,
+            "rejected": false
+        },
+        {
+            "modelId": 15,
+            "memory": 128,
+            "case": "repaired",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "2",
+                "displayCondition": "display-satisfactory",
+                "serviceRepaired": "yes",
+                "batteryHealthManual": "75",
+                "modelNumberStatus": "yes",
+                "contractPhone": "contract_no"
+            },
+            "amount": 0,
+            "rejected": false
+        },
+        {
+            "modelId": 15,
+            "memory": 128,
+            "case": "blocked",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_yes"
+            },
+            "amount": 188769,
+            "rejected": true
+        },
+        {
+            "modelId": 15,
+            "memory": 256,
+            "case": "ideal",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 203305,
+            "rejected": false
+        },
+        {
+            "modelId": 15,
+            "memory": 256,
+            "case": "used",
+            "answers": {
+                "imeiStatus": "one_verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "1",
+                "displayCondition": "display-good",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "85",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 160776,
+            "rejected": false
+        },
+        {
+            "modelId": 15,
+            "memory": 256,
+            "case": "repaired",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "2",
+                "displayCondition": "display-satisfactory",
+                "serviceRepaired": "yes",
+                "batteryHealthManual": "75",
+                "modelNumberStatus": "yes",
+                "contractPhone": "contract_no"
+            },
+            "amount": 0,
+            "rejected": false
+        },
+        {
+            "modelId": 15,
+            "memory": 256,
+            "case": "blocked",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_yes"
+            },
+            "amount": 203305,
+            "rejected": true
+        },
+        {
+            "modelId": 15,
+            "memory": 512,
+            "case": "ideal",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 223713,
+            "rejected": false
+        },
+        {
+            "modelId": 15,
+            "memory": 512,
+            "case": "used",
+            "answers": {
+                "imeiStatus": "one_verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "1",
+                "displayCondition": "display-good",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "85",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 177919,
+            "rejected": false
+        },
+        {
+            "modelId": 15,
+            "memory": 512,
+            "case": "repaired",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "2",
+                "displayCondition": "display-satisfactory",
+                "serviceRepaired": "yes",
+                "batteryHealthManual": "75",
+                "modelNumberStatus": "yes",
+                "contractPhone": "contract_no"
+            },
+            "amount": 0,
+            "rejected": false
+        },
+        {
+            "modelId": 15,
+            "memory": 512,
+            "case": "blocked",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_yes"
+            },
+            "amount": 223713,
+            "rejected": true
+        },
+        {
+            "modelId": 15,
+            "memory": 1024,
+            "case": "ideal",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 261460,
+            "rejected": false
+        },
+        {
+            "modelId": 15,
+            "memory": 1024,
+            "case": "used",
+            "answers": {
+                "imeiStatus": "one_verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "1",
+                "displayCondition": "display-good",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "85",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 209626,
+            "rejected": false
+        },
+        {
+            "modelId": 15,
+            "memory": 1024,
+            "case": "repaired",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "2",
+                "displayCondition": "display-satisfactory",
+                "serviceRepaired": "yes",
+                "batteryHealthManual": "75",
+                "modelNumberStatus": "yes",
+                "contractPhone": "contract_no"
+            },
+            "amount": 0,
+            "rejected": false
+        },
+        {
+            "modelId": 15,
+            "memory": 1024,
+            "case": "blocked",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_yes"
+            },
+            "amount": 261460,
+            "rejected": true
+        },
+        {
+            "modelId": 16,
+            "memory": 128,
+            "case": "ideal",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 204587,
+            "rejected": false
+        },
+        {
+            "modelId": 16,
+            "memory": 128,
+            "case": "used",
+            "answers": {
+                "imeiStatus": "one_verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "1",
+                "displayCondition": "display-good",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "85",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 161853,
+            "rejected": false
+        },
+        {
+            "modelId": 16,
+            "memory": 128,
+            "case": "repaired",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "2",
+                "displayCondition": "display-satisfactory",
+                "serviceRepaired": "yes",
+                "batteryHealthManual": "75",
+                "modelNumberStatus": "yes",
+                "contractPhone": "contract_no"
+            },
+            "amount": 0,
+            "rejected": false
+        },
+        {
+            "modelId": 16,
+            "memory": 128,
+            "case": "blocked",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_yes"
+            },
+            "amount": 204587,
+            "rejected": true
+        },
+        {
+            "modelId": 16,
+            "memory": 256,
+            "case": "ideal",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 215941,
+            "rejected": false
+        },
+        {
+            "modelId": 16,
+            "memory": 256,
+            "case": "used",
+            "answers": {
+                "imeiStatus": "one_verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "1",
+                "displayCondition": "display-good",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "85",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 171390,
+            "rejected": false
+        },
+        {
+            "modelId": 16,
+            "memory": 256,
+            "case": "repaired",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "2",
+                "displayCondition": "display-satisfactory",
+                "serviceRepaired": "yes",
+                "batteryHealthManual": "75",
+                "modelNumberStatus": "yes",
+                "contractPhone": "contract_no"
+            },
+            "amount": 0,
+            "rejected": false
+        },
+        {
+            "modelId": 16,
+            "memory": 256,
+            "case": "blocked",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_yes"
+            },
+            "amount": 215941,
+            "rejected": true
+        },
+        {
+            "modelId": 16,
+            "memory": 512,
+            "case": "ideal",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 230762,
+            "rejected": false
+        },
+        {
+            "modelId": 16,
+            "memory": 512,
+            "case": "used",
+            "answers": {
+                "imeiStatus": "one_verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "1",
+                "displayCondition": "display-good",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "85",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 183840,
+            "rejected": false
+        },
+        {
+            "modelId": 16,
+            "memory": 512,
+            "case": "repaired",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "2",
+                "displayCondition": "display-satisfactory",
+                "serviceRepaired": "yes",
+                "batteryHealthManual": "75",
+                "modelNumberStatus": "yes",
+                "contractPhone": "contract_no"
+            },
+            "amount": 0,
+            "rejected": false
+        },
+        {
+            "modelId": 16,
+            "memory": 512,
+            "case": "blocked",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_yes"
+            },
+            "amount": 230762,
+            "rejected": true
+        },
+        {
+            "modelId": 16,
+            "memory": 1024,
+            "case": "ideal",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 246640,
+            "rejected": false
+        },
+        {
+            "modelId": 16,
+            "memory": 1024,
+            "case": "used",
+            "answers": {
+                "imeiStatus": "one_verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "1",
+                "displayCondition": "display-good",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "85",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 197178,
+            "rejected": false
+        },
+        {
+            "modelId": 16,
+            "memory": 1024,
+            "case": "repaired",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "2",
+                "displayCondition": "display-satisfactory",
+                "serviceRepaired": "yes",
+                "batteryHealthManual": "75",
+                "modelNumberStatus": "yes",
+                "contractPhone": "contract_no"
+            },
+            "amount": 0,
+            "rejected": false
+        },
+        {
+            "modelId": 16,
+            "memory": 1024,
+            "case": "blocked",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_yes"
+            },
+            "amount": 246640,
+            "rejected": true
+        },
+        {
+            "modelId": 17,
+            "memory": 128,
+            "case": "ideal",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 173978,
+            "rejected": false
+        },
+        {
+            "modelId": 17,
+            "memory": 128,
+            "case": "used",
+            "answers": {
+                "imeiStatus": "one_verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "1",
+                "displayCondition": "display-good",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "85",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 136142,
+            "rejected": false
+        },
+        {
+            "modelId": 17,
+            "memory": 128,
+            "case": "repaired",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "2",
+                "displayCondition": "display-satisfactory",
+                "serviceRepaired": "yes",
+                "batteryHealthManual": "75",
+                "modelNumberStatus": "yes",
+                "contractPhone": "contract_no"
+            },
+            "amount": 0,
+            "rejected": false
+        },
+        {
+            "modelId": 17,
+            "memory": 128,
+            "case": "blocked",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_yes"
+            },
+            "amount": 173978,
+            "rejected": true
+        },
+        {
+            "modelId": 17,
+            "memory": 256,
+            "case": "ideal",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 183920,
+            "rejected": false
+        },
+        {
+            "modelId": 17,
+            "memory": 256,
+            "case": "used",
+            "answers": {
+                "imeiStatus": "one_verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "1",
+                "displayCondition": "display-good",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "85",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 144493,
+            "rejected": false
+        },
+        {
+            "modelId": 17,
+            "memory": 256,
+            "case": "repaired",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "2",
+                "displayCondition": "display-satisfactory",
+                "serviceRepaired": "yes",
+                "batteryHealthManual": "75",
+                "modelNumberStatus": "yes",
+                "contractPhone": "contract_no"
+            },
+            "amount": 0,
+            "rejected": false
+        },
+        {
+            "modelId": 17,
+            "memory": 256,
+            "case": "blocked",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_yes"
+            },
+            "amount": 183920,
+            "rejected": true
+        },
+        {
+            "modelId": 17,
+            "memory": 512,
+            "case": "ideal",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 193861,
+            "rejected": false
+        },
+        {
+            "modelId": 17,
+            "memory": 512,
+            "case": "used",
+            "answers": {
+                "imeiStatus": "one_verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "1",
+                "displayCondition": "display-good",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "85",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 152843,
+            "rejected": false
+        },
+        {
+            "modelId": 17,
+            "memory": 512,
+            "case": "repaired",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "2",
+                "displayCondition": "display-satisfactory",
+                "serviceRepaired": "yes",
+                "batteryHealthManual": "75",
+                "modelNumberStatus": "yes",
+                "contractPhone": "contract_no"
+            },
+            "amount": 0,
+            "rejected": false
+        },
+        {
+            "modelId": 17,
+            "memory": 512,
+            "case": "blocked",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_yes"
+            },
+            "amount": 193861,
+            "rejected": true
+        },
+        {
+            "modelId": 18,
+            "memory": 128,
+            "case": "ideal",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 183920,
+            "rejected": false
+        },
+        {
+            "modelId": 18,
+            "memory": 128,
+            "case": "used",
+            "answers": {
+                "imeiStatus": "one_verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "1",
+                "displayCondition": "display-good",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "85",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 144493,
+            "rejected": false
+        },
+        {
+            "modelId": 18,
+            "memory": 128,
+            "case": "repaired",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "2",
+                "displayCondition": "display-satisfactory",
+                "serviceRepaired": "yes",
+                "batteryHealthManual": "75",
+                "modelNumberStatus": "yes",
+                "contractPhone": "contract_no"
+            },
+            "amount": 0,
+            "rejected": false
+        },
+        {
+            "modelId": 18,
+            "memory": 128,
+            "case": "blocked",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_yes"
+            },
+            "amount": 183920,
+            "rejected": true
+        },
+        {
+            "modelId": 18,
+            "memory": 256,
+            "case": "ideal",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 188890,
+            "rejected": false
+        },
+        {
+            "modelId": 18,
+            "memory": 256,
+            "case": "used",
+            "answers": {
+                "imeiStatus": "one_verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "1",
+                "displayCondition": "display-good",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "85",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 148668,
+            "rejected": false
+        },
+        {
+            "modelId": 18,
+            "memory": 256,
+            "case": "repaired",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "2",
+                "displayCondition": "display-satisfactory",
+                "serviceRepaired": "yes",
+                "batteryHealthManual": "75",
+                "modelNumberStatus": "yes",
+                "contractPhone": "contract_no"
+            },
+            "amount": 0,
+            "rejected": false
+        },
+        {
+            "modelId": 18,
+            "memory": 256,
+            "case": "blocked",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_yes"
+            },
+            "amount": 188890,
+            "rejected": true
+        },
+        {
+            "modelId": 18,
+            "memory": 512,
+            "case": "ideal",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 193861,
+            "rejected": false
+        },
+        {
+            "modelId": 18,
+            "memory": 512,
+            "case": "used",
+            "answers": {
+                "imeiStatus": "one_verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "1",
+                "displayCondition": "display-good",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "85",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 152843,
+            "rejected": false
+        },
+        {
+            "modelId": 18,
+            "memory": 512,
+            "case": "repaired",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "2",
+                "displayCondition": "display-satisfactory",
+                "serviceRepaired": "yes",
+                "batteryHealthManual": "75",
+                "modelNumberStatus": "yes",
+                "contractPhone": "contract_no"
+            },
+            "amount": 0,
+            "rejected": false
+        },
+        {
+            "modelId": 18,
+            "memory": 512,
+            "case": "blocked",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_yes"
+            },
+            "amount": 193861,
+            "rejected": true
+        },
+        {
+            "modelId": 19,
+            "memory": 128,
+            "case": "ideal",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 228657,
+            "rejected": false
+        },
+        {
+            "modelId": 19,
+            "memory": 128,
+            "case": "used",
+            "answers": {
+                "imeiStatus": "one_verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "1",
+                "displayCondition": "display-good",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "85",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 182072,
+            "rejected": false
+        },
+        {
+            "modelId": 19,
+            "memory": 128,
+            "case": "repaired",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "2",
+                "displayCondition": "display-satisfactory",
+                "serviceRepaired": "yes",
+                "batteryHealthManual": "75",
+                "modelNumberStatus": "yes",
+                "contractPhone": "contract_no"
+            },
+            "amount": 0,
+            "rejected": false
+        },
+        {
+            "modelId": 19,
+            "memory": 128,
+            "case": "blocked",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_yes"
+            },
+            "amount": 228657,
+            "rejected": true
+        },
+        {
+            "modelId": 19,
+            "memory": 256,
+            "case": "ideal",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 263452,
+            "rejected": false
+        },
+        {
+            "modelId": 19,
+            "memory": 256,
+            "case": "used",
+            "answers": {
+                "imeiStatus": "one_verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "1",
+                "displayCondition": "display-good",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "85",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 211300,
+            "rejected": false
+        },
+        {
+            "modelId": 19,
+            "memory": 256,
+            "case": "repaired",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "2",
+                "displayCondition": "display-satisfactory",
+                "serviceRepaired": "yes",
+                "batteryHealthManual": "75",
+                "modelNumberStatus": "yes",
+                "contractPhone": "contract_no"
+            },
+            "amount": 0,
+            "rejected": false
+        },
+        {
+            "modelId": 19,
+            "memory": 256,
+            "case": "blocked",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_yes"
+            },
+            "amount": 263452,
+            "rejected": true
+        },
+        {
+            "modelId": 19,
+            "memory": 512,
+            "case": "ideal",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 278365,
+            "rejected": false
+        },
+        {
+            "modelId": 19,
+            "memory": 512,
+            "case": "used",
+            "answers": {
+                "imeiStatus": "one_verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "1",
+                "displayCondition": "display-good",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "85",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 223827,
+            "rejected": false
+        },
+        {
+            "modelId": 19,
+            "memory": 512,
+            "case": "repaired",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "2",
+                "displayCondition": "display-satisfactory",
+                "serviceRepaired": "yes",
+                "batteryHealthManual": "75",
+                "modelNumberStatus": "yes",
+                "contractPhone": "contract_no"
+            },
+            "amount": 0,
+            "rejected": false
+        },
+        {
+            "modelId": 19,
+            "memory": 512,
+            "case": "blocked",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_yes"
+            },
+            "amount": 278365,
+            "rejected": true
+        },
+        {
+            "modelId": 19,
+            "memory": 1024,
+            "case": "ideal",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 293277,
+            "rejected": false
+        },
+        {
+            "modelId": 19,
+            "memory": 1024,
+            "case": "used",
+            "answers": {
+                "imeiStatus": "one_verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "1",
+                "displayCondition": "display-good",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "85",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 236353,
+            "rejected": false
+        },
+        {
+            "modelId": 19,
+            "memory": 1024,
+            "case": "repaired",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "2",
+                "displayCondition": "display-satisfactory",
+                "serviceRepaired": "yes",
+                "batteryHealthManual": "75",
+                "modelNumberStatus": "yes",
+                "contractPhone": "contract_no"
+            },
+            "amount": 0,
+            "rejected": false
+        },
+        {
+            "modelId": 19,
+            "memory": 1024,
+            "case": "blocked",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_yes"
+            },
+            "amount": 293277,
+            "rejected": true
+        },
+        {
+            "modelId": 20,
+            "memory": 256,
+            "case": "ideal",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 278365,
+            "rejected": false
+        },
+        {
+            "modelId": 20,
+            "memory": 256,
+            "case": "used",
+            "answers": {
+                "imeiStatus": "one_verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "1",
+                "displayCondition": "display-good",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "85",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 223827,
+            "rejected": false
+        },
+        {
+            "modelId": 20,
+            "memory": 256,
+            "case": "repaired",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "2",
+                "displayCondition": "display-satisfactory",
+                "serviceRepaired": "yes",
+                "batteryHealthManual": "75",
+                "modelNumberStatus": "yes",
+                "contractPhone": "contract_no"
+            },
+            "amount": 0,
+            "rejected": false
+        },
+        {
+            "modelId": 20,
+            "memory": 256,
+            "case": "blocked",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_yes"
+            },
+            "amount": 278365,
+            "rejected": true
+        },
+        {
+            "modelId": 20,
+            "memory": 512,
+            "case": "ideal",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 308190,
+            "rejected": false
+        },
+        {
+            "modelId": 20,
+            "memory": 512,
+            "case": "used",
+            "answers": {
+                "imeiStatus": "one_verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "1",
+                "displayCondition": "display-good",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "85",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 248880,
+            "rejected": false
+        },
+        {
+            "modelId": 20,
+            "memory": 512,
+            "case": "repaired",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "2",
+                "displayCondition": "display-satisfactory",
+                "serviceRepaired": "yes",
+                "batteryHealthManual": "75",
+                "modelNumberStatus": "yes",
+                "contractPhone": "contract_no"
+            },
+            "amount": 0,
+            "rejected": false
+        },
+        {
+            "modelId": 20,
+            "memory": 512,
+            "case": "blocked",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_yes"
+            },
+            "amount": 308190,
+            "rejected": true
+        },
+        {
+            "modelId": 20,
+            "memory": 1024,
+            "case": "ideal",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 326084,
+            "rejected": false
+        },
+        {
+            "modelId": 20,
+            "memory": 1024,
+            "case": "used",
+            "answers": {
+                "imeiStatus": "one_verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "1",
+                "displayCondition": "display-good",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "85",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 263911,
+            "rejected": false
+        },
+        {
+            "modelId": 20,
+            "memory": 1024,
+            "case": "repaired",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "2",
+                "displayCondition": "display-satisfactory",
+                "serviceRepaired": "yes",
+                "batteryHealthManual": "75",
+                "modelNumberStatus": "yes",
+                "contractPhone": "contract_no"
+            },
+            "amount": 0,
+            "rejected": false
+        },
+        {
+            "modelId": 20,
+            "memory": 1024,
+            "case": "blocked",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_yes"
+            },
+            "amount": 326084,
+            "rejected": true
+        },
+        {
+            "modelId": 253,
+            "memory": 128,
+            "case": "ideal",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 233628,
+            "rejected": false
+        },
+        {
+            "modelId": 253,
+            "memory": 128,
+            "case": "used",
+            "answers": {
+                "imeiStatus": "one_verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "1",
+                "displayCondition": "display-good",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "85",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 186248,
+            "rejected": false
+        },
+        {
+            "modelId": 253,
+            "memory": 128,
+            "case": "repaired",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "2",
+                "displayCondition": "display-satisfactory",
+                "serviceRepaired": "yes",
+                "batteryHealthManual": "75",
+                "modelNumberStatus": "yes",
+                "contractPhone": "contract_no"
+            },
+            "amount": 0,
+            "rejected": false
+        },
+        {
+            "modelId": 253,
+            "memory": 128,
+            "case": "blocked",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_yes"
+            },
+            "amount": 233628,
+            "rejected": true
+        },
+        {
+            "modelId": 253,
+            "memory": 256,
+            "case": "ideal",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 248540,
+            "rejected": false
+        },
+        {
+            "modelId": 253,
+            "memory": 256,
+            "case": "used",
+            "answers": {
+                "imeiStatus": "one_verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "1",
+                "displayCondition": "display-good",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "85",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 198774,
+            "rejected": false
+        },
+        {
+            "modelId": 253,
+            "memory": 256,
+            "case": "repaired",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "2",
+                "displayCondition": "display-satisfactory",
+                "serviceRepaired": "yes",
+                "batteryHealthManual": "75",
+                "modelNumberStatus": "yes",
+                "contractPhone": "contract_no"
+            },
+            "amount": 0,
+            "rejected": false
+        },
+        {
+            "modelId": 253,
+            "memory": 256,
+            "case": "blocked",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_yes"
+            },
+            "amount": 248540,
+            "rejected": true
+        },
+        {
+            "modelId": 253,
+            "memory": 512,
+            "case": "ideal",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 263452,
+            "rejected": false
+        },
+        {
+            "modelId": 253,
+            "memory": 512,
+            "case": "used",
+            "answers": {
+                "imeiStatus": "one_verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "1",
+                "displayCondition": "display-good",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "85",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 211300,
+            "rejected": false
+        },
+        {
+            "modelId": 253,
+            "memory": 512,
+            "case": "repaired",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "2",
+                "displayCondition": "display-satisfactory",
+                "serviceRepaired": "yes",
+                "batteryHealthManual": "75",
+                "modelNumberStatus": "yes",
+                "contractPhone": "contract_no"
+            },
+            "amount": 0,
+            "rejected": false
+        },
+        {
+            "modelId": 253,
+            "memory": 512,
+            "case": "blocked",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_yes"
+            },
+            "amount": 263452,
+            "rejected": true
+        },
+        {
+            "modelId": 257,
+            "memory": 128,
+            "case": "ideal",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 197838,
+            "rejected": false
+        },
+        {
+            "modelId": 257,
+            "memory": 128,
+            "case": "used",
+            "answers": {
+                "imeiStatus": "one_verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "1",
+                "displayCondition": "display-good",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "85",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 156184,
+            "rejected": false
+        },
+        {
+            "modelId": 257,
+            "memory": 128,
+            "case": "repaired",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "2",
+                "displayCondition": "display-satisfactory",
+                "serviceRepaired": "yes",
+                "batteryHealthManual": "75",
+                "modelNumberStatus": "yes",
+                "contractPhone": "contract_no"
+            },
+            "amount": 0,
+            "rejected": false
+        },
+        {
+            "modelId": 257,
+            "memory": 128,
+            "case": "blocked",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_yes"
+            },
+            "amount": 197838,
+            "rejected": true
+        },
+        {
+            "modelId": 257,
+            "memory": 256,
+            "case": "ideal",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 218715,
+            "rejected": false
+        },
+        {
+            "modelId": 257,
+            "memory": 256,
+            "case": "used",
+            "answers": {
+                "imeiStatus": "one_verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "1",
+                "displayCondition": "display-good",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "85",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 173721,
+            "rejected": false
+        },
+        {
+            "modelId": 257,
+            "memory": 256,
+            "case": "repaired",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "2",
+                "displayCondition": "display-satisfactory",
+                "serviceRepaired": "yes",
+                "batteryHealthManual": "75",
+                "modelNumberStatus": "yes",
+                "contractPhone": "contract_no"
+            },
+            "amount": 0,
+            "rejected": false
+        },
+        {
+            "modelId": 257,
+            "memory": 256,
+            "case": "blocked",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_yes"
+            },
+            "amount": 218715,
+            "rejected": true
+        },
+        {
+            "modelId": 257,
+            "memory": 512,
+            "case": "ideal",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 233628,
+            "rejected": false
+        },
+        {
+            "modelId": 257,
+            "memory": 512,
+            "case": "used",
+            "answers": {
+                "imeiStatus": "one_verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "1",
+                "displayCondition": "display-good",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "85",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 186248,
+            "rejected": false
+        },
+        {
+            "modelId": 257,
+            "memory": 512,
+            "case": "repaired",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "2",
+                "displayCondition": "display-satisfactory",
+                "serviceRepaired": "yes",
+                "batteryHealthManual": "75",
+                "modelNumberStatus": "yes",
+                "contractPhone": "contract_no"
+            },
+            "amount": 0,
+            "rejected": false
+        },
+        {
+            "modelId": 257,
+            "memory": 512,
+            "case": "blocked",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_yes"
+            },
+            "amount": 233628,
+            "rejected": true
+        },
+        {
+            "modelId": 258,
+            "memory": 128,
+            "case": "ideal",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 293277,
+            "rejected": false
+        },
+        {
+            "modelId": 258,
+            "memory": 128,
+            "case": "used",
+            "answers": {
+                "imeiStatus": "one_verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "1",
+                "displayCondition": "display-good",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "85",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 236353,
+            "rejected": false
+        },
+        {
+            "modelId": 258,
+            "memory": 128,
+            "case": "repaired",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "2",
+                "displayCondition": "display-satisfactory",
+                "serviceRepaired": "yes",
+                "batteryHealthManual": "75",
+                "modelNumberStatus": "yes",
+                "contractPhone": "contract_no"
+            },
+            "amount": 0,
+            "rejected": false
+        },
+        {
+            "modelId": 258,
+            "memory": 128,
+            "case": "blocked",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_yes"
+            },
+            "amount": 293277,
+            "rejected": true
+        },
+        {
+            "modelId": 258,
+            "memory": 256,
+            "case": "ideal",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 326084,
+            "rejected": false
+        },
+        {
+            "modelId": 258,
+            "memory": 256,
+            "case": "used",
+            "answers": {
+                "imeiStatus": "one_verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "1",
+                "displayCondition": "display-good",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "85",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 263911,
+            "rejected": false
+        },
+        {
+            "modelId": 258,
+            "memory": 256,
+            "case": "repaired",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "2",
+                "displayCondition": "display-satisfactory",
+                "serviceRepaired": "yes",
+                "batteryHealthManual": "75",
+                "modelNumberStatus": "yes",
+                "contractPhone": "contract_no"
+            },
+            "amount": 0,
+            "rejected": false
+        },
+        {
+            "modelId": 258,
+            "memory": 256,
+            "case": "blocked",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_yes"
+            },
+            "amount": 326084,
+            "rejected": true
+        },
+        {
+            "modelId": 258,
+            "memory": 512,
+            "case": "ideal",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 362868,
+            "rejected": false
+        },
+        {
+            "modelId": 258,
+            "memory": 512,
+            "case": "used",
+            "answers": {
+                "imeiStatus": "one_verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "1",
+                "displayCondition": "display-good",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "85",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 294809,
+            "rejected": false
+        },
+        {
+            "modelId": 258,
+            "memory": 512,
+            "case": "repaired",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "2",
+                "displayCondition": "display-satisfactory",
+                "serviceRepaired": "yes",
+                "batteryHealthManual": "75",
+                "modelNumberStatus": "yes",
+                "contractPhone": "contract_no"
+            },
+            "amount": 0,
+            "rejected": false
+        },
+        {
+            "modelId": 258,
+            "memory": 512,
+            "case": "blocked",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_yes"
+            },
+            "amount": 362868,
+            "rejected": true
+        },
+        {
+            "modelId": 258,
+            "memory": 1024,
+            "case": "ideal",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 395676,
+            "rejected": false
+        },
+        {
+            "modelId": 258,
+            "memory": 1024,
+            "case": "used",
+            "answers": {
+                "imeiStatus": "one_verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "1",
+                "displayCondition": "display-good",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "85",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 322368,
+            "rejected": false
+        },
+        {
+            "modelId": 258,
+            "memory": 1024,
+            "case": "repaired",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "2",
+                "displayCondition": "display-satisfactory",
+                "serviceRepaired": "yes",
+                "batteryHealthManual": "75",
+                "modelNumberStatus": "yes",
+                "contractPhone": "contract_no"
+            },
+            "amount": 0,
+            "rejected": false
+        },
+        {
+            "modelId": 258,
+            "memory": 1024,
+            "case": "blocked",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_yes"
+            },
+            "amount": 395676,
+            "rejected": true
+        },
+        {
+            "modelId": 259,
+            "memory": 256,
+            "case": "ideal",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 347956,
+            "rejected": false
+        },
+        {
+            "modelId": 259,
+            "memory": 256,
+            "case": "used",
+            "answers": {
+                "imeiStatus": "one_verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "1",
+                "displayCondition": "display-good",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "85",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 282283,
+            "rejected": false
+        },
+        {
+            "modelId": 259,
+            "memory": 256,
+            "case": "repaired",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "2",
+                "displayCondition": "display-satisfactory",
+                "serviceRepaired": "yes",
+                "batteryHealthManual": "75",
+                "modelNumberStatus": "yes",
+                "contractPhone": "contract_no"
+            },
+            "amount": 0,
+            "rejected": false
+        },
+        {
+            "modelId": 259,
+            "memory": 256,
+            "case": "blocked",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_yes"
+            },
+            "amount": 347956,
+            "rejected": true
+        },
+        {
+            "modelId": 259,
+            "memory": 512,
+            "case": "ideal",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 377781,
+            "rejected": false
+        },
+        {
+            "modelId": 259,
+            "memory": 512,
+            "case": "used",
+            "answers": {
+                "imeiStatus": "one_verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "1",
+                "displayCondition": "display-good",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "85",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 307336,
+            "rejected": false
+        },
+        {
+            "modelId": 259,
+            "memory": 512,
+            "case": "repaired",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "2",
+                "displayCondition": "display-satisfactory",
+                "serviceRepaired": "yes",
+                "batteryHealthManual": "75",
+                "modelNumberStatus": "yes",
+                "contractPhone": "contract_no"
+            },
+            "amount": 0,
+            "rejected": false
+        },
+        {
+            "modelId": 259,
+            "memory": 512,
+            "case": "blocked",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_yes"
+            },
+            "amount": 377781,
+            "rejected": true
+        },
+        {
+            "modelId": 259,
+            "memory": 1024,
+            "case": "ideal",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 408600,
+            "rejected": false
+        },
+        {
+            "modelId": 259,
+            "memory": 1024,
+            "case": "used",
+            "answers": {
+                "imeiStatus": "one_verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "1",
+                "displayCondition": "display-good",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "85",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 333224,
+            "rejected": false
+        },
+        {
+            "modelId": 259,
+            "memory": 1024,
+            "case": "repaired",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "2",
+                "displayCondition": "display-satisfactory",
+                "serviceRepaired": "yes",
+                "batteryHealthManual": "75",
+                "modelNumberStatus": "yes",
+                "contractPhone": "contract_no"
+            },
+            "amount": 0,
+            "rejected": false
+        },
+        {
+            "modelId": 259,
+            "memory": 1024,
+            "case": "blocked",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_yes"
+            },
+            "amount": 408600,
+            "rejected": true
+        },
+        {
+            "modelId": 333,
+            "memory": 128,
+            "case": "ideal",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 170996,
+            "rejected": false
+        },
+        {
+            "modelId": 333,
+            "memory": 128,
+            "case": "used",
+            "answers": {
+                "imeiStatus": "one_verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "1",
+                "displayCondition": "display-good",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "85",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 133637,
+            "rejected": false
+        },
+        {
+            "modelId": 333,
+            "memory": 128,
+            "case": "repaired",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "2",
+                "displayCondition": "display-satisfactory",
+                "serviceRepaired": "yes",
+                "batteryHealthManual": "75",
+                "modelNumberStatus": "yes",
+                "contractPhone": "contract_no"
+            },
+            "amount": 0,
+            "rejected": false
+        },
+        {
+            "modelId": 333,
+            "memory": 128,
+            "case": "blocked",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_yes"
+            },
+            "amount": 170996,
+            "rejected": true
+        },
+        {
+            "modelId": 333,
+            "memory": 256,
+            "case": "ideal",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 188890,
+            "rejected": false
+        },
+        {
+            "modelId": 333,
+            "memory": 256,
+            "case": "used",
+            "answers": {
+                "imeiStatus": "one_verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "1",
+                "displayCondition": "display-good",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "85",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 148668,
+            "rejected": false
+        },
+        {
+            "modelId": 333,
+            "memory": 256,
+            "case": "repaired",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "2",
+                "displayCondition": "display-satisfactory",
+                "serviceRepaired": "yes",
+                "batteryHealthManual": "75",
+                "modelNumberStatus": "yes",
+                "contractPhone": "contract_no"
+            },
+            "amount": 0,
+            "rejected": false
+        },
+        {
+            "modelId": 333,
+            "memory": 256,
+            "case": "blocked",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_yes"
+            },
+            "amount": 188890,
+            "rejected": true
+        },
+        {
+            "modelId": 333,
+            "memory": 512,
+            "case": "ideal",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 208774,
+            "rejected": false
+        },
+        {
+            "modelId": 333,
+            "memory": 512,
+            "case": "used",
+            "answers": {
+                "imeiStatus": "one_verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "1",
+                "displayCondition": "display-good",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "85",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 165370,
+            "rejected": false
+        },
+        {
+            "modelId": 333,
+            "memory": 512,
+            "case": "repaired",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "2",
+                "displayCondition": "display-satisfactory",
+                "serviceRepaired": "yes",
+                "batteryHealthManual": "75",
+                "modelNumberStatus": "yes",
+                "contractPhone": "contract_no"
+            },
+            "amount": 0,
+            "rejected": false
+        },
+        {
+            "modelId": 333,
+            "memory": 512,
+            "case": "blocked",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_yes"
+            },
+            "amount": 208774,
+            "rejected": true
+        },
+        {
+            "modelId": 391,
+            "memory": 256,
+            "case": "ideal",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 298248,
+            "rejected": false
+        },
+        {
+            "modelId": 391,
+            "memory": 256,
+            "case": "used",
+            "answers": {
+                "imeiStatus": "one_verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "1",
+                "displayCondition": "display-good",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "85",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 240528,
+            "rejected": false
+        },
+        {
+            "modelId": 391,
+            "memory": 256,
+            "case": "repaired",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "2",
+                "displayCondition": "display-satisfactory",
+                "serviceRepaired": "yes",
+                "batteryHealthManual": "75",
+                "modelNumberStatus": "yes",
+                "contractPhone": "contract_no"
+            },
+            "amount": 0,
+            "rejected": false
+        },
+        {
+            "modelId": 391,
+            "memory": 256,
+            "case": "blocked",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_yes"
+            },
+            "amount": 298248,
+            "rejected": true
+        },
+        {
+            "modelId": 391,
+            "memory": 512,
+            "case": "ideal",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 367839,
+            "rejected": false
+        },
+        {
+            "modelId": 391,
+            "memory": 512,
+            "case": "used",
+            "answers": {
+                "imeiStatus": "one_verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "1",
+                "displayCondition": "display-good",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "85",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 298985,
+            "rejected": false
+        },
+        {
+            "modelId": 391,
+            "memory": 512,
+            "case": "repaired",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "2",
+                "displayCondition": "display-satisfactory",
+                "serviceRepaired": "yes",
+                "batteryHealthManual": "75",
+                "modelNumberStatus": "yes",
+                "contractPhone": "contract_no"
+            },
+            "amount": 0,
+            "rejected": false
+        },
+        {
+            "modelId": 391,
+            "memory": 512,
+            "case": "blocked",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_yes"
+            },
+            "amount": 367839,
+            "rejected": true
+        },
+        {
+            "modelId": 391,
+            "memory": 1024,
+            "case": "ideal",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 318131,
+            "rejected": false
+        },
+        {
+            "modelId": 391,
+            "memory": 1024,
+            "case": "used",
+            "answers": {
+                "imeiStatus": "one_verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "1",
+                "displayCondition": "display-good",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "85",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 257230,
+            "rejected": false
+        },
+        {
+            "modelId": 391,
+            "memory": 1024,
+            "case": "repaired",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "2",
+                "displayCondition": "display-satisfactory",
+                "serviceRepaired": "yes",
+                "batteryHealthManual": "75",
+                "modelNumberStatus": "yes",
+                "contractPhone": "contract_no"
+            },
+            "amount": 0,
+            "rejected": false
+        },
+        {
+            "modelId": 391,
+            "memory": 1024,
+            "case": "blocked",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_yes"
+            },
+            "amount": 318131,
+            "rejected": true
+        },
+        {
+            "modelId": 392,
+            "memory": 256,
+            "case": "ideal",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 357898,
+            "rejected": false
+        },
+        {
+            "modelId": 392,
+            "memory": 256,
+            "case": "used",
+            "answers": {
+                "imeiStatus": "one_verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "1",
+                "displayCondition": "display-good",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "85",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 290634,
+            "rejected": false
+        },
+        {
+            "modelId": 392,
+            "memory": 256,
+            "case": "repaired",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "2",
+                "displayCondition": "display-satisfactory",
+                "serviceRepaired": "yes",
+                "batteryHealthManual": "75",
+                "modelNumberStatus": "yes",
+                "contractPhone": "contract_no"
+            },
+            "amount": 0,
+            "rejected": false
+        },
+        {
+            "modelId": 392,
+            "memory": 256,
+            "case": "blocked",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_yes"
+            },
+            "amount": 357898,
+            "rejected": true
+        },
+        {
+            "modelId": 392,
+            "memory": 512,
+            "case": "ideal",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 395676,
+            "rejected": false
+        },
+        {
+            "modelId": 392,
+            "memory": 512,
+            "case": "used",
+            "answers": {
+                "imeiStatus": "one_verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "1",
+                "displayCondition": "display-good",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "85",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 322368,
+            "rejected": false
+        },
+        {
+            "modelId": 392,
+            "memory": 512,
+            "case": "repaired",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "2",
+                "displayCondition": "display-satisfactory",
+                "serviceRepaired": "yes",
+                "batteryHealthManual": "75",
+                "modelNumberStatus": "yes",
+                "contractPhone": "contract_no"
+            },
+            "amount": 0,
+            "rejected": false
+        },
+        {
+            "modelId": 392,
+            "memory": 512,
+            "case": "blocked",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_yes"
+            },
+            "amount": 395676,
+            "rejected": true
+        },
+        {
+            "modelId": 393,
+            "memory": 256,
+            "case": "ideal",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 407606,
+            "rejected": false
+        },
+        {
+            "modelId": 393,
+            "memory": 256,
+            "case": "used",
+            "answers": {
+                "imeiStatus": "one_verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "1",
+                "displayCondition": "display-good",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "85",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 332389,
+            "rejected": false
+        },
+        {
+            "modelId": 393,
+            "memory": 256,
+            "case": "repaired",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "2",
+                "displayCondition": "display-satisfactory",
+                "serviceRepaired": "yes",
+                "batteryHealthManual": "75",
+                "modelNumberStatus": "yes",
+                "contractPhone": "contract_no"
+            },
+            "amount": 0,
+            "rejected": false
+        },
+        {
+            "modelId": 393,
+            "memory": 256,
+            "case": "blocked",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_yes"
+            },
+            "amount": 407606,
+            "rejected": true
+        },
+        {
+            "modelId": 393,
+            "memory": 512,
+            "case": "ideal",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 478992,
+            "rejected": false
+        },
+        {
+            "modelId": 393,
+            "memory": 512,
+            "case": "used",
+            "answers": {
+                "imeiStatus": "one_verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "1",
+                "displayCondition": "display-good",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "85",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 392353,
+            "rejected": false
+        },
+        {
+            "modelId": 393,
+            "memory": 512,
+            "case": "repaired",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "2",
+                "displayCondition": "display-satisfactory",
+                "serviceRepaired": "yes",
+                "batteryHealthManual": "75",
+                "modelNumberStatus": "yes",
+                "contractPhone": "contract_no"
+            },
+            "amount": 0,
+            "rejected": false
+        },
+        {
+            "modelId": 393,
+            "memory": 512,
+            "case": "blocked",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_yes"
+            },
+            "amount": 478992,
+            "rejected": true
+        },
+        {
+            "modelId": 393,
+            "memory": 1024,
+            "case": "ideal",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 528887,
+            "rejected": false
+        },
+        {
+            "modelId": 393,
+            "memory": 1024,
+            "case": "used",
+            "answers": {
+                "imeiStatus": "one_verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "1",
+                "displayCondition": "display-good",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "85",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 434265,
+            "rejected": false
+        },
+        {
+            "modelId": 393,
+            "memory": 1024,
+            "case": "repaired",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "2",
+                "displayCondition": "display-satisfactory",
+                "serviceRepaired": "yes",
+                "batteryHealthManual": "75",
+                "modelNumberStatus": "yes",
+                "contractPhone": "contract_no"
+            },
+            "amount": 0,
+            "rejected": false
+        },
+        {
+            "modelId": 393,
+            "memory": 1024,
+            "case": "blocked",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_yes"
+            },
+            "amount": 528887,
+            "rejected": true
+        },
+        {
+            "modelId": 394,
+            "memory": 256,
+            "case": "ideal",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 449055,
+            "rejected": false
+        },
+        {
+            "modelId": 394,
+            "memory": 256,
+            "case": "used",
+            "answers": {
+                "imeiStatus": "one_verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "1",
+                "displayCondition": "display-good",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "85",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 367206,
+            "rejected": false
+        },
+        {
+            "modelId": 394,
+            "memory": 256,
+            "case": "repaired",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "2",
+                "displayCondition": "display-satisfactory",
+                "serviceRepaired": "yes",
+                "batteryHealthManual": "75",
+                "modelNumberStatus": "yes",
+                "contractPhone": "contract_no"
+            },
+            "amount": 0,
+            "rejected": false
+        },
+        {
+            "modelId": 394,
+            "memory": 256,
+            "case": "blocked",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_yes"
+            },
+            "amount": 449055,
+            "rejected": true
+        },
+        {
+            "modelId": 394,
+            "memory": 512,
+            "case": "ideal",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 496954,
+            "rejected": false
+        },
+        {
+            "modelId": 394,
+            "memory": 512,
+            "case": "used",
+            "answers": {
+                "imeiStatus": "one_verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "1",
+                "displayCondition": "display-good",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "85",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 407441,
+            "rejected": false
+        },
+        {
+            "modelId": 394,
+            "memory": 512,
+            "case": "repaired",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "2",
+                "displayCondition": "display-satisfactory",
+                "serviceRepaired": "yes",
+                "batteryHealthManual": "75",
+                "modelNumberStatus": "yes",
+                "contractPhone": "contract_no"
+            },
+            "amount": 0,
+            "rejected": false
+        },
+        {
+            "modelId": 394,
+            "memory": 512,
+            "case": "blocked",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_yes"
+            },
+            "amount": 496954,
+            "rejected": true
+        },
+        {
+            "modelId": 394,
+            "memory": 1024,
+            "case": "ideal",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 554832,
+            "rejected": false
+        },
+        {
+            "modelId": 394,
+            "memory": 1024,
+            "case": "used",
+            "answers": {
+                "imeiStatus": "one_verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "1",
+                "displayCondition": "display-good",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "85",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 456059,
+            "rejected": false
+        },
+        {
+            "modelId": 394,
+            "memory": 1024,
+            "case": "repaired",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "2",
+                "displayCondition": "display-satisfactory",
+                "serviceRepaired": "yes",
+                "batteryHealthManual": "75",
+                "modelNumberStatus": "yes",
+                "contractPhone": "contract_no"
+            },
+            "amount": 0,
+            "rejected": false
+        },
+        {
+            "modelId": 394,
+            "memory": 1024,
+            "case": "blocked",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_yes"
+            },
+            "amount": 554832,
+            "rejected": true
+        },
+        {
+            "modelId": 394,
+            "memory": 2048,
+            "case": "ideal",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 658614,
+            "rejected": false
+        },
+        {
+            "modelId": 394,
+            "memory": 2048,
+            "case": "used",
+            "answers": {
+                "imeiStatus": "one_verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "1",
+                "displayCondition": "display-good",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "85",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_no"
+            },
+            "amount": 543236,
+            "rejected": false
+        },
+        {
+            "modelId": 394,
+            "memory": 2048,
+            "case": "repaired",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-no",
+                "bodyCondition": "2",
+                "displayCondition": "display-satisfactory",
+                "serviceRepaired": "yes",
+                "batteryHealthManual": "75",
+                "modelNumberStatus": "yes",
+                "contractPhone": "contract_no"
+            },
+            "amount": 0,
+            "rejected": false
+        },
+        {
+            "modelId": 394,
+            "memory": 2048,
+            "case": "blocked",
+            "answers": {
+                "imeiStatus": "verified",
+                "equipment": "equipment-box-only",
+                "bodyCondition": "0",
+                "displayCondition": "display-ideal",
+                "serviceRepaired": "no",
+                "batteryHealthManual": "95",
+                "modelNumberStatus": "no",
+                "contractPhone": "contract_yes"
+            },
+            "amount": 658614,
+            "rejected": true
+        }
+    ]
+}

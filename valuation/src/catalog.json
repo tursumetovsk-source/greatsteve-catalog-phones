@@ -1,0 +1,619 @@
+{
+  "importedAt": "2026-10-01T18:16:11+00:00",
+  "currency": "KZT",
+  "models": [
+    {
+      "id": 9,
+      "name": "iPhone 13",
+      "specs": [
+        {
+          "memory": 128,
+          "price": 100184
+        },
+        {
+          "memory": 256,
+          "price": 107566
+        },
+        {
+          "memory": 512,
+          "price": 116004
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "name": "iPhone 13 Pro",
+      "specs": [
+        {
+          "memory": 128,
+          "price": 152914
+        },
+        {
+          "memory": 256,
+          "price": 160295
+        },
+        {
+          "memory": 512,
+          "price": 172950
+        },
+        {
+          "memory": 1024,
+          "price": 230762
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "name": "iPhone 13 Pro Max",
+      "specs": [
+        {
+          "memory": 128,
+          "price": 168732
+        },
+        {
+          "memory": 256,
+          "price": 177168
+        },
+        {
+          "memory": 512,
+          "price": 189823
+        },
+        {
+          "memory": 1024,
+          "price": 234997
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "name": "iPhone 13 Mini",
+      "specs": [
+        {
+          "memory": 128,
+          "price": 92802
+        },
+        {
+          "memory": 256,
+          "price": 100184
+        },
+        {
+          "memory": 512,
+          "price": 116004
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "name": "iPhone 14",
+      "specs": [
+        {
+          "memory": 128,
+          "price": 116004
+        },
+        {
+          "memory": 256,
+          "price": 123385
+        },
+        {
+          "memory": 512,
+          "price": 130768
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "name": "iPhone 14 Plus",
+      "specs": [
+        {
+          "memory": 128,
+          "price": 130768
+        },
+        {
+          "memory": 256,
+          "price": 138149
+        },
+        {
+          "memory": 512,
+          "price": 146586
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "name": "iPhone 14 Pro",
+      "specs": [
+        {
+          "memory": 128,
+          "price": 188769
+        },
+        {
+          "memory": 256,
+          "price": 203305
+        },
+        {
+          "memory": 512,
+          "price": 223713
+        },
+        {
+          "memory": 1024,
+          "price": 261460
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "name": "iPhone 14 Pro Max",
+      "specs": [
+        {
+          "memory": 128,
+          "price": 204587
+        },
+        {
+          "memory": 256,
+          "price": 215941
+        },
+        {
+          "memory": 512,
+          "price": 230762
+        },
+        {
+          "memory": 1024,
+          "price": 246640
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "name": "iPhone 15",
+      "specs": [
+        {
+          "memory": 128,
+          "price": 173978
+        },
+        {
+          "memory": 256,
+          "price": 183920
+        },
+        {
+          "memory": 512,
+          "price": 193861
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "name": "iPhone 15 Plus",
+      "specs": [
+        {
+          "memory": 128,
+          "price": 183920
+        },
+        {
+          "memory": 256,
+          "price": 188890
+        },
+        {
+          "memory": 512,
+          "price": 193861
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "name": "iPhone 15 Pro",
+      "specs": [
+        {
+          "memory": 128,
+          "price": 228657
+        },
+        {
+          "memory": 256,
+          "price": 263452
+        },
+        {
+          "memory": 512,
+          "price": 278365
+        },
+        {
+          "memory": 1024,
+          "price": 293277
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "name": "iPhone 15 Pro Max",
+      "specs": [
+        {
+          "memory": 256,
+          "price": 278365
+        },
+        {
+          "memory": 512,
+          "price": 308190
+        },
+        {
+          "memory": 1024,
+          "price": 326084
+        }
+      ]
+    },
+    {
+      "id": 253,
+      "name": "iPhone 16",
+      "specs": [
+        {
+          "memory": 128,
+          "price": 233628
+        },
+        {
+          "memory": 256,
+          "price": 248540
+        },
+        {
+          "memory": 512,
+          "price": 263452
+        }
+      ]
+    },
+    {
+      "id": 257,
+      "name": "iPhone 16 Plus",
+      "specs": [
+        {
+          "memory": 128,
+          "price": 197838
+        },
+        {
+          "memory": 256,
+          "price": 218715
+        },
+        {
+          "memory": 512,
+          "price": 233628
+        }
+      ]
+    },
+    {
+      "id": 258,
+      "name": "iPhone 16 Pro",
+      "specs": [
+        {
+          "memory": 128,
+          "price": 293277
+        },
+        {
+          "memory": 256,
+          "price": 326084
+        },
+        {
+          "memory": 512,
+          "price": 362868
+        },
+        {
+          "memory": 1024,
+          "price": 395676
+        }
+      ]
+    },
+    {
+      "id": 259,
+      "name": "iPhone 16 Pro Max",
+      "specs": [
+        {
+          "memory": 256,
+          "price": 347956
+        },
+        {
+          "memory": 512,
+          "price": 377781
+        },
+        {
+          "memory": 1024,
+          "price": 408600
+        }
+      ]
+    },
+    {
+      "id": 333,
+      "name": "iPhone 16e",
+      "specs": [
+        {
+          "memory": 128,
+          "price": 170996
+        },
+        {
+          "memory": 256,
+          "price": 188890
+        },
+        {
+          "memory": 512,
+          "price": 208774
+        }
+      ]
+    },
+    {
+      "id": 391,
+      "name": "iPhone 17 Air",
+      "specs": [
+        {
+          "memory": 256,
+          "price": 298248
+        },
+        {
+          "memory": 512,
+          "price": 367839
+        },
+        {
+          "memory": 1024,
+          "price": 318131
+        }
+      ]
+    },
+    {
+      "id": 392,
+      "name": "iPhone 17",
+      "specs": [
+        {
+          "memory": 256,
+          "price": 357898
+        },
+        {
+          "memory": 512,
+          "price": 395676
+        }
+      ]
+    },
+    {
+      "id": 393,
+      "name": "iPhone 17 Pro",
+      "specs": [
+        {
+          "memory": 256,
+          "price": 407606
+        },
+        {
+          "memory": 512,
+          "price": 478992
+        },
+        {
+          "memory": 1024,
+          "price": 528887
+        }
+      ]
+    },
+    {
+      "id": 394,
+      "name": "iPhone 17 Pro Max",
+      "specs": [
+        {
+          "memory": 256,
+          "price": 449055
+        },
+        {
+          "memory": 512,
+          "price": 496954
+        },
+        {
+          "memory": 1024,
+          "price": 554832
+        },
+        {
+          "memory": 2048,
+          "price": 658614
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "key": "imeiStatus",
+      "label": "Верификация IMEI",
+      "options": [
+        {
+          "value": "verified",
+          "label": "Верифицированы оба IMEI",
+          "percent": 0,
+          "amount": 0,
+          "reject": false
+        },
+        {
+          "value": "one_verified",
+          "label": "Верифицирован только один IMEI",
+          "percent": 0,
+          "amount": -10000,
+          "reject": false
+        },
+        {
+          "value": "not_verified",
+          "label": "Не верифицированы оба IMEI",
+          "percent": 0,
+          "amount": 0,
+          "reject": true
+        }
+      ]
+    },
+    {
+      "key": "equipment",
+      "label": "Комплект",
+      "options": [
+        {
+          "value": "equipment-box-only",
+          "label": "Есть коробка",
+          "percent": 0,
+          "amount": 0,
+          "reject": false
+        },
+        {
+          "value": "equipment-no",
+          "label": "Комплектация отсутствует",
+          "percent": -5,
+          "amount": 0,
+          "reject": false
+        }
+      ]
+    },
+    {
+      "key": "bodyCondition",
+      "label": "Корпус",
+      "options": [
+        {
+          "value": "0",
+          "label": "Отличное (без заметных следов, возможно с мелкими царапинами)",
+          "percent": 0,
+          "amount": 0,
+          "reject": false
+        },
+        {
+          "value": "1",
+          "label": "Хорошее (царапины и потёртости, глубокие царапины до 4х)",
+          "percent": -3,
+          "amount": 0,
+          "reject": false
+        },
+        {
+          "value": "2",
+          "label": "Приемлемое (значительные царапины и сколы, глубокие царапины более 4х)",
+          "percent": -10,
+          "amount": 0,
+          "reject": false
+        },
+        {
+          "value": "3",
+          "label": "Не подлежит приёму (трещины, вмятины, деформирован)",
+          "percent": 0,
+          "amount": 0,
+          "reject": true
+        }
+      ]
+    },
+    {
+      "key": "displayCondition",
+      "label": "Экран",
+      "options": [
+        {
+          "value": "display-ideal",
+          "label": "Отличное (без заметных следов, возможно с мелкими царапинами)",
+          "percent": 0,
+          "amount": 0,
+          "reject": false
+        },
+        {
+          "value": "display-good",
+          "label": "Хорошее (царапины и потёртости имеются до 4х)",
+          "percent": -3,
+          "amount": 0,
+          "reject": false
+        },
+        {
+          "value": "display-satisfactory",
+          "label": "Приемлемое (значительные царапины и сколы более 4х)",
+          "percent": -10,
+          "amount": 0,
+          "reject": false
+        },
+        {
+          "value": "display-cracked",
+          "label": "Не подлежит приёму (трещины, вмятины, следы ударов и глубокие царапины)",
+          "percent": 0,
+          "amount": 0,
+          "reject": true
+        }
+      ]
+    },
+    {
+      "key": "serviceRepaired",
+      "label": "Ремонт и замена деталей",
+      "options": [
+        {
+          "value": "yes",
+          "label": "Да, были ремонт или замена деталей",
+          "percent": -50,
+          "amount": 0,
+          "reject": false
+        },
+        {
+          "value": "no",
+          "label": "Нет, ремонт и замена деталей не проводились",
+          "percent": 0,
+          "amount": 0,
+          "reject": false
+        }
+      ]
+    },
+    {
+      "key": "batteryHealthManual",
+      "label": "Аккумулятор",
+      "options": [
+        {
+          "value": "95",
+          "label": "95% и выше",
+          "percent": 0,
+          "amount": 0,
+          "reject": false
+        },
+        {
+          "value": "85",
+          "label": "От 85% до 94%",
+          "percent": -5,
+          "amount": 0,
+          "reject": false
+        },
+        {
+          "value": "76",
+          "label": "От 76% до 84%",
+          "percent": -8,
+          "amount": 0,
+          "reject": false
+        },
+        {
+          "value": "75",
+          "label": "75% или менее",
+          "percent": -15,
+          "amount": 0,
+          "reject": false
+        }
+      ]
+    },
+    {
+      "key": "modelNumberStatus",
+      "label": "Номер модели начинается с 3 или 5?",
+      "options": [
+        {
+          "value": "yes",
+          "label": "Да, начинается на 3 или 5",
+          "percent": -15,
+          "amount": 0,
+          "reject": false
+        },
+        {
+          "value": "no",
+          "label": "Нет",
+          "percent": 0,
+          "amount": 0,
+          "reject": false
+        }
+      ]
+    },
+    {
+      "key": "contractPhone",
+      "label": "Контрактный телефон / MDM",
+      "options": [
+        {
+          "value": "contract_yes",
+          "label": "Телефон контрактный (есть MDM Profile / Device service)",
+          "percent": 0,
+          "amount": 0,
+          "reject": true
+        },
+        {
+          "value": "contract_no",
+          "label": "Телефон не контрактный",
+          "percent": 0,
+          "amount": 0,
+          "reject": false
+        }
+      ]
+    }
+  ]
+}
