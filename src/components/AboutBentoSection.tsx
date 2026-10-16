@@ -1,4 +1,5 @@
 import { motion } from 'motion/react';
+import { useEffect, useRef, useState } from 'react';
 import { MapPin, Users, Shield, TrendingUp, Star, ArrowUpRight, Sparkle, ArrowRight, Instagram } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -10,6 +11,20 @@ const fade = (delay = 0) => ({
 });
 
 export default function AboutBentoSection() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [loadVideo, setLoadVideo] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(entries => {
+      if (entries.some(entry => entry.isIntersecting)) {
+        setLoadVideo(true);
+        observer.disconnect();
+      }
+    }, { rootMargin: '200px' });
+    observer.observe(videoRef.current!);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section className="py-12 md:py-24 px-4 md:px-6 bg-white">
       <div className="max-w-[88rem] mx-auto">
@@ -25,18 +40,17 @@ export default function AboutBentoSection() {
           >
             {/* Фоновое изображение — нижний слой (fallback если видео не загрузится) */}
             <img
-              src="/company/store-interior.jpg"
-              onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
-              alt="Сервисный центр GreatSteve — офис в Алматы"
+              src="/company/about-video-poster.jpg"
+              alt=""
               loading="lazy"
               className="absolute inset-0 w-full h-full object-cover"
             />
             {/* Видео поверх изображения с opacity-50 — создаёт эффект наложения */}
             <video
-              autoPlay loop muted playsInline preload="auto"
+              ref={videoRef} autoPlay loop muted playsInline preload="none"
+              src={loadVideo ? '/video.mp4' : undefined}
               className="absolute inset-0 w-full h-full object-cover opacity-50"
             >
-              <source src="/video.mp4" type="video/mp4" />
             </video>
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/15" />
 

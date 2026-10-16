@@ -1,6 +1,11 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import type { Plugin } from 'vite';
+import { createElement } from 'react';
+import { renderToStaticMarkup } from 'react-dom/server';
+import RepairGuide from './src/components/RepairGuide';
+import RepairModelDirectory from './src/components/RepairModelDirectory';
+import { repairGuideFaqSchema } from './src/data/repairGuide';
 import { allModels, type ModelData } from './src/data/repairModels';
 import { GSI_DESCRIPTION, GSI_PATH, GSI_TITLE, formatTenge, gsiBatteryOffers, gsiFaq, gsiOfferForModel } from './src/data/gsiBatteryOffers';
 
@@ -108,9 +113,9 @@ const STATIC_ROUTES: Route[] = [
     content: pageShell(
       'Ремонт телефонов в Алматы',
       'Ремонтируем iPhone, Samsung, Xiaomi и другие смартфоны. Диагностика бесплатна при ремонте, цены указаны на сайте, гарантия — до 12 месяцев.',
-      `<section><h2>Услуги сервисного центра</h2><ul><li><a href="/remont">Цены на ремонт телефонов</a></li><li><a href="${GSI_PATH}">Усиленный аккумулятор GSI для iPhone 11–16: от 12 000 ₸ с заменой, гарантия 6 месяцев</a></li><li>Замена экрана и аккумулятора</li><li>Ремонт после воды и падения</li><li>Ремонт MacBook, iPad и Apple Watch</li></ul></section>`,
+      `<section><h2>Услуги сервисного центра</h2><ul><li><a href="/remont">Цены на ремонт телефонов</a></li><li><a href="${GSI_PATH}">Усиленный аккумулятор GSI для iPhone 11–16: от 12 000 ₸ с заменой, гарантия 6 месяцев</a></li><li>Замена экрана и аккумулятора</li><li>Ремонт после воды и падения</li><li>Ремонт MacBook, iPad и Apple Watch</li></ul></section>${renderToStaticMarkup(createElement(RepairGuide))}`,
     ),
-    schema: [BUSINESS, breadcrumb({ name: 'GreatSteve', path: '/' })],
+    schema: [BUSINESS, breadcrumb({ name: 'GreatSteve', path: '/' }), repairGuideFaqSchema],
   },
   {
     path: '/remont',
@@ -121,7 +126,7 @@ const STATIC_ROUTES: Route[] = [
     content: pageShell(
       'Цены на ремонт телефонов в Алматы',
       'Ремонтируем iPhone, Samsung и другие телефоны: меняем экраны, аккумуляторы, камеры и разъёмы, восстанавливаем устройства после воды и падения.',
-      `<section><h2>Усиленные аккумуляторы GSI по акции</h2><p><a href="${GSI_PATH}">iPhone 11–16: от 12 000 ₸ с заменой, гарантия 6 месяцев</a>. Перед визитом подтвердим наличие и время. Диагностика бесплатна при ремонте. Условия гарантии на другие работы согласуем при оформлении заказа.</p><p><a href="/remont/iphone-15-pro">Ремонт iPhone 15 Pro</a> · <a href="/remont/iphone-14">Ремонт iPhone 14</a> · <a href="/remont/samsung-s24">Ремонт Samsung S24</a></p></section>`,
+      `<section><h2>Усиленные аккумуляторы GSI по акции</h2><p><a href="${GSI_PATH}">iPhone 11–16: от 12 000 ₸ с заменой, гарантия 6 месяцев</a>. Перед визитом подтвердим наличие и время. Диагностика бесплатна при ремонте. Условия гарантии на другие работы согласуем при оформлении заказа.</p></section>${renderToStaticMarkup(createElement(RepairModelDirectory))}`,
     ),
     schema: [BUSINESS, breadcrumb({ name: 'GreatSteve', path: '/' }, { name: 'Ремонт', path: '/remont' })],
   },
@@ -160,11 +165,12 @@ function modelRoute(m: ModelData): Route {
   const problems = m.problems.map((item) => `<li>${escText(item)}</li>`).join('');
   const faq = m.faq.map((item) => `<article><h3>${escText(item.q)}</h3><p>${escText(item.a)}</p></article>`).join('');
   const gsiOffer = gsiOfferForModel(m.slug);
+  const battery = m.repairs.find(repair => /аккумулятор/i.test(repair.name))!;
 
   return {
     path: routePath,
     title: `Ремонт ${m.name} в Алматы — GreatSteve | Цены и гарантия`,
-    description: gsiOffer ? `Замена усиленного аккумулятора GSI для ${m.name} в Алматы — ${formatTenge(gsiOffer.price)} с работой. Гарантия 6 месяцев. Гоголя 75/1, ежедневно 10:00–20:00.` : `Ремонт ${m.name} в Алматы. Замена экрана ${m.repairs[0].price}, аккумулятора ${m.repairs[1].price}. Гарантия 12 месяцев. Ежедневно 10:00–20:00. Гоголя 75/1 уг. ул.Тулебаева.`,
+    description: gsiOffer ? `Замена усиленного аккумулятора GSI для ${m.name} в Алматы — ${formatTenge(gsiOffer.price)} с работой. Гарантия 6 месяцев. Гоголя 75/1, ежедневно 10:00–20:00.` : `Ремонт ${m.name} в Алматы. Замена экрана ${m.repairs[0].price}, аккумулятора ${battery.price}. Гарантия 12 месяцев. Ежедневно 10:00–20:00. Гоголя 75/1 уг. ул.Тулебаева.`,
     keywords: `ремонт ${m.name} Алматы, замена экрана ${m.name} Алматы, замена аккумулятора ${m.name} Алматы, сервис ${m.name} Алматы`,
     content: pageShell(
       `Ремонт ${m.name} в Алматы`,
@@ -222,7 +228,7 @@ function render(template: string, route: Route): string {
     `<meta name="twitter:title" content="${escAttr(route.title)}" />`,
     `<meta name="twitter:description" content="${escAttr(route.description)}" />`,
     `<meta name="twitter:image" content="${og}" />`,
-    ...(route.schema ?? []).map((schema) => `<script type="application/ld+json">${JSON.stringify(schema)}</script>`),
+    ...(route.schema ?? []).map((schema) => `<script type="application/ld+json" data-seo-page="${route.path}">${JSON.stringify(schema).replace(/</g, '\\u003c')}</script>`),
   ].filter(Boolean);
 
   html = html.replace('</head>', `    ${tags.join('\n    ')}\n  </head>`);
@@ -249,6 +255,8 @@ export function prerenderSeo(): Plugin {
         fs.mkdirSync(dir, { recursive: true });
         fs.writeFileSync(path.join(dir, 'index.html'), render(template, route), 'utf-8');
       }
+      const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${routes.map(route => `  <url><loc>${SITE}${route.path}</loc>${['/', '/remont'].includes(route.path) ? '<lastmod>2026-10-16</lastmod>' : ''}</url>`).join('\n')}\n</urlset>\n`;
+      fs.writeFileSync(path.join(outDir, 'sitemap.xml'), sitemap, 'utf-8');
       // eslint-disable-next-line no-console
       console.log(`[prerender-seo] сгенерировано ${routes.length} статичных HTML-роутов`);
     },

@@ -81,7 +81,7 @@ export default function Footer() {
 
           {/* Контакты */}
           <div className="flex flex-col gap-3">
-            <p className="text-xs font-semibold uppercase tracking-widest text-white/30 mb-1">Контакты</p>
+            <p className="text-xs font-semibold uppercase tracking-widest text-white/60 mb-1">Контакты</p>
             <a href="tel:+77775181111" className="group flex items-center justify-between text-base font-medium text-white/70 hover:text-white transition-colors">
               8 777 518 11 11
               <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -94,7 +94,7 @@ export default function Footer() {
 
           {/* Навигация */}
           <div className="flex flex-col gap-3">
-            <p className="text-xs font-semibold uppercase tracking-widest text-white/30 mb-1">Страницы</p>
+            <p className="text-xs font-semibold uppercase tracking-widest text-white/60 mb-1">Страницы</p>
             {NAV.map(link => (
               <Link key={link.to} to={link.to} className="group flex items-center justify-between text-base font-medium text-white/70 hover:text-white transition-colors">
                 {link.label}
@@ -105,10 +105,10 @@ export default function Footer() {
 
           {/* Адрес и часы */}
           <div className="flex flex-col gap-3">
-            <p className="text-xs font-semibold uppercase tracking-widest text-white/30 mb-1">Где нас найти</p>
+            <p className="text-xs font-semibold uppercase tracking-widest text-white/60 mb-1">Где нас найти</p>
             <p className="text-base font-medium text-white/70">Алматы, Гоголя 75/1 уг. ул.Тулебаева</p>
-            <p className="text-base text-white/40">Ежедневно 10:00 — 20:00</p>
-            <p className="text-base text-white/40 mt-1">БИН: 901128401389</p>
+            <p className="text-base text-white/60">Ежедневно 10:00 — 20:00</p>
+            <p className="text-base text-white/60 mt-1">БИН: 901128401389</p>
           </div>
 
         </div>
@@ -117,7 +117,7 @@ export default function Footer() {
       {/* Нижняя полоса */}
       <div className="px-4 md:px-6 py-5 border-t border-white/8">
         <div className="max-w-[88rem] mx-auto flex items-center justify-end">
-          <p className="text-xs text-white/30">© 2026 Greatsteve. Все права защищены.</p>
+          <p className="text-xs text-white/60">© 2026 Greatsteve. Все права защищены.</p>
         </div>
       </div>
 

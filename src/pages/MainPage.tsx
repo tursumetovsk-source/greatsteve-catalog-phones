@@ -7,6 +7,8 @@ import AboutBentoSection from '../components/AboutBentoSection';
 import ReviewsSection from '../components/ReviewsSection';
 import RequestForm from '../components/RequestForm';
 import SEOHead from '../components/SEOHead';
+import RepairGuide from '../components/RepairGuide';
+import { repairGuideFaqSchema } from '../data/repairGuide';
 
 const SCHEMA = {
   '@context': 'https://schema.org',
@@ -109,6 +111,7 @@ const SCHEMA = {
         { '@type': 'ListItem', position: 1, name: 'GreatSteve', item: 'https://greatsteve.kz/' },
       ],
     },
+    repairGuideFaqSchema,
   ],
 };
 
@@ -127,6 +130,7 @@ export default function MainPage() {
       <MainHero />
       <GsiBatteryBanner />
       <ServicesCards />
+      <RepairGuide />
       <AboutBentoSection />
       <div className="pb-12 md:pb-20"><RequestForm /></div>
       <ReviewsSection />

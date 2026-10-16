@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar';
 import HeroSection from '../components/HeroSection';
 import GsiBatteryBanner from '../components/GsiBatteryBanner';
 import DeviceRepairSection from '../components/DeviceRepairSection';
+import RepairModelDirectory from '../components/RepairModelDirectory';
 import UseCasesSection from '../components/UseCasesSection';
 import Footer from '../components/Footer';
 import SEOHead from '../components/SEOHead';
@@ -122,6 +123,7 @@ export default function RemontPage() {
       <HeroSection />
       <GsiBatteryBanner />
       <DeviceRepairSection />
+      <RepairModelDirectory />
 
       {/* Почему выбирают нас */}
       <section className="px-4 md:px-6 py-16 md:py-24 bg-white">

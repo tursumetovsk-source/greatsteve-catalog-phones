@@ -6,8 +6,8 @@ const REVIEWS = REVIEWS_DATA;
 
 const SOURCE_COLORS: Record<string, string> = {
   Google: 'bg-white text-gray-800 border border-gray-200',
-  '2GIS': 'bg-[#1DC761]/10 text-[#1DC761] border border-[#1DC761]/20',
-  Yandex: 'bg-[#FC3F1D]/10 text-[#FC3F1D] border border-[#FC3F1D]/20',
+  '2GIS': 'bg-[#1DC761]/10 text-[#137C3C] border border-[#1DC761]/20',
+  Yandex: 'bg-[#FC3F1D]/10 text-[#B72710] border border-[#FC3F1D]/20',
 };
 
 function ReviewCard({ review }: { review: typeof REVIEWS[0] }) {
@@ -16,7 +16,7 @@ function ReviewCard({ review }: { review: typeof REVIEWS[0] }) {
       <div className="flex items-start justify-between gap-3">
         <div>
           <p className="font-semibold text-gray-900 text-[15px]">{review.name}</p>
-          <p className="text-xs text-gray-400 mt-0.5">{review.date}</p>
+          <p className="text-xs text-gray-500 mt-0.5">{review.date}</p>
         </div>
         <span className={`shrink-0 text-[11px] font-semibold px-2.5 py-1 rounded-full ${SOURCE_COLORS[review.source]}`}>
           {review.source}
@@ -100,7 +100,7 @@ export default function ReviewsSection() {
         <div className="flex items-center gap-10 md:gap-16 flex-wrap justify-center">
 
           {/* Google */}
-          <a href="https://maps.app.goo.gl/LpUCFnMLB33Z2JFt5" target="_blank" rel="noopener noreferrer"
+          <a href="https://maps.app.goo.gl/LpUCFnMLB33Z2JFt5" target="_blank" rel="noopener noreferrer" aria-label="Отзывы GreatSteve в Google Картах"
             className="hover:opacity-80 transition-opacity"
           >
             <svg viewBox="0 0 320 80" className="h-8 md:h-10" xmlns="http://www.w3.org/2000/svg" overflow="visible">
@@ -116,7 +116,7 @@ export default function ReviewsSection() {
           </a>
 
           {/* Яндекс */}
-          <a href="https://yandex.kz/maps/ru/-/CPgnIDn0" target="_blank" rel="noopener noreferrer"
+          <a href="https://yandex.kz/maps/ru/-/CPgnIDn0" target="_blank" rel="noopener noreferrer" aria-label="Отзывы GreatSteve в Яндекс Картах"
             className="hover:opacity-80 transition-opacity"
           >
             <svg viewBox="0 0 280 60" className="h-8 md:h-10" xmlns="http://www.w3.org/2000/svg" overflow="visible">
@@ -125,7 +125,7 @@ export default function ReviewsSection() {
           </a>
 
           {/* 2GIS */}
-          <a href="https://2gis.kz/almaty/search/greatsteve" target="_blank" rel="noopener noreferrer"
+          <a href="https://2gis.kz/almaty/search/greatsteve" target="_blank" rel="noopener noreferrer" aria-label="Отзывы GreatSteve в 2ГИС"
             className="hover:opacity-80 transition-opacity"
           >
             <svg viewBox="0 0 120 40" className="h-9 md:h-11" xmlns="http://www.w3.org/2000/svg">

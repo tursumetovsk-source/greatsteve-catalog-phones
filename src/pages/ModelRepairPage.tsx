@@ -17,6 +17,7 @@ export default function ModelRepairPage() {
 
   if (!data) return <Navigate to="/remont" replace />;
   const gsiOffer = gsiOfferForModel(data.slug);
+  const battery = data.repairs.find(repair => /аккумулятор/i.test(repair.name))!;
 
   const waMsg = encodeURIComponent(`Здравствуйте, нужен ремонт ${data.name}. Хочу узнать цену.`);
 
@@ -64,7 +65,7 @@ export default function ModelRepairPage() {
     <div className="min-h-screen overflow-x-hidden bg-white">
       <SEOHead
         title={`Ремонт ${data.name} в Алматы — GreatSteve | Цены и гарантия`}
-        description={gsiOffer ? `Замена усиленного аккумулятора GSI для ${data.name} в Алматы — ${formatTenge(gsiOffer.price)} с работой. Гарантия 6 месяцев. Гоголя 75/1, ежедневно 10:00–20:00.` : `Ремонт ${data.name} в Алматы. Замена экрана ${data.repairs[0].price}, аккумулятора ${data.repairs[1].price}. Гарантия 12 месяцев. Ежедневно 10:00–20:00. Гоголя 75/1 уг. ул.Тулебаева.`}
+        description={gsiOffer ? `Замена усиленного аккумулятора GSI для ${data.name} в Алматы — ${formatTenge(gsiOffer.price)} с работой. Гарантия 6 месяцев. Гоголя 75/1, ежедневно 10:00–20:00.` : `Ремонт ${data.name} в Алматы. Замена экрана ${data.repairs[0].price}, аккумулятора ${battery.price}. Гарантия 12 месяцев. Ежедневно 10:00–20:00. Гоголя 75/1 уг. ул.Тулебаева.`}
         keywords={`ремонт ${data.name} Алматы, замена экрана ${data.name} Алматы, замена аккумулятора ${data.name} Алматы, сервис ${data.name} Алматы`}
         canonical={`/remont/${data.slug}`}
         schema={schema}
