@@ -130,7 +130,7 @@ export default function MainPage() {
       <MainHero />
       <GsiBatteryBanner />
       <ServicesCards />
-      <RepairGuide />
+      <RepairGuide models={__REPAIR_GUIDE_MODELS__} />
       <AboutBentoSection />
       <div className="pb-12 md:pb-20"><RequestForm /></div>
       <ReviewsSection />

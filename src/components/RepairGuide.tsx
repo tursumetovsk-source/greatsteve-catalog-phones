@@ -1,8 +1,8 @@
 import React from 'react';
-import { modelsBySlug } from '../data/repairModels';
-import { featuredRepairSlugs, repairGuideFaq } from '../data/repairGuide';
+import type { ModelData } from '../data/repairModels';
+import { repairGuideFaq } from '../data/repairGuide';
 
-export default function RepairGuide() {
+export default function RepairGuide({ models }: { models: Pick<ModelData, 'slug' | 'name' | 'repairs'>[] }) {
   return (
     <section id="repair-guide" aria-labelledby="repair-guide-title" className="bg-white px-5 py-16 text-[#211018] md:px-8 md:py-24">
       <div className="mx-auto max-w-6xl">
@@ -10,9 +10,9 @@ export default function RepairGuide() {
         <h2 id="repair-guide-title" className="max-w-3xl text-3xl font-semibold leading-tight tracking-tight md:text-5xl">Ремонт телефонов в Алматы: услуги и стоимость</h2>
         <p className="mt-5 max-w-3xl text-base leading-relaxed text-gray-600">Меняем экраны, аккумуляторы, камеры и разъёмы iPhone, Samsung, Xiaomi и других Android-смартфонов. Проверяем устройства после воды и падения. До ремонта согласуем стоимость, тип детали и срок работы.</p>
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {featuredRepairSlugs.map(slug => {
-            const model = modelsBySlug[slug];
-            const battery = model.repairs.find(repair => /аккумулятор/i.test(repair.name))!;
+          {models.map(model => {
+            const { slug } = model;
+            const battery = model.repairs[1];
             return (
               <article key={slug} className="rounded-3xl border border-[#76243B]/15 bg-[#FBF8F9] p-6">
                 <h3 className="text-xl font-semibold"><a href={`/remont/${slug}`} className="underline-offset-4 hover:underline">Ремонт {model.name}</a></h3>

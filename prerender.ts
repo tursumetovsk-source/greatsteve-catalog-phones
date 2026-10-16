@@ -5,7 +5,7 @@ import { createElement } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import RepairGuide from './src/components/RepairGuide';
 import RepairModelDirectory from './src/components/RepairModelDirectory';
-import { repairGuideFaqSchema } from './src/data/repairGuide';
+import { featuredRepairSlugs, repairGuideFaqSchema } from './src/data/repairGuide';
 import { allModels, type ModelData } from './src/data/repairModels';
 import { GSI_DESCRIPTION, GSI_PATH, GSI_TITLE, formatTenge, gsiBatteryOffers, gsiFaq, gsiOfferForModel } from './src/data/gsiBatteryOffers';
 
@@ -19,6 +19,12 @@ import { GSI_DESCRIPTION, GSI_PATH, GSI_TITLE, formatTenge, gsiBatteryOffers, gs
 
 const SITE = 'https://greatsteve.kz';
 const DEFAULT_OG = '/main/gs-main1.jpeg';
+
+// Only these card fields belong in the homepage bundle, not the full model catalogue.
+export const repairGuideModels = featuredRepairSlugs.map(slug => {
+  const model = allModels.find(model => model.slug === slug)!;
+  return { slug, name: model.name, repairs: [model.repairs[0], model.repairs.find(repair => /аккумулятор/i.test(repair.name))!] };
+});
 
 interface Route {
   path: string;
@@ -113,7 +119,7 @@ const STATIC_ROUTES: Route[] = [
     content: pageShell(
       'Ремонт телефонов в Алматы',
       'Ремонтируем iPhone, Samsung, Xiaomi и другие смартфоны. Диагностика бесплатна при ремонте, цены указаны на сайте, гарантия — до 12 месяцев.',
-      `<section><h2>Услуги сервисного центра</h2><ul><li><a href="/remont">Цены на ремонт телефонов</a></li><li><a href="${GSI_PATH}">Усиленный аккумулятор GSI для iPhone 11–16: от 12 000 ₸ с заменой, гарантия 6 месяцев</a></li><li>Замена экрана и аккумулятора</li><li>Ремонт после воды и падения</li><li>Ремонт MacBook, iPad и Apple Watch</li></ul></section>${renderToStaticMarkup(createElement(RepairGuide))}`,
+      `<section><h2>Услуги сервисного центра</h2><ul><li><a href="/remont">Цены на ремонт телефонов</a></li><li><a href="${GSI_PATH}">Усиленный аккумулятор GSI для iPhone 11–16: от 12 000 ₸ с заменой, гарантия 6 месяцев</a></li><li>Замена экрана и аккумулятора</li><li>Ремонт после воды и падения</li><li>Ремонт MacBook, iPad и Apple Watch</li></ul></section>${renderToStaticMarkup(createElement(RepairGuide, { models: repairGuideModels }))}`,
     ),
     schema: [BUSINESS, breadcrumb({ name: 'GreatSteve', path: '/' }), repairGuideFaqSchema],
   },
