@@ -412,6 +412,8 @@ export default function DeviceRepairSection() {
                         { label: 'Galaxy S25', prefix: 'samsung-s25' },
                         { label: 'Galaxy S24', prefix: 'samsung-s24' },
                         { label: 'Galaxy S23', prefix: 'samsung-s23' },
+                        { label: 'Galaxy S22', prefix: 'samsung-s22' },
+                        { label: 'Galaxy S21', prefix: 'samsung-s21' },
                         { label: 'Galaxy Z (складные)', prefix: 'samsung-z' },
                         { label: 'Galaxy A', prefix: 'samsung-a' },
                       ].map(({ label, prefix }) => {

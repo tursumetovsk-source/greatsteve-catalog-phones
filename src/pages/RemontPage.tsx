@@ -3,7 +3,8 @@ import Navbar from '../components/Navbar';
 import HeroSection from '../components/HeroSection';
 import GsiBatteryBanner from '../components/GsiBatteryBanner';
 import DeviceRepairSection from '../components/DeviceRepairSection';
-import RepairModelDirectory from '../components/RepairModelDirectory';
+import RepairGuide from '../components/RepairGuide';
+import { repairGuideFaqSchema } from '../data/repairGuide';
 import UseCasesSection from '../components/UseCasesSection';
 import Footer from '../components/Footer';
 import SEOHead from '../components/SEOHead';
@@ -117,13 +118,13 @@ export default function RemontPage() {
         keywords="ремонт iPhone Алматы, замена экрана iPhone, замена батареи iPhone, ремонт MacBook Алматы, ремонт Samsung Алматы, ремонт iPad Алматы, бесплатная диагностика телефона"
         canonical="/remont"
         ogImage="/main/serivice1.jpg"
-        schema={[SCHEMA, FAQ, BREADCRUMB]}
+        schema={[SCHEMA, { ...FAQ, mainEntity: [...FAQ.mainEntity, ...repairGuideFaqSchema.mainEntity] }, BREADCRUMB]}
       />
       <Navbar />
       <HeroSection />
       <GsiBatteryBanner />
       <DeviceRepairSection />
-      <RepairModelDirectory />
+      <RepairGuide models={__REPAIR_GUIDE_MODELS__} />
 
       {/* Почему выбирают нас */}
       <section className="px-4 md:px-6 py-16 md:py-24 bg-white">

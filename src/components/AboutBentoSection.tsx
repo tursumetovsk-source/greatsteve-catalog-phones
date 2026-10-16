@@ -38,16 +38,10 @@ export default function AboutBentoSection() {
             {...fade(0.05)}
             className="md:col-span-7 md:row-span-2 rounded-[2rem] overflow-hidden relative min-h-[420px] md:min-h-[520px] group bg-black"
           >
-            {/* Фоновое изображение — нижний слой (fallback если видео не загрузится) */}
-            <img
-              src="/company/about-video-poster.jpg"
-              alt=""
-              loading="lazy"
-              className="absolute inset-0 w-full h-full object-cover"
-            />
-            {/* Видео поверх изображения с opacity-50 — создаёт эффект наложения */}
+            {/* Постер заменяется видео в одном слое, без двоения кадров. */}
             <video
               ref={videoRef} autoPlay loop muted playsInline preload="none"
+              poster={loadVideo ? '/company/about-video-poster.jpg' : undefined}
               src={loadVideo ? '/video.mp4' : undefined}
               className="absolute inset-0 w-full h-full object-cover opacity-50"
             >

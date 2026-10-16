@@ -37,17 +37,36 @@ test('all sitemap pages are reachable from the homepage through HTML links witho
   assert.deepEqual(paths.filter(path => !visited.has(path)), []);
 });
 
-test('homepage answer schema is backed by visible guide content and existing model prices', () => {
-  const home = pages.get('/');
-  const faq = [...home.matchAll(/<script type="application\/ld\+json" data-seo-page="[^"]*">([\s\S]*?)<\/script>/g)].map(match => JSON.parse(match[1])).find(schema => schema['@type'] === 'FAQPage');
+test('repair page answer schema is backed by visible guide content and existing model prices', () => {
+  const repair = pages.get('/remont');
+  const faq = [...repair.matchAll(/<script type="application\/ld\+json" data-seo-page="[^"]*">([\s\S]*?)<\/script>/g)].map(match => JSON.parse(match[1])).find(schema => schema['@type'] === 'FAQPage');
   assert.equal(faq.mainEntity.length, 6);
   for (const question of faq.mainEntity) {
-    assert.ok(home.includes(`<h3 class="text-lg font-semibold">${question.name}</h3>`));
-    assert.ok(home.includes(question.acceptedAnswer.text));
+    assert.ok(repair.includes(`<h3 class="text-lg font-semibold">${question.name}</h3>`));
+    assert.ok(repair.includes(question.acceptedAnswer.text));
   }
-  assert.match(home, /id="repair-guide"/);
-  assert.match(home, /href="\/remont\/iphone-15-pro-max"/);
-  assert.match(home, /href="\/remont\/samsung-z-fold-6"/);
+  assert.match(repair, /id="repair-guide"/);
+  assert.match(repair, /href="\/remont\/iphone-15-pro-max"/);
+  assert.match(repair, /href="\/remont\/samsung-z-fold-6"/);
+});
+
+test('homepage no longer contains the price guide or its FAQ schema', () => {
+  const home = pages.get('/');
+  assert.doesNotMatch(home, /id="repair-guide"|"@type":"FAQPage"/);
+  assert.match(home, /href="\/remont"/);
+  const source = readFileSync(new URL('../src/pages/MainPage.tsx', import.meta.url), 'utf8');
+  assert.doesNotMatch(source, /RepairGuide|repairGuideFaqSchema/);
+});
+
+test('normal repair UI uses the existing model selector without a duplicate directory', () => {
+  const source = readFileSync(new URL('../src/pages/RemontPage.tsx', import.meta.url), 'utf8');
+  assert.match(source, /<DeviceRepairSection \/>/);
+  assert.doesNotMatch(source, /RepairModelDirectory/);
+  const guide = readFileSync(new URL('../src/components/RepairGuide.tsx', import.meta.url), 'utf8');
+  assert.match(guide, /href="#devices"/);
+  const selector = readFileSync(new URL('../src/components/DeviceRepairSection.tsx', import.meta.url), 'utf8');
+  assert.match(selector, /label: 'Galaxy S22', prefix: 'samsung-s22'/);
+  assert.match(selector, /label: 'Galaxy S21', prefix: 'samsung-s21'/);
 });
 
 test('Fold model descriptions use the battery price, not the external display price', () => {

@@ -20,7 +20,7 @@ import { GSI_DESCRIPTION, GSI_PATH, GSI_TITLE, formatTenge, gsiBatteryOffers, gs
 const SITE = 'https://greatsteve.kz';
 const DEFAULT_OG = '/main/gs-main1.jpeg';
 
-// Only these card fields belong in the homepage bundle, not the full model catalogue.
+// Only these card fields belong in the guide, not the full model catalogue.
 export const repairGuideModels = featuredRepairSlugs.map(slug => {
   const model = allModels.find(model => model.slug === slug)!;
   return { slug, name: model.name, repairs: [model.repairs[0], model.repairs.find(repair => /аккумулятор/i.test(repair.name))!] };
@@ -119,9 +119,9 @@ const STATIC_ROUTES: Route[] = [
     content: pageShell(
       'Ремонт телефонов в Алматы',
       'Ремонтируем iPhone, Samsung, Xiaomi и другие смартфоны. Диагностика бесплатна при ремонте, цены указаны на сайте, гарантия — до 12 месяцев.',
-      `<section><h2>Услуги сервисного центра</h2><ul><li><a href="/remont">Цены на ремонт телефонов</a></li><li><a href="${GSI_PATH}">Усиленный аккумулятор GSI для iPhone 11–16: от 12 000 ₸ с заменой, гарантия 6 месяцев</a></li><li>Замена экрана и аккумулятора</li><li>Ремонт после воды и падения</li><li>Ремонт MacBook, iPad и Apple Watch</li></ul></section>${renderToStaticMarkup(createElement(RepairGuide, { models: repairGuideModels }))}`,
+      `<section><h2>Услуги сервисного центра</h2><ul><li><a href="/remont">Цены на ремонт телефонов</a></li><li><a href="${GSI_PATH}">Усиленный аккумулятор GSI для iPhone 11–16: от 12 000 ₸ с заменой, гарантия 6 месяцев</a></li><li>Замена экрана и аккумулятора</li><li>Ремонт после воды и падения</li><li>Ремонт MacBook, iPad и Apple Watch</li></ul></section>`,
     ),
-    schema: [BUSINESS, breadcrumb({ name: 'GreatSteve', path: '/' }), repairGuideFaqSchema],
+    schema: [BUSINESS, breadcrumb({ name: 'GreatSteve', path: '/' })],
   },
   {
     path: '/remont',
@@ -132,9 +132,9 @@ const STATIC_ROUTES: Route[] = [
     content: pageShell(
       'Цены на ремонт телефонов в Алматы',
       'Ремонтируем iPhone, Samsung и другие телефоны: меняем экраны, аккумуляторы, камеры и разъёмы, восстанавливаем устройства после воды и падения.',
-      `<section><h2>Усиленные аккумуляторы GSI по акции</h2><p><a href="${GSI_PATH}">iPhone 11–16: от 12 000 ₸ с заменой, гарантия 6 месяцев</a>. Перед визитом подтвердим наличие и время. Диагностика бесплатна при ремонте. Условия гарантии на другие работы согласуем при оформлении заказа.</p></section>${renderToStaticMarkup(createElement(RepairModelDirectory))}`,
+      `<section><h2>Усиленные аккумуляторы GSI по акции</h2><p><a href="${GSI_PATH}">iPhone 11–16: от 12 000 ₸ с заменой, гарантия 6 месяцев</a>. Перед визитом подтвердим наличие и время. Диагностика бесплатна при ремонте. Условия гарантии на другие работы согласуем при оформлении заказа.</p></section>${renderToStaticMarkup(createElement(RepairGuide, { models: repairGuideModels }))}${renderToStaticMarkup(createElement(RepairModelDirectory))}`,
     ),
-    schema: [BUSINESS, breadcrumb({ name: 'GreatSteve', path: '/' }, { name: 'Ремонт', path: '/remont' })],
+    schema: [BUSINESS, breadcrumb({ name: 'GreatSteve', path: '/' }, { name: 'Ремонт', path: '/remont' }), repairGuideFaqSchema],
   },
   {
     path: '/tradein',

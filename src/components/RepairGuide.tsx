@@ -26,7 +26,7 @@ export default function RepairGuide({ models }: { models: Pick<ModelData, 'slug'
           })}
         </div>
         <p className="mt-5 max-w-3xl text-sm leading-relaxed text-gray-600">Цены «от» — ориентир для указанной модели. Итог зависит от диагностики и выбранной детали. В цену аккумуляторов GSI включена работа; гарантия на них — 6 месяцев. Наличие подтвердим перед визитом.</p>
-        <a href="/remont#repair-models" className="mt-5 inline-block rounded-full bg-[#76243B] px-6 py-3 font-semibold text-white">Все модели и цены</a>
+        <a href="#devices" className="mt-5 inline-block rounded-full bg-[#76243B] px-6 py-3 font-semibold text-white">Все модели и цены</a>
         <div className="mt-14 grid gap-8 lg:grid-cols-[1fr_2fr]">
           <div>
             <h2 className="text-2xl font-semibold md:text-3xl">Перед обращением в сервис</h2>
