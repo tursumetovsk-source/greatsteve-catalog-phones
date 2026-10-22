@@ -30,13 +30,22 @@ test('other pages do not preload the homepage-only artwork', () => {
   }
 });
 
-test('homepage hero uses the requested burgundy palette without former green accents', () => {
+test('homepage uses Oceanic Shimmer with neutral controls and the original burgundy phone', () => {
   const styles = readFileSync(new URL('../src/components/MainHero.css', import.meta.url), 'utf8');
-  assert.match(styles, /background: #76243b/);
+  const hero = readFileSync(new URL('../src/components/MainHero.tsx', import.meta.url), 'utf8');
+  assert.match(styles, /background-color: #123a6b/i);
+  for (const position of ['41.58% 6%', '42.42% 33%', '51.19% 67%', '53.67% 94%']) {
+    assert.ok(styles.includes(position));
+  }
+  assert.match(styles, /\.gs-hero-primary \{[^}]*background: #f5f5f7; color: #1d1d1f;/);
+  assert.match(hero, /className="gs-hero-background" aria-hidden="true"/);
+  assert.match(hero, /feTurbulence/);
+  assert.match(hero, /src="\/main\/phone-sculpture.webp"/);
+  assert.doesNotMatch(hero, /className="gs-hero-grid"/);
   assert.doesNotMatch(styles, /#(?:d6e9c4|c7e4b3|92b7a1|a7e2d2|bde8d6)/i);
 });
 
-test('GSI promotion banner matches the burgundy hero palette', () => {
+test('GSI promotion banner retains its existing burgundy palette', () => {
   const banner = readFileSync(new URL('../src/components/GsiBatteryBanner.tsx', import.meta.url), 'utf8');
   assert.match(banner, /background: '#211018'/);
   assert.match(banner, /background: '#76243B', color: '#FFF4F7'/);
@@ -71,7 +80,10 @@ test('every page uses the same navigation component with its own stylesheet', ()
     assert.doesNotMatch(source, /HomeNavigation/);
   }
   const nav = readFileSync(new URL('../src/components/Navbar.tsx', import.meta.url), 'utf8');
+  const navStyles = readFileSync(new URL('../src/components/Navbar.css', import.meta.url), 'utf8');
   assert.match(nav, /import '\.\/Navbar\.css'/);
+  assert.match(navStyles, /background: #f5f5f7e8/);
+  assert.match(navStyles, /\.gs-home-links a \{[^}]*color: #1d1d1f/);
   assert.match(nav, /aria-modal="true"/);
   assert.match(nav, /event\.key === 'Escape'/);
 });

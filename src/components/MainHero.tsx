@@ -74,7 +74,15 @@ export default function MainHero() {
 
   return (
     <section ref={sectionRef} className="gs-hero" aria-labelledby="main-title">
-      <div className="gs-hero-grid" aria-hidden="true" />
+      <div className="gs-hero-background" aria-hidden="true">
+        <svg className="gs-hero-grain" width="100%" height="100%">
+          <filter id="gs-ocean-grain">
+            <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" stitchTiles="stitch" />
+            <feColorMatrix type="saturate" values="0" />
+          </filter>
+          <rect width="100%" height="100%" filter="url(#gs-ocean-grain)" />
+        </svg>
+      </div>
       <div className="gs-hero-glow" aria-hidden="true" />
       <div className="gs-hero-heading">
         <div className="gs-hero-wordmark" aria-hidden="true">GREATSTEVE</div>
