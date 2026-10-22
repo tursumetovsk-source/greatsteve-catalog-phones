@@ -51,7 +51,7 @@ export default function Footer() {
               WhatsApp
             </a>
             <a
-              href="https://t.me/GreatSteve11"
+              href="https://t.me/kzgreatsteve"
               target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 sm:gap-2.5 bg-white/10 text-white border border-white/10 px-4 sm:px-6 py-3 sm:py-3.5 rounded-full font-medium text-xs sm:text-sm hover:bg-white/15 transition-colors"
             >

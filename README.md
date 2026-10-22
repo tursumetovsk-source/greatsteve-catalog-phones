@@ -55,7 +55,7 @@ api/
 |-----|----------|
 | Телефон | `+77775181111` |
 | WhatsApp | `https://wa.me/77775181111` |
-| Telegram | `https://t.me/+77775181111` |
+| Telegram | `https://t.me/kzgreatsteve` |
 | Email | `greatstevekz1@icloud.com` |
 | Адрес | Алматы, Гоголя, дом 75 |
 

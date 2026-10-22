@@ -75,10 +75,18 @@ test('blocked storage and Meta do not prevent WhatsApp or the independent Metrik
 
 test('unrelated links do not send events; phone click has a separate event', () => {
   const s = site(); s.api.initializeContactTracking();
-  s.listeners[0]({ target: new s.Anchor('https://t.me/GreatSteve11') });
+  s.listeners[0]({ target: new s.Anchor('https://t.me/kzgreatsteve') });
   assert.equal(s.meta.length, 0);
   s.listeners[0]({ target: new s.Anchor('tel:+77775181111') });
   assert.equal(s.meta[0][2], 'PhoneClick');
+});
+
+test('Telegram contact buttons use the current account', () => {
+  for (const component of ['Footer', 'FloatingContacts']) {
+    const source = readFileSync(new URL(`../src/components/${component}.tsx`, import.meta.url), 'utf8');
+    const links = [...source.matchAll(/href="(https:\/\/t\.me\/[^"]+)"/g)].map(match => match[1]);
+    assert.deepEqual(links, ['https://t.me/kzgreatsteve']);
+  }
 });
 
 test('middle click is tracked once; right click is ignored and navigation is not intercepted', () => {
