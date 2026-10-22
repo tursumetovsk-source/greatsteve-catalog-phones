@@ -17,7 +17,12 @@
 html, body {
   font-family: 'TT Norms Pro', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   background-color: #F5F5F5;
-  overflow-x: hidden;
+  overflow-x: clip;
+}
+
+html:has(.gs-hero) {
+  background-color: #123a6b;
+  scrollbar-color: #a0b2c6 #123a6b;
 }
 
 *, *::before, *::after {

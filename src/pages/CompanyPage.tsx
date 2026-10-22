@@ -314,7 +314,7 @@ export default function CompanyPage() {
               initial={{ y: '100%' }}
               animate={{ y: '0%' }}
               transition={{ delay: 1.1, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-              className="font-bold tracking-tighter text-white leading-[0.95]"
+              className="font-bold tracking-tighter text-white leading-[1.05] px-[0.08em]"
               style={{
                 fontSize: 'clamp(3rem, 8vw, 8rem)',
                 fontFamily: "-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', sans-serif",

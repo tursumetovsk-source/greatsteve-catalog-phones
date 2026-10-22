@@ -45,11 +45,11 @@ test('homepage uses Oceanic Shimmer with neutral controls and the original burgu
   assert.doesNotMatch(styles, /#(?:d6e9c4|c7e4b3|92b7a1|a7e2d2|bde8d6)/i);
 });
 
-test('GSI promotion banner retains its existing burgundy palette', () => {
+test('GSI promotion banner uses graphite and Apple blue instead of burgundy', () => {
   const banner = readFileSync(new URL('../src/components/GsiBatteryBanner.tsx', import.meta.url), 'utf8');
-  assert.match(banner, /background: '#211018'/);
-  assert.match(banner, /background: '#76243B', color: '#FFF4F7'/);
-  assert.doesNotMatch(banner, /#C1FF72|#101210/);
+  assert.match(banner, /background: '#1D1D1F', color: '#F5F5F7'/);
+  assert.match(banner, /background: '#0071E3', color: '#FFFFFF'/);
+  assert.doesNotMatch(banner, /#C1FF72|#101210|#211018|#76243B|#D59BAE/);
 });
 
 test('mobile wordmark sits partly behind the phone without moving the repair copy', () => {
