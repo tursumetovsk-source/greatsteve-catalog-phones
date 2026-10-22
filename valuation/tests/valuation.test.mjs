@@ -83,3 +83,29 @@ test('AI and organic referrers are recognised without confusing lookalike domain
   assert.equal(getAttribution('', 'invalid').source, 'direct');
   assert.equal(getAttribution('', '').source, 'direct');
 });
+
+test('Trade-in uses the same device value for every memory variant and does not include pawn debt', () => {
+  for (const model of catalog.models) for (const spec of model.specs) {
+    const params = { catalog, modelId: String(model.id), memory: String(spec.memory), answers: unknown,
+      pawnshop: 'Сейф-Ломбард', redemption: 65000, date: '2026-10-25', requestId: 'GS-TEST', source: 'Instagram' };
+    const pawn = buildMessage(params);
+    const tradein = buildMessage({ ...params, mode: 'tradein' });
+    const valueLine = message => message.split('\n').find(line => line.startsWith('Верхний ориентир'));
+    assert.equal(valueLine(pawn), valueLine(tradein), model.name + ' ' + spec.memory);
+    assert.match(tradein, /Хочу обменять свой iPhone по Trade-in/);
+    assert.match(tradein, /Дата обмена: 2026-10-25/);
+    assert.doesNotMatch(tradein, /Ломбард:|Полное погашение:|Разница|Возможная разница|Сейф-Ломбард/);
+  }
+});
+
+test('Trade-in remains an upper bound for unknown condition and preserves rejection handling', () => {
+  const message = buildMessage({ catalog, modelId: '10', memory: '256', answers: unknown,
+    pawnshop: '', redemption: 200000, date: '', requestId: 'GS-TEST', source: '', mode: 'tradein' });
+  assert.match(message, /Верхний ориентир, состояние нужно проверить: 160\s295 ₸/);
+  assert.match(message, /Итоговую цену согласуем после проверки/);
+  assert.doesNotMatch(message, /погашени|95295|39\s705/);
+  const rejected = buildMessage({ catalog, modelId: '10', memory: '256', answers: { ...unknown, contractPhone: 'contract_yes' },
+    pawnshop: '', redemption: null, date: '', requestId: 'GS-TEST', source: '', mode: 'tradein' });
+  assert.match(rejected, /Нужна индивидуальная оценка/);
+  assert.doesNotMatch(rejected, /160\s295/);
+});

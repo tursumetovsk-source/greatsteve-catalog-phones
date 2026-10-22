@@ -42,9 +42,10 @@ export function evaluate(catalog, modelId, memory, answers, redemption = null) {
     payout: debt === null ? null : amount - debt, unknown, rejected };
 }
 
-export function buildMessage({ catalog, modelId, memory, answers, pawnshop, redemption, date, requestId, source }) {
+export function buildMessage({ catalog, modelId, memory, answers, pawnshop, redemption, date, requestId, source, mode = 'pawn' }) {
   const model = catalog.models.find(item => String(item.id) === String(modelId));
-  const result = evaluate(catalog, modelId, memory, answers, redemption);
+  const isTradein = mode === 'tradein';
+  const result = evaluate(catalog, modelId, memory, answers, isTradein ? null : redemption);
   const details = catalog.questions.filter(question =>
     question.key === 'batteryHealthManual' || (answers[question.key] && answers[question.key] !== UNKNOWN)
   ).map(question => {
@@ -52,17 +53,17 @@ export function buildMessage({ catalog, modelId, memory, answers, pawnshop, rede
     return question.label + ': ' + (option?.label || 'Не знаю');
   });
   return [
-    'Здравствуйте! Хочу продать iPhone, который находится в ломбарде.',
+    isTradein ? 'Здравствуйте! Хочу обменять свой iPhone по Trade-in.' : 'Здравствуйте! Хочу продать iPhone, который находится в ломбарде.',
     'Заявка Greatsteve: ' + requestId,
     'Модель: ' + (model?.name || 'Не указана'),
     'Память: ' + memoryLabel(Number(memory)),
     ...details,
-    'Ломбард: ' + pawnshop.trim(),
-    'Полное погашение: ' + (redemption === null ? 'Уточнить' : money(redemption)),
-    'Дата выкупа: ' + (date || 'Уточнить'),
+    !isTradein && 'Ломбард: ' + pawnshop.trim(),
+    !isTradein && 'Полное погашение: ' + (redemption === null ? 'Уточнить' : money(redemption)),
+    (isTradein ? 'Дата обмена: ' : 'Дата выкупа: ') + (date || 'Уточнить'),
     result.amount === null ? 'Нужна индивидуальная оценка.' :
       (result.status === 'ceiling' ? 'Верхний ориентир, состояние нужно проверить: ' : 'Предварительная оценка по анкете: ') + money(result.amount),
-    result.payout !== null && (result.payout < 0 ?
+    !isTradein && result.payout !== null && (result.payout < 0 ?
       'Ориентир ниже полного погашения на ' + money(-result.payout) + '. Нужно обсудить условия.' :
       (result.status === 'ceiling' ? 'Возможная разница — до ' : 'Разница по анкете: ') + money(result.payout)),
     'Итоговую цену согласуем после проверки.',
