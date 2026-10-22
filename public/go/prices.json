@@ -1,0 +1,1510 @@
+[
+  {
+    "number": 1,
+    "name": "Обложка",
+    "title": "Ремонт<br>в деталях",
+    "hero": "cover",
+    "rows": [],
+    "group": "Общее",
+    "scope": "",
+    "theme": "dark",
+    "kind": "cover",
+    "file": "01_Обложка.png"
+  },
+  {
+    "number": 2,
+    "name": "Аккумулятор_X–13",
+    "title": "Замена<br>аккумулятора",
+    "hero": "battery",
+    "rows": [
+      {
+        "model": "iPhone X / XR",
+        "detail": "XS / XS Max",
+        "price": 10000,
+        "sourceRows": [
+          29,
+          30,
+          31,
+          32
+        ]
+      },
+      {
+        "model": "iPhone 11",
+        "detail": "11 / Pro / Pro Max",
+        "price": 15000,
+        "sourceRows": [
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "model": "iPhone 12",
+        "detail": "mini / 12 / Pro / Pro Max",
+        "price": 20000,
+        "sourceRows": [
+          5,
+          6,
+          7,
+          8
+        ]
+      },
+      {
+        "model": "iPhone 13",
+        "detail": "mini / 13 / Pro / Pro Max",
+        "price": 25000,
+        "sourceRows": [
+          9,
+          10,
+          11,
+          12
+        ]
+      }
+    ],
+    "group": "Батареи",
+    "scope": "Работа мастера<br>Запчасти отдельно",
+    "theme": "light",
+    "kind": "prices",
+    "file": "02_Аккумулятор_X–13.png"
+  },
+  {
+    "number": 3,
+    "name": "Аккумулятор_14–16",
+    "title": "Замена<br>аккумулятора",
+    "hero": "battery",
+    "rows": [
+      {
+        "model": "iPhone 14",
+        "detail": "",
+        "price": 32000,
+        "sourceRows": [
+          16
+        ]
+      },
+      {
+        "model": "iPhone 14",
+        "detail": "Plus / Pro / Pro Max",
+        "price": 35000,
+        "sourceRows": [
+          13,
+          14,
+          15
+        ]
+      },
+      {
+        "model": "iPhone 15",
+        "detail": "15 / Plus / Pro / Pro Max",
+        "price": 38000,
+        "sourceRows": [
+          17,
+          18,
+          19,
+          20
+        ]
+      },
+      {
+        "model": "iPhone 16",
+        "detail": "16 / Plus / Pro / Pro Max",
+        "price": 40000,
+        "sourceRows": [
+          21,
+          22,
+          23,
+          24
+        ]
+      }
+    ],
+    "group": "Батареи",
+    "scope": "Работа мастера<br>Запчасти отдельно",
+    "theme": "light",
+    "kind": "prices",
+    "file": "03_Аккумулятор_14–16.png"
+  },
+  {
+    "number": 4,
+    "name": "Усиленные_JCID",
+    "title": "Усиленный<br>аккумулятор",
+    "hero": "battery",
+    "rows": [
+      {
+        "model": "iPhone 11",
+        "detail": "",
+        "price": 12000,
+        "sourceRows": []
+      },
+      {
+        "model": "iPhone 12",
+        "detail": "",
+        "price": 15000,
+        "sourceRows": []
+      },
+      {
+        "model": "iPhone 13",
+        "detail": "",
+        "price": 18000,
+        "sourceRows": []
+      },
+      {
+        "model": "iPhone 14",
+        "detail": "",
+        "price": 25000,
+        "sourceRows": []
+      },
+      {
+        "model": "iPhone 15",
+        "detail": "",
+        "price": 28000,
+        "sourceRows": []
+      },
+      {
+        "model": "iPhone 16",
+        "detail": "",
+        "price": 30000,
+        "sourceRows": []
+      }
+    ],
+    "group": "Батареи",
+    "scope": "Аккумулятор JCID<br>и работа включены",
+    "theme": "mint",
+    "kind": "promo",
+    "file": "04_Усиленные_JCID.png"
+  },
+  {
+    "number": 5,
+    "name": "Дисплей_X–11",
+    "title": "Замена<br>экрана",
+    "hero": "display",
+    "rows": [
+      {
+        "model": "iPhone X / XR",
+        "detail": "XS / XS Max",
+        "price": 8000,
+        "sourceRows": [
+          83,
+          84,
+          85,
+          86,
+          87,
+          88,
+          89,
+          90
+        ]
+      },
+      {
+        "model": "iPhone 11",
+        "detail": "Установка копии",
+        "price": 8000,
+        "sourceRows": [
+          37
+        ]
+      },
+      {
+        "model": "iPhone 11",
+        "detail": "Оригинальный модуль",
+        "price": 10000,
+        "sourceRows": [
+          38
+        ]
+      },
+      {
+        "model": "iPhone 11 Pro",
+        "detail": "Pro / Pro Max",
+        "price": 10000,
+        "sourceRows": [
+          33,
+          34,
+          35,
+          36
+        ]
+      }
+    ],
+    "group": "Экраны",
+    "scope": "Работа мастера<br>Запчасти отдельно",
+    "theme": "light",
+    "kind": "prices",
+    "file": "05_Дисплей_X–11.png"
+  },
+  {
+    "number": 6,
+    "name": "Дисплей_12",
+    "title": "Замена<br>экрана",
+    "hero": "display",
+    "rows": [
+      {
+        "model": "iPhone 12 mini",
+        "detail": "",
+        "price": 10000,
+        "sourceRows": [
+          39,
+          40
+        ]
+      },
+      {
+        "model": "iPhone 12 / 12 Pro",
+        "detail": "",
+        "price": 20000,
+        "sourceRows": [
+          43,
+          44,
+          45,
+          46
+        ]
+      },
+      {
+        "model": "iPhone 12 Pro Max",
+        "detail": "",
+        "price": 22000,
+        "sourceRows": [
+          41,
+          42
+        ]
+      }
+    ],
+    "group": "Экраны",
+    "scope": "Работа мастера<br>Запчасти отдельно",
+    "theme": "light",
+    "kind": "prices",
+    "file": "06_Дисплей_12.png"
+  },
+  {
+    "number": 7,
+    "name": "Дисплей_13–14",
+    "title": "Замена<br>экрана",
+    "hero": "display",
+    "rows": [
+      {
+        "model": "iPhone 13 mini",
+        "detail": "",
+        "price": 20000,
+        "sourceRows": [
+          47,
+          48
+        ]
+      },
+      {
+        "model": "iPhone 13",
+        "detail": "",
+        "price": 23000,
+        "sourceRows": [
+          53,
+          54
+        ]
+      },
+      {
+        "model": "iPhone 13 Pro",
+        "detail": "Pro / Pro Max",
+        "price": 25000,
+        "sourceRows": [
+          49,
+          50,
+          51,
+          52
+        ]
+      },
+      {
+        "model": "iPhone 14 / 14 Plus",
+        "detail": "",
+        "price": 25000,
+        "sourceRows": [
+          55,
+          56,
+          61,
+          62
+        ]
+      },
+      {
+        "model": "iPhone 14 Pro",
+        "detail": "Pro / Pro Max",
+        "price": 28000,
+        "sourceRows": [
+          57,
+          58,
+          59,
+          60
+        ]
+      }
+    ],
+    "group": "Экраны",
+    "scope": "Работа мастера<br>Запчасти отдельно",
+    "theme": "light",
+    "kind": "prices",
+    "file": "07_Дисплей_13–14.png"
+  },
+  {
+    "number": 8,
+    "name": "Дисплей_15–16",
+    "title": "Замена<br>экрана",
+    "hero": "display",
+    "rows": [
+      {
+        "model": "iPhone 15 / 15 Plus",
+        "detail": "",
+        "price": 28000,
+        "sourceRows": [
+          63,
+          64,
+          69,
+          70
+        ]
+      },
+      {
+        "model": "iPhone 15 Pro",
+        "detail": "Pro / Pro Max",
+        "price": 30000,
+        "sourceRows": [
+          65,
+          66,
+          67,
+          68
+        ]
+      },
+      {
+        "model": "iPhone 16",
+        "detail": "Все версии, оригинальный модуль",
+        "price": 40000,
+        "sourceRows": [
+          71,
+          72,
+          73,
+          74
+        ]
+      }
+    ],
+    "group": "Экраны",
+    "scope": "Работа мастера<br>Запчасти отдельно",
+    "theme": "light",
+    "kind": "prices",
+    "file": "08_Дисплей_15–16.png"
+  },
+  {
+    "number": 9,
+    "name": "Дисплей_17",
+    "title": "Замена<br>экрана",
+    "hero": "display",
+    "rows": [
+      {
+        "model": "iPhone 17 Air",
+        "detail": "",
+        "price": 40000,
+        "sourceRows": [
+          75,
+          76
+        ]
+      },
+      {
+        "model": "iPhone 17",
+        "detail": "",
+        "price": 40000,
+        "sourceRows": [
+          81,
+          82
+        ]
+      },
+      {
+        "model": "iPhone 17 Pro",
+        "detail": "Pro / Pro Max",
+        "price": 50000,
+        "sourceRows": [
+          77,
+          78,
+          79,
+          80
+        ]
+      }
+    ],
+    "group": "Экраны",
+    "scope": "Работа мастера<br>Запчасти отдельно",
+    "theme": "light",
+    "kind": "prices",
+    "file": "09_Дисплей_17.png"
+  },
+  {
+    "number": 10,
+    "name": "Крышка_X–13",
+    "title": "Замена<br>задней крышки",
+    "hero": "back",
+    "rows": [
+      {
+        "model": "iPhone X / XR",
+        "detail": "XS / XS Max",
+        "price": 10000,
+        "sourceRows": [
+          114,
+          115,
+          116,
+          117
+        ]
+      },
+      {
+        "model": "iPhone 11",
+        "detail": "11 / Pro / Pro Max",
+        "price": 12000,
+        "sourceRows": [
+          91,
+          92,
+          93
+        ]
+      },
+      {
+        "model": "iPhone 12",
+        "detail": "mini / 12 / Pro / Pro Max",
+        "price": 13000,
+        "sourceRows": [
+          94,
+          95,
+          96,
+          97
+        ]
+      },
+      {
+        "model": "iPhone 13",
+        "detail": "mini / 13 / Pro",
+        "price": 15000,
+        "sourceRows": [
+          98,
+          99,
+          100
+        ]
+      },
+      {
+        "model": "iPhone 13 Pro Max",
+        "detail": "",
+        "price": 18000,
+        "sourceRows": [
+          101
+        ]
+      }
+    ],
+    "group": "Корпус",
+    "scope": "Работа мастера<br>Запчасти отдельно",
+    "theme": "light",
+    "kind": "prices",
+    "file": "10_Крышка_X–13.png"
+  },
+  {
+    "number": 11,
+    "name": "Крышка_14–16",
+    "title": "Замена<br>задней крышки",
+    "hero": "back",
+    "rows": [
+      {
+        "model": "iPhone 14",
+        "detail": "14 / Plus / Pro / Pro Max",
+        "price": 20000,
+        "sourceRows": [
+          102,
+          103,
+          104,
+          105
+        ]
+      },
+      {
+        "model": "iPhone 15",
+        "detail": "15 / Plus / Pro / Pro Max",
+        "price": 25000,
+        "sourceRows": [
+          106,
+          107,
+          108,
+          109
+        ]
+      },
+      {
+        "model": "iPhone 16",
+        "detail": "16 / Plus / Pro / Pro Max",
+        "price": 30000,
+        "sourceRows": [
+          110,
+          111,
+          112,
+          113
+        ]
+      }
+    ],
+    "group": "Корпус",
+    "scope": "Работа мастера<br>Запчасти отдельно",
+    "theme": "light",
+    "kind": "prices",
+    "file": "11_Крышка_14–16.png"
+  },
+  {
+    "number": 12,
+    "name": "Стекло_iPhone_X–12",
+    "title": "Замена<br>стекла",
+    "hero": "display",
+    "rows": [
+      {
+        "model": "iPhone X / XS",
+        "detail": "",
+        "price": 15000,
+        "sourceRows": [
+          163,
+          165
+        ]
+      },
+      {
+        "model": "iPhone XR",
+        "detail": "",
+        "price": 10000,
+        "sourceRows": [
+          164
+        ]
+      },
+      {
+        "model": "iPhone XS Max",
+        "detail": "",
+        "price": 20000,
+        "sourceRows": [
+          166
+        ]
+      },
+      {
+        "model": "iPhone 11 Pro",
+        "detail": "",
+        "price": 15000,
+        "sourceRows": [
+          137
+        ]
+      },
+      {
+        "model": "iPhone 11 Pro Max",
+        "detail": "",
+        "price": 18000,
+        "sourceRows": [
+          138
+        ]
+      },
+      {
+        "model": "iPhone 12",
+        "detail": "mini / 12 / Pro / Pro Max",
+        "price": 20000,
+        "sourceRows": [
+          139,
+          140,
+          141,
+          142
+        ]
+      }
+    ],
+    "group": "Стекло iPhone",
+    "scope": "Работа мастера<br>Запчасти отдельно",
+    "theme": "light",
+    "kind": "prices",
+    "file": "12_Стекло_iPhone_X–12.png"
+  },
+  {
+    "number": 13,
+    "name": "Стекло_iPhone_13–16",
+    "title": "Замена<br>стекла",
+    "hero": "display",
+    "rows": [
+      {
+        "model": "iPhone 13",
+        "detail": "mini / 13 / Pro / Pro Max",
+        "price": 23000,
+        "sourceRows": [
+          143,
+          144,
+          145,
+          146
+        ]
+      },
+      {
+        "model": "iPhone 14",
+        "detail": "14 / Plus / Pro / Pro Max",
+        "price": 25000,
+        "sourceRows": [
+          147,
+          148,
+          149,
+          150
+        ]
+      },
+      {
+        "model": "iPhone 15",
+        "detail": "15 / Plus / Pro / Pro Max",
+        "price": 30000,
+        "sourceRows": [
+          151,
+          152,
+          153,
+          154
+        ]
+      },
+      {
+        "model": "iPhone 16",
+        "detail": "16 / Plus / Pro / Pro Max",
+        "price": 35000,
+        "sourceRows": [
+          155,
+          156,
+          157,
+          158
+        ]
+      }
+    ],
+    "group": "Стекло iPhone",
+    "scope": "Работа мастера<br>Запчасти отдельно",
+    "theme": "light",
+    "kind": "prices",
+    "file": "13_Стекло_iPhone_13–16.png"
+  },
+  {
+    "number": 14,
+    "name": "Стекло_iPhone_17",
+    "title": "Замена<br>стекла",
+    "hero": "display",
+    "rows": [
+      {
+        "model": "iPhone 17",
+        "detail": "",
+        "price": 45000,
+        "sourceRows": [
+          159
+        ]
+      },
+      {
+        "model": "iPhone 17 Air",
+        "detail": "",
+        "price": 50000,
+        "sourceRows": [
+          160
+        ]
+      },
+      {
+        "model": "iPhone 17 Pro",
+        "detail": "",
+        "price": 55000,
+        "sourceRows": [
+          161
+        ]
+      },
+      {
+        "model": "iPhone 17 Pro Max",
+        "detail": "",
+        "price": 60000,
+        "sourceRows": [
+          162
+        ]
+      }
+    ],
+    "group": "Стекло iPhone",
+    "scope": "Работа мастера<br>Запчасти отдельно",
+    "theme": "light",
+    "kind": "prices",
+    "file": "14_Стекло_iPhone_17.png"
+  },
+  {
+    "number": 15,
+    "name": "Стекло_Samsung_S10–S21",
+    "title": "Замена стекла<br>Samsung",
+    "hero": "android",
+    "rows": [
+      {
+        "model": "Galaxy S10 / S10+",
+        "detail": "",
+        "price": 27000,
+        "sourceRows": [
+          172,
+          173
+        ]
+      },
+      {
+        "model": "Galaxy S20 / S20+",
+        "detail": "",
+        "price": 28000,
+        "sourceRows": [
+          174,
+          175
+        ]
+      },
+      {
+        "model": "Galaxy S20 Ultra",
+        "detail": "",
+        "price": 30000,
+        "sourceRows": [
+          176
+        ]
+      },
+      {
+        "model": "Galaxy S21 / S21+",
+        "detail": "",
+        "price": 27000,
+        "sourceRows": [
+          177,
+          178
+        ]
+      },
+      {
+        "model": "Galaxy S21 Ultra",
+        "detail": "",
+        "price": 32000,
+        "sourceRows": [
+          179
+        ]
+      }
+    ],
+    "group": "Samsung",
+    "scope": "Работа мастера<br>Запчасти отдельно",
+    "theme": "light",
+    "kind": "prices",
+    "file": "15_Стекло_Samsung_S10–S21.png"
+  },
+  {
+    "number": 16,
+    "name": "Стекло_Samsung_Ultra",
+    "title": "Замена стекла<br>Samsung",
+    "hero": "android",
+    "rows": [
+      {
+        "model": "Galaxy S22 Ultra",
+        "detail": "",
+        "price": 35000,
+        "sourceRows": [
+          180
+        ]
+      },
+      {
+        "model": "Galaxy S23 Ultra",
+        "detail": "",
+        "price": 40000,
+        "sourceRows": [
+          181
+        ]
+      },
+      {
+        "model": "Galaxy S24 Ultra",
+        "detail": "",
+        "price": 45000,
+        "sourceRows": [
+          182
+        ]
+      }
+    ],
+    "group": "Samsung",
+    "scope": "Работа мастера<br>Запчасти отдельно",
+    "theme": "light",
+    "kind": "prices",
+    "file": "16_Стекло_Samsung_Ultra.png"
+  },
+  {
+    "number": 17,
+    "name": "Стекло_Samsung_Note",
+    "title": "Замена стекла<br>Samsung",
+    "hero": "android",
+    "rows": [
+      {
+        "model": "Galaxy Note 10 / 10+",
+        "detail": "",
+        "price": 28000,
+        "sourceRows": [
+          167,
+          168
+        ]
+      },
+      {
+        "model": "Galaxy Note 20",
+        "detail": "",
+        "price": 32000,
+        "sourceRows": [
+          169
+        ]
+      },
+      {
+        "model": "Galaxy Note 20+",
+        "detail": "",
+        "price": 35000,
+        "sourceRows": [
+          170
+        ]
+      },
+      {
+        "model": "Galaxy Note 20 Ultra",
+        "detail": "",
+        "price": 40000,
+        "sourceRows": [
+          171
+        ]
+      }
+    ],
+    "group": "Samsung",
+    "scope": "Работа мастера<br>Запчасти отдельно",
+    "theme": "light",
+    "kind": "prices",
+    "file": "17_Стекло_Samsung_Note.png"
+  },
+  {
+    "number": 18,
+    "name": "Стекло_Watch_4–6_SE",
+    "title": "Замена стекла<br>Apple Watch",
+    "hero": "watch",
+    "rows": [
+      {
+        "model": "Series 4",
+        "detail": "",
+        "price": 20000,
+        "sourceRows": [
+          118
+        ]
+      },
+      {
+        "model": "Series 5 / SE",
+        "detail": "",
+        "price": 22000,
+        "sourceRows": [
+          122
+        ]
+      },
+      {
+        "model": "Series 6",
+        "detail": "",
+        "price": 22000,
+        "sourceRows": [
+          119
+        ]
+      }
+    ],
+    "group": "Watch и iPad",
+    "scope": "Работа мастера<br>Запчасти отдельно",
+    "theme": "light",
+    "kind": "prices",
+    "file": "18_Стекло_Watch_4–6_SE.png"
+  },
+  {
+    "number": 19,
+    "name": "Стекло_Watch_7–Ultra",
+    "title": "Замена стекла<br>Apple Watch",
+    "hero": "watch",
+    "rows": [
+      {
+        "model": "Series 7",
+        "detail": "",
+        "price": 25000,
+        "sourceRows": [
+          120
+        ]
+      },
+      {
+        "model": "Series 8",
+        "detail": "",
+        "price": 27000,
+        "sourceRows": [
+          121
+        ]
+      },
+      {
+        "model": "Ultra 1",
+        "detail": "",
+        "price": 40000,
+        "sourceRows": [
+          123
+        ]
+      },
+      {
+        "model": "Ultra 2",
+        "detail": "",
+        "price": 45000,
+        "sourceRows": [
+          124
+        ]
+      }
+    ],
+    "group": "Watch и iPad",
+    "scope": "Работа мастера<br>Запчасти отдельно",
+    "theme": "light",
+    "kind": "prices",
+    "file": "19_Стекло_Watch_7–Ultra.png"
+  },
+  {
+    "number": 20,
+    "name": "Стекло_iPad_Air_mini",
+    "title": "Замена стекла<br>iPad",
+    "hero": "tablet",
+    "rows": [
+      {
+        "model": "iPad 7",
+        "detail": "10,2″",
+        "price": 25000,
+        "sourceRows": [
+          125
+        ]
+      },
+      {
+        "model": "iPad Air",
+        "detail": "10,5″",
+        "price": 25000,
+        "sourceRows": [
+          126
+        ]
+      },
+      {
+        "model": "iPad Air 5",
+        "detail": "2022",
+        "price": 35000,
+        "sourceRows": [
+          127
+        ]
+      },
+      {
+        "model": "iPad Air 6",
+        "detail": "2024",
+        "price": 40000,
+        "sourceRows": [
+          128
+        ]
+      },
+      {
+        "model": "iPad mini 6",
+        "detail": "",
+        "price": 30000,
+        "sourceRows": [
+          129
+        ]
+      }
+    ],
+    "group": "Watch и iPad",
+    "scope": "Работа мастера<br>Запчасти отдельно",
+    "theme": "light",
+    "kind": "prices",
+    "file": "20_Стекло_iPad_Air_mini.png"
+  },
+  {
+    "number": 21,
+    "name": "Стекло_iPad_Pro_9_11",
+    "title": "Замена стекла<br>iPad Pro",
+    "hero": "tablet",
+    "rows": [
+      {
+        "model": "iPad Pro 9,7″",
+        "detail": "",
+        "price": 30000,
+        "sourceRows": [
+          136
+        ]
+      },
+      {
+        "model": "iPad Pro 11″",
+        "detail": "2020",
+        "price": 35000,
+        "sourceRows": [
+          130
+        ]
+      },
+      {
+        "model": "iPad Pro 11″",
+        "detail": "2021",
+        "price": 40000,
+        "sourceRows": [
+          131
+        ]
+      },
+      {
+        "model": "iPad Pro 11″",
+        "detail": "2024",
+        "price": 80000,
+        "sourceRows": [
+          132
+        ]
+      }
+    ],
+    "group": "Watch и iPad",
+    "scope": "Работа мастера<br>Запчасти отдельно",
+    "theme": "light",
+    "kind": "prices",
+    "file": "21_Стекло_iPad_Pro_9_11.png"
+  },
+  {
+    "number": 22,
+    "name": "Стекло_iPad_Pro_12_13",
+    "title": "Замена стекла<br>iPad Pro",
+    "hero": "tablet",
+    "rows": [
+      {
+        "model": "iPad Pro 12,9″",
+        "detail": "2020",
+        "price": 45000,
+        "sourceRows": [
+          133
+        ]
+      },
+      {
+        "model": "iPad Pro 12,9″",
+        "detail": "2021",
+        "price": 50000,
+        "sourceRows": [
+          134
+        ]
+      },
+      {
+        "model": "iPad Pro 13″",
+        "detail": "2024",
+        "price": 90000,
+        "sourceRows": [
+          135
+        ]
+      }
+    ],
+    "group": "Watch и iPad",
+    "scope": "Работа мастера<br>Запчасти отдельно",
+    "theme": "light",
+    "kind": "prices",
+    "file": "22_Стекло_iPad_Pro_12_13.png"
+  },
+  {
+    "number": 23,
+    "name": "Стекло_камеры_11–13",
+    "title": "Замена стекла<br>камеры",
+    "hero": "camera",
+    "rows": [
+      {
+        "model": "iPhone 11",
+        "detail": "11 / Pro / Pro Max",
+        "price": 8000,
+        "sourceRows": [
+          183,
+          184,
+          185
+        ]
+      },
+      {
+        "model": "iPhone 12",
+        "detail": "mini / 12 / Pro / Pro Max",
+        "price": 10000,
+        "sourceRows": [
+          186,
+          187,
+          188,
+          189
+        ]
+      },
+      {
+        "model": "iPhone 13",
+        "detail": "mini / 13 / Pro / Pro Max",
+        "price": 12000,
+        "sourceRows": [
+          190,
+          191,
+          192,
+          193
+        ]
+      }
+    ],
+    "group": "Камеры",
+    "scope": "Работа мастера<br>Запчасти отдельно",
+    "theme": "light",
+    "kind": "prices",
+    "file": "23_Стекло_камеры_11–13.png"
+  },
+  {
+    "number": 24,
+    "name": "Стекло_камеры_14–16",
+    "title": "Замена стекла<br>камеры",
+    "hero": "camera",
+    "rows": [
+      {
+        "model": "iPhone 14",
+        "detail": "14 / Plus / Pro / Pro Max",
+        "price": 15000,
+        "sourceRows": [
+          194,
+          195,
+          196,
+          197
+        ]
+      },
+      {
+        "model": "iPhone 15",
+        "detail": "15 / Plus / Pro / Pro Max",
+        "price": 18000,
+        "sourceRows": [
+          198,
+          199,
+          200,
+          201
+        ]
+      },
+      {
+        "model": "iPhone 16",
+        "detail": "16 / Plus / Pro / Pro Max",
+        "price": 20000,
+        "sourceRows": [
+          202,
+          203,
+          204,
+          205
+        ]
+      }
+    ],
+    "group": "Камеры",
+    "scope": "Работа мастера<br>Запчасти отдельно",
+    "theme": "light",
+    "kind": "prices",
+    "file": "24_Стекло_камеры_14–16.png"
+  },
+  {
+    "number": 25,
+    "name": "Разъём_X–11",
+    "title": "Разъём зарядки<br>и микрофон",
+    "hero": "charge",
+    "rows": [
+      {
+        "model": "iPhone X / XR / XS",
+        "detail": "",
+        "price": 15000,
+        "sourceRows": [
+          229,
+          230,
+          231
+        ]
+      },
+      {
+        "model": "iPhone XS Max",
+        "detail": "",
+        "price": 18000,
+        "sourceRows": [
+          232
+        ]
+      },
+      {
+        "model": "iPhone 11",
+        "detail": "",
+        "price": 18000,
+        "sourceRows": [
+          206
+        ]
+      },
+      {
+        "model": "iPhone 11 Pro",
+        "detail": "",
+        "price": 20000,
+        "sourceRows": [
+          207
+        ]
+      },
+      {
+        "model": "iPhone 11 Pro Max",
+        "detail": "",
+        "price": 22000,
+        "sourceRows": [
+          208
+        ]
+      }
+    ],
+    "group": "Зарядка",
+    "scope": "Работа мастера<br>Запчасти отдельно",
+    "theme": "light",
+    "kind": "prices",
+    "file": "25_Разъём_X–11.png"
+  },
+  {
+    "number": 26,
+    "name": "Разъём_12–13",
+    "title": "Разъём зарядки<br>и микрофон",
+    "hero": "charge",
+    "rows": [
+      {
+        "model": "iPhone 12 / 12 mini",
+        "detail": "",
+        "price": 20000,
+        "sourceRows": [
+          209,
+          210
+        ]
+      },
+      {
+        "model": "iPhone 12 Pro",
+        "detail": "",
+        "price": 22000,
+        "sourceRows": [
+          211
+        ]
+      },
+      {
+        "model": "iPhone 12 Pro Max",
+        "detail": "",
+        "price": 25000,
+        "sourceRows": [
+          212
+        ]
+      },
+      {
+        "model": "iPhone 13 / 13 mini",
+        "detail": "Также 13 Pro",
+        "price": 25000,
+        "sourceRows": [
+          213,
+          214,
+          215
+        ]
+      },
+      {
+        "model": "iPhone 13 Pro Max",
+        "detail": "",
+        "price": 28000,
+        "sourceRows": [
+          216
+        ]
+      }
+    ],
+    "group": "Зарядка",
+    "scope": "Работа мастера<br>Запчасти отдельно",
+    "theme": "light",
+    "kind": "prices",
+    "file": "26_Разъём_12–13.png"
+  },
+  {
+    "number": 27,
+    "name": "Разъём_14–15",
+    "title": "Разъём зарядки<br>и микрофон",
+    "hero": "charge",
+    "rows": [
+      {
+        "model": "iPhone 14 / 14 Plus",
+        "detail": "",
+        "price": 30000,
+        "sourceRows": [
+          217,
+          218
+        ]
+      },
+      {
+        "model": "iPhone 14 Pro",
+        "detail": "Pro / Pro Max",
+        "price": 35000,
+        "sourceRows": [
+          219,
+          220
+        ]
+      },
+      {
+        "model": "iPhone 15 / 15 Plus",
+        "detail": "",
+        "price": 35000,
+        "sourceRows": [
+          221,
+          222
+        ]
+      },
+      {
+        "model": "iPhone 15 Pro",
+        "detail": "Pro / Pro Max",
+        "price": 40000,
+        "sourceRows": [
+          223,
+          224
+        ]
+      }
+    ],
+    "group": "Зарядка",
+    "scope": "Работа мастера<br>Запчасти отдельно",
+    "theme": "light",
+    "kind": "prices",
+    "file": "27_Разъём_14–15.png"
+  },
+  {
+    "number": 28,
+    "name": "Разъём_16",
+    "title": "Разъём зарядки<br>и микрофон",
+    "hero": "charge",
+    "rows": [
+      {
+        "model": "iPhone 16",
+        "detail": "",
+        "price": 45000,
+        "sourceRows": [
+          225
+        ]
+      },
+      {
+        "model": "iPhone 16 Plus / Pro",
+        "detail": "",
+        "price": 50000,
+        "sourceRows": [
+          226,
+          227
+        ]
+      },
+      {
+        "model": "iPhone 16 Pro Max",
+        "detail": "",
+        "price": 55000,
+        "sourceRows": [
+          228
+        ]
+      }
+    ],
+    "group": "Зарядка",
+    "scope": "Работа мастера<br>Запчасти отдельно",
+    "theme": "light",
+    "kind": "prices",
+    "file": "28_Разъём_16.png"
+  },
+  {
+    "number": 29,
+    "name": "Чип_дисплея_11–14",
+    "title": "Перенос чипа<br>дисплея",
+    "hero": "chip",
+    "rows": [
+      {
+        "model": "iPhone 11",
+        "detail": "",
+        "price": 10000,
+        "sourceRows": [
+          234
+        ]
+      },
+      {
+        "model": "iPhone 12",
+        "detail": "",
+        "price": 15000,
+        "sourceRows": [
+          235
+        ]
+      },
+      {
+        "model": "iPhone 13",
+        "detail": "",
+        "price": 20000,
+        "sourceRows": [
+          236
+        ]
+      },
+      {
+        "model": "iPhone 14",
+        "detail": "",
+        "price": 25000,
+        "sourceRows": [
+          237
+        ]
+      }
+    ],
+    "group": "Экраны",
+    "scope": "Работа мастера<br>Запчасти отдельно",
+    "theme": "light",
+    "kind": "prices",
+    "file": "29_Чип_дисплея_11–14.png"
+  },
+  {
+    "number": 30,
+    "name": "Чип_дисплея_15–17",
+    "title": "Перенос чипа<br>дисплея",
+    "hero": "chip",
+    "rows": [
+      {
+        "model": "iPhone 15",
+        "detail": "",
+        "price": 30000,
+        "sourceRows": [
+          238
+        ]
+      },
+      {
+        "model": "iPhone 16",
+        "detail": "",
+        "price": 35000,
+        "sourceRows": [
+          239
+        ]
+      },
+      {
+        "model": "iPhone 17",
+        "detail": "",
+        "price": 45000,
+        "sourceRows": [
+          240
+        ]
+      }
+    ],
+    "group": "Экраны",
+    "scope": "Работа мастера<br>Запчасти отдельно",
+    "theme": "light",
+    "kind": "prices",
+    "file": "30_Чип_дисплея_15–17.png"
+  },
+  {
+    "number": 31,
+    "name": "Данные_настройка",
+    "title": "Данные<br>и настройка",
+    "hero": "cloud",
+    "rows": [
+      {
+        "model": "Перенос данных",
+        "detail": "с iOS на iOS",
+        "price": 5000,
+        "sourceRows": [
+          233
+        ]
+      },
+      {
+        "model": "Прошивка iPhone",
+        "detail": "Без сохранения данных",
+        "price": 5000,
+        "sourceRows": [
+          241
+        ]
+      },
+      {
+        "model": "Прошивка iPhone",
+        "detail": "С сохранением данных",
+        "price": 10000,
+        "sourceRows": [
+          242
+        ]
+      },
+      {
+        "model": "Создание iCloud",
+        "detail": "",
+        "price": 5000,
+        "sourceRows": [
+          244
+        ]
+      },
+      {
+        "model": "Google-аккаунт",
+        "detail": "",
+        "price": 5000,
+        "sourceRows": [
+          243
+        ]
+      }
+    ],
+    "group": "Сервис",
+    "scope": "",
+    "theme": "blue",
+    "kind": "prices",
+    "file": "31_Данные_настройка.png"
+  },
+  {
+    "number": 32,
+    "name": "Чистка_ноутбуков",
+    "title": "Чистка<br>ноутбука",
+    "hero": "laptop",
+    "rows": [
+      {
+        "model": "MacBook и ноутбуки",
+        "detail": "Чистка и замена термопасты",
+        "price": 15000,
+        "sourceRows": [
+          245
+        ]
+      }
+    ],
+    "group": "Сервис",
+    "scope": "Работа мастера",
+    "theme": "light",
+    "kind": "single",
+    "file": "32_Чистка_ноутбуков.png"
+  },
+  {
+    "number": 33,
+    "name": "Написать_нам",
+    "title": "Какой ремонт<br>нужен тебе?",
+    "hero": "contact",
+    "rows": [],
+    "group": "Общее",
+    "scope": "Напиши модель<br>и что случилось",
+    "theme": "dark",
+    "kind": "contact",
+    "file": "33_Написать_нам.png"
+  }
+]
