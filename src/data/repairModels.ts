@@ -1505,16 +1505,16 @@ const MODELS: ModelData[] = [
 export const allModels = MODELS.map(model => {
   const offer = gsiOfferForModel(model.slug);
   if (!offer) return model;
-  const batteryAnswer = `Замена усиленного аккумулятора GSI для ${model.name} — ${formatTenge(offer.price)} по акции. Аккумулятор и работа включены. Гарантия 6 месяцев. Наличие и время визита подтвердим в WhatsApp.`;
+  const batteryAnswer = `Замена усиленного аккумулятора JCID для ${model.name} — ${formatTenge(offer.price)} по акции. Аккумулятор и работа включены. Гарантия 6 месяцев. Наличие и время визита подтвердим в WhatsApp.`;
   return {
     ...model,
-    intro: `Ремонт ${model.name} в Алматы. По акции устанавливаем усиленный аккумулятор GSI за ${formatTenge(offer.price)} с работой и гарантией 6 месяцев. Перед визитом уточним неисправность и наличие деталей.`,
+    intro: `Ремонт ${model.name} в Алматы. По акции устанавливаем усиленный аккумулятор JCID за ${formatTenge(offer.price)} с работой и гарантией 6 месяцев. Перед визитом уточним неисправность и наличие деталей.`,
     problems: model.problems.map(problem => /аккумулятор|батаре/i.test(problem) ? 'Быстрая разрядка или износ аккумулятора' : problem),
     repairs: model.repairs.map(repair => /аккумулятор/i.test(repair.name)
-      ? { name: 'Замена усиленного аккумулятора GSI', price: formatTenge(offer.price), time: 'По записи' } : repair),
+      ? { name: 'Замена усиленного аккумулятора JCID', price: formatTenge(offer.price), time: 'По записи' } : repair),
     faq: model.faq.map(item => {
       if (/аккумулятор|батаре/i.test(item.q)) return { q: item.q.replace(/ в 2025 году| в 2025/g, ''), a: batteryAnswer };
-      if (/гаранти/i.test(item.q)) return { q: item.q, a: 'На усиленные аккумуляторы GSI действует гарантия 6 месяцев. Условия гарантии на другие работы согласуем при оформлении заказа.' };
+      if (/гаранти/i.test(item.q)) return { q: item.q, a: 'На усиленные аккумуляторы JCID действует гарантия 6 месяцев. Условия гарантии на другие работы согласуем при оформлении заказа.' };
       if (/времени/i.test(item.q)) return { q: item.q, a: 'Срок зависит от работы и состояния устройства. Напишите модель и проблему: подтвердим наличие деталей и согласуем время визита.' };
       if (/аккумулятор|батаре/i.test(item.a)) return { q: item.q.replace(/ в 2025 году| в 2025/g, ''), a: `Возможность и стоимость ремонта зависят от состояния устройства. ${batteryAnswer}` };
       return item;

@@ -45,7 +45,7 @@ test('homepage uses Oceanic Shimmer with neutral controls and the original burgu
   assert.doesNotMatch(styles, /#(?:d6e9c4|c7e4b3|92b7a1|a7e2d2|bde8d6)/i);
 });
 
-test('GSI promotion banner uses graphite and Apple blue instead of burgundy', () => {
+test('JCID promotion banner uses graphite and Apple blue instead of burgundy', () => {
   const banner = readFileSync(new URL('../src/components/GsiBatteryBanner.tsx', import.meta.url), 'utf8');
   assert.match(banner, /background: '#1D1D1F', color: '#F5F5F7'/);
   assert.match(banner, /background: '#0071E3', color: '#FFFFFF'/);

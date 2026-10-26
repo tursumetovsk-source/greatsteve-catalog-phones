@@ -65,7 +65,7 @@ export default function ModelRepairPage() {
     <div className="min-h-screen overflow-x-hidden bg-white">
       <SEOHead
         title={`Ремонт ${data.name} в Алматы — GreatSteve | Цены и гарантия`}
-        description={gsiOffer ? `Замена усиленного аккумулятора GSI для ${data.name} в Алматы — ${formatTenge(gsiOffer.price)} с работой. Гарантия 6 месяцев. Гоголя 75/1, ежедневно 10:00–20:00.` : `Ремонт ${data.name} в Алматы. Замена экрана ${data.repairs[0].price}, аккумулятора ${battery.price}. Гарантия 12 месяцев. Ежедневно 10:00–20:00. Гоголя 75/1 уг. ул.Тулебаева.`}
+        description={gsiOffer ? `Замена усиленного аккумулятора JCID для ${data.name} в Алматы — ${formatTenge(gsiOffer.price)} с работой. Гарантия 6 месяцев. Гоголя 75/1, ежедневно 10:00–20:00.` : `Ремонт ${data.name} в Алматы. Замена экрана ${data.repairs[0].price}, аккумулятора ${battery.price}. Гарантия 12 месяцев. Ежедневно 10:00–20:00. Гоголя 75/1 уг. ул.Тулебаева.`}
         keywords={`ремонт ${data.name} Алматы, замена экрана ${data.name} Алматы, замена аккумулятора ${data.name} Алматы, сервис ${data.name} Алматы`}
         canonical={`/remont/${data.slug}`}
         schema={schema}
@@ -133,7 +133,7 @@ export default function ModelRepairPage() {
             transition={{ duration: 0.5, delay: 0.1 }}
             style={{ background: 'rgba(255,255,255,0.06)', borderRadius: 28, display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: 320 }}
           >
-            {gsiOffer && <div style={{ padding: 32, color: '#F6F7F2' }}><p style={{ color: '#C1FF72', fontWeight: 600 }}>Усиленный аккумулятор GSI</p><p style={{ fontSize: 44, fontWeight: 800, margin: '16px 0' }}>{formatTenge(gsiOffer.price)}</p><p>Аккумулятор и замена включены.<br />Гарантия 6 месяцев.</p><Link to={GSI_PATH} style={{ display: 'inline-block', marginTop: 24, color: '#C1FF72' }}>Все цены и условия акции →</Link></div>}
+            {gsiOffer && <div style={{ padding: 32, color: '#F6F7F2' }}><p style={{ color: '#C1FF72', fontWeight: 600 }}>Усиленный аккумулятор JCID</p><p style={{ fontSize: 44, fontWeight: 800, margin: '16px 0' }}>{formatTenge(gsiOffer.price)}</p><p>Аккумулятор и замена включены.<br />Гарантия 6 месяцев.</p><Link to={GSI_PATH} style={{ display: 'inline-block', marginTop: 24, color: '#C1FF72' }}>Все цены и условия акции →</Link></div>}
             {['iphone-17-pro-max', 'iphone-17-pro'].includes(data.slug) && (
               <img
                 src={`/devices/models/${data.slug}.webp`}
@@ -187,7 +187,7 @@ export default function ModelRepairPage() {
           </div>
 
           <p style={{ textAlign: 'center', marginTop: 24, fontSize: 13, color: 'rgba(0,0,0,0.35)' }}>
-            {gsiOffer ? 'Цена аккумулятора GSI по акции включает замену. Стоимость других работ согласуем перед ремонтом.' : 'Точная стоимость определяется после бесплатной диагностики. Цены указаны с учётом работы.'}
+            {gsiOffer ? 'Цена аккумулятора JCID по акции включает замену. Стоимость других работ согласуем перед ремонтом.' : 'Точная стоимость определяется после бесплатной диагностики. Цены указаны с учётом работы.'}
           </p>
         </div>
       </section>
@@ -260,8 +260,8 @@ export default function ModelRepairPage() {
               <h3 style={{ fontSize: 24, fontWeight: 700, color: '#fff', marginBottom: 24 }}>Почему GreatSteve</h3>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
                 {[
-                  gsiOffer ? 'Усиленный аккумулятор GSI по акции' : 'Оригинальные запчасти',
-                  gsiOffer ? 'Гарантия на GSI — 6 месяцев' : 'Гарантия до 12 месяцев',
+                  gsiOffer ? 'Усиленный аккумулятор JCID по акции' : 'Оригинальные запчасти',
+                  gsiOffer ? 'Гарантия на JCID — 6 месяцев' : 'Гарантия до 12 месяцев',
                   'Ремонт при вас',
                   'Бесплатная диагностика',
                   'Ежедневно 10:00–20:00',

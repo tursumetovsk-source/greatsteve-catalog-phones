@@ -44,7 +44,7 @@ const SCHEMA = {
     name: 'Виды ремонта',
     itemListElement: [
       { '@type': 'Offer', itemOffered: { '@type': 'RepairAction', name: 'Замена экрана iPhone', description: 'Оригинальный дисплей с сохранением True Tone и влагозащиты. От 30 минут.' } },
-      { '@type': 'Offer', itemOffered: { '@type': 'RepairAction', name: 'Замена аккумулятора iPhone', description: 'Усиленные аккумуляторы GSI для iPhone 11–16. От 12 000 ₸ с заменой, гарантия 6 месяцев.' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'RepairAction', name: 'Замена аккумулятора iPhone', description: 'Усиленные аккумуляторы JCID для iPhone 11–16. От 12 000 ₸ с заменой, гарантия 6 месяцев.' } },
       { '@type': 'Offer', itemOffered: { '@type': 'RepairAction', name: 'Ремонт MacBook в Алматы', description: 'Замена клавиатуры, дисплея, SSD. Ремонт платы MacBook Air и Pro.' } },
       { '@type': 'Offer', itemOffered: { '@type': 'RepairAction', name: 'Ремонт Samsung в Алматы', description: 'Замена AMOLED дисплея, батареи, корпуса Samsung Galaxy.' } },
       { '@type': 'Offer', itemOffered: { '@type': 'RepairAction', name: 'Бесплатная диагностика', description: 'Полная проверка всех систем устройства бесплатно при ремонте.' } },
@@ -78,12 +78,12 @@ const FAQ = {
     {
       '@type': 'Question',
       name: 'Есть ли гарантия на ремонт iPhone?',
-      acceptedAnswer: { '@type': 'Answer', text: 'На усиленные аккумуляторы GSI действует гарантия 6 месяцев. Условия гарантии на другие работы согласуем при оформлении заказа.' },
+      acceptedAnswer: { '@type': 'Answer', text: 'На усиленные аккумуляторы JCID действует гарантия 6 месяцев. Условия гарантии на другие работы согласуем при оформлении заказа.' },
     },
     {
       '@type': 'Question',
       name: 'Используете ли вы оригинальные запчасти для ремонта?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Для акции на аккумуляторы iPhone 11–16 используем усиленные GSI. Варианты деталей для других работ согласуем перед ремонтом.' },
+      acceptedAnswer: { '@type': 'Answer', text: 'Для акции на аккумуляторы iPhone 11–16 используем усиленные JCID. Варианты деталей для других работ согласуем перед ремонтом.' },
     },
     {
       '@type': 'Question',
@@ -95,7 +95,7 @@ const FAQ = {
 
 const GUARANTEES = [
   'Тип и стоимость запчастей согласуем до ремонта',
-  'Гарантия 6 месяцев на усиленные аккумуляторы GSI',
+  'Гарантия 6 месяцев на усиленные аккумуляторы JCID',
   'Ремонт при вас — видите весь процесс',
   'Бесплатная диагностика',
   'Работаем ежедневно 10:00 — 20:00',
@@ -114,7 +114,7 @@ export default function RemontPage() {
     <div className="flex flex-col bg-[#F5F5F5] min-h-screen text-black">
       <SEOHead
         title="Цены на ремонт телефонов в Алматы | GreatSteve"
-        description="Ремонт телефонов в Алматы. Усиленные аккумуляторы GSI для iPhone 11–16 от 12 000 ₸ с заменой и гарантией 6 месяцев. Гоголя 75/1."
+        description="Ремонт телефонов в Алматы. Усиленные аккумуляторы JCID для iPhone 11–16 от 12 000 ₸ с заменой и гарантией 6 месяцев. Гоголя 75/1."
         keywords="ремонт iPhone Алматы, замена экрана iPhone, замена батареи iPhone, ремонт MacBook Алматы, ремонт Samsung Алматы, ремонт iPad Алматы, бесплатная диагностика телефона"
         canonical="/remont"
         ogImage="/main/serivice1.jpg"

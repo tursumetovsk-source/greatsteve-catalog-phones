@@ -3,20 +3,20 @@ import Footer from '../components/Footer';
 import SEOHead from '../components/SEOHead';
 import { GSI_DESCRIPTION, GSI_PATH, GSI_TITLE, formatTenge, gsiBatteryOffers, gsiFaq } from '../data/gsiBatteryOffers';
 
-const WA_URL = `https://wa.me/77775181111?text=${encodeURIComponent('Здравствуйте! Хочу заменить аккумулятор на усиленный GSI по акции. Моя модель iPhone: ')}`;
+const WA_URL = `https://wa.me/77775181111?text=${encodeURIComponent('Здравствуйте! Хочу заменить аккумулятор на усиленный JCID по акции. Моя модель iPhone: ')}`;
 
 export default function GsiBatteryPage() {
   return (
     <div style={{ background: '#101210', color: '#F6F7F2' }}>
       <SEOHead title={GSI_TITLE} description={GSI_DESCRIPTION} canonical={GSI_PATH} schema={[
-        { '@context': 'https://schema.org', '@type': 'Service', name: 'Замена усиленного аккумулятора GSI для iPhone в Алматы', url: `https://greatsteve.kz${GSI_PATH}`, areaServed: { '@type': 'City', name: 'Алматы' }, provider: { '@type': 'LocalBusiness', name: 'Greatsteve', telephone: '+77775181111', address: { '@type': 'PostalAddress', streetAddress: 'Гоголя 75/1 уг. ул. Тулебаева', addressLocality: 'Алматы', addressCountry: 'KZ' } } },
+        { '@context': 'https://schema.org', '@type': 'Service', name: 'Замена усиленного аккумулятора JCID для iPhone в Алматы', url: `https://greatsteve.kz${GSI_PATH}`, areaServed: { '@type': 'City', name: 'Алматы' }, provider: { '@type': 'LocalBusiness', name: 'Greatsteve', telephone: '+77775181111', address: { '@type': 'PostalAddress', streetAddress: 'Гоголя 75/1 уг. ул. Тулебаева', addressLocality: 'Алматы', addressCountry: 'KZ' } } },
         { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: gsiFaq.map(item => ({ '@type': 'Question', name: item.q, acceptedAnswer: { '@type': 'Answer', text: item.a } })) },
       ]} />
       <Navbar />
       <main className="mx-auto max-w-6xl px-5 pb-16 pt-32 md:px-8 md:pt-40">
         <p className="mb-4 text-sm font-semibold" style={{ color: '#C1FF72' }}>Greatsteve · Алматы · Гоголя 75/1</p>
-        <h1 className="max-w-4xl text-4xl font-bold leading-tight tracking-tight md:text-6xl">Замена аккумулятора iPhone.<br /><span style={{ color: '#C1FF72' }}>Усиленный GSI по акции.</span></h1>
-        <p className="mt-6 max-w-2xl text-lg leading-relaxed">iPhone быстро разряжается? Напишите точную модель — подтвердим наличие аккумулятора и запишем на замену. Цена включает GSI и работу. Гарантия 6 месяцев.</p>
+        <h1 className="max-w-4xl text-4xl font-bold leading-tight tracking-tight md:text-6xl">Замена аккумулятора iPhone.<br /><span style={{ color: '#C1FF72' }}>Усиленный JCID по акции.</span></h1>
+        <p className="mt-6 max-w-2xl text-lg leading-relaxed">iPhone быстро разряжается? Напишите точную модель — подтвердим наличие аккумулятора и запишем на замену. Цена включает JCID и работу. Гарантия 6 месяцев.</p>
         <a href={WA_URL} data-contact-placement="gsi_hero" target="_blank" rel="noopener noreferrer" className="mt-7 inline-block rounded-full px-7 py-4 font-semibold" style={{ background: '#C1FF72', color: '#101210' }}>Записаться в WhatsApp</a>
 
         <section className="mt-14" aria-labelledby="gsi-prices">
@@ -28,7 +28,7 @@ export default function GsiBatteryPage() {
                 <h3 className="text-xl font-semibold">Линейка iPhone {offer.series}</h3>
                 <p className="mt-4 text-lg"><span className="sr-only">До скидки: </span><s>{formatTenge(offer.previousPrice)}</s></p>
                 <p className="mt-1 text-4xl font-bold" style={{ color: '#C1FF72' }}><span className="sr-only">По акции: </span>{formatTenge(offer.price)}</p>
-                <p className="mt-4 text-sm">Усиленный GSI + работа по замене</p>
+                <p className="mt-4 text-sm">Усиленный JCID + работа по замене</p>
               </article>
             ))}
           </div>

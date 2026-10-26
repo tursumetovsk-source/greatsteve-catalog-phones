@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
+import { readFileSync, readdirSync } from 'node:fs';
 import vm from 'node:vm';
 import { buildSync } from 'esbuild';
 
@@ -10,7 +10,7 @@ vm.runInNewContext(bundle, context);
 const { allModels } = context.module.exports;
 const normalize = value => value.replace(/\s+/g, ' ');
 
-test('GSI prices, work and six-month warranty match the approved offer for every participating model', () => {
+test('JCID prices, work and six-month warranty match the approved offer for every participating model', () => {
   const prices = { 11: 12000, 12: 15000, 13: 18000, 14: 25000, 15: 28000, 16: 30000 };
   let checked = 0;
   for (const model of allModels) {
@@ -18,7 +18,7 @@ test('GSI prices, work and six-month warranty match the approved offer for every
     if (!series) continue;
     checked++;
     const repair = model.repairs.find(item => item.name.includes('аккумулятора'));
-    assert.match(repair.name, /GSI/);
+    assert.match(repair.name, /JCID/);
     assert.equal(normalize(repair.price), `${prices[series].toLocaleString('ru-RU')} ₸`.replace(/\s+/g, ' '));
     assert.match(model.intro, /работой и гарантией 6 месяцев/);
     for (const item of model.faq.filter(item => /аккумулятор|батаре|гаранти/i.test(item.q))) {
@@ -31,9 +31,9 @@ test('GSI prices, work and six-month warranty match the approved offer for every
   assert.equal(allModels.find(model => model.slug === 'iphone-17').repairs[1].price, 'от 14 000 ₸');
 });
 
-test('built pages expose the current GSI prices and warranty without JavaScript', () => {
+test('built pages expose the current JCID prices and warranty without JavaScript', () => {
   const html = normalize(readFileSync('dist/remont/iphone-13/index.html', 'utf8'));
-  assert.match(html, /Замена усиленного аккумулятора GSI — 18 000 ₸/);
+  assert.match(html, /Замена усиленного аккумулятора JCID — 18 000 ₸/);
   assert.doesNotMatch(html, /Гарантия 12 месяцев|до 12 месяцев|в 2025 году/);
   const landing = normalize(readFileSync('dist/remont/akkumulyator-iphone/index.html', 'utf8'));
   assert.match(landing, /12 000 ₸/);
@@ -43,6 +43,17 @@ test('built pages expose the current GSI prices and warranty without JavaScript'
   assert.match(landing, /Гарантия 6 месяцев/);
   assert.equal((landing.match(/<h1\b/g) || []).length, 1);
   const meta = /<meta name="description" content="([^"]+)"/.exec(landing)?.[1];
-  assert.match(meta, /GSI/);
+  assert.match(meta, /JCID/);
   assert.match(meta, /6 месяцев/);
+});
+
+test('generated pages and browser bundles contain no former battery brand labels', () => {
+  const files = readdirSync('dist', { recursive: true }).filter(file => /\.(html|js)$/.test(file));
+  assert.ok(files.length > 56);
+  for (const file of files) {
+    assert.doesNotMatch(readFileSync(`dist/${file}`, 'utf8'), /\b(?:GSI|JSI)\b/, file);
+  }
+  for (const page of ['index.html', 'remont/index.html', 'remont/akkumulyator-iphone/index.html']) {
+    assert.match(readFileSync(`dist/${page}`, 'utf8'), /JCID/, page);
+  }
 });

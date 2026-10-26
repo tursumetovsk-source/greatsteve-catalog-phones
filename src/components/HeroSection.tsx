@@ -50,7 +50,7 @@ export default function HeroSection() {
             Ремонт iPhone,<br />MacBook и Android<br />в Алматы
           </h1>
           <p className="text-white/80 text-sm sm:text-base md:text-lg max-w-sm mb-8 md:mb-10 leading-relaxed" style={{ fontFamily: "'Inter', sans-serif" }}>
-            Подтвердим наличие деталей и согласуем стоимость до ремонта. На усиленные аккумуляторы GSI — гарантия 6 месяцев.
+            Подтвердим наличие деталей и согласуем стоимость до ремонта. На усиленные аккумуляторы JCID — гарантия 6 месяцев.
           </p>
           <div className="flex items-center gap-3 flex-wrap">
             <a

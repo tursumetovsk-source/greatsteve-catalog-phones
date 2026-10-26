@@ -119,7 +119,7 @@ test('ChatGPT referral UTM is kept across internal pages and appears in WhatsApp
   const attribution = s.api.captureAttribution();
   assert.equal(attribution.source, 'chatgpt');
   const next = site({ saved: attribution, referrer: 'https://greatsteve.kz/remont' });
-  next.api.openWhatsApp('Хочу заменить аккумулятор GSI.', 'gsi_offer');
+  next.api.openWhatsApp('Хочу заменить аккумулятор JCID.', 'gsi_offer');
   assert.equal(next.meta[0][3].source, 'chatgpt');
   assert.match(new URL(next.opened[0][0]).searchParams.get('text'), /Перешел на сайт из ChatGPT\./);
 });

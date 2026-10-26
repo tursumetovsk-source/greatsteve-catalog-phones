@@ -7,7 +7,7 @@ export default function GsiBatteryBanner() {
       <div className="mx-auto flex max-w-[88rem] flex-col gap-6 md:flex-row md:items-center md:justify-between">
         <div>
           <p className="mb-2 text-sm font-semibold" style={{ color: '#D2D2D7' }}>Акция на iPhone 11–16</p>
-          <h2 className="text-3xl font-bold tracking-tight md:text-4xl">Усиленный GSI от 12 000 ₸</h2>
+          <h2 className="text-3xl font-bold tracking-tight md:text-4xl">Усиленный JCID от 12 000 ₸</h2>
           <p className="mt-3 text-base">Аккумулятор и замена включены. Гарантия 6 месяцев.</p>
         </div>
         <Link to={GSI_PATH} className="self-start rounded-full px-7 py-4 font-semibold md:self-auto" style={{ background: '#0071E3', color: '#FFFFFF' }}>
