@@ -14,7 +14,6 @@ function setup({ reduced = false, mobile = false } = {}) {
   const styles = new Map();
   const frames = new Map();
   const animations = [];
-  const replayRef = { current: null };
   let nextFrame = 0;
   let fontsReady;
   const fonts = new Promise(resolve => { fontsReady = resolve; });
@@ -23,13 +22,9 @@ function setup({ reduced = false, mobile = false } = {}) {
     name,
     getBoundingClientRect: () => ({ width: mobile ? 350 : 362, height: mobile ? 350 / 1.85 : 181 }),
     animate(keyframes, options) {
-      let finish;
       const animation = {
-        name, keyframes, options, startTime: null, cancelled: false, reversed: false,
-        finished: new Promise(resolve => { finish = resolve; }),
+        name, keyframes, options, startTime: null, cancelled: false,
         cancel() { this.cancelled = true; },
-        reverse() { this.reversed = true; },
-        finish() { finish(); },
       };
       animations.push(animation);
       return animation;
@@ -49,7 +44,7 @@ function setup({ reduced = false, mobile = false } = {}) {
     removeEventListener() { this.change = null; },
   };
   const cleanup = runInNewContext(script, {
-    sectionRef: { current: section }, replayRef,
+    sectionRef: { current: section },
     document: { fonts: { ready: fonts }, timeline: { currentTime: 500 }, querySelector: () => nav },
     window: {
       matchMedia: query => query.includes('reduced-motion') ? motion : { matches: mobile },
@@ -63,7 +58,7 @@ function setup({ reduced = false, mobile = false } = {}) {
   const flush = async () => { await Promise.resolve(); await Promise.resolve(); };
   const ready = async () => { fontsReady(); await flush(); };
   const draw = () => { const callbacks = [...frames.values()]; frames.clear(); callbacks.forEach(callback => callback()); };
-  return { animations, listeners, styles, frames, section, motion, replayRef, cleanup, ready, flush, draw };
+  return { animations, listeners, styles, frames, section, motion, cleanup, ready, flush, draw };
 }
 
 test('desktop reveal shares one timeline and grows from hairline through circle to pill', async () => {
@@ -71,9 +66,9 @@ test('desktop reveal shares one timeline and grows from hairline through circle 
   assert.equal(hero.animations.length, 0, 'wait for local fonts');
   await hero.ready();
   const pill = hero.animations.find(animation => animation.name === 'pill');
-  assert.deepEqual(Array.from(pill.keyframes, frame => frame.width), ['1.2px', '1.2px', '16px', '181px', '362px']);
+  assert.deepEqual(Array.from(pill.keyframes.slice(0, 5), frame => frame.width), ['1.2px', '1.2px', '16px', '181px', '362px']);
   assert.equal(pill.keyframes[0].clipPath, 'inset(50% 0)');
-  assert.ok(hero.animations.every(animation => animation.options.duration === 2100 && animation.startTime === 500));
+  assert.ok(hero.animations.every(animation => animation.startTime === 500));
   assert.equal(hero.section.dataset.reveal, 'ready');
   hero.cleanup();
   assert.ok(hero.animations.every(animation => animation.cancelled));
@@ -86,7 +81,8 @@ test('mobile reveals vertically without changing the final full width', async ()
   const pill = hero.animations.find(animation => animation.name === 'pill');
   assert.equal(pill.keyframes[0].height, '1.5px');
   assert.equal(pill.keyframes[0].clipPath, 'inset(0 50%)');
-  assert.equal(pill.keyframes.at(-1).height, `${350 / 1.85}px`);
+  assert.equal(pill.keyframes[4].height, `${350 / 1.85}px`);
+  assert.equal(pill.keyframes.at(-1).height, '1.5px');
   assert.ok(pill.keyframes.every(frame => !('width' in frame)));
   hero.cleanup();
 });
@@ -101,35 +97,36 @@ test('scroll reveals the logo, schedules at most one frame and has no idle anima
   assert.equal(hero.frames.size, 1);
   hero.draw();
   assert.equal(hero.styles.get('--scene-logo'), '0.5');
-  assert.equal(hero.styles.get('--scene-scale'), '1.04');
+  assert.equal(hero.styles.get('--scene-scale'), '0.98');
   assert.equal(hero.frames.size, 0);
   hero.section.top = -1000;
   hero.listeners.get('scroll')();
   hero.draw();
   assert.equal(hero.styles.get('--scene-logo'), '1');
-  assert.equal(hero.styles.get('--scene-scale'), '1');
+  assert.equal(hero.styles.get('--scene-scale'), '0.96');
   hero.cleanup();
 });
 
-test('replay collapses the same timeline before opening again; resize releases animated dimensions', async () => {
+test('only the artwork reveal loops, holds open and closes; resize restarts at the correct dimensions', async () => {
   const hero = setup();
   await hero.ready();
   const firstRun = [...hero.animations];
-  hero.replayRef.current();
-  assert.ok(firstRun.every(animation => animation.reversed));
-  firstRun[0].finish();
-  await hero.flush();
-  assert.ok(firstRun.every(animation => animation.cancelled));
-  assert.equal(hero.animations.length, firstRun.length * 2);
+  const loops = firstRun.filter(animation => animation.options.iterations === Infinity);
+  assert.deepEqual(loops.map(animation => animation.name), ['pill', 'wordmark', 'hairline']);
+  const pill = loops[0];
+  assert.equal(pill.options.duration, 8000);
+  assert.equal(pill.keyframes[4].width, pill.keyframes[5].width, 'hold the full-size composition open');
+  assert.equal(pill.keyframes.at(-1).width, pill.keyframes[0].width, 'close before the next loop');
+  assert.ok(firstRun.filter(animation => !loops.includes(animation)).every(animation => animation.options.duration === 2100));
   hero.listeners.get('resize')();
-  assert.ok(hero.animations.every(animation => animation.cancelled));
+  assert.ok(firstRun.every(animation => animation.cancelled));
+  assert.equal(hero.animations.length, firstRun.length + 3, 'navigation and copy never replay on resize');
   hero.cleanup();
 });
 
 test('reduced motion shows final content, and font completion cannot animate an unmounted hero', async () => {
   const hero = setup({ reduced: true });
   await hero.ready();
-  hero.replayRef.current();
   assert.equal(hero.animations.length, 0);
   assert.equal(hero.section.dataset.reveal, 'ready');
   assert.equal(hero.styles.get('--scene-logo'), '1');

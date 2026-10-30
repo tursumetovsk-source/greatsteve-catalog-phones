@@ -14,12 +14,14 @@ test('new homepage retains indexable repair content, business data and canonical
   assert.match(home, /html\.js \[data-static-seo="true"\] \{ display: none; \}/);
 });
 
-test('hero artwork preloads the correct breakpoint without loading the old slideshow', () => {
-  assert.match(home, /href="\/main\/pill-phones\.webp" media="\(min-width: 768px\)"/);
-  assert.match(home, /href="\/main\/pill-phones-mobile\.webp" media="\(max-width: 767px\)"/);
+test('transparent hero artwork preloads once and retains a PNG fallback', () => {
+  assert.match(home, /href="\/main\/pill-phones-transparent\.webp"/);
+  assert.equal((home.match(/rel="preload" as="image"/g) || []).length, 1);
   assert.doesNotMatch(home, /rel="preload"[^>]+gs-main1/);
-  assert.ok(statSync(distFile('main/pill-phones.webp')).size < 250_000);
-  assert.ok(statSync(distFile('main/pill-phones-mobile.webp')).size < 100_000);
+  assert.ok(statSync(distFile('main/pill-phones-transparent.webp')).size < 1_300_000);
+  const png = readFileSync(distFile('main/pill-phones-transparent.png'));
+  assert.equal(png.subarray(1, 4).toString(), 'PNG');
+  assert.equal(png[25], 6, 'PNG retains the RGBA alpha channel');
 });
 
 test('other pages do not preload the homepage-only artwork', () => {
@@ -40,7 +42,8 @@ test('pill hero keeps GreatSteve branding, repair actions and local business cop
   }
   assert.match(hero, /to="\/remont" className="gs-hero-primary"/);
   assert.match(hero, /to="\/tradein" className="gs-hero-secondary"/);
-  assert.doesNotMatch(hero, /WILD|Embark|cloudfront|<video|phone-sculpture|Sparkles|gs-hero-scene-icon/);
+  assert.doesNotMatch(hero, /WILD|Embark|cloudfront|<video|phone-sculpture|Sparkles|gs-hero-scene-icon|RotateCcw|gs-hero-replay/);
+  assert.match(hero, /src="\/main\/pill-phones-transparent\.png"/);
 });
 
 test('JCID promotion banner uses graphite and Apple blue instead of burgundy', () => {

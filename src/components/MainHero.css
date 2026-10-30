@@ -16,7 +16,7 @@
 }
 
 .gs-hero {
-  --scene-scale: 1.08;
+  --scene-scale: 1;
   --scene-logo: 0;
   position: relative;
   isolation: isolate;
@@ -32,13 +32,11 @@
 .gs-hero-stage { position: absolute; inset: 110px 0 245px; display: grid; place-items: center; }
 .gs-hero-wordmark { display: flex; align-items: center; justify-content: center; gap: .085em; font-size: min(16vh, 8.5vw); line-height: .8; }
 .gs-hero-word { font-weight: 800; letter-spacing: -.065em; white-space: nowrap; }
-.gs-hero-pill { position: relative; flex: none; width: 3.62em; height: 1.81em; border-radius: 999px; background: #e9e3dc; overflow: hidden; isolation: isolate; }
-.gs-hero-scene { display: block; position: absolute; width: 3.62em; height: 1.81em; top: 0; left: 50%; transform: translateX(-50%); }
-.gs-hero-scene img { width: 100%; height: 100%; object-fit: contain; transform: scale(var(--scene-scale)); mask-image: linear-gradient(90deg, transparent, #000 18%, #000 82%, transparent); }
+.gs-hero-pill { position: relative; flex: none; width: 3.62em; height: 2.15em; border-radius: 999px; overflow: hidden; isolation: isolate; }
+.gs-hero-scene { display: block; position: absolute; width: 3.62em; height: 2.15em; top: 0; left: 50%; transform: translateX(-50%); }
+.gs-hero-scene img { width: 100%; height: 100%; object-fit: contain; transform: scale(calc(var(--scene-scale) * .88)); }
 .gs-hero-scene-logo { position: absolute; width: 24%; height: auto; bottom: 7%; left: 38%; filter: brightness(0); opacity: var(--scene-logo); }
 .gs-hero-hairline { position: absolute; inset: 0; background: #b9b9b9; opacity: 0; pointer-events: none; z-index: 2; }
-.gs-hero-replay { position: absolute; top: 50%; transform: translateY(-50%); color: #fff; right: 5%; display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; border: 1px solid #fff8; background: #1d1d1d24; cursor: pointer; transition: background .2s; }
-.gs-hero-replay:hover { background: #1d1d1d60; }
 .gs-hero[data-reveal="pending"] .gs-hero-pill { width: .012em; clip-path: inset(50% 0); }
 .gs-hero[data-reveal="pending"] .gs-hero-wordmark { gap: .026em; }
 .gs-hero[data-reveal="pending"] .gs-hero-hairline { opacity: 1; }
@@ -65,9 +63,9 @@
   .gs-hero-footer-note { display: none; }
 }
 @media (max-width: 767px) {
-  .gs-hero { height: auto; min-height: 100svh; padding: 112px 20px 0; }
-  .gs-hero-stage { position: relative; inset: auto; padding-bottom: 34px; }
-  .gs-hero-wordmark { flex-direction: column; font-size: min(25vw, 110px); width: 100%; }
+  .gs-hero { --word-size: min(25vw, 110px); height: auto; min-height: 100svh; padding: 112px 20px 0; }
+  .gs-hero-stage { position: relative; inset: auto; height: calc(var(--word-size) * 1.77 + (100vw - 40px) / 1.85 + 34px); padding-bottom: 34px; }
+  .gs-hero-wordmark { flex-direction: column; font-size: var(--word-size); width: 100%; }
   .gs-hero-word { letter-spacing: -.055em; }
   .gs-hero-pill { width: 100%; height: calc((100vw - 40px) / 1.85); }
   .gs-hero-scene { width: calc(100vw - 40px); height: calc((100vw - 40px) / 1.85); left: 0; top: 50%; transform: translateY(-50%); }
@@ -89,7 +87,6 @@
   .gs-hero[data-reveal="pending"] .gs-hero-pill { width: 3.62em; clip-path: none; }
   .gs-hero[data-reveal="pending"] .gs-hero-paper { opacity: 1; }
   .gs-hero[data-reveal="pending"] .gs-hero-hairline { opacity: 0; }
-  .gs-hero-replay { display: none; }
 }
 @media (prefers-reduced-motion: reduce) and (max-width: 767px) {
   .gs-hero[data-reveal="pending"] .gs-hero-pill { width: 100%; height: calc((100vw - 40px) / 1.85); }

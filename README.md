@@ -2,8 +2,8 @@
 
 **Сайт:** greatsteve.kz  
 **Стек:** React 19 + Vite 6 + TypeScript + Tailwind CSS 4 + Framer Motion (`motion/react`) + React Router v7  
-**Деплой:** Vercel (проект `greatsteve`, аккаунт `tursumetovsk-sources-projects`)  
-**Preview URL:** https://greatsteve.vercel.app
+**Деплой:** Cloudflare Workers, worker `greatsteve-site`<br>
+**Worker URL:** https://greatsteve-site.tursumetovsk.workers.dev
 
 ---
 
@@ -91,9 +91,15 @@ npm install
 # Запустить локально
 npm run dev   # → localhost:3000
 
-# Задеплоить на Vercel (production)
-vercel --prod
+# Собрать и загрузить версию в Cloudflare Workers
+npm run build
+npx wrangler@4 versions upload --keep-vars --config wrangler.jsonc
+
+# Опубликовать возвращённый идентификатор версии на 100% трафика
+npx wrangler@4 versions deploy <VERSION_ID>@100% --yes --config wrangler.jsonc
 ```
+
+`cloudflare/worker.mjs` восстановлен из действующего worker 30.10.2026; логика обработки формы и старых URL сохранена. `vercel.json` используется как таблица прежних SEO-редиректов. Домены `greatsteve.kz/*` и `www.greatsteve.kz/*` уже привязаны к worker в Cloudflare; публикация версии сохраняет эти привязки.
 
 ---
 

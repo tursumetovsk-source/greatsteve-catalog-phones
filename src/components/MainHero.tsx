@@ -1,11 +1,10 @@
 import { useEffect, useRef } from 'react';
-import { ArrowUpRight, MapPin, RotateCcw } from 'lucide-react';
+import { ArrowUpRight, MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import './MainHero.css';
 
 export default function MainHero() {
   const sectionRef = useRef<HTMLElement>(null);
-  const replayRef = useRef<() => void>(() => {});
 
   useEffect(() => {
     const section = sectionRef.current!;
@@ -20,17 +19,15 @@ export default function MainHero() {
     let animations: Animation[] = [];
     let disposed = false;
     let introAllowed = true;
-    let replaying = false;
     let frame = 0;
 
     const stop = () => {
       animations.forEach(animation => animation.cancel());
       animations = [];
-      replaying = false;
       section.dataset.reveal = 'ready';
     };
 
-    const open = () => {
+    const open = (entrance = true) => {
       stop();
       if (reduced.matches) return;
       const bounds = pill.getBoundingClientRect();
@@ -42,27 +39,32 @@ export default function MainHero() {
         : [fontSize * .012, fontSize * .012, fontSize * .16, bounds.height, finalSize];
       const offsets = [0, .14, .3, .58, 1];
       const options: KeyframeAnimationOptions = { duration: 2100, fill: 'both' };
-      const animate = (element: HTMLElement, keyframes: Keyframe[]) => {
-        animations.push(element.animate(keyframes, options));
+      const animate = (element: HTMLElement, keyframes: Keyframe[], loop = false) => {
+        const frames = loop ? [
+          ...keyframes.map(frame => ({ ...frame, offset: (frame.offset ?? 1) * .2625 })),
+          ...[...keyframes].reverse().map(frame => ({ ...frame, offset: .6125 + (1 - (frame.offset ?? 1)) * .2625 })),
+          { ...keyframes[0], offset: 1 },
+        ] : keyframes;
+        animations.push(element.animate(frames, loop ? { ...options, duration: 8000, iterations: Infinity } : options));
       };
       animate(pill, sizes.map((size, index) => ({
         [dimension]: `${size}px`, offset: offsets[index],
         easing: index < 2 ? 'cubic-bezier(.5,0,.3,1)' : 'cubic-bezier(.4,0,.2,1)',
         clipPath: index === 0 ? (mobile.matches ? 'inset(0 50%)' : 'inset(50% 0)') : 'inset(0)',
-      })));
+      })), true);
       animate(row, [
         { gap: '.026em', offset: 0 }, { gap: '.026em', offset: .14 },
         { gap: '.05em', offset: .58 }, { gap: '.085em', offset: 1 },
-      ]);
-      animate(overlay, [{ opacity: 1, offset: 0 }, { opacity: 1, offset: .14 }, { opacity: 0, offset: .3 }, { opacity: 0 }]);
-      animate(paper, [{ opacity: 0, offset: 0 }, { opacity: 0, offset: .45 }, { opacity: 1, offset: .78 }, { opacity: 1 }]);
-      animate(footer, [
+      ], true);
+      animate(overlay, [{ opacity: 1, offset: 0 }, { opacity: 1, offset: .14 }, { opacity: 0, offset: .3 }, { opacity: 0, offset: 1 }], true);
+      if (entrance) animate(paper, [{ opacity: 0, offset: 0 }, { opacity: 0, offset: .45 }, { opacity: 1, offset: .78 }, { opacity: 1 }]);
+      if (entrance) animate(footer, [
         { opacity: 0, transform: 'translateY(45px)', offset: 0 },
         { opacity: 0, transform: 'translateY(45px)', offset: .52 },
         { opacity: 1, transform: 'translateY(0)', offset: .9 },
         { opacity: 1, transform: 'translateY(0)' },
       ]);
-      if (nav) animate(nav, [
+      if (nav && entrance) animate(nav, [
         { opacity: 0, transform: 'translateY(-140%)', offset: 0 },
         { opacity: 0, transform: 'translateY(-140%)', offset: .5 },
         { opacity: 1, transform: 'translateY(0)', offset: .86 },
@@ -72,22 +74,14 @@ export default function MainHero() {
       animations.forEach(animation => { animation.startTime = startTime; });
     };
 
-    replayRef.current = () => {
-      if (reduced.matches || replaying) return;
-      if (!animations.length) { open(); return; }
-      replaying = true;
-      animations.forEach(animation => animation.reverse());
-      animations[0].finished.then(() => { if (!disposed) open(); }, () => { replaying = false; });
-    };
-
     const drawScroll = () => {
       frame = 0;
       const progress = reduced.matches ? 1 : Math.min(1, Math.max(0, -section.getBoundingClientRect().top / 240));
-      section.style.setProperty('--scene-scale', `${1.08 - progress * .08}`);
+      section.style.setProperty('--scene-scale', `${1 - progress * .04}`);
       section.style.setProperty('--scene-logo', `${progress}`);
     };
     const scroll = () => { if (!frame) frame = requestAnimationFrame(drawScroll); };
-    const reset = () => { introAllowed = false; stop(); drawScroll(); };
+    const reset = () => { introAllowed = false; open(false); drawScroll(); };
     document.fonts.ready.then(() => {
       if (disposed) return;
       section.dataset.reveal = 'ready';
@@ -104,7 +98,6 @@ export default function MainHero() {
       window.removeEventListener('scroll', scroll);
       window.removeEventListener('resize', reset);
       reduced.removeEventListener('change', reset);
-      replayRef.current = () => {};
     };
   }, []);
 
@@ -122,11 +115,10 @@ export default function MainHero() {
           <span className="gs-hero-word" aria-hidden="true">GREAT</span>
           <div className="gs-hero-pill">
             <picture className="gs-hero-scene">
-              <source media="(max-width: 767px)" srcSet="/main/pill-phones-mobile.webp" />
-              <img src="/main/pill-phones.webp" width="1280" height="853" alt="Два iPhone цвета бургунди и компоненты для ремонта" fetchPriority="high" />
+              <source type="image/webp" srcSet="/main/pill-phones-transparent.webp" />
+              <img src="/main/pill-phones-transparent.png" width="1536" height="1024" alt="Два iPhone цвета бургунди и компоненты для ремонта" fetchPriority="high" />
             </picture>
             <img className="gs-hero-scene-logo" src="/logo-gs.webp" width="180" height="28" alt="GreatSteve" />
-            <button className="gs-hero-replay" type="button" onClick={() => replayRef.current()} aria-label="Повторить раскрытие"><RotateCcw size={17} /></button>
             <div className="gs-hero-hairline" aria-hidden="true" />
           </div>
           <span className="gs-hero-word" aria-hidden="true">STEVE</span>
