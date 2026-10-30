@@ -14,7 +14,7 @@ test('page clipping does not create an extra auto-scrolling body or a white home
   const styles = readFileSync(new URL('../src/index.css', import.meta.url), 'utf8');
   const page = styles.split('html, body {')[1].split('}')[0];
   assert.match(page, /overflow-x: clip/);
-  assert.match(styles, /html:has\(\.gs-hero\) \{[^}]*background-color: #123a6b;[^}]*scrollbar-color: #a0b2c6 #123a6b;/);
+  assert.match(styles, /html:has\(\.gs-hero\) \{[^}]*background-color: #f2f2f1;[^}]*scrollbar-color: #a9a9a6 #f2f2f1;/);
 });
 
 test('company wordmark leaves room for glyph edges inside its reveal mask', () => {

@@ -225,7 +225,7 @@ function render(template: string, route: Route): string {
     .replace('<div id="root"></div>', `<div id="root">${route.content}</div>`);
 
   if (route.path !== '/') {
-    html = html.replace(/<link\s+rel="preload"\s+as="(?:image|font)"\s+href="\/(?:main\/phone-sculpture|fonts\/instrument-serif)[^>]*>\s*/g, '');
+    html = html.replace(/<link\s+rel="preload"\s+as="(?:image|font)"\s+href="\/(?:main\/pill-phones|fonts\/gs-inter)[^>]*>\s*/g, '');
   }
 
   const tags = [

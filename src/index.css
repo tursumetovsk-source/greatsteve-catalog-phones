@@ -21,8 +21,8 @@ html, body {
 }
 
 html:has(.gs-hero) {
-  background-color: #123a6b;
-  scrollbar-color: #a0b2c6 #123a6b;
+  background-color: #f2f2f1;
+  scrollbar-color: #a9a9a6 #f2f2f1;
 }
 
 *, *::before, *::after {

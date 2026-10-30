@@ -15,34 +15,32 @@ test('new homepage retains indexable repair content, business data and canonical
 });
 
 test('hero artwork preloads the correct breakpoint without loading the old slideshow', () => {
-  assert.match(home, /href="\/main\/phone-sculpture\.webp" media="\(min-width: 768px\)"/);
-  assert.match(home, /href="\/main\/phone-sculpture-mobile\.webp" media="\(max-width: 767px\)"/);
+  assert.match(home, /href="\/main\/pill-phones\.webp" media="\(min-width: 768px\)"/);
+  assert.match(home, /href="\/main\/pill-phones-mobile\.webp" media="\(max-width: 767px\)"/);
   assert.doesNotMatch(home, /rel="preload"[^>]+gs-main1/);
-  assert.ok(statSync(distFile('main/phone-sculpture.webp')).size < 250_000);
-  assert.ok(statSync(distFile('main/phone-sculpture-mobile.webp')).size < 100_000);
+  assert.ok(statSync(distFile('main/pill-phones.webp')).size < 250_000);
+  assert.ok(statSync(distFile('main/pill-phones-mobile.webp')).size < 100_000);
 });
 
 test('other pages do not preload the homepage-only artwork', () => {
   for (const page of ['remont', 'tradein', 'company', 'remont/iphone-13']) {
     const html = readFileSync(distFile(`${page}/index.html`), 'utf8');
-    assert.doesNotMatch(html, /rel="preload"[^>]+phone-sculpture/);
-    assert.doesNotMatch(html, /rel="preload"[^>]+instrument-serif/);
+    assert.doesNotMatch(html, /rel="preload"[^>]+pill-phones/);
+    assert.doesNotMatch(html, /rel="preload"[^>]+gs-inter/);
   }
 });
 
-test('homepage uses Oceanic Shimmer with neutral controls and the original burgundy phone', () => {
+test('pill hero keeps GreatSteve branding, repair actions and local business copy', () => {
   const styles = readFileSync(new URL('../src/components/MainHero.css', import.meta.url), 'utf8');
   const hero = readFileSync(new URL('../src/components/MainHero.tsx', import.meta.url), 'utf8');
-  assert.match(styles, /background-color: #123a6b/i);
-  for (const position of ['41.58% 6%', '42.42% 33%', '51.19% 67%', '53.67% 94%']) {
-    assert.ok(styles.includes(position));
+  assert.match(styles, /background: #f2f2f1/);
+  assert.match(styles, /font-weight: 800/);
+  for (const text of ['GREAT', 'STEVE', 'Ремонт телефонов', 'в Алматы', 'iPhone, Samsung, Xiaomi и MacBook.', 'Понятная стоимость. Забота о каждой детали.', 'Гоголя 75/1', '10:00–20:00']) {
+    assert.ok(hero.includes(text), text);
   }
-  assert.match(styles, /\.gs-hero-primary \{[^}]*background: #f5f5f7; color: #1d1d1f;/);
-  assert.match(hero, /className="gs-hero-background" aria-hidden="true"/);
-  assert.match(hero, /feTurbulence/);
-  assert.match(hero, /src="\/main\/phone-sculpture.webp"/);
-  assert.doesNotMatch(hero, /className="gs-hero-grid"/);
-  assert.doesNotMatch(styles, /#(?:d6e9c4|c7e4b3|92b7a1|a7e2d2|bde8d6)/i);
+  assert.match(hero, /to="\/remont" className="gs-hero-primary"/);
+  assert.match(hero, /to="\/tradein" className="gs-hero-secondary"/);
+  assert.doesNotMatch(hero, /WILD|Embark|cloudfront|<video|phone-sculpture|Sparkles|gs-hero-scene-icon/);
 });
 
 test('JCID promotion banner uses graphite and Apple blue instead of burgundy', () => {
@@ -52,24 +50,19 @@ test('JCID promotion banner uses graphite and Apple blue instead of burgundy', (
   assert.doesNotMatch(banner, /#C1FF72|#101210|#211018|#76243B|#D59BAE/);
 });
 
-test('mobile wordmark sits partly behind the phone without moving the repair copy', () => {
+test('mobile hero stacks the brand around a full-width pill with readable copy', () => {
   const styles = readFileSync(new URL('../src/components/MainHero.css', import.meta.url), 'utf8');
-  const mobile = styles.split('@media (max-width: 767px) {')[1].split('@media (max-width: 380px) {')[0];
-  assert.match(mobile, /\.gs-hero \{ height: auto;/);
-  for (const selector of ['heading', 'stage', 'copy', 'footer']) {
-    assert.ok(mobile.includes(`.gs-hero-${selector} { position: relative;`));
-  }
-  assert.match(mobile, /\.gs-hero-heading \{[^}]*top: 11vw;[^}]*z-index: 0;/);
-  assert.match(mobile, /\.gs-hero-stage \{[^}]*z-index: 1;/);
+  assert.match(styles, /flex-direction: column/);
+  assert.match(styles, /\.gs-hero-pill \{ width: 100%; height: calc\(\(100vw - 40px\) \/ 1\.85\)/);
+  assert.match(styles, /\.gs-hero-bottom \{ position: relative/);
+  assert.match(styles, /prefers-reduced-motion: reduce/);
 });
 
-test('requested decorative captions and screen badge are removed without removing the cursor effect', () => {
+test('requested decorative captions stay removed', () => {
   const hero = readFileSync(new URL('../src/components/MainHero.tsx', import.meta.url), 'utf8');
   const nav = readFileSync(new URL('../src/components/Navbar.tsx', import.meta.url), 'utf8');
   assert.doesNotMatch(hero, /СЕРВИС, КОТОРЫЙ|43\.2603|НАВЕДИТЕ КУРСОР|ДАЛЬШЕ — БОЛЬШЕ|TECHNOLOGY, REVEALED|gs-phone-badge|ВНУТРИ — ВНИМАНИЕ К ДЕТАЛЯМ|gs-scan-label|Crosshair/);
   assert.doesNotMatch(nav, /gs-status-dot/);
-  assert.match(hero, /section\.addEventListener\('pointermove', move\)/);
-  assert.match(hero, /gs-phone-reveal/);
 });
 
 test('every page uses the same navigation component with its own stylesheet', () => {
