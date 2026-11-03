@@ -7,8 +7,8 @@ import { transformSync } from 'esbuild';
 const code = transformSync(readFileSync(new URL('../src/lib/contactTracking.ts', import.meta.url), 'utf8'),
   { loader: 'ts', format: 'cjs' }).code;
 
-function site({ search = '', referrer = '', saved = null, blockedStorage = false, brokenMeta = false } = {}) {
-  const meta = [], goals = [], opened = [], listeners = [];
+function site({ search = '', referrer = '', saved = null, blockedStorage = false, brokenMeta = false, brokenOpenAI = false } = {}) {
+  const meta = [], goals = [], openai = [], opened = [], listeners = [];
   class Element { closest() { return this.link || this; } }
   class Anchor extends Element {
     constructor(href) { super(); this.href = href; this.dataset = {}; }
@@ -19,6 +19,7 @@ function site({ search = '', referrer = '', saved = null, blockedStorage = false
     dataLayer: [],
     fbq: (...args) => { if (brokenMeta) throw new Error('blocked'); meta.push(args); },
     ym: (...args) => goals.push(args),
+    oaiq: (...args) => { if (brokenOpenAI) throw new Error('blocked'); openai.push(args); },
     open: (...args) => { opened.push(args); return {}; },
   };
   const ctx = { module: { exports: {} }, window, Element, HTMLAnchorElement: Anchor,
@@ -28,7 +29,7 @@ function site({ search = '', referrer = '', saved = null, blockedStorage = false
       setItem: () => { if (blockedStorage) throw new Error('blocked'); },
     }, URL, URLSearchParams };
   vm.runInNewContext(code, ctx);
-  return { api: ctx.module.exports, window, meta, goals, opened, listeners, Anchor, Element };
+  return { api: ctx.module.exports, window, meta, goals, openai, opened, listeners, Anchor, Element };
 }
 
 test('one nested-icon click sends one event; repeat click does not repeat attribution text', () => {
@@ -73,12 +74,63 @@ test('blocked storage and Meta do not prevent WhatsApp or the independent Metrik
   assert.doesNotMatch(data, /Test Person|700 000|wa\.me|Телефон|Имя/);
 });
 
-test('unrelated links do not send events; phone click has a separate event', () => {
+test('unrelated links do not send events; phone and Telegram have separate contact events', () => {
   const s = site(); s.api.initializeContactTracking();
-  s.listeners[0]({ target: new s.Anchor('https://t.me/kzgreatsteve') });
+  s.listeners[0]({ target: new s.Anchor('https://example.com/') });
   assert.equal(s.meta.length, 0);
   s.listeners[0]({ target: new s.Anchor('tel:+77775181111') });
   assert.equal(s.meta[0][2], 'PhoneClick');
+  s.listeners[0]({ target: new s.Anchor('https://t.me/kzgreatsteve') });
+  assert.equal(s.meta[1][2], 'TelegramClick');
+  assert.equal(s.goals[1][2], 'telegram_click');
+  assert.equal(s.openai[1][3].custom_event_name, 'telegram_click');
+});
+
+test('OpenAI receives a contact attempt, never a purchase or lead from WhatsApp activation', () => {
+  const s = site({ search: '?utm_source=chatgpt&utm_medium=cpc&utm_campaign=phones_almaty' });
+  s.window.location.pathname = '/tradein';
+  s.api.openWhatsApp('Имя: Private Name\nТелефон: +7 700 000 00 00', 'sale_hero');
+  assert.equal(s.openai.length, 1);
+  assert.equal(s.openai[0][1], 'custom');
+  assert.equal(s.openai[0][3].custom_event_name, 'whatsapp_click');
+  assert.equal(s.meta[0][3].intent, 'purchase');
+  assert.doesNotMatch(JSON.stringify(s.openai), /Private Name|700 000|order_created|lead_created|wa\.me/);
+});
+
+test('failed delivery and unconfigured Telegram do not count as leads', () => {
+  const s = site();
+  s.api.trackFormDelivery({ ok: false });
+  s.api.trackFormDelivery({ ok: true, note: 'telegram not configured' });
+  assert.equal(s.openai.length, 0);
+  assert.equal(s.goals.length, 0);
+  s.api.trackFormDelivery({ ok: true });
+  assert.equal(s.openai.length, 1);
+  assert.equal(s.openai[0][1], 'lead_created');
+  assert.equal(s.goals[0][2], 'lead_created');
+  assert.equal(s.window.dataLayer[0].event, 'lead_created');
+});
+
+test('SPA page views avoid StrictMode duplicates, omit query data and retain campaign attribution', () => {
+  const s = site({ search: '?utm_source=chatgpt&utm_medium=cpc&utm_campaign=phones_almaty', referrer: 'https://chatgpt.com/' });
+  s.api.initializeContactTracking();
+  s.api.trackPageView('/tradein');
+  s.api.trackPageView('/tradein');
+  s.window.location.search = '';
+  s.api.trackPageView('/company');
+  assert.equal(s.openai.length, 2);
+  assert.equal(s.openai[0][1], 'page_viewed');
+  assert.equal(s.openai[0][2].contents[0].id, '/tradein');
+  assert.equal(s.goals.length, 1);
+  assert.equal(s.goals[0][1], 'hit');
+  s.api.openWhatsApp('', 'header');
+  assert.equal(s.meta[0][3].campaign, 'phones_almaty');
+});
+
+test('blocked OpenAI tracking never prevents contact navigation', () => {
+  const s = site({ brokenOpenAI: true });
+  s.api.openWhatsApp('Хочу купить iPhone', 'sale_hero');
+  assert.equal(s.opened.length, 1);
+  assert.equal(s.goals.length, 1);
 });
 
 test('Telegram contact buttons use the current account', () => {

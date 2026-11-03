@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ArrowRight, CheckCircle2, Phone, MapPin, Clock, ChevronDown } from 'lucide-react';
-import { openWhatsApp } from '../lib/contactTracking';
+import { openWhatsApp, trackFormDelivery } from '../lib/contactTracking';
 
 const DEVICES = [
   'iPhone', 'Samsung', 'Xiaomi', 'iPad / Планшет',
@@ -55,11 +55,12 @@ export default function RequestForm() {
 
     // Telegram
     try {
-      await fetch('/api/contact', {
+      const response = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ text }),
       });
+      if (response.ok) trackFormDelivery(await response.json());
     } catch (_) { /* если апи нет — просто игнорируем */ }
 
     setLoading(false);

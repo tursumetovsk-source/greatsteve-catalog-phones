@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-route
 import { useEffect } from 'react';
 import MainPage from './pages/MainPage';
 import FloatingContacts from './components/FloatingContacts';
+import { trackPageView } from './lib/contactTracking';
 
 const RemontPage      = lazy(() => import('./pages/RemontPage'));
 const CompanyPage     = lazy(() => import('./pages/CompanyPage'));
@@ -12,7 +13,10 @@ const GsiBatteryPage = lazy(() => import('./pages/GsiBatteryPage'));
 
 function ScrollToTop() {
   const { pathname } = useLocation();
-  useEffect(() => { window.scrollTo(0, 0); }, [pathname]);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    trackPageView(pathname);
+  }, [pathname]);
   return null;
 }
 

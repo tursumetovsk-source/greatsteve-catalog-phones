@@ -7,6 +7,7 @@ type TrackingWindow = Window & {
   dataLayer?: Record<string, unknown>[];
   fbq?: (...args: unknown[]) => void;
   ym?: (...args: unknown[]) => void;
+  oaiq?: (...args: unknown[]) => void;
 };
 
 const sources: Record<string, string> = {
@@ -17,6 +18,23 @@ const sources: Record<string, string> = {
 };
 let attribution: Attribution;
 let initialized = false;
+let lastPage: string;
+
+export function trackPageView(pathname: string) {
+  if (pathname === lastPage) return;
+  const previous = lastPage;
+  lastPage = pathname;
+  const w = window as TrackingWindow;
+  // GTM records the initial page view; later React Router changes need a hit.
+  if (previous) {
+    try { w.ym?.(METRIKA_ID, 'hit', pathname, { referer: previous }); } catch { /* Navigation still works. */ }
+  }
+  try {
+    w.oaiq?.('measure', 'page_viewed', {
+      type: 'contents', contents: [{ id: pathname, content_type: 'page' }],
+    }, { opt_out: true });
+  } catch { /* Navigation still works. */ }
+}
 
 function campaignValue(value: string | null) {
   return value && /^[a-z][a-z0-9_-]{0,63}$/i.test(value) ? value : undefined;
@@ -77,10 +95,12 @@ function trackedUrl(raw: string) {
   return url.href;
 }
 
-function trackContact(channel: 'whatsapp' | 'phone', placement: string) {
+function trackContact(channel: 'whatsapp' | 'phone' | 'telegram', placement: string, intent?: string) {
   const a = attribution || captureAttribution();
   const params = {
     channel, placement, page_path: window.location.pathname,
+    intent: ['purchase', 'sell_device', 'tradein'].includes(intent || '') ? intent :
+      window.location.pathname === '/tradein' ? 'purchase' : 'repair',
     source: a.source, medium: a.medium, campaign: a.campaign, content: a.content,
   };
   const w = window as TrackingWindow;
@@ -88,11 +108,31 @@ function trackContact(channel: 'whatsapp' | 'phone', placement: string) {
   w.dataLayer = w.dataLayer || [];
   w.dataLayer.push({ event: `${channel}_click`, ...params });
   try {
-    w.fbq?.('trackSingleCustom', META_PIXEL_ID, channel === 'whatsapp' ? 'WhatsAppClick' : 'PhoneClick', params);
+    w.fbq?.('trackSingleCustom', META_PIXEL_ID,
+      { whatsapp: 'WhatsAppClick', phone: 'PhoneClick', telegram: 'TelegramClick' }[channel], params);
   } catch {
     // An unavailable tracker must never prevent opening the contact channel.
   }
   try { w.ym?.(METRIKA_ID, 'reachGoal', `${channel}_click`, params); } catch { /* Contact still opens. */ }
+  try {
+    w.oaiq?.('measure', 'custom', { type: 'custom' }, {
+      custom_event_name: `${channel}_click`, opt_out: true,
+    });
+  } catch { /* Contact still opens. */ }
+}
+
+export function trackFormDelivery(result: { ok?: boolean; note?: string }) {
+  // The form also opens WhatsApp. Only a confirmed server delivery is a lead.
+  if (result.ok !== true || result.note) return;
+  const w = window as TrackingWindow;
+  const a = attribution || captureAttribution();
+  const params = { page_path: window.location.pathname, source: a.source,
+    medium: a.medium, campaign: a.campaign, content: a.content };
+  w.dataLayer = w.dataLayer || [];
+  w.dataLayer.push({ event: 'lead_created', ...params });
+  try { w.ym?.(METRIKA_ID, 'reachGoal', 'lead_created', params); } catch { /* Delivery already succeeded. */ }
+  try { w.fbq?.('trackSingle', META_PIXEL_ID, 'Lead', params); } catch { /* Delivery already succeeded. */ }
+  try { w.oaiq?.('measure', 'lead_created', { type: 'customer_action' }, { opt_out: true }); } catch { /* Delivery already succeeded. */ }
 }
 
 export function openWhatsApp(message: string, placement: string) {
@@ -117,9 +157,11 @@ export function initializeContactTracking() {
       const original = originalUrls.get(link) || link.href;
       originalUrls.set(link, original);
       link.href = trackedUrl(original);
-      trackContact('whatsapp', placement);
+      trackContact('whatsapp', placement, link.dataset.contactIntent);
     } else if (url.protocol === 'tel:') {
-      trackContact('phone', placement);
+      trackContact('phone', placement, link.dataset.contactIntent);
+    } else if (url.hostname === 't.me' && url.pathname === '/kzgreatsteve') {
+      trackContact('telegram', placement, link.dataset.contactIntent);
     }
   };
   document.addEventListener('click', activateContact, { capture: true });

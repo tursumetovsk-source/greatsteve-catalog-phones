@@ -253,6 +253,8 @@ export default function TradeinPage() {
         <div className="absolute bottom-16 right-4 sm:bottom-36 sm:right-10" style={{ zIndex: 60 }}>
           <a
             href={WA_URL}
+            data-contact-placement="sale_hero"
+            data-contact-intent="purchase"
             target="_blank"
             rel="noopener noreferrer"
             style={{
@@ -386,6 +388,8 @@ export default function TradeinPage() {
             viewport={{ once: true }}
             transition={{ delay: 0.5 }}
             href={WA_URL}
+            data-contact-placement="tradein_tabs"
+            data-contact-intent={activeTab === 'Продажа' ? 'purchase' : activeTab === 'Выкуп' ? 'sell_device' : 'tradein'}
             target="_blank"
             rel="noopener noreferrer"
             style={{
