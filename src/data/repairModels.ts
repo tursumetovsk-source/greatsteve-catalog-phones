@@ -18,6 +18,8 @@ export interface ModelData {
   faq: { q: string; a: string }[];
 }
 
+export const BACK_COVER_REPAIR_TIME = 'от 3 часов';
+
 const MODELS: ModelData[] = [
   // ── iPhone 17 ──────────────────────────────────────────────
   {
@@ -38,7 +40,7 @@ const MODELS: ModelData[] = [
       { name: 'Замена аккумулятора', price: 'от 18 000 ₸', time: '30 мин' },
       { name: 'Замена задней камеры', price: 'от 25 000 ₸', time: '1 ч' },
       { name: 'Замена разъёма зарядки (USB-C)', price: 'от 9 000 ₸', time: '40 мин' },
-      { name: 'Замена задней крышки', price: 'от 14 000 ₸', time: '1 ч' },
+      { name: 'Замена задней крышки', price: 'от 14 000 ₸', time: BACK_COVER_REPAIR_TIME },
       { name: 'Диагностика', price: 'Бесплатно', time: '15 мин' },
     ],
     faq: [
@@ -67,7 +69,7 @@ const MODELS: ModelData[] = [
       { name: 'Замена аккумулятора', price: 'от 17 000 ₸', time: '30 мин' },
       { name: 'Замена задней камеры', price: 'от 23 000 ₸', time: '1 ч' },
       { name: 'Замена разъёма зарядки (USB-C)', price: 'от 9 000 ₸', time: '40 мин' },
-      { name: 'Замена задней крышки', price: 'от 13 000 ₸', time: '1 ч' },
+      { name: 'Замена задней крышки', price: 'от 13 000 ₸', time: BACK_COVER_REPAIR_TIME },
       { name: 'Диагностика', price: 'Бесплатно', time: '15 мин' },
     ],
     faq: [
@@ -96,7 +98,7 @@ const MODELS: ModelData[] = [
       { name: 'Замена аккумулятора', price: 'от 15 000 ₸', time: '30 мин' },
       { name: 'Замена камеры', price: 'от 18 000 ₸', time: '1 ч' },
       { name: 'Замена разъёма зарядки (USB-C)', price: 'от 8 000 ₸', time: '40 мин' },
-      { name: 'Замена задней крышки', price: 'от 12 000 ₸', time: '1 ч' },
+      { name: 'Замена задней крышки', price: 'от 12 000 ₸', time: BACK_COVER_REPAIR_TIME },
       { name: 'Диагностика', price: 'Бесплатно', time: '15 мин' },
     ],
     faq: [
@@ -125,7 +127,7 @@ const MODELS: ModelData[] = [
       { name: 'Замена аккумулятора', price: 'от 14 000 ₸', time: '30 мин' },
       { name: 'Замена камеры', price: 'от 17 000 ₸', time: '45 мин' },
       { name: 'Замена разъёма зарядки (USB-C)', price: 'от 8 000 ₸', time: '40 мин' },
-      { name: 'Замена задней крышки', price: 'от 11 000 ₸', time: '1 ч' },
+      { name: 'Замена задней крышки', price: 'от 11 000 ₸', time: BACK_COVER_REPAIR_TIME },
       { name: 'Диагностика', price: 'Бесплатно', time: '15 мин' },
     ],
     faq: [
@@ -155,7 +157,7 @@ const MODELS: ModelData[] = [
       { name: 'Замена аккумулятора', price: 'от 16 000 ₸', time: '30 мин' },
       { name: 'Замена задней камеры', price: 'от 24 000 ₸', time: '1 ч' },
       { name: 'Замена разъёма зарядки (USB-C)', price: 'от 9 000 ₸', time: '40 мин' },
-      { name: 'Замена задней крышки', price: 'от 13 000 ₸', time: '1 ч' },
+      { name: 'Замена задней крышки', price: 'от 13 000 ₸', time: BACK_COVER_REPAIR_TIME },
       { name: 'Диагностика', price: 'Бесплатно', time: '15 мин' },
     ],
     faq: [
@@ -184,7 +186,7 @@ const MODELS: ModelData[] = [
       { name: 'Замена аккумулятора', price: 'от 15 000 ₸', time: '30 мин' },
       { name: 'Замена задней камеры', price: 'от 22 000 ₸', time: '1 ч' },
       { name: 'Замена разъёма зарядки (USB-C)', price: 'от 8 000 ₸', time: '40 мин' },
-      { name: 'Замена задней крышки', price: 'от 12 000 ₸', time: '1 ч' },
+      { name: 'Замена задней крышки', price: 'от 12 000 ₸', time: BACK_COVER_REPAIR_TIME },
       { name: 'Диагностика', price: 'Бесплатно', time: '15 мин' },
     ],
     faq: [
@@ -213,7 +215,7 @@ const MODELS: ModelData[] = [
       { name: 'Замена аккумулятора', price: 'от 13 000 ₸', time: '30 мин' },
       { name: 'Замена задней камеры', price: 'от 18 000 ₸', time: '45 мин' },
       { name: 'Замена разъёма зарядки (USB-C)', price: 'от 8 000 ₸', time: '40 мин' },
-      { name: 'Замена задней крышки', price: 'от 11 000 ₸', time: '1 ч' },
+      { name: 'Замена задней крышки', price: 'от 11 000 ₸', time: BACK_COVER_REPAIR_TIME },
       { name: 'Диагностика', price: 'Бесплатно', time: '15 мин' },
     ],
     faq: [
@@ -242,7 +244,7 @@ const MODELS: ModelData[] = [
       { name: 'Замена аккумулятора', price: 'от 13 000 ₸', time: '30 мин' },
       { name: 'Замена задней камеры', price: 'от 17 000 ₸', time: '45 мин' },
       { name: 'Замена разъёма зарядки (USB-C)', price: 'от 7 000 ₸', time: '40 мин' },
-      { name: 'Замена задней крышки', price: 'от 10 000 ₸', time: '1 ч' },
+      { name: 'Замена задней крышки', price: 'от 10 000 ₸', time: BACK_COVER_REPAIR_TIME },
       { name: 'Диагностика', price: 'Бесплатно', time: '15 мин' },
     ],
     faq: [
@@ -272,7 +274,7 @@ const MODELS: ModelData[] = [
       { name: 'Замена аккумулятора', price: 'от 15 000 ₸', time: '30 мин' },
       { name: 'Замена задней камеры', price: 'от 22 000 ₸', time: '1 ч' },
       { name: 'Замена разъёма зарядки', price: 'от 8 000 ₸', time: '40 мин' },
-      { name: 'Замена задней крышки', price: 'от 12 000 ₸', time: '1 ч' },
+      { name: 'Замена задней крышки', price: 'от 12 000 ₸', time: BACK_COVER_REPAIR_TIME },
       { name: 'Диагностика', price: 'Бесплатно', time: '15 мин' },
     ],
     faq: [
@@ -301,7 +303,7 @@ const MODELS: ModelData[] = [
       { name: 'Замена аккумулятора', price: 'от 14 000 ₸', time: '30 мин' },
       { name: 'Замена задней камеры', price: 'от 20 000 ₸', time: '1 ч' },
       { name: 'Замена разъёма зарядки (USB-C)', price: 'от 8 000 ₸', time: '40 мин' },
-      { name: 'Замена задней крышки', price: 'от 11 000 ₸', time: '1 ч' },
+      { name: 'Замена задней крышки', price: 'от 11 000 ₸', time: BACK_COVER_REPAIR_TIME },
       { name: 'Диагностика', price: 'Бесплатно', time: '15 мин' },
     ],
     faq: [
@@ -330,7 +332,7 @@ const MODELS: ModelData[] = [
       { name: 'Замена аккумулятора', price: 'от 12 000 ₸', time: '30 мин' },
       { name: 'Замена задней камеры', price: 'от 16 000 ₸', time: '45 мин' },
       { name: 'Замена разъёма зарядки (USB-C)', price: 'от 7 000 ₸', time: '40 мин' },
-      { name: 'Замена задней крышки', price: 'от 9 000 ₸', time: '1 ч' },
+      { name: 'Замена задней крышки', price: 'от 9 000 ₸', time: BACK_COVER_REPAIR_TIME },
       { name: 'Диагностика', price: 'Бесплатно', time: '15 мин' },
     ],
     faq: [
@@ -360,7 +362,7 @@ const MODELS: ModelData[] = [
       { name: 'Замена аккумулятора', price: 'от 12 000 ₸', time: '30 мин' },
       { name: 'Замена задней камеры', price: 'от 20 000 ₸', time: '1 ч' },
       { name: 'Замена разъёма зарядки', price: 'от 7 000 ₸', time: '40 мин' },
-      { name: 'Замена задней крышки', price: 'от 10 000 ₸', time: '1 ч' },
+      { name: 'Замена задней крышки', price: 'от 10 000 ₸', time: BACK_COVER_REPAIR_TIME },
       { name: 'Диагностика', price: 'Бесплатно', time: '15 мин' },
     ],
     faq: [
@@ -389,7 +391,7 @@ const MODELS: ModelData[] = [
       { name: 'Замена аккумулятора', price: 'от 11 000 ₸', time: '30 мин' },
       { name: 'Замена задней камеры', price: 'от 18 000 ₸', time: '1 ч' },
       { name: 'Замена разъёма зарядки', price: 'от 7 000 ₸', time: '40 мин' },
-      { name: 'Замена задней крышки', price: 'от 9 000 ₸', time: '1 ч' },
+      { name: 'Замена задней крышки', price: 'от 9 000 ₸', time: BACK_COVER_REPAIR_TIME },
       { name: 'Диагностика', price: 'Бесплатно', time: '15 мин' },
     ],
     faq: [
@@ -418,7 +420,7 @@ const MODELS: ModelData[] = [
       { name: 'Замена аккумулятора', price: 'от 10 000 ₸', time: '30 мин' },
       { name: 'Замена задней камеры', price: 'от 14 000 ₸', time: '45 мин' },
       { name: 'Замена разъёма зарядки', price: 'от 6 000 ₸', time: '40 мин' },
-      { name: 'Замена задней крышки', price: 'от 8 000 ₸', time: '1 ч' },
+      { name: 'Замена задней крышки', price: 'от 8 000 ₸', time: BACK_COVER_REPAIR_TIME },
       { name: 'Диагностика', price: 'Бесплатно', time: '15 мин' },
     ],
     faq: [
@@ -448,7 +450,7 @@ const MODELS: ModelData[] = [
       { name: 'Замена аккумулятора', price: 'от 10 000 ₸', time: '30 мин' },
       { name: 'Замена задней камеры', price: 'от 16 000 ₸', time: '1 ч' },
       { name: 'Замена разъёма зарядки', price: 'от 6 000 ₸', time: '40 мин' },
-      { name: 'Замена задней крышки', price: 'от 9 000 ₸', time: '1 ч' },
+      { name: 'Замена задней крышки', price: 'от 9 000 ₸', time: BACK_COVER_REPAIR_TIME },
       { name: 'Диагностика', price: 'Бесплатно', time: '15 мин' },
     ],
     faq: [
@@ -477,7 +479,7 @@ const MODELS: ModelData[] = [
       { name: 'Замена аккумулятора', price: 'от 9 000 ₸', time: '30 мин' },
       { name: 'Замена задней камеры', price: 'от 14 000 ₸', time: '1 ч' },
       { name: 'Замена разъёма зарядки', price: 'от 6 000 ₸', time: '40 мин' },
-      { name: 'Замена задней крышки', price: 'от 8 000 ₸', time: '1 ч' },
+      { name: 'Замена задней крышки', price: 'от 8 000 ₸', time: BACK_COVER_REPAIR_TIME },
       { name: 'Диагностика', price: 'Бесплатно', time: '15 мин' },
     ],
     faq: [
@@ -506,7 +508,7 @@ const MODELS: ModelData[] = [
       { name: 'Замена аккумулятора', price: 'от 9 000 ₸', time: '30 мин' },
       { name: 'Замена задней камеры', price: 'от 12 000 ₸', time: '45 мин' },
       { name: 'Замена разъёма зарядки', price: 'от 5 000 ₸', time: '40 мин' },
-      { name: 'Замена задней крышки', price: 'от 7 000 ₸', time: '1 ч' },
+      { name: 'Замена задней крышки', price: 'от 7 000 ₸', time: BACK_COVER_REPAIR_TIME },
       { name: 'Диагностика', price: 'Бесплатно', time: '15 мин' },
     ],
     faq: [
@@ -536,7 +538,7 @@ const MODELS: ModelData[] = [
       { name: 'Замена аккумулятора', price: 'от 9 000 ₸', time: '30 мин' },
       { name: 'Замена задней камеры', price: 'от 14 000 ₸', time: '1 ч' },
       { name: 'Замена разъёма зарядки', price: 'от 5 000 ₸', time: '40 мин' },
-      { name: 'Замена задней крышки', price: 'от 8 000 ₸', time: '1 ч' },
+      { name: 'Замена задней крышки', price: 'от 8 000 ₸', time: BACK_COVER_REPAIR_TIME },
       { name: 'Диагностика', price: 'Бесплатно', time: '15 мин' },
     ],
     faq: [
@@ -565,7 +567,7 @@ const MODELS: ModelData[] = [
       { name: 'Замена аккумулятора', price: 'от 8 000 ₸', time: '30 мин' },
       { name: 'Замена задней камеры', price: 'от 10 000 ₸', time: '45 мин' },
       { name: 'Замена разъёма зарядки', price: 'от 5 000 ₸', time: '40 мин' },
-      { name: 'Замена задней крышки', price: 'от 7 000 ₸', time: '1 ч' },
+      { name: 'Замена задней крышки', price: 'от 7 000 ₸', time: BACK_COVER_REPAIR_TIME },
       { name: 'Диагностика', price: 'Бесплатно', time: '15 мин' },
     ],
     faq: [
@@ -595,7 +597,7 @@ const MODELS: ModelData[] = [
       { name: 'Замена аккумулятора', price: 'от 7 000 ₸', time: '30 мин' },
       { name: 'Замена задней камеры', price: 'от 12 000 ₸', time: '1 ч' },
       { name: 'Замена разъёма зарядки', price: 'от 5 000 ₸', time: '40 мин' },
-      { name: 'Замена задней крышки', price: 'от 7 000 ₸', time: '1 ч' },
+      { name: 'Замена задней крышки', price: 'от 7 000 ₸', time: BACK_COVER_REPAIR_TIME },
       { name: 'Диагностика', price: 'Бесплатно', time: '15 мин' },
     ],
     faq: [
@@ -624,7 +626,7 @@ const MODELS: ModelData[] = [
       { name: 'Замена аккумулятора', price: 'от 6 000 ₸', time: '30 мин' },
       { name: 'Замена задней камеры', price: 'от 9 000 ₸', time: '45 мин' },
       { name: 'Замена разъёма зарядки', price: 'от 4 500 ₸', time: '40 мин' },
-      { name: 'Замена задней крышки', price: 'от 6 000 ₸', time: '1 ч' },
+      { name: 'Замена задней крышки', price: 'от 6 000 ₸', time: BACK_COVER_REPAIR_TIME },
       { name: 'Диагностика', price: 'Бесплатно', time: '15 мин' },
     ],
     faq: [
@@ -653,7 +655,7 @@ const MODELS: ModelData[] = [
       { name: 'Замена аккумулятора', price: 'от 6 000 ₸', time: '30 мин' },
       { name: 'Замена камеры', price: 'от 8 000 ₸', time: '45 мин' },
       { name: 'Замена разъёма зарядки', price: 'от 4 000 ₸', time: '40 мин' },
-      { name: 'Замена задней крышки', price: 'от 5 500 ₸', time: '1 ч' },
+      { name: 'Замена задней крышки', price: 'от 5 500 ₸', time: BACK_COVER_REPAIR_TIME },
       { name: 'Диагностика', price: 'Бесплатно', time: '15 мин' },
     ],
     faq: [
@@ -684,7 +686,7 @@ const MODELS: ModelData[] = [
       { name: 'Замена аккумулятора',      price: 'от 15 000 ₸', time: '1 ч' },
       { name: 'Замена задней камеры',     price: 'от 22 000 ₸', time: '1 ч' },
       { name: 'Замена разъёма зарядки',   price: 'от 8 000 ₸',  time: '40 мин' },
-      { name: 'Замена задней крышки',     price: 'от 12 000 ₸', time: '1 ч' },
+      { name: 'Замена задней крышки',     price: 'от 12 000 ₸', time: BACK_COVER_REPAIR_TIME },
       { name: 'Диагностика',              price: 'Бесплатно',   time: '15 мин' },
     ],
     faq: [
@@ -713,7 +715,7 @@ const MODELS: ModelData[] = [
       { name: 'Замена аккумулятора',      price: 'от 13 000 ₸', time: '1 ч' },
       { name: 'Замена задней камеры',     price: 'от 18 000 ₸', time: '1 ч' },
       { name: 'Замена разъёма зарядки',   price: 'от 7 000 ₸',  time: '40 мин' },
-      { name: 'Замена задней крышки',     price: 'от 10 000 ₸', time: '1 ч' },
+      { name: 'Замена задней крышки',     price: 'от 10 000 ₸', time: BACK_COVER_REPAIR_TIME },
       { name: 'Диагностика',              price: 'Бесплатно',   time: '15 мин' },
     ],
     faq: [
@@ -742,7 +744,7 @@ const MODELS: ModelData[] = [
       { name: 'Замена аккумулятора',      price: 'от 12 000 ₸', time: '1 ч' },
       { name: 'Замена задней камеры',     price: 'от 15 000 ₸', time: '1 ч' },
       { name: 'Замена разъёма зарядки',   price: 'от 7 000 ₸',  time: '40 мин' },
-      { name: 'Замена задней крышки',     price: 'от 9 000 ₸',  time: '1 ч' },
+      { name: 'Замена задней крышки',     price: 'от 9 000 ₸',  time: BACK_COVER_REPAIR_TIME },
       { name: 'Диагностика',              price: 'Бесплатно',   time: '15 мин' },
     ],
     faq: [
@@ -772,7 +774,7 @@ const MODELS: ModelData[] = [
       { name: 'Замена аккумулятора',      price: 'от 12 000 ₸', time: '1 ч' },
       { name: 'Замена задней камеры',     price: 'от 18 000 ₸', time: '1 ч' },
       { name: 'Замена разъёма зарядки',   price: 'от 7 000 ₸',  time: '40 мин' },
-      { name: 'Замена задней крышки',     price: 'от 10 000 ₸', time: '1 ч' },
+      { name: 'Замена задней крышки',     price: 'от 10 000 ₸', time: BACK_COVER_REPAIR_TIME },
       { name: 'Диагностика',              price: 'Бесплатно',   time: '15 мин' },
     ],
     faq: [
@@ -801,7 +803,7 @@ const MODELS: ModelData[] = [
       { name: 'Замена аккумулятора',      price: 'от 12 000 ₸', time: '1 ч' },
       { name: 'Замена задней камеры',     price: 'от 18 000 ₸', time: '1 ч' },
       { name: 'Замена разъёма зарядки',   price: 'от 7 000 ₸',  time: '40 мин' },
-      { name: 'Замена задней крышки',     price: 'от 10 000 ₸', time: '1 ч' },
+      { name: 'Замена задней крышки',     price: 'от 10 000 ₸', time: BACK_COVER_REPAIR_TIME },
       { name: 'Диагностика',              price: 'Бесплатно',   time: '15 мин' },
     ],
     faq: [
@@ -830,7 +832,7 @@ const MODELS: ModelData[] = [
       { name: 'Замена аккумулятора',      price: 'от 11 000 ₸', time: '1 ч' },
       { name: 'Замена задней камеры',     price: 'от 15 000 ₸', time: '1 ч' },
       { name: 'Замена разъёма зарядки',   price: 'от 7 000 ₸',  time: '40 мин' },
-      { name: 'Замена задней крышки',     price: 'от 9 000 ₸',  time: '1 ч' },
+      { name: 'Замена задней крышки',     price: 'от 9 000 ₸',  time: BACK_COVER_REPAIR_TIME },
       { name: 'Диагностика',              price: 'Бесплатно',   time: '15 мин' },
     ],
     faq: [
@@ -859,7 +861,7 @@ const MODELS: ModelData[] = [
       { name: 'Замена аккумулятора',      price: 'от 10 000 ₸', time: '1 ч' },
       { name: 'Замена задней камеры',     price: 'от 12 000 ₸', time: '1 ч' },
       { name: 'Замена разъёма зарядки',   price: 'от 6 000 ₸',  time: '40 мин' },
-      { name: 'Замена задней крышки',     price: 'от 8 000 ₸',  time: '1 ч' },
+      { name: 'Замена задней крышки',     price: 'от 8 000 ₸',  time: BACK_COVER_REPAIR_TIME },
       { name: 'Диагностика',              price: 'Бесплатно',   time: '15 мин' },
     ],
     faq: [
@@ -889,7 +891,7 @@ const MODELS: ModelData[] = [
       { name: 'Замена аккумулятора',      price: 'от 11 000 ₸', time: '1 ч' },
       { name: 'Замена задней камеры',     price: 'от 18 000 ₸', time: '1 ч' },
       { name: 'Замена разъёма зарядки',   price: 'от 7 000 ₸',  time: '40 мин' },
-      { name: 'Замена задней крышки',     price: 'от 10 000 ₸', time: '1 ч' },
+      { name: 'Замена задней крышки',     price: 'от 10 000 ₸', time: BACK_COVER_REPAIR_TIME },
       { name: 'Диагностика',              price: 'Бесплатно',   time: '15 мин' },
     ],
     faq: [
@@ -918,7 +920,7 @@ const MODELS: ModelData[] = [
       { name: 'Замена аккумулятора',      price: 'от 10 000 ₸', time: '1 ч' },
       { name: 'Замена задней камеры',     price: 'от 14 000 ₸', time: '1 ч' },
       { name: 'Замена разъёма зарядки',   price: 'от 6 000 ₸',  time: '40 мин' },
-      { name: 'Замена задней крышки',     price: 'от 8 000 ₸',  time: '1 ч' },
+      { name: 'Замена задней крышки',     price: 'от 8 000 ₸',  time: BACK_COVER_REPAIR_TIME },
       { name: 'Диагностика',              price: 'Бесплатно',   time: '15 мин' },
     ],
     faq: [
@@ -947,7 +949,7 @@ const MODELS: ModelData[] = [
       { name: 'Замена аккумулятора',      price: 'от 10 000 ₸', time: '1 ч' },
       { name: 'Замена задней камеры',     price: 'от 14 000 ₸', time: '1 ч' },
       { name: 'Замена разъёма зарядки',   price: 'от 6 000 ₸',  time: '40 мин' },
-      { name: 'Замена задней крышки',     price: 'от 8 000 ₸',  time: '1 ч' },
+      { name: 'Замена задней крышки',     price: 'от 8 000 ₸',  time: BACK_COVER_REPAIR_TIME },
       { name: 'Диагностика',              price: 'Бесплатно',   time: '15 мин' },
     ],
     faq: [
@@ -976,7 +978,7 @@ const MODELS: ModelData[] = [
       { name: 'Замена аккумулятора',      price: 'от 9 000 ₸',  time: '1 ч' },
       { name: 'Замена задней камеры',     price: 'от 11 000 ₸', time: '1 ч' },
       { name: 'Замена разъёма зарядки',   price: 'от 6 000 ₸',  time: '40 мин' },
-      { name: 'Замена задней крышки',     price: 'от 7 000 ₸',  time: '1 ч' },
+      { name: 'Замена задней крышки',     price: 'от 7 000 ₸',  time: BACK_COVER_REPAIR_TIME },
       { name: 'Диагностика',              price: 'Бесплатно',   time: '15 мин' },
     ],
     faq: [
@@ -1093,7 +1095,7 @@ const MODELS: ModelData[] = [
       { name: 'Замена аккумулятора',      price: 'от 8 000 ₸',  time: '40 мин' },
       { name: 'Замена задней камеры',     price: 'от 10 000 ₸', time: '1 ч' },
       { name: 'Замена разъёма зарядки',   price: 'от 5 000 ₸',  time: '30 мин' },
-      { name: 'Замена задней крышки',     price: 'от 6 000 ₸',  time: '40 мин' },
+      { name: 'Замена задней крышки',     price: 'от 6 000 ₸',  time: BACK_COVER_REPAIR_TIME },
       { name: 'Диагностика',              price: 'Бесплатно',   time: '15 мин' },
     ],
     faq: [
@@ -1150,7 +1152,7 @@ const MODELS: ModelData[] = [
       { name: 'Замена аккумулятора',      price: 'от 7 000 ₸',  time: '40 мин' },
       { name: 'Замена задней камеры',     price: 'от 8 000 ₸',  time: '1 ч' },
       { name: 'Замена разъёма зарядки',   price: 'от 5 000 ₸',  time: '30 мин' },
-      { name: 'Замена задней крышки',     price: 'от 5 000 ₸',  time: '40 мин' },
+      { name: 'Замена задней крышки',     price: 'от 5 000 ₸',  time: BACK_COVER_REPAIR_TIME },
       { name: 'Диагностика',              price: 'Бесплатно',   time: '15 мин' },
     ],
     faq: [

@@ -1,10 +1,11 @@
 import { motion } from 'motion/react';
 import { Smartphone, Battery, Monitor, Wrench, Zap, Shield } from 'lucide-react';
+import { BACK_COVER_REPAIR_TIME } from '../data/repairModels';
 
 const SERVICES = [
   { icon: Monitor,    title: 'Замена экрана',       desc: 'Оригинальные дисплеи с сохранением True Tone и влагозащиты.',      time: '30–60 мин',  num: '01' },
   { icon: Battery,    title: 'Замена аккумулятора', desc: 'АКБ с оригинальным чипом, 100% ёмкость без ошибок в настройках.',  time: '20–40 мин',  num: '02' },
-  { icon: Smartphone, title: 'Корпус и кнопки',     desc: 'Замена задней крышки, рамки, кнопок и разъёмов.',                  time: '40–90 мин',  num: '03' },
+  { icon: Smartphone, title: 'Корпус и кнопки',     desc: `Замена задней крышки — ${BACK_COVER_REPAIR_TIME}. Ремонт рамки, кнопок и разъёмов.`, time: '',  num: '03' },
   { icon: Wrench,     title: 'Ремонт платы',        desc: 'Микропайка, восстановление после воды и механических повреждений.', time: 'от 1 дня',   num: '04' },
   { icon: Zap,        title: 'Разъём зарядки',      desc: 'Замена Lightning, USB-C и micro-USB разъёмов.',                    time: '20–30 мин',  num: '05' },
   { icon: Shield,     title: 'Диагностика',         desc: 'Полная проверка всех систем устройства. Бесплатно при ремонте.',   time: 'бесплатно',  num: '06' },
@@ -68,7 +69,7 @@ export default function RepairTypesSection() {
                 <div className="flex flex-col gap-2 relative z-10 min-w-0">
                   <div className="flex items-center gap-3">
                     <h3 className="text-xl font-bold text-[#1D1D1F]">{s.title}</h3>
-                    <span className="text-sm font-semibold text-[#AEAEB2] uppercase tracking-wider shrink-0">{s.time}</span>
+                    {s.time && <span className="text-sm font-semibold text-[#AEAEB2] uppercase tracking-wider shrink-0">{s.time}</span>}
                   </div>
                   <p className="text-[#6E6E73] text-base leading-relaxed">{s.desc}</p>
                   <motion.span

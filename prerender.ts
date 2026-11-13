@@ -6,7 +6,7 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import RepairGuide from './src/components/RepairGuide';
 import RepairModelDirectory from './src/components/RepairModelDirectory';
 import { featuredRepairSlugs, repairGuideFaqSchema } from './src/data/repairGuide';
-import { allModels, type ModelData } from './src/data/repairModels';
+import { allModels, BACK_COVER_REPAIR_TIME, type ModelData } from './src/data/repairModels';
 import { GSI_DESCRIPTION, GSI_PATH, GSI_TITLE, formatTenge, gsiBatteryOffers, gsiFaq, gsiOfferForModel } from './src/data/gsiBatteryOffers';
 
 /**
@@ -31,6 +31,7 @@ interface Route {
   title: string;
   description: string;
   content: string;
+  lastmod?: string;
   keywords?: string;
   ogImage?: string;
   schema?: object[];
@@ -113,6 +114,7 @@ const STATIC_ROUTES: Route[] = [
   },
   {
     path: '/',
+    lastmod: '2026-10-16',
     title: 'Ремонт телефонов в Алматы — iPhone и Android | GreatSteve',
     description: 'Ремонт телефонов в Алматы: iPhone, Samsung, Xiaomi и других Android-смартфонов. Цены на сайте, бесплатная диагностика при ремонте, гарантия до 12 месяцев. Гоголя 75/1, ежедневно 10:00–20:00.',
     keywords: 'ремонт телефонов Алматы, ремонт iPhone Алматы, ремонт Samsung Алматы, ремонт Xiaomi Алматы, сервисный центр Алматы',
@@ -125,6 +127,7 @@ const STATIC_ROUTES: Route[] = [
   },
   {
     path: '/remont',
+    lastmod: '2026-11-13',
     title: 'Цены на ремонт телефонов в Алматы | GreatSteve',
     description: 'Ремонт телефонов в Алматы. Усиленные аккумуляторы JCID для iPhone 11–16 от 12 000 ₸ с заменой и гарантией 6 месяцев. Гоголя 75/1.',
     keywords: 'цены ремонт телефонов Алматы, ремонт iPhone Алматы, замена экрана iPhone, ремонт Samsung Алматы, бесплатная диагностика телефона',
@@ -175,6 +178,7 @@ function modelRoute(m: ModelData): Route {
 
   return {
     path: routePath,
+    lastmod: m.repairs.some(repair => repair.name === 'Замена задней крышки' && repair.time === BACK_COVER_REPAIR_TIME) ? '2026-11-13' : undefined,
     title: `Ремонт ${m.name} в Алматы — GreatSteve | Цены и гарантия`,
     description: gsiOffer ? `Замена усиленного аккумулятора JCID для ${m.name} в Алматы — ${formatTenge(gsiOffer.price)} с работой. Гарантия 6 месяцев. Гоголя 75/1, ежедневно 10:00–20:00.` : `Ремонт ${m.name} в Алматы. Замена экрана ${m.repairs[0].price}, аккумулятора ${battery.price}. Гарантия 12 месяцев. Ежедневно 10:00–20:00. Гоголя 75/1 уг. ул.Тулебаева.`,
     keywords: `ремонт ${m.name} Алматы, замена экрана ${m.name} Алматы, замена аккумулятора ${m.name} Алматы, сервис ${m.name} Алматы`,
@@ -261,7 +265,7 @@ export function prerenderSeo(): Plugin {
         fs.mkdirSync(dir, { recursive: true });
         fs.writeFileSync(path.join(dir, 'index.html'), render(template, route), 'utf-8');
       }
-      const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${routes.map(route => `  <url><loc>${SITE}${route.path}</loc>${['/', '/remont'].includes(route.path) ? '<lastmod>2026-10-16</lastmod>' : ''}</url>`).join('\n')}\n</urlset>\n`;
+      const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${routes.map(route => `  <url><loc>${SITE}${route.path}</loc>${route.lastmod ? `<lastmod>${route.lastmod}</lastmod>` : ''}</url>`).join('\n')}\n</urlset>\n`;
       fs.writeFileSync(path.join(outDir, 'sitemap.xml'), sitemap, 'utf-8');
       // eslint-disable-next-line no-console
       console.log(`[prerender-seo] сгенерировано ${routes.length} статичных HTML-роутов`);

@@ -423,6 +423,7 @@
     "name": "Крышка_X–13",
     "title": "Замена<br>задней крышки",
     "hero": "back",
+    "time": "от 3 часов",
     "rows": [
       {
         "model": "iPhone X / XR",
@@ -486,6 +487,7 @@
     "name": "Крышка_14–16",
     "title": "Замена<br>задней крышки",
     "hero": "back",
+    "time": "от 3 часов",
     "rows": [
       {
         "model": "iPhone 14",

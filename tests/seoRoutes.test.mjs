@@ -9,7 +9,14 @@ const pages = new Map(paths.map(path => [path, readFileSync(new URL(`../dist${pa
 test('sitemap contains every canonical HTML page once, never redirected legacy URLs', () => {
   assert.equal(paths.length, 56);
   assert.equal(new Set(paths).size, paths.length);
-  assert.equal((sitemap.match(/<lastmod>/g) ?? []).length, 2);
+  const rearCoverPages = [...pages].filter(([, html]) => html.includes('<li>Замена задней крышки —'));
+  assert.equal(rearCoverPages.length, 35);
+  assert.equal((sitemap.match(/<lastmod>/g) ?? []).length, rearCoverPages.length + 2);
+  for (const [path, html] of rearCoverPages) {
+    assert.match(html, /<li>Замена задней крышки — [^<]+, от 3 часов<\/li>/, path);
+    assert.ok(sitemap.includes(`<loc>https://greatsteve.kz${path}</loc><lastmod>2026-11-13</lastmod>`), path);
+  }
+  assert.ok(sitemap.includes('<loc>https://greatsteve.kz/remont</loc><lastmod>2026-11-13</lastmod>'));
   assert.doesNotMatch(sitemap, /\/uslugi|\/services\/|\/shop|\/trade<|\?a=/);
   for (const [path, html] of pages) {
     assert.equal((html.match(/<title>/g) ?? []).length, 1, path);
@@ -40,7 +47,9 @@ test('all sitemap pages are reachable from the homepage through HTML links witho
 test('repair page answer schema is backed by visible guide content and existing model prices', () => {
   const repair = pages.get('/remont');
   const faq = [...repair.matchAll(/<script type="application\/ld\+json" data-seo-page="[^"]*">([\s\S]*?)<\/script>/g)].map(match => JSON.parse(match[1])).find(schema => schema['@type'] === 'FAQPage');
-  assert.equal(faq.mainEntity.length, 6);
+  assert.equal(faq.mainEntity.length, 7);
+  const rearCover = faq.mainEntity.find(question => question.name === 'Сколько занимает замена задней крышки телефона?');
+  assert.match(rearCover.acceptedAnswer.text, /от 3 часов/);
   for (const question of faq.mainEntity) {
     assert.ok(repair.includes(`<h3 class="text-lg font-semibold">${question.name}</h3>`));
     assert.ok(repair.includes(question.acceptedAnswer.text));
