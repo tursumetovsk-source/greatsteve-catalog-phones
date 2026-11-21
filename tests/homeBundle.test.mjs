@@ -11,7 +11,7 @@ const entry = readFileSync(`dist${entryPath}`);
 test('homepage keeps the full model catalogue out of its initial JavaScript', () => {
   assert.ok(entry.length < 460_000, `entry: ${entry.length} bytes`);
   assert.ok(gzipSync(entry).length < 145_000);
-  assert.ok(!entry.includes(Buffer.from('samsung-z-flip-3')));
+  assert.ok(!entry.includes(Buffer.from('samsung-s21-ultra')));
   assert.ok(!entry.includes(Buffer.from('repair-guide-title')));
   assert.ok(!entry.includes(Buffer.from('__REPAIR_GUIDE_MODELS__')));
 });

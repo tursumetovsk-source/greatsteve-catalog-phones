@@ -16,4 +16,4 @@ export const repairGuideFaqSchema = {
   })),
 };
 
-export const featuredRepairSlugs = ['iphone-13', 'iphone-14', 'iphone-15-pro-max', 'samsung-s23-ultra', 'samsung-s24', 'samsung-z-fold-6'];
+export const featuredRepairSlugs = ['iphone-13', 'iphone-14', 'iphone-15-pro-max', 'samsung-s23-ultra', 'samsung-s24', 'samsung-s25-ultra'];

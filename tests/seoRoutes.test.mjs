@@ -1,13 +1,13 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 
 const sitemap = readFileSync(new URL('../dist/sitemap.xml', import.meta.url), 'utf8');
 const paths = [...sitemap.matchAll(/<loc>https:\/\/greatsteve\.kz([^<]*)<\/loc>/g)].map(match => match[1]);
 const pages = new Map(paths.map(path => [path, readFileSync(new URL(`../dist${path === '/' ? '' : path}/index.html`, import.meta.url), 'utf8')]));
 
 test('sitemap contains every canonical HTML page once, never redirected legacy URLs', () => {
-  assert.equal(paths.length, 56);
+  assert.equal(paths.length, 50);
   assert.equal(new Set(paths).size, paths.length);
   assert.equal((sitemap.match(/<lastmod>/g) ?? []).length, 2);
   assert.doesNotMatch(sitemap, /\/uslugi|\/services\/|\/shop|\/trade<|\?a=/);
@@ -47,7 +47,7 @@ test('repair page answer schema is backed by visible guide content and existing 
   }
   assert.match(repair, /id="repair-guide"/);
   assert.match(repair, /href="\/remont\/iphone-15-pro-max"/);
-  assert.match(repair, /href="\/remont\/samsung-z-fold-6"/);
+  assert.match(repair, /href="\/remont\/samsung-s25-ultra"/);
 });
 
 test('homepage no longer contains the price guide or its FAQ schema', () => {
@@ -69,9 +69,15 @@ test('normal repair UI uses the existing model selector without a duplicate dire
   assert.match(selector, /label: 'Galaxy S21', prefix: 'samsung-s21'/);
 });
 
-test('Fold model descriptions use the battery price, not the external display price', () => {
-  const fold = pages.get('/remont/samsung-z-fold-6');
-  const description = fold.match(/<meta name="description" content="([^"]*)"/)[1];
-  assert.match(description, /аккумулятора от 15 000 ₸/);
-  assert.doesNotMatch(description, /аккумулятора от 55 000 ₸/);
+test('retired Galaxy Z repairs are absent from site content and have no static model pages', () => {
+  const retiredRepair = /samsung-z-(?:fold|flip)|Galaxy Z (?:Fold|Flip)/i;
+  assert.doesNotMatch(sitemap, retiredRepair);
+  for (const [path, html] of pages) {
+    assert.doesNotMatch(html, retiredRepair, path);
+  }
+  for (const model of ['fold-5', 'fold-6', 'flip-3', 'flip-4', 'flip-5', 'flip-6']) {
+    assert.equal(existsSync(new URL('../dist/remont/samsung-z-' + model + '/index.html', import.meta.url)), false, model);
+  }
+  const selector = readFileSync(new URL('../src/components/DeviceRepairSection.tsx', import.meta.url), 'utf8');
+  assert.doesNotMatch(selector, /Galaxy Z|samsung-z/i);
 });
