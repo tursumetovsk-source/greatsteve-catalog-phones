@@ -76,38 +76,28 @@ export default function ModelRepairPage() {
       <Navbar />
 
       {/* HERO */}
-      <section style={{ background: '#1d1d1f', paddingTop: 100, paddingBottom: 60, paddingLeft: 24, paddingRight: 24 }}>
-        <div style={{ maxWidth: 1400, margin: '0 auto' }} className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <section className={imageHasBackground ? 'bg-white text-[#1d1d1f]' : 'bg-[#1d1d1f] text-white'}>
+        <div className="mx-auto grid max-w-[88rem] grid-cols-1 items-center gap-8 px-6 pt-28 pb-12 md:grid-cols-2 md:gap-12 md:px-10 md:pt-36 md:pb-20">
 
-          {/* Левая карточка — текст */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            style={{ background: 'rgba(255,255,255,0.06)', borderRadius: 28, padding: 'clamp(32px,4vw,52px)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', gap: 32 }}
+            className="flex flex-col gap-7"
           >
             <div>
-              {/* Breadcrumb */}
-              <div style={{ display: 'flex', gap: 8, fontSize: 13, color: 'rgba(255,255,255,0.4)', flexWrap: 'wrap', marginBottom: 28 }}>
-                <Link to="/" style={{ color: 'rgba(255,255,255,0.4)', textDecoration: 'none' }}>GreatSteve</Link>
-                <span>/</span>
-                <Link to="/remont" style={{ color: 'rgba(255,255,255,0.4)', textDecoration: 'none' }}>Ремонт</Link>
-                <span>/</span>
-                <span style={{ color: 'rgba(255,255,255,0.7)' }}>{data.name}</span>
-              </div>
-
-              <p style={{ fontSize: 11, textTransform: 'uppercase', letterSpacing: '0.28em', color: 'rgba(255,255,255,0.45)', marginBottom: 16 }}>
+              <p className="mb-4 text-[11px] leading-relaxed font-medium tracking-[0.2em] uppercase opacity-70">
                 Алматы · Гоголя 75/1 · Ежедневно 10:00–20:00
               </p>
 
-              <h1 style={{ fontSize: 'clamp(28px, 4vw, 60px)', fontWeight: 800, letterSpacing: '-0.03em', lineHeight: 1.07, color: '#fff', marginBottom: 20 }}>
+              <h1 style={{ fontSize: 'clamp(28px, 4vw, 60px)', fontWeight: 800, letterSpacing: '-0.03em', lineHeight: 1.07, marginBottom: 20 }}>
                 Ремонт {data.name}<br />
-                <span style={{ background: 'linear-gradient(135deg, #60a5fa, #a78bfa)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+                <span className={imageHasBackground ? 'text-blue-700' : 'bg-gradient-to-br from-blue-400 to-violet-400 bg-clip-text text-transparent'}>
                   в Алматы
                 </span>
               </h1>
 
-              <p style={{ fontSize: 16, color: 'rgba(255,255,255,0.82)', lineHeight: 1.6 }}>
+              <p className="text-base leading-relaxed opacity-80">
                 {summary}
               </p>
             </div>
@@ -116,37 +106,32 @@ export default function ModelRepairPage() {
               <a
                 href={bookingUrl}
                 target="_blank" rel="noopener noreferrer"
-                style={{ background: '#fff', color: '#111', borderRadius: 100, padding: '14px 32px', fontSize: 15, fontWeight: 600, textDecoration: 'none' }}
+                className={`rounded-full px-6 py-3.5 text-center text-sm font-semibold ${imageHasBackground ? 'bg-[#1d1d1f] text-white' : 'bg-white text-[#1d1d1f]'}`}
               >
                 Записаться в WhatsApp
               </a>
               <a
                 href="tel:+77775181111"
-                style={{ border: '1px solid rgba(255,255,255,0.25)', color: '#fff', borderRadius: 100, padding: '14px 32px', fontSize: 15, fontWeight: 500, textDecoration: 'none' }}
+                className="rounded-full border border-current/30 px-6 py-3.5 text-center text-sm font-medium"
               >
                 8 777 518 11 11
               </a>
             </div>
           </motion.div>
 
-          {/* Правая карточка — картинка */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="flex min-h-72 flex-col items-center justify-center gap-5 rounded-[28px] bg-white/[0.06] p-6 sm:p-8"
+            className="flex min-w-0 flex-col items-center justify-center gap-5"
           >
-            <div className={imageHasBackground
-              ? 'flex w-full max-w-[25rem] items-center justify-center rounded-3xl bg-white p-5 sm:p-6'
-              : 'flex w-full max-w-[31rem] items-center justify-center'}>
-              <img src={image} alt={data.name} decoding="async" fetchPriority="high"
-                className={gsiOffer ? 'h-44 w-full object-contain sm:h-56' : 'h-56 w-full object-contain sm:h-[300px]'} />
-            </div>
+            <img src={image} alt={data.name} decoding="async" fetchPriority="high" width="560" height="350"
+              className="h-48 w-full max-w-[35rem] object-contain sm:h-72 lg:h-[350px]" />
             {gsiOffer && (
-              <div className="w-full max-w-[31rem] rounded-2xl border border-white/10 px-4 py-3 text-left text-white">
-                <p className="flex flex-wrap items-center justify-between gap-x-2 font-semibold"><span>Усиленный аккумулятор JCID</span><span className="text-[#C1FF72]">{formatTenge(gsiOffer.price)}</span></p>
-                <p className="mt-1 text-sm text-white/70">Замена включена. Гарантия 6 месяцев.</p>
-                <Link to={GSI_PATH} className="mt-2 inline-block text-sm font-medium text-[#C1FF72] underline underline-offset-4">Все цены и условия акции</Link>
+              <div className="w-full max-w-[31rem] text-center">
+                <p className="font-semibold">Усиленный аккумулятор JCID · {formatTenge(gsiOffer.price)}</p>
+                <p className="mt-1 text-sm opacity-75">Замена включена. Гарантия 6 месяцев.</p>
+                <Link to={GSI_PATH} className="mt-2 inline-block text-sm font-medium underline underline-offset-4">Все цены и условия акции</Link>
               </div>
             )}
           </motion.div>

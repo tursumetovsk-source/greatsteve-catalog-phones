@@ -1,14 +1,15 @@
 import { motion } from 'motion/react';
 import { Smartphone, Battery, Monitor, Wrench, Zap, Shield } from 'lucide-react';
 import { BACK_COVER_REPAIR_TIME } from '../data/repairModels';
+import { REPAIR_TIMES } from '../data/repairTimes';
 
 const SERVICES = [
   { icon: Monitor,    title: 'Замена экрана',       desc: 'Оригинальные дисплеи с сохранением True Tone и влагозащиты.',      time: '30–60 мин',  num: '01' },
-  { icon: Battery,    title: 'Замена аккумулятора', desc: 'АКБ с оригинальным чипом, 100% ёмкость без ошибок в настройках.',  time: '20–40 мин',  num: '02' },
+  { icon: Battery,    title: 'Замена аккумулятора', desc: 'АКБ с оригинальным чипом, 100% ёмкость без ошибок в настройках.',  time: REPAIR_TIMES.battery,  num: '02' },
   { icon: Smartphone, title: 'Корпус и кнопки',     desc: `Замена задней крышки — ${BACK_COVER_REPAIR_TIME}. Ремонт рамки, кнопок и разъёмов.`, time: '',  num: '03' },
   { icon: Wrench,     title: 'Ремонт платы',        desc: 'Микропайка, восстановление после воды и механических повреждений.', time: 'от 1 дня',   num: '04' },
-  { icon: Zap,        title: 'Разъём зарядки',      desc: 'Замена Lightning, USB-C и micro-USB разъёмов.',                    time: '20–30 мин',  num: '05' },
-  { icon: Shield,     title: 'Диагностика',         desc: 'Полная проверка всех систем устройства. Бесплатно при ремонте.',   time: 'бесплатно',  num: '06' },
+  { icon: Zap,        title: 'Разъём зарядки',      desc: 'Замена Lightning, USB-C и micro-USB разъёмов.',                    time: REPAIR_TIMES.chargingPort,  num: '05' },
+  { icon: Shield,     title: 'Диагностика',         desc: 'Полная проверка всех систем устройства. Бесплатно при ремонте.',   time: REPAIR_TIMES.diagnostic,  num: '06' },
 ];
 
 export default function RepairTypesSection() {

@@ -9,33 +9,9 @@ const WA = 'https://wa.me/77775181111?text=';
 type Brand = 'Apple' | 'Samsung' | 'Xiaomi' | 'Oppo' | 'Vivo' | 'Huawei';
 type DeviceType = 'iPhone' | 'MacBook' | 'iPad' | 'Apple Watch';
 
-// ── Brand icon marks ────────────────────────────────────────────
-const XiaomiMark = ({ className }: { className?: string }) => (
-  <svg className={className} viewBox="0 0 40 40" fill="currentColor">
-    <rect x="1" y="1" width="38" height="38" rx="9" fill="none" stroke="currentColor" strokeWidth="2.5" />
-    <text x="20" y="26" textAnchor="middle" fontSize="14" fontWeight="900" fontFamily="Arial,sans-serif">mi</text>
-  </svg>
-);
-
-const HuaweiMark = ({ className }: { className?: string }) => (
-  <svg className={className} viewBox="0 0 44 44" fill="currentColor">
-    <g transform="translate(22,22)">
-      {([0,60,120,180,240,300] as number[]).map(r => (
-        <path key={r} transform={`rotate(${r})`}
-          d="M0-19 C3-19 6-14 6-8 L6-1 C6 2 3 5 0 5 C-3 5-6 2-6-1 L-6-8 C-6-14-3-19 0-19Z" />
-      ))}
-    </g>
-  </svg>
-);
-
-const BRAND_MARKS: Record<string, ({ className }: { className?: string }) => React.JSX.Element> = {
-  Xiaomi: XiaomiMark,
-  Huawei: HuaweiMark,
-};
-
-const OTHER_BRANDS: { id: Brand; name: string; sub: string; color: string; models: string[] }[] = [
+const OTHER_BRANDS: { id: Brand; name: string; sub: string; color: string; logo: string; models: string[] }[] = [
   {
-    id: 'Xiaomi', name: 'Xiaomi', sub: 'Redmi, POCO, Xiaomi', color: '#FF6900',
+    id: 'Xiaomi', name: 'Xiaomi', sub: 'Redmi, POCO, Xiaomi', color: '#AF4100', logo: '/devices/brands/xiaomi.png',
     models: [
       'Xiaomi 15 Ultra', 'Xiaomi 15 Pro', 'Xiaomi 15',
       'Xiaomi 14 Ultra', 'Xiaomi 14 Pro', 'Xiaomi 14',
@@ -48,7 +24,7 @@ const OTHER_BRANDS: { id: Brand; name: string; sub: string; color: string; model
     ],
   },
   {
-    id: 'Oppo', name: 'OPPO', sub: 'Find, Reno, A серии', color: '#1F2B5F',
+    id: 'Oppo', name: 'OPPO', sub: 'Find, Reno, A серии', color: '#1F2B5F', logo: '/devices/brands/oppo.svg',
     models: [
       'OPPO Find X8 Pro', 'OPPO Find X8',
       'OPPO Find X7 Ultra', 'OPPO Find X7',
@@ -60,7 +36,7 @@ const OTHER_BRANDS: { id: Brand; name: string; sub: string; color: string; model
     ],
   },
   {
-    id: 'Vivo', name: 'vivo', sub: 'X, V, Y серии', color: '#415FFF',
+    id: 'Vivo', name: 'vivo', sub: 'X, V, Y серии', color: '#354DD8', logo: '/devices/brands/vivo.svg',
     models: [
       'Vivo X200 Ultra', 'Vivo X200 Pro', 'Vivo X200',
       'Vivo X100 Ultra', 'Vivo X100 Pro', 'Vivo X100',
@@ -71,7 +47,7 @@ const OTHER_BRANDS: { id: Brand; name: string; sub: string; color: string; model
     ],
   },
   {
-    id: 'Huawei', name: 'Huawei', sub: 'Pura, Mate, Nova серии', color: '#CF0A2C',
+    id: 'Huawei', name: 'Huawei', sub: 'Pura, Mate, Nova серии', color: '#BD0928', logo: '/devices/brands/huawei.svg',
     models: [
       'Huawei Pura 70 Ultra', 'Huawei Pura 70 Pro+', 'Huawei Pura 70 Pro', 'Huawei Pura 70',
       'Huawei Mate 70 Pro+', 'Huawei Mate 70 Pro', 'Huawei Mate 70',
@@ -84,7 +60,7 @@ const OTHER_BRANDS: { id: Brand; name: string; sub: string; color: string; model
 ];
 
 const APPLE_DEVICES: { id: DeviceType; name: string; sub: string; img: string; from: string }[] = [
-  { id: 'iPhone',      name: 'iPhone',      sub: 'с X по 17 Pro Max',  img: repairModelImage('iphone-17-pro-max'), from: 'от 15 000 ₸' },
+  { id: 'iPhone',      name: 'iPhone',      sub: 'с X по 18 Pro Max',  img: repairModelImage('iphone-18-pro-max'), from: 'от 15 000 ₸' },
   { id: 'MacBook',     name: 'MacBook',     sub: 'Air, Pro, M1–M4', img: '/devices/repair/macbook-air-m3.webp', from: 'от 20 000 ₸' },
   { id: 'iPad',        name: 'iPad',        sub: 'Air, Pro, Mini', img: '/devices/repair/ipad-air.webp', from: 'от 12 000 ₸' },
   { id: 'Apple Watch', name: 'Apple Watch', sub: 'Series 4–10, Ultra', img: '/devices/repair/apple-watch-10.webp', from: 'от 8 000 ₸' },
@@ -124,6 +100,7 @@ const IPAD_MODELS: ModelCard[] = [
 ];
 
 const IPHONE_GROUPS = [
+  { label: 'iPhone 18', prefix: 'iphone-18' },
   { label: 'iPhone 17', prefix: 'iphone-17' },
   { label: 'iPhone 16', prefix: 'iphone-16' },
   { label: 'iPhone 15', prefix: 'iphone-15' },
@@ -133,19 +110,6 @@ const IPHONE_GROUPS = [
   { label: 'iPhone 11', prefix: 'iphone-11' },
   { label: 'iPhone X',  prefix: 'iphone-x'  },
 ];
-
-const AppleLogo = ({ className }: { className?: string }) => (
-  <svg className={className} viewBox="0 0 24 24" fill="currentColor">
-    <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.37 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
-  </svg>
-);
-
-const SamsungLogo = ({ className }: { className?: string }) => (
-  <svg className={className} viewBox="0 0 220 72" fill="currentColor">
-    <ellipse cx="110" cy="36" rx="107" ry="32" fill="none" stroke="currentColor" strokeWidth="4" />
-    <text x="110" y="47" textAnchor="middle" fontSize="26" fontWeight="700" fontFamily="Arial, sans-serif" letterSpacing="4" fill="currentColor">SAMSUNG</text>
-  </svg>
-);
 
 function ModelCardUI({ name, img, href, to, action }: { name: string; img: string; href?: string; to?: string; action?: string }) {
   const inner = (
@@ -208,13 +172,15 @@ export default function DeviceRepairSection() {
             className="relative overflow-hidden rounded-[2rem] p-8 flex flex-col justify-between text-left min-h-[200px] transition-all duration-300 hover:-translate-y-1 border-2"
             style={{ background: '#1D1D1F', borderColor: 'transparent' }}
           >
-            <AppleLogo className="w-9 h-9 text-white/20 mb-4" />
             <div>
-              <h3 className="text-4xl md:text-5xl font-bold text-white tracking-tight mb-1">Apple</h3>
-              <p className="text-white/40 text-sm">iPhone · MacBook · iPad · Apple Watch</p>
+              <h3 className="mb-4 flex h-14 items-center gap-4 text-4xl font-bold tracking-tight text-white md:h-16 md:text-5xl">
+                <img src="/devices/brands/apple.svg" alt="" className="h-12 w-10 object-contain md:h-14 md:w-12" />
+                Apple
+              </h3>
+              <p className="text-sm text-white/85">iPhone · MacBook · iPad · Apple Watch</p>
             </div>
             <div className="flex items-center justify-between mt-5">
-              <p className="text-white/40 text-sm">от 8 000 ₸</p>
+              <p className="text-sm text-white/85">от 8 000 ₸</p>
               <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center">
                 <ChevronRight size={15} className="text-white" />
               </div>
@@ -226,13 +192,15 @@ export default function DeviceRepairSection() {
             className="relative overflow-hidden rounded-[2rem] p-8 flex flex-col justify-between text-left min-h-[200px] transition-all duration-300 hover:-translate-y-1 border-2"
             style={{ background: '#1428A0', borderColor: 'transparent' }}
           >
-            <SamsungLogo className="h-5 w-32 text-white/20 mb-4" />
             <div>
-              <h3 className="text-4xl md:text-5xl font-bold text-white tracking-tight mb-1">Samsung</h3>
-              <p className="text-white/40 text-sm">Galaxy S и A серии</p>
+              <h3 className="mb-4 flex h-14 items-center md:h-16">
+                <span className="sr-only">Samsung</span>
+                <img src="/devices/brands/samsung.svg" alt="" className="h-12 w-48 max-w-full object-contain object-left md:w-56" />
+              </h3>
+              <p className="text-sm text-white/85">Galaxy S и A серии</p>
             </div>
             <div className="flex items-center justify-between mt-5">
-              <p className="text-white/40 text-sm">от 10 000 ₸</p>
+              <p className="text-sm text-white/85">от 10 000 ₸</p>
               <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center">
                 <ChevronRight size={15} className="text-white" />
               </div>
@@ -243,19 +211,23 @@ export default function DeviceRepairSection() {
         {/* Xiaomi / Oppo / Vivo / Huawei */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
           {OTHER_BRANDS.map((b, i) => {
-            const Mark = BRAND_MARKS[b.id];
+            const isXiaomi = b.id === 'Xiaomi';
             return (
               <motion.button key={b.id} onClick={() => openBrand(b.id)}
                 initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.07 }}
                 className="relative overflow-hidden rounded-2xl px-5 pt-5 pb-4 flex flex-col justify-between text-left transition-all duration-300 hover:-translate-y-0.5 border-2 min-h-[160px]"
                 style={{ background: b.color, borderColor: 'transparent' }}
               >
-                {Mark && <Mark className="h-8 w-8 text-white/25 mb-auto" />}
                 <div>
-                  <h3 className="text-2xl font-bold text-white tracking-tight mb-1">{b.name}</h3>
-                  <p className="text-white/40 text-xs mb-3">{b.sub}</p>
+                  <h3 className="mb-3 flex h-12 items-center gap-2 text-lg font-bold tracking-tight text-white lg:text-2xl">
+                    <img src={b.logo} alt="" className={isXiaomi
+                      ? 'h-8 w-8 shrink-0 object-contain sm:h-10 sm:w-10'
+                      : 'h-10 w-32 max-w-full object-contain object-left brightness-0 invert'} />
+                    <span className={isXiaomi ? undefined : 'sr-only'}>{b.name}</span>
+                  </h3>
+                  <p className="mb-3 text-xs text-white/90">{b.sub}</p>
                   <div className="flex items-center justify-between">
-                    <p className="text-white/40 text-xs">от 8 000 ₸</p>
+                    <p className="text-xs text-white/90">от 8 000 ₸</p>
                     <div className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center">
                       <ChevronRight size={12} className="text-white" />
                     </div>

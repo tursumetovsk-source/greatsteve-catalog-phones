@@ -16,6 +16,7 @@
     "name": "Аккумулятор_X–13",
     "title": "Замена<br>аккумулятора",
     "hero": "battery",
+    "time": "1 час",
     "rows": [
       {
         "model": "iPhone X / XR",
@@ -72,6 +73,7 @@
     "name": "Аккумулятор_14–16",
     "title": "Замена<br>аккумулятора",
     "hero": "battery",
+    "time": "1 час",
     "rows": [
       {
         "model": "iPhone 14",
@@ -125,6 +127,7 @@
     "name": "Усиленные_JCID",
     "title": "Усиленный<br>аккумулятор",
     "hero": "battery",
+    "time": "1 час",
     "rows": [
       {
         "model": "iPhone 11",
@@ -1148,6 +1151,7 @@
     "name": "Разъём_X–11",
     "title": "Разъём зарядки<br>и микрофон",
     "hero": "charge",
+    "time": "2–3 часа",
     "rows": [
       {
         "model": "iPhone X / XR / XS",
@@ -1203,6 +1207,7 @@
     "name": "Разъём_12–13",
     "title": "Разъём зарядки<br>и микрофон",
     "hero": "charge",
+    "time": "2–3 часа",
     "rows": [
       {
         "model": "iPhone 12 / 12 mini",
@@ -1259,6 +1264,7 @@
     "name": "Разъём_14–15",
     "title": "Разъём зарядки<br>и микрофон",
     "hero": "charge",
+    "time": "2–3 часа",
     "rows": [
       {
         "model": "iPhone 14 / 14 Plus",
@@ -1308,6 +1314,7 @@
     "name": "Разъём_16",
     "title": "Разъём зарядки<br>и микрофон",
     "hero": "charge",
+    "time": "2–3 часа",
     "rows": [
       {
         "model": "iPhone 16",

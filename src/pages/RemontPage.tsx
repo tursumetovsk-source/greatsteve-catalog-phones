@@ -5,6 +5,7 @@ import GsiBatteryBanner from '../components/GsiBatteryBanner';
 import DeviceRepairSection from '../components/DeviceRepairSection';
 import RepairGuide from '../components/RepairGuide';
 import { repairGuideFaqSchema } from '../data/repairGuide';
+import { REPAIR_TIMES } from '../data/repairTimes';
 import UseCasesSection from '../components/UseCasesSection';
 import Footer from '../components/Footer';
 import SEOHead from '../components/SEOHead';
@@ -44,10 +45,10 @@ const SCHEMA = {
     name: 'Виды ремонта',
     itemListElement: [
       { '@type': 'Offer', itemOffered: { '@type': 'RepairAction', name: 'Замена экрана iPhone', description: 'Оригинальный дисплей с сохранением True Tone и влагозащиты. От 30 минут.' } },
-      { '@type': 'Offer', itemOffered: { '@type': 'RepairAction', name: 'Замена аккумулятора iPhone', description: 'Усиленные аккумуляторы JCID для iPhone 11–16. От 12 000 ₸ с заменой, гарантия 6 месяцев.' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'RepairAction', name: 'Замена аккумулятора iPhone', description: `Усиленные аккумуляторы JCID для iPhone 11–16. От 12 000 ₸ с заменой, гарантия 6 месяцев. Замена занимает ${REPAIR_TIMES.battery}.` } },
       { '@type': 'Offer', itemOffered: { '@type': 'RepairAction', name: 'Ремонт MacBook в Алматы', description: 'Замена клавиатуры, дисплея, SSD. Ремонт платы MacBook Air и Pro.' } },
       { '@type': 'Offer', itemOffered: { '@type': 'RepairAction', name: 'Ремонт Samsung в Алматы', description: 'Замена AMOLED дисплея, батареи, корпуса Samsung Galaxy.' } },
-      { '@type': 'Offer', itemOffered: { '@type': 'RepairAction', name: 'Бесплатная диагностика', description: 'Полная проверка всех систем устройства бесплатно при ремонте.' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'RepairAction', name: 'Бесплатная диагностика', description: `Полная проверка всех систем устройства бесплатно при ремонте. Занимает ${REPAIR_TIMES.diagnostic}.` } },
     ],
   },
 };
@@ -73,7 +74,7 @@ const FAQ = {
     {
       '@type': 'Question',
       name: 'Сколько времени занимает ремонт iPhone?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Замена экрана или аккумулятора — 20–60 минут прямо при вас. Ремонт платы или сложные случаи — от 1 дня. Работаем ежедневно 10:00–20:00, Алматы, Гоголя 75/1 уг. ул.Тулебаева.' },
+      acceptedAnswer: { '@type': 'Answer', text: `Замена экрана — от 30 минут. Замена аккумулятора — ${REPAIR_TIMES.battery}. Замена камеры — ${REPAIR_TIMES.camera}, разъёма зарядки — ${REPAIR_TIMES.chargingPort}. Ремонт платы или сложные случаи — от 1 дня. Работаем ежедневно 10:00–20:00, Алматы, Гоголя 75/1 уг. ул.Тулебаева.` },
     },
     {
       '@type': 'Question',
@@ -88,7 +89,7 @@ const FAQ = {
     {
       '@type': 'Question',
       name: 'Можно ли сделать бесплатную диагностику телефона?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Да, диагностика бесплатна при ремонте. Приходите на Гоголя 75/1 уг. ул.Тулебаева или звоните на 8 777 518 11 11. Работаем ежедневно с 10:00 до 20:00.' },
+      acceptedAnswer: { '@type': 'Answer', text: `Да, диагностика бесплатна при ремонте и занимает ${REPAIR_TIMES.diagnostic}. Приходите на Гоголя 75/1 уг. ул.Тулебаева или звоните на 8 777 518 11 11. Работаем ежедневно с 10:00 до 20:00.` },
     },
   ],
 };
