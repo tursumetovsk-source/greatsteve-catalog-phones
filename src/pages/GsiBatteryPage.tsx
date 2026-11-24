@@ -77,31 +77,31 @@ export default function GsiBatteryPage() {
             </ul>
           </section>
 
-          <div className="mt-12 grid items-start gap-6 lg:mt-16 lg:grid-cols-[minmax(0,1.65fr)_minmax(0,1fr)]">
-            <section aria-labelledby="gsi-faq">
-              <h2 id="gsi-faq" className="text-3xl font-semibold tracking-tight sm:text-4xl">Перед визитом</h2>
-              <div className="mt-5 space-y-2">
-                {gsiFaq.map(item => (
-                  <details key={item.q} className="group rounded-2xl border border-[#273951]/10 bg-white">
-                    <summary className="flex min-h-14 cursor-pointer list-none items-center justify-between gap-3 rounded-2xl px-4 py-3 font-semibold marker:content-none focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#2164a2] sm:px-5 [&::-webkit-details-marker]:hidden">
-                      {item.q}
-                      <Plus size={18} aria-hidden="true" className="shrink-0 text-[#326da7] transition-transform group-open:rotate-45" />
-                    </summary>
-                    <p className="px-4 pb-4 leading-relaxed text-[#485569] sm:px-5">{item.a}</p>
-                  </details>
-                ))}
-              </div>
-            </section>
-            <section className="rounded-3xl bg-[#111923] p-6 text-[#f6f7f2] sm:p-8">
-              <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">Подберём время замены</h2>
+          <section aria-labelledby="gsi-faq" className="mt-12 grid items-stretch gap-x-6 gap-y-5 lg:mt-16 lg:grid-cols-[minmax(0,1.65fr)_minmax(0,1fr)]">
+            <h2 id="gsi-faq" className="col-span-full text-3xl font-semibold tracking-tight sm:text-4xl">Перед визитом</h2>
+            <div className="space-y-2">
+              {gsiFaq.map(item => (
+                <details key={item.q} className="group rounded-2xl border border-[#273951]/10 bg-white">
+                  <summary className="flex min-h-14 cursor-pointer list-none items-center justify-between gap-3 rounded-2xl px-4 py-3 font-semibold marker:content-none focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#2164a2] sm:px-5 [&::-webkit-details-marker]:hidden">
+                    {item.q}
+                    <Plus size={18} aria-hidden="true" className="shrink-0 text-[#326da7] transition-transform group-open:rotate-45" />
+                  </summary>
+                  <p className="px-4 pb-4 leading-relaxed text-[#485569] sm:px-5">{item.a}</p>
+                </details>
+              ))}
+            </div>
+            <aside className="flex flex-col rounded-3xl bg-[#111923] p-6 text-[#f6f7f2] sm:p-8">
+              <h3 className="text-2xl font-semibold tracking-tight sm:text-3xl">Подберём время замены</h3>
               <p className="mt-3 leading-relaxed text-[#d4deeb]">
                 Алматы, Гоголя 75/1, угол Тулебаева.<br />Ежедневно 10:00–20:00.
               </p>
-              <a href={WA_URL} data-contact-placement="gsi_booking" target="_blank" rel="noopener noreferrer" className="mt-5 inline-flex min-h-12 items-center gap-2 rounded-full bg-[#9dc7ff] px-5 text-sm font-semibold text-[#111923] transition-colors hover:bg-[#c2ddff] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#9dc7ff]">
-                Написать модель iPhone <ArrowUpRight size={16} aria-hidden="true" />
-              </a>
-            </section>
-          </div>
+              <div className="mt-auto pt-5">
+                <a href={WA_URL} data-contact-placement="gsi_booking" target="_blank" rel="noopener noreferrer" className="inline-flex min-h-12 items-center gap-2 rounded-full bg-[#9dc7ff] px-5 text-sm font-semibold text-[#111923] transition-colors hover:bg-[#c2ddff] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#9dc7ff]">
+                  Написать модель iPhone <ArrowUpRight size={16} aria-hidden="true" />
+                </a>
+              </div>
+            </aside>
+          </section>
         </div>
       </main>
       <Footer />
