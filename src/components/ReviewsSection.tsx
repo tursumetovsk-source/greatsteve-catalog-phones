@@ -10,6 +10,12 @@ const SOURCE_COLORS: Record<string, string> = {
   Yandex: 'bg-[#FC3F1D]/10 text-[#B72710] border border-[#FC3F1D]/20',
 };
 
+const REVIEW_LINKS = [
+  { label: 'Отзывы GreatSteve в Google Картах', href: 'https://maps.app.goo.gl/LpUCFnMLB33Z2JFt5', logo: '/reviews/google.png', width: 544, height: 184 },
+  { label: 'Отзывы GreatSteve в Яндекс Картах', href: 'https://yandex.kz/maps/ru/-/CPgnIDn0', logo: '/reviews/yandex.svg', width: 117, height: 34 },
+  { label: 'Отзывы GreatSteve в 2ГИС', href: 'https://2gis.kz/almaty/search/greatsteve', logo: '/reviews/2gis.svg', width: 110, height: 35 },
+];
+
 function ReviewCard({ review }: { review: typeof REVIEWS[0] }) {
   return (
     <div className="w-[320px] shrink-0 bg-white rounded-[1.5rem] p-6 flex flex-col gap-4 shadow-sm border border-gray-100/80">
@@ -97,49 +103,14 @@ export default function ReviewsSection() {
         className="mt-12 md:mt-16 flex flex-col items-center gap-6 px-4"
       >
         <p className="text-gray-500 text-base font-medium">Больше отзывов по ссылкам:</p>
-        <div className="flex items-center gap-10 md:gap-16 flex-wrap justify-center">
-
-          {/* Google */}
-          <a href="https://maps.app.goo.gl/LpUCFnMLB33Z2JFt5" target="_blank" rel="noopener noreferrer" aria-label="Отзывы GreatSteve в Google Картах"
-            className="hover:opacity-80 transition-opacity"
-          >
-            <svg viewBox="0 0 320 80" className="h-8 md:h-10" xmlns="http://www.w3.org/2000/svg" overflow="visible">
-              <text fontFamily="Arial, sans-serif" fontWeight="700" fontSize="72" y="66">
-                <tspan fill="#4285F4">G</tspan>
-                <tspan fill="#EA4335">o</tspan>
-                <tspan fill="#FBBC05">o</tspan>
-                <tspan fill="#4285F4">g</tspan>
-                <tspan fill="#34A853">l</tspan>
-                <tspan fill="#EA4335">e</tspan>
-              </text>
-            </svg>
-          </a>
-
-          {/* Яндекс */}
-          <a href="https://yandex.kz/maps/ru/-/CPgnIDn0" target="_blank" rel="noopener noreferrer" aria-label="Отзывы GreatSteve в Яндекс Картах"
-            className="hover:opacity-80 transition-opacity"
-          >
-            <svg viewBox="0 0 280 60" className="h-8 md:h-10" xmlns="http://www.w3.org/2000/svg" overflow="visible">
-              <text fontFamily="Arial, sans-serif" fontWeight="900" fontSize="52" y="48" fill="#FC3F1D">Яндекс</text>
-            </svg>
-          </a>
-
-          {/* 2GIS */}
-          <a href="https://2gis.kz/almaty/search/greatsteve" target="_blank" rel="noopener noreferrer" aria-label="Отзывы GreatSteve в 2ГИС"
-            className="hover:opacity-80 transition-opacity"
-          >
-            <svg viewBox="0 0 120 40" className="h-9 md:h-11" xmlns="http://www.w3.org/2000/svg">
-              {/* Green rounded rect background */}
-              <rect x="0" y="0" width="40" height="40" rx="10" fill="#1DC761"/>
-              {/* White location pin */}
-              <circle cx="20" cy="17" r="7" fill="white"/>
-              <circle cx="20" cy="17" r="3.5" fill="#1DC761"/>
-              <polygon points="20,30 15,21 25,21" fill="white"/>
-              {/* 2GIS text */}
-              <text x="50" y="30" fontSize="26" fontFamily="Arial, sans-serif" fontWeight="900" fill="#1DC761" letterSpacing="1">2GIS</text>
-            </svg>
-          </a>
-
+        <div className="grid w-full max-w-2xl grid-cols-3 gap-2 sm:gap-8">
+          {REVIEW_LINKS.map(({ label, href, logo, width, height }) => (
+            <a key={href} href={href} target="_blank" rel="noopener noreferrer" aria-label={label}
+              className="flex h-16 items-center justify-center rounded-xl px-2 transition-colors hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 md:h-20 md:px-3"
+            >
+              <img src={logo} width={width} height={height} alt="" loading="lazy" decoding="async" className="h-auto w-full max-w-32" />
+            </a>
+          ))}
         </div>
       </motion.div>
 
