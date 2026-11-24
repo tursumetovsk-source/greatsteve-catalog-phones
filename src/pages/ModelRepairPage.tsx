@@ -10,7 +10,7 @@ import { modelRepairContent } from '../data/modelRepairContent';
 import { repairModelImage } from '../data/repairModelImage';
 import { formatTenge, gsiOfferForModel, GSI_PATH } from '../data/gsiBatteryOffers';
 
-const WHITE_BACKGROUND_IPHONES = new Set(['iphone-12-pro-max', 'iphone-11-pro-max', 'iphone-11', 'iphone-xr']);
+const WHITE_BACKGROUND_IPHONES = new Set(['iphone-12-pro-max', 'iphone-11-pro-max', 'iphone-11']);
 
 export default function ModelRepairPage() {
   const { model } = useParams<{ model: string }>();
@@ -151,7 +151,7 @@ export default function ModelRepairPage() {
             Цены на ремонт {data.name}
           </motion.h2>
           <p style={{ textAlign: 'center', color: 'rgba(0,0,0,0.45)', marginBottom: 40, fontSize: 16 }}>
-            Перед визитом подтвердим наличие деталей для вашей модели
+            {data.customerPartOnly ? 'Стоимость установки вашей детали уточним перед визитом' : 'Перед визитом подтвердим наличие деталей для вашей модели'}
           </p>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
@@ -252,8 +252,8 @@ export default function ModelRepairPage() {
               <h3 style={{ fontSize: 24, fontWeight: 700, color: '#fff', marginBottom: 24 }}>Почему GreatSteve</h3>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
                 {[
-                  'Тип детали согласуем до ремонта',
-                  gsiOffer ? 'Гарантия на JCID — 6 месяцев' : 'Гарантия до 12 месяцев в зависимости от работы',
+                  data.customerPartOnly ? 'Проверим совместимость вашей детали' : 'Тип детали согласуем до ремонта',
+                  data.customerPartOnly ? 'Условия гарантии на работу согласуем до ремонта' : gsiOffer ? 'Гарантия на JCID — 6 месяцев' : 'Гарантия до 12 месяцев в зависимости от работы',
                   'Диагностика бесплатна при ремонте',
                   'Ежедневно 10:00–20:00',
                   'Оплата после ремонта',

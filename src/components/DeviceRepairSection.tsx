@@ -292,12 +292,6 @@ const IPHONE_GROUPS = [
   { label: 'iPhone X / XS / XR', prefix: 'iphone-x' },
   { label: 'iPhone SE', prefix: 'iphone-se' },
   { label: 'iPhone 8', prefix: 'iphone-8' },
-  { label: 'iPhone 7', prefix: 'iphone-7' },
-  { label: 'iPhone 6 / 6s', prefix: 'iphone-6' },
-  { label: 'iPhone 5 / 5c / 5s', prefix: 'iphone-5' },
-  { label: 'iPhone 4 / 4s', prefix: 'iphone-4' },
-  { label: 'iPhone 3G / 3GS', prefix: 'iphone-3g' },
-  { label: 'Первый iPhone', prefix: 'iphone-2g' },
 ];
 
 function ModelCardUI({ name, img, href, to, action }: { name: string; img: string; href?: string; to?: string; action?: string }) {
@@ -518,6 +512,7 @@ export default function DeviceRepairSection() {
                                   {models.map(m => (
                                     <ModelCardUI key={m.slug} name={m.name}
                                       img={repairModelImage(m.slug)}
+                                      action={m.customerPartOnly ? 'Только со своей деталью' : undefined}
                                       to={`/remont/${m.slug}`} />
                                   ))}
                                 </div>

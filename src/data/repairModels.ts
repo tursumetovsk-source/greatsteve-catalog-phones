@@ -14,6 +14,7 @@ export interface ModelData {
   screen: string;
   chip?: string;
   photoOnWhite?: boolean;
+  customerPartOnly?: boolean;
   intro: string;
   problems: string[];
   repairs: RepairItem[];
@@ -43,6 +44,14 @@ const QUOTE_FAQ = [
   { q: 'Сколько времени занимает ремонт?', a: `Замена аккумулятора занимает ${REPAIR_TIMES.battery}, замена камеры — ${REPAIR_TIMES.camera}, замена разъёма зарядки — ${REPAIR_TIMES.chargingPort}. Диагностика занимает ${REPAIR_TIMES.diagnostic}.` },
 ];
 
+const CUSTOMER_PART_CONDITION = 'Ремонтируем только с вашей запчастью. Деталей для этой модели нет на складе и у поставщиков.';
+
+const CUSTOMER_PART_FAQ = [
+  { q: 'Есть ли у вас запчасти для этой модели?', a: CUSTOMER_PART_CONDITION },
+  { q: 'Сколько стоит установка моей детали?', a: 'Напишите в WhatsApp, какая деталь у вас есть. Проверим совместимость и согласуем стоимость работы перед визитом.' },
+  QUOTE_FAQ[1],
+];
+
 const QUOTE_MODELS: ModelData[] = [
   { slug: 'iphone-18-pro-max', name: 'iPhone 18 Pro Max', year: 2026, screen: '6,9″ Super Retina XDR OLED ProMotion', chip: 'A20 Pro' },
   { slug: 'iphone-18-pro', name: 'iPhone 18 Pro', year: 2026, screen: '6,3″ Super Retina XDR OLED ProMotion', chip: 'A20 Pro' },
@@ -59,24 +68,10 @@ const QUOTE_MODELS: ModelData[] = [
   { slug: 'iphone-11-pro', name: 'iPhone 11 Pro', year: 2019, screen: '5,8″ Super Retina XDR OLED', chip: 'A13 Bionic', photoOnWhite: true },
   { slug: 'iphone-xs', name: 'iPhone XS', year: 2018, screen: '5,8″ Super Retina OLED', chip: 'A12 Bionic', photoOnWhite: true },
   { slug: 'iphone-xs-max', name: 'iPhone XS Max', year: 2018, screen: '6,5″ Super Retina OLED', chip: 'A12 Bionic', photoOnWhite: true },
-  { slug: 'iphone-x', name: 'iPhone X', year: 2017, screen: '5,8″ Super Retina OLED', chip: 'A11 Bionic', photoOnWhite: true },
-  { slug: 'iphone-8', name: 'iPhone 8', year: 2017, screen: '4,7″ Retina HD', chip: 'A11 Bionic', photoOnWhite: true },
-  { slug: 'iphone-8-plus', name: 'iPhone 8 Plus', year: 2017, screen: '5,5″ Retina HD', chip: 'A11 Bionic', photoOnWhite: true },
-  { slug: 'iphone-7', name: 'iPhone 7', year: 2016, screen: '4,7″ Retina HD', chip: 'A10 Fusion', photoOnWhite: true },
-  { slug: 'iphone-7-plus', name: 'iPhone 7 Plus', year: 2016, screen: '5,5″ Retina HD', chip: 'A10 Fusion', photoOnWhite: true },
-  { slug: 'iphone-se-1', name: 'iPhone SE (1-го поколения)', year: 2016, screen: '4″ Retina', chip: 'A9', photoOnWhite: true },
-  { slug: 'iphone-6s', name: 'iPhone 6s', year: 2015, screen: '4,7″ Retina HD', chip: 'A9', photoOnWhite: true },
-  { slug: 'iphone-6s-plus', name: 'iPhone 6s Plus', year: 2015, screen: '5,5″ Retina HD', chip: 'A9', photoOnWhite: true },
-  { slug: 'iphone-6', name: 'iPhone 6', year: 2014, screen: '4,7″ Retina HD', chip: 'A8', photoOnWhite: true },
-  { slug: 'iphone-6-plus', name: 'iPhone 6 Plus', year: 2014, screen: '5,5″ Retina HD', chip: 'A8', photoOnWhite: true },
-  { slug: 'iphone-5s', name: 'iPhone 5s', year: 2013, screen: '4″ Retina', chip: 'A7', photoOnWhite: true },
-  { slug: 'iphone-5c', name: 'iPhone 5c', year: 2013, screen: '4″ Retina', chip: 'A6', photoOnWhite: true },
-  { slug: 'iphone-5', name: 'iPhone 5', year: 2012, screen: '4″ Retina', chip: 'A6', photoOnWhite: true },
-  { slug: 'iphone-4s', name: 'iPhone 4s', year: 2011, screen: '3,5″ Retina', chip: 'A5', photoOnWhite: true },
-  { slug: 'iphone-4', name: 'iPhone 4', year: 2010, screen: '3,5″ Retina', chip: 'A4', photoOnWhite: true },
-  { slug: 'iphone-3gs', name: 'iPhone 3GS', year: 2009, screen: '3,5″', photoOnWhite: true },
-  { slug: 'iphone-3g', name: 'iPhone 3G', year: 2008, screen: '3,5″', photoOnWhite: true },
-  { slug: 'iphone-2g', name: 'iPhone (1-го поколения)', year: 2007, screen: '3,5″', photoOnWhite: true },
+  { slug: 'iphone-xr', name: 'iPhone XR', year: 2018, screen: '6,1″ Liquid Retina LCD', chip: 'A12 Bionic', photoOnWhite: true, customerPartOnly: true },
+  { slug: 'iphone-x', name: 'iPhone X', year: 2017, screen: '5,8″ Super Retina OLED', chip: 'A11 Bionic', photoOnWhite: true, customerPartOnly: true },
+  { slug: 'iphone-8', name: 'iPhone 8', year: 2017, screen: '4,7″ Retina HD', chip: 'A11 Bionic', photoOnWhite: true, customerPartOnly: true },
+  { slug: 'iphone-8-plus', name: 'iPhone 8 Plus', year: 2017, screen: '5,5″ Retina HD', chip: 'A11 Bionic', photoOnWhite: true, customerPartOnly: true },
   { slug: 'samsung-s26-ultra', name: 'Samsung Galaxy S26 Ultra', year: 2026, screen: '6,9″', chip: 'Snapdragon 8 Elite Gen 5' },
   { slug: 'samsung-s26-plus', name: 'Samsung Galaxy S26+', year: 2026, screen: '6,7″', chip: 'Exynos 2600 / Snapdragon 8 Elite Gen 5' },
   { slug: 'samsung-s26', name: 'Samsung Galaxy S26', year: 2026, screen: '6,3″', chip: 'Exynos 2600 / Snapdragon 8 Elite Gen 5' },
@@ -95,10 +90,10 @@ const QUOTE_MODELS: ModelData[] = [
   { slug: 'samsung-a07-4g', name: 'Samsung Galaxy A07 4G', year: 2025, screen: '6,7″', chip: 'Helio G99' },
 ].map(model => ({
   ...model,
-  intro: `Сервис GreatSteve в Алматы. Возможность ремонта ${model.name} и наличие запчастей уточним перед визитом.`,
+  intro: model.customerPartOnly ? CUSTOMER_PART_CONDITION : `Сервис GreatSteve в Алматы. Возможность ремонта ${model.name} и наличие запчастей уточним перед визитом.`,
   problems: QUOTE_PROBLEMS,
   repairs: QUOTE_REPAIRS,
-  faq: QUOTE_FAQ,
+  faq: model.customerPartOnly ? CUSTOMER_PART_FAQ : QUOTE_FAQ,
 }));
 
 const MODELS: ModelData[] = [
@@ -719,36 +714,6 @@ const MODELS: ModelData[] = [
       { q: 'Даёте ли гарантию на ремонт iPhone 11?', a: 'Да, гарантия до 12 месяцев. Оплата только после ремонта.' },
     ],
   },
-  {
-    slug: 'iphone-xr',
-    name: 'iPhone XR',
-    year: 2018,
-    screen: '6.1″ Liquid Retina IPS LCD',
-    chip: 'A12 Bionic',
-    intro: 'iPhone XR — бестселлер Apple 2018 года с Face ID и ярким LCD Liquid Retina. К 2025 году ему 7 лет — аккумулятор деградировал до 50–65%, это главная причина обращений. Ремонт быстрый и доступный.',
-    problems: [
-      'Деградация аккумулятора (7 лет) — у большинства ниже 70%',
-      'Трещина Liquid Retina LCD-дисплея',
-      'Неработающий Lightning-разъём',
-      'Проблемы с Face ID (датчики глубины)',
-    ],
-    repairs: [
-      { name: 'Замена экрана (дисплея)', price: 'от 16 000 ₸', time: '30–60 мин' },
-      { name: 'Замена аккумулятора', price: 'от 6 000 ₸', time: REPAIR_TIMES.battery },
-      { name: 'Замена камеры', price: 'от 8 000 ₸', time: REPAIR_TIMES.camera },
-      { name: 'Замена разъёма зарядки', price: 'от 4 000 ₸', time: REPAIR_TIMES.chargingPort },
-      { name: 'Замена задней крышки', price: 'от 5 500 ₸', time: BACK_COVER_REPAIR_TIME },
-      { name: 'Диагностика', price: 'Бесплатно', time: REPAIR_TIMES.diagnostic },
-    ],
-    faq: [
-      { q: 'Сколько стоит замена экрана iPhone XR в Алматы?', a: 'Замена экрана iPhone XR в GreatSteve — от 16 000 ₸. Оригинальный Liquid Retina LCD с True Tone. Ремонт 30–60 минут при вас.' },
-      { q: 'Сколько стоит замена аккумулятора iPhone XR?', a: `Замена аккумулятора iPhone XR — от 6 000 ₸. После 7 лет это необходимость — батарея не может держать заряд. Замена занимает ${REPAIR_TIMES.battery}.` },
-      { q: 'Стоит ли ремонтировать iPhone XR в 2025 году?', a: 'Если аппарат в порядке — замена аккумулятора за 6 000 ₸ продлит жизнь ещё на год-два. Выгоднее нового телефона.' },
-      { q: 'Сколько времени занимает ремонт iPhone XR?', a: `Замена аккумулятора — ${REPAIR_TIMES.battery}. Замена экрана — 30–60 минут. Работаем ежедневно 10:00–20:00.` },
-      { q: 'Даёте ли гарантию на ремонт iPhone XR?', a: 'Да, гарантия до 12 месяцев на все виды ремонта.' },
-    ],
-  },
-
   // ── Samsung S25 ──────────────────────────────────────────────
   {
     slug: 'samsung-s25-ultra',

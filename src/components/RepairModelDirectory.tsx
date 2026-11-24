@@ -11,7 +11,12 @@ export default function RepairModelDirectory() {
           <div key={brand} className="mt-7">
             <h3 className="text-xl font-semibold">{brand === 'iphone' ? 'iPhone' : 'Samsung Galaxy'}</h3>
             <ul className="mt-4 grid gap-x-6 gap-y-3 text-sm sm:grid-cols-2 lg:grid-cols-3">
-              {allModels.filter(model => model.slug.startsWith(brand)).map(model => <li key={model.slug}><a href={`/remont/${model.slug}`} className="text-[#76243B] underline underline-offset-4">Ремонт {model.name}</a></li>)}
+              {allModels.filter(model => model.slug.startsWith(brand)).map(model => (
+                <li key={model.slug}>
+                  <a href={`/remont/${model.slug}`} className="text-[#76243B] underline underline-offset-4">Ремонт {model.name}</a>
+                  {model.customerPartOnly && <span className="block text-gray-600">Только со своей деталью</span>}
+                </li>
+              ))}
             </ul>
           </div>
         ))}

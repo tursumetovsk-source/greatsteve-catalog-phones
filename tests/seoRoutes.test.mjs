@@ -7,10 +7,10 @@ const paths = [...sitemap.matchAll(/<loc>https:\/\/greatsteve\.kz([^<]*)<\/loc>/
 const pages = new Map(paths.map(path => [path, readFileSync(new URL(`../dist${path === '/' ? '' : path}/index.html`, import.meta.url), 'utf8')]));
 
 test('sitemap contains every canonical HTML page once, never redirected legacy URLs', () => {
-  assert.equal(paths.length, 99);
+  assert.equal(paths.length, 84);
   assert.equal(new Set(paths).size, paths.length);
   const rearCoverPages = [...pages].filter(([, html]) => html.includes('<li>Замена задней крышки —'));
-  assert.equal(rearCoverPages.length, 84);
+  assert.equal(rearCoverPages.length, 69);
   for (const [path, html] of rearCoverPages) {
     assert.match(html, /<li>Замена задней крышки — [^<]+, от 3 часов<\/li>/, path);
     assert.ok(sitemap.includes(`<loc>https://greatsteve.kz${path}</loc><lastmod>2026-11-24</lastmod>`), path);
@@ -73,7 +73,7 @@ test('priority service pages show current offers and provide WhatsApp booking wi
 
 test('all model repair pages show their product photo and current repair times', () => {
   const modelPages = [...pages].filter(([path]) => /^\/remont\/(?:iphone|samsung)-/.test(path));
-  assert.equal(modelPages.length, 94);
+  assert.equal(modelPages.length, 79);
   for (const [path, html] of modelPages) {
     const slug = path.split('/').at(-1);
     const photo = slug.startsWith('iphone-') ? `/devices/repair/${slug}.webp` : `/devices/models/${slug}.jpg`;
@@ -117,4 +117,28 @@ test('retired Galaxy Z repairs are absent from site content and have no static m
   }
   const selector = readFileSync(new URL('../src/components/DeviceRepairSection.tsx', import.meta.url), 'utf8');
   assert.doesNotMatch(selector, /Galaxy Z|samsung-z/i);
+});
+
+test('iPhone repairs start at iPhone 8, with customer-supplied parts required for four models', () => {
+  const repair = pages.get('/remont');
+  const retired = ['2g', '3g', '3gs', '4', '4s', '5', '5c', '5s', '6', '6-plus', '6s', '6s-plus', 'se-1', '7', '7-plus'];
+  for (const model of retired) {
+    const path = `/remont/iphone-${model}`;
+    assert.ok(!paths.includes(path), path);
+    assert.ok(!repair.includes(`href="${path}"`), path);
+    assert.ok(!existsSync(new URL(`../dist${path}/index.html`, import.meta.url)), path);
+  }
+
+  for (const model of ['8', '8-plus', 'x', 'xr']) {
+    const path = `/remont/iphone-${model}`;
+    const html = pages.get(path);
+    assert.ok(repair.includes(`href="${path}"`), path);
+    assert.match(html, /Ремонтируем только с вашей запчастью\. Деталей для этой модели нет на складе и у поставщиков\./, path);
+    assert.match(html, /Замена экрана \(дисплея\) — По запросу/, path);
+    assert.match(decodeURIComponent(html.match(/wa\.me\/77775181111\?text=([^"]+)/)[1]), /У меня есть запчасть/, path);
+  }
+
+  for (const model of ['xs', 'xs-max', 'se-2', 'se-3']) {
+    assert.doesNotMatch(pages.get(`/remont/iphone-${model}`), /только с вашей запчастью/i, model);
+  }
 });
