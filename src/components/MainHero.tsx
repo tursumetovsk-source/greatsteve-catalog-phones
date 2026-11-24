@@ -131,9 +131,9 @@ export default function MainHero() {
             <h1 id="main-title">Ремонт телефонов<br />в Алматы</h1>
           </div>
           <div className="gs-hero-details">
-            <p className="gs-hero-description">iPhone, Samsung, Xiaomi и MacBook.<br />Понятная стоимость. Забота о каждой детали.</p>
+            <p className="gs-hero-description">iPhone, Samsung, Xiaomi и MacBook.<br />Диагностика бесплатна при ремонте.</p>
             <div className="gs-hero-actions">
-              <Link to="/remont" className="gs-hero-primary">Выбрать ремонт <ArrowUpRight size={19} /></Link>
+              <Link to="/remont" className="gs-hero-primary">Цены по моделям <ArrowUpRight size={19} /></Link>
               <Link to="/tradein" className="gs-hero-secondary">Купить / Продать <ArrowUpRight size={17} /></Link>
             </div>
           </div>

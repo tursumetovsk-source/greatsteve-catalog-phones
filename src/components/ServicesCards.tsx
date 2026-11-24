@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
+import { BATTERY_REPLACEMENT, PHONE_REPAIRS, REPAIR_PHOTO } from '../data/homeRepair';
 
 export default function ServicesCards() {
   return (
@@ -15,9 +16,9 @@ export default function ServicesCards() {
             transition={{ duration: 0.5 }}
             className="group relative overflow-hidden rounded-[2rem] md:rounded-[2.5rem] text-white flex flex-col justify-between min-h-[340px] sm:min-h-[400px]"
           >
-            <div
-              className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-              style={{ backgroundImage: 'url("/main/serivice1.jpg")', filter: 'grayscale(60%) brightness(0.6)' }}
+            <img {...REPAIR_PHOTO} loading="lazy" decoding="async"
+              className="absolute inset-0 size-full object-cover transition-transform duration-700 group-hover:scale-105"
+              style={{ filter: 'grayscale(60%) brightness(0.6)' }}
             />
             {/* Тёмный оверлей для читаемости */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20" />
@@ -26,10 +27,10 @@ export default function ServicesCards() {
             <div className="relative z-10 p-7 md:p-14 flex flex-col justify-between h-full">
               <div>
                 <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-3 drop-shadow-lg">
-                  Сервисный центр
+                  Ремонт iPhone и Android
                 </h2>
                 <p className="text-base md:text-lg text-white/90 leading-relaxed max-w-sm drop-shadow">
-                  Ремонтируем iPhone, MacBook, iPad и смартфоны Samsung, Xiaomi и других брендов. Выберите свою модель, чтобы посмотреть услуги и цены.
+                  {PHONE_REPAIRS} {BATTERY_REPLACEMENT}
                 </p>
               </div>
               <div className="mt-10">

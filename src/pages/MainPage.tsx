@@ -7,6 +7,7 @@ import AboutBentoSection from '../components/AboutBentoSection';
 import ReviewsSection from '../components/ReviewsSection';
 import RequestForm from '../components/RequestForm';
 import SEOHead from '../components/SEOHead';
+import { HOME_DESCRIPTION } from '../data/homeRepair';
 
 const SCHEMA = {
   '@context': 'https://schema.org',
@@ -117,7 +118,7 @@ export default function MainPage() {
     <div className="flex flex-col bg-[#F5F5F5] min-h-screen text-black">
       <SEOHead
         title="Ремонт телефонов в Алматы — iPhone и Android | GreatSteve"
-        description="Ремонт телефонов в Алматы: iPhone, Samsung, Xiaomi и других Android-смартфонов. Цены на сайте, бесплатная диагностика при ремонте, гарантия до 12 месяцев. Гоголя 75/1, ежедневно 10:00–20:00."
+        description={HOME_DESCRIPTION}
         keywords="ремонт iPhone Алматы, ремонт телефонов Алматы, сервисный центр Apple Алматы, ремонт MacBook Алматы, ремонт Samsung Алматы, скупка iPhone Алматы, Trade-in Apple Алматы, продажа iPhone Алматы, купить б/у iPhone Алматы, GreatSteve"
         canonical="/"
         ogImage="/main/gs-main1.jpeg"

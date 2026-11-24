@@ -11,6 +11,7 @@ import { modelRepairContent } from './src/data/modelRepairContent';
 import { repairModelImage } from './src/data/repairModelImage';
 import { GSI_DESCRIPTION, GSI_IMAGE, GSI_PATH, GSI_TITLE, formatTenge, gsiBatteryOffers, gsiFaq, gsiPageSchema } from './src/data/gsiBatteryOffers';
 import { BUSINESS, SITE, breadcrumb, repairServiceSchema } from './src/data/repairSchema';
+import { BATTERY_REPLACEMENT, HOME_DESCRIPTION, PHONE_REPAIRS, REPAIR_PHOTO } from './src/data/homeRepair';
 
 /**
  * Build-time SEO rendering.
@@ -70,12 +71,12 @@ const STATIC_ROUTES: Route[] = [
     path: '/',
     lastmod: '2026-11-24',
     title: 'Ремонт телефонов в Алматы — iPhone и Android | GreatSteve',
-    description: 'Ремонт телефонов в Алматы: iPhone, Samsung, Xiaomi и других Android-смартфонов. Цены на сайте, бесплатная диагностика при ремонте, гарантия до 12 месяцев. Гоголя 75/1, ежедневно 10:00–20:00.',
+    description: HOME_DESCRIPTION,
     keywords: 'ремонт телефонов Алматы, ремонт iPhone Алматы, ремонт Samsung Алматы, ремонт Xiaomi Алматы, сервисный центр Алматы',
     content: pageShell(
       'Ремонт телефонов в Алматы',
       'Ремонтируем iPhone, Samsung, Xiaomi и другие смартфоны. При ремонте диагностика бесплатна. Тип детали, цену и гарантию согласуем до начала работ.',
-      `<section><h2>Услуги сервисного центра</h2><ul><li><a href="/remont">Цены на ремонт телефонов</a></li><li><a href="${GSI_PATH}">Усиленный аккумулятор JCID для iPhone 11–16: от 12 000 ₸ с заменой, гарантия 6 месяцев</a></li><li>Замена экрана и аккумулятора</li><li>Ремонт после воды и падения</li><li>Ремонт MacBook, iPad и Apple Watch</li></ul><p><a href="/company">Адрес и маршрут до сервисного центра</a></p></section>`,
+      `<section><h2>Ремонт iPhone и Android</h2><p>${escText(PHONE_REPAIRS)} ${escText(BATTERY_REPLACEMENT)}</p><img src="${REPAIR_PHOTO.src}" alt="${escAttr(REPAIR_PHOTO.alt)}" width="${REPAIR_PHOTO.width}" height="${REPAIR_PHOTO.height}" loading="lazy" style="width:min(100%,320px);height:auto" /><ul><li><a href="/remont">Цены на ремонт по моделям</a></li><li><a href="${GSI_PATH}">Усиленный аккумулятор JCID для iPhone 11–16: от 12 000 ₸ с заменой, гарантия 6 месяцев</a></li><li>Ремонт MacBook, iPad и Apple Watch</li></ul><p><a href="/company">Адрес и маршрут до сервисного центра</a></p></section>`,
     ),
     schema: [BUSINESS, breadcrumb({ name: 'GreatSteve', path: '/' })],
   },

@@ -10,6 +10,9 @@ test('new homepage retains indexable repair content, business data and canonical
   assert.match(home, /<link rel="canonical" href="https:\/\/greatsteve\.kz\/"/);
   assert.match(home, /"streetAddress":"Гоголя 75\/1 уг\. ул\.Тулебаева"/);
   assert.match(home, /"telephone":"\+77775181111"/);
+  assert.match(home, /Меняем экраны, аккумуляторы, камеры и разъёмы зарядки\..*Замена аккумулятора занимает 1 час\./);
+  assert.match(home, /<img src="\/main\/serivice1\.jpg" alt="Камеры iPhone крупным планом"/);
+  assert.match(home, /<a href="\/remont">Цены на ремонт по моделям<\/a>/);
   assert.doesNotMatch(home, /name="robots" content="noindex/);
   assert.match(home, /html\.js \[data-static-seo="true"\] \{ display: none; \}/);
 });
@@ -37,7 +40,7 @@ test('pill hero keeps GreatSteve branding, repair actions and local business cop
   const hero = readFileSync(new URL('../src/components/MainHero.tsx', import.meta.url), 'utf8');
   assert.match(styles, /background: #f2f2f1/);
   assert.match(styles, /font-weight: 800/);
-  for (const text of ['GREAT', 'STEVE', 'Ремонт телефонов', 'в Алматы', 'iPhone, Samsung, Xiaomi и MacBook.', 'Понятная стоимость. Забота о каждой детали.', 'Гоголя 75/1', '10:00–20:00']) {
+  for (const text of ['GREAT', 'STEVE', 'Ремонт телефонов', 'в Алматы', 'iPhone, Samsung, Xiaomi и MacBook.', 'Диагностика бесплатна при ремонте.', 'Гоголя 75/1', '10:00–20:00']) {
     assert.ok(hero.includes(text), text);
   }
   assert.match(hero, /to="\/remont" className="gs-hero-primary"/);
