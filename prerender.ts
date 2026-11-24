@@ -150,7 +150,7 @@ const STATIC_ROUTES: Route[] = [
     content: pageShell(
       'Купить, продать или обменять телефон в Алматы',
       'Проверенные б/у смартфоны с гарантией, быстрый выкуп и Trade-in iPhone, MacBook, Samsung, Xiaomi и других устройств.',
-      '<section><h2>Как проходит сделка</h2><ol><li>Пришлите модель, фото и описание состояния устройства для предварительной оценки.</li><li>Привезите устройство на бесплатную проверку.</li><li>Получите оплату наличными или переводом.</li></ol><p><a href="https://wa.me/77775181111">Узнать наличие или отправить телефон на оценку в WhatsApp</a></p><p><a href="/remont">Цены на ремонт перед продажей</a></p></section>',
+      '<p><a href="https://ocenka.greatsteve.kz/?mode=tradein">Оценить iPhone · Trade‑in</a></p><p><a href="https://t.me/s/kzgreatsteve">Наличие в Telegram</a></p><section><h2>Как проходит сделка</h2><ol><li>Пришлите модель, фото и описание состояния устройства для предварительной оценки.</li><li>Привезите устройство на бесплатную проверку.</li><li>Получите оплату наличными или переводом.</li></ol><p><a href="https://wa.me/77775181111">Связаться через WhatsApp</a></p><p><a href="/remont">Цены на ремонт перед продажей</a></p></section>',
     ),
     schema: [BUSINESS, breadcrumb({ name: 'GreatSteve', path: '/' }, { name: 'Купить / Продать', path: '/tradein' })],
   },

@@ -4,7 +4,7 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import SEOHead from '../components/SEOHead';
 import { Link } from 'react-router-dom';
-import { Smartphone, Laptop, Tablet, Headphones, Watch, ArrowLeft, ArrowRight } from 'lucide-react';
+import { Smartphone, Laptop, Tablet, Headphones, Watch, ArrowLeft, ArrowRight, ArrowUpRight, Repeat2, Send } from 'lucide-react';
 
 const WA_URL = 'https://wa.me/77775181111';
 
@@ -114,7 +114,7 @@ export default function TradeinPage() {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const check = () => setIsMobile(window.innerWidth < 768);
+    const check = () => setIsMobile(window.innerWidth < 1024);
     check();
     window.addEventListener('resize', check);
     return () => window.removeEventListener('resize', check);
@@ -154,7 +154,7 @@ export default function TradeinPage() {
       transition: 'transform 650ms cubic-bezier(0.4,0,0.2,1), filter 650ms cubic-bezier(0.4,0,0.2,1), opacity 650ms cubic-bezier(0.4,0,0.2,1), left 650ms cubic-bezier(0.4,0,0.2,1)',
       willChange: 'transform, filter, opacity',
     };
-    if (idx === center) return { ...base, transform: `translateX(-50%) scale(${isMobile ? 1.1 : 1.4})`, filter: 'none', opacity: 1, zIndex: 20, left: '50%', height: isMobile ? '55%' : '75%', bottom: isMobile ? '22%' : '5%' };
+    if (idx === center) return { ...base, transform: `translateX(-50%) scale(${isMobile ? 1.1 : 1.4})`, filter: 'none', opacity: 1, zIndex: 20, left: '50%', height: isMobile ? '55%' : '75%', bottom: isMobile ? '28%' : '5%' };
     if (idx === left) return { ...base, transform: 'translateX(-50%) scale(0.8)', filter: 'blur(2px)', opacity: 0.7, zIndex: 10, left: isMobile ? '15%' : '25%', height: isMobile ? '20%' : '32%', bottom: isMobile ? '30%' : '15%' };
     if (idx === right) return { ...base, transform: 'translateX(-50%) scale(0.8)', filter: 'blur(2px)', opacity: 0.7, zIndex: 10, left: isMobile ? '85%' : '75%', height: isMobile ? '20%' : '32%', bottom: isMobile ? '30%' : '15%' };
     return { ...base, transform: 'translateX(-50%) scale(0.7)', filter: 'blur(4px)', opacity: 0.4, zIndex: 5, left: '50%', height: isMobile ? '15%' : '25%', bottom: isMobile ? '30%' : '15%' };
@@ -190,8 +190,9 @@ export default function TradeinPage() {
       {/* ─── HERO CAROUSEL ─── */}
       <section
         aria-label="Купить и продать iPhone, MacBook, Samsung в Алматы — GreatSteve"
+        className="h-[100svh] min-h-[560px] lg:min-h-[580px]"
         style={{
-          position: 'relative', width: '100%', height: '100vh', overflow: 'hidden',
+          position: 'relative', width: '100%', overflow: 'hidden',
           backgroundColor: CAROUSEL_IMAGES[activeIndex].bg,
           transition: 'background-color 650ms cubic-bezier(0.4,0,0.2,1)',
           fontFamily: 'Inter, sans-serif',
@@ -216,18 +217,21 @@ export default function TradeinPage() {
           ))}
         </div>
 
-        {/* Bottom-left: text + nav */}
-        <div className="absolute bottom-16 left-4 sm:bottom-36 sm:left-24" style={{ zIndex: 60, maxWidth: 420 }}>
-          <p className="mb-2 sm:mb-4 text-xl sm:text-[32px]" style={{ fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: '#fff', opacity: 0.95, lineHeight: 1.2 }}>
-            Продажа · Выкуп · Trade-in
+        <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-[42%] bg-gradient-to-t from-[#111526]/95 to-transparent lg:hidden" />
+
+        {/* Hero copy and carousel controls */}
+        <div className="absolute top-24 left-5 z-[60] max-w-[calc(100%-2.5rem)] sm:left-8 lg:top-auto lg:bottom-[18%] lg:left-12 lg:max-w-[30%] xl:left-24">
+          <p className="mb-2 text-lg sm:text-2xl lg:mb-4 xl:text-[32px]" style={{ fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: '#fff', opacity: 0.95, lineHeight: 1.2 }}>
+            Продажа · Выкуп · <span className="whitespace-nowrap">Trade‑in</span>
           </p>
-          <p className="hidden sm:block text-sm sm:text-base" style={{ color: '#fff', opacity: 0.85, lineHeight: 1.6, marginBottom: 20 }}>
-            Покупка, выкуп и обмен iPhone, MacBook и Samsung в Алматы. Предварительная оценка в WhatsApp, оплата после осмотра.
+          <p className="mb-4 hidden text-base text-white/85 lg:block">
+            Покупка, выкуп и обмен iPhone, MacBook и Samsung в Алматы. Оплата после осмотра.
           </p>
           <div style={{ display: 'flex', gap: 12 }}>
             <button
               onClick={() => navigate('prev')}
-              className="w-12 h-12 sm:w-16 sm:h-16"
+              aria-label="Предыдущий телефон"
+              className="size-11 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white lg:size-14"
               style={{ background: 'transparent', border: '2px solid #fff', borderRadius: '50%', color: '#fff', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'transform 150ms, background-color 150ms' }}
               onMouseEnter={(e) => { e.currentTarget.style.transform = 'scale(1.08)'; e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.12)'; }}
               onMouseLeave={(e) => { e.currentTarget.style.transform = 'scale(1)'; e.currentTarget.style.backgroundColor = 'transparent'; }}
@@ -236,7 +240,8 @@ export default function TradeinPage() {
             </button>
             <button
               onClick={() => navigate('next')}
-              className="w-12 h-12 sm:w-16 sm:h-16"
+              aria-label="Следующий телефон"
+              className="size-11 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white lg:size-14"
               style={{ background: 'transparent', border: '2px solid #fff', borderRadius: '50%', color: '#fff', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'transform 150ms, background-color 150ms' }}
               onMouseEnter={(e) => { e.currentTarget.style.transform = 'scale(1.08)'; e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.12)'; }}
               onMouseLeave={(e) => { e.currentTarget.style.transform = 'scale(1)'; e.currentTarget.style.backgroundColor = 'transparent'; }}
@@ -244,33 +249,33 @@ export default function TradeinPage() {
               <ArrowRight size={26} strokeWidth={2.25} />
             </button>
           </div>
-          <a href="tel:+77775181111" className="text-base sm:text-lg" style={{ color: '#fff', opacity: 0.7, marginTop: 16, display: 'inline-block', textDecoration: 'none', fontWeight: 500, letterSpacing: '0.04em' }}>
+          <a href="tel:+77775181111" className="mt-4 hidden text-base font-medium tracking-wide text-white/80 lg:inline-block">
             8 777 518 11 11
           </a>
         </div>
 
-        {/* Bottom-right: CTA */}
-        <div className="absolute bottom-16 right-4 sm:bottom-36 sm:right-10" style={{ zIndex: 60 }}>
+        <div className="absolute inset-x-5 bottom-[5.5rem] z-[60] mx-auto grid max-w-sm gap-2.5 sm:inset-x-8 lg:right-24 lg:bottom-[18%] lg:left-auto lg:w-[15rem] xl:right-28 xl:w-[17rem]">
           <a
-            href={WA_URL}
+            href="https://ocenka.greatsteve.kz/?mode=tradein"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex min-h-[52px] items-center gap-3 rounded-2xl bg-white px-4 py-2.5 text-sm font-semibold text-[#171d29] transition-colors hover:bg-[#e8f2ff] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+          >
+            <Repeat2 size={20} aria-hidden="true" className="shrink-0 text-[#005bb9]" />
+            <span className="grow">Оценить iPhone · Trade‑in</span>
+            <ArrowUpRight size={17} aria-hidden="true" className="shrink-0" />
+          </a>
+          <a
+            href="https://t.me/s/kzgreatsteve"
             data-contact-placement="sale_hero"
             data-contact-intent="purchase"
             target="_blank"
             rel="noopener noreferrer"
-            style={{
-              display: 'flex', alignItems: 'center', gap: 8,
-              fontFamily: "'Anton', sans-serif",
-              fontSize: 'clamp(20px, 4vw, 56px)',
-              fontWeight: 400, color: '#fff', opacity: 0.95,
-              letterSpacing: '-0.02em', lineHeight: 1,
-              textTransform: 'uppercase', textDecoration: 'none',
-              transition: 'opacity 200ms',
-            }}
-            onMouseEnter={(e) => { e.currentTarget.style.opacity = '1'; }}
-            onMouseLeave={(e) => { e.currentTarget.style.opacity = '0.95'; }}
+            className="flex min-h-[52px] items-center gap-3 rounded-2xl border border-[#b8d5ff]/35 bg-[#192745]/95 px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[#22375f] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
           >
-            УЗНАТЬ ЦЕНУ
-            <ArrowRight className="w-5 h-5 sm:w-8 sm:h-8" strokeWidth={2.25} />
+            <Send size={19} aria-hidden="true" className="shrink-0 text-[#b8d5ff]" />
+            <span className="grow">Наличие в Telegram</span>
+            <ArrowUpRight size={17} aria-hidden="true" className="shrink-0" />
           </a>
         </div>
       </section>

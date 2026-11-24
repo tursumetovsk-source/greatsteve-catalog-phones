@@ -195,7 +195,7 @@ export default function DeviceRepairSection() {
       : 'Выберите модель';
 
   return (
-    <section id="devices" className="bg-[#F5F5F7] px-4 md:px-6 py-16 md:py-24">
+    <section id="devices" className="scroll-mt-24 bg-[#F5F5F7] px-4 py-16 md:scroll-mt-28 md:px-6 md:py-24">
       <div className="max-w-[88rem] mx-auto">
 
         {/* Header */}

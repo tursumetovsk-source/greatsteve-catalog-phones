@@ -5,7 +5,7 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import SEOHead from '../components/SEOHead';
 import BackedBySection from '../components/BackedBySection';
-import { MapPin, Clock, Phone, Instagram, ChevronDown, Navigation, Landmark, TrainFront, ShoppingBag } from 'lucide-react';
+import { ArrowUpRight, MapPin, Clock, Phone, Instagram, ChevronDown, Navigation, Landmark, TrainFront, ShoppingBag } from 'lucide-react';
 import { AntiGravityCanvas } from '../components/ui/particle-effect-for-hero';
 
 const SCHEMA = {
@@ -458,31 +458,48 @@ export default function CompanyPage() {
         <div className="max-w-[88rem] mx-auto">
 
           {/* Как доехать */}
-          <div className="mb-14">
-            <h2 className="font-black text-slate-900 mb-6" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', letterSpacing: '-0.03em' }}>
+          <div className="mb-8 md:mb-12">
+            <h2 className="mb-6 text-[clamp(2rem,4vw,3.5rem)] font-black leading-tight tracking-tight text-slate-900 md:mb-8">
               Как добраться?
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-              {[
-                { Icon: Navigation, title: 'Адрес', text: 'Гоголя 75/1 уг. ул.Тулебаева, Алматы', color: '#3b82f6' },
-                { Icon: Landmark, title: 'Ориентир', text: 'Рядом с Арбатом — пешеходной улицей в центре города', color: '#8b5cf6' },
-                { Icon: TrainFront, title: 'Метро', text: 'Станция «Жибек Жолы» — около 4 минут пешком', color: '#ef4444' },
-                { Icon: ShoppingBag, title: 'ТРЦ', text: 'Mega Park — в 10 минутах езды', color: '#f59e0b' },
-              ].map(({ Icon, title, text, color }) => (
-                <div key={title} className="rounded-2xl p-6" style={{ background: '#f5f5f7', border: `1px solid ${C.border}` }}>
-                  <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-4"
-                    style={{ background: `${color}18`, border: `1px solid ${color}30` }}>
-                    <Icon className="w-5 h-5" style={{ color }} />
-                  </div>
-                  <p className="font-bold text-slate-900 mb-1 text-base">{title}</p>
-                  <p className="text-slate-500 text-sm leading-relaxed">{text}</p>
+            <div className="grid gap-3 lg:grid-cols-[1.1fr_1fr]">
+              <div className="isolate relative flex flex-col items-start overflow-hidden rounded-[1.75rem] bg-[#171d29] p-6 text-white sm:p-9">
+                <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top_right,#334976_0%,transparent_65%)]" />
+                <div className="mb-6 grid size-12 place-items-center rounded-2xl border border-white/15 bg-white/10 text-[#b8d5ff]">
+                  <MapPin size={25} aria-hidden="true" />
                 </div>
-              ))}
+                <h3 className="text-[clamp(1.65rem,3.75vw,3rem)] font-bold leading-tight tracking-tight">Гоголя 75/1, Алматы</h3>
+                <p className="mt-2 leading-relaxed text-[#d5e0f1]">Угол улицы Тулебаева</p>
+                <p className="mt-4 flex items-center gap-2 text-sm text-[#d5e0f1]"><Clock size={16} aria-hidden="true" /> Ежедневно 10:00–20:00</p>
+                <div className="mt-7 flex w-full flex-wrap gap-2.5 sm:w-auto">
+                  <a href="https://2gis.kz/almaty/firm/70000001040518505" target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-white px-4 text-sm font-semibold text-[#171d29] transition-colors hover:bg-[#e8f2ff] focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-white">
+                    <Navigation size={16} aria-hidden="true" /> Маршрут в 2ГИС
+                  </a>
+                  <a href="#company-maps" className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-white/30 px-4 text-sm font-semibold text-white transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-white">
+                    Другие карты <ArrowUpRight size={15} aria-hidden="true" />
+                  </a>
+                </div>
+              </div>
+              <ul aria-label="Ориентиры" className="flex flex-col justify-center divide-y divide-slate-200 rounded-[1.75rem] border border-slate-200 bg-white px-5 py-2 sm:px-8 sm:py-4">
+                {[
+                  { Icon: TrainFront, title: 'Метро «Жибек Жолы»', text: 'Около 4 минут пешком' },
+                  { Icon: Landmark, title: 'Арбат', text: 'Рядом с пешеходной улицей в центре Алматы' },
+                  { Icon: ShoppingBag, title: 'ТРЦ Mega Park', text: 'Около 10 минут на машине' },
+                ].map(({ Icon, title, text }) => (
+                  <li key={title} className="flex items-center gap-4 py-5 sm:gap-5">
+                    <div className="grid size-11 shrink-0 place-items-center rounded-xl bg-[#eaf2ff] text-[#174875]"><Icon size={21} aria-hidden="true" /></div>
+                    <div>
+                      <p className="font-semibold leading-snug text-slate-900 sm:text-lg">{title}</p>
+                      <p className="mt-1 text-sm leading-relaxed text-slate-600">{text}</p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
 
           {/* 3 map cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div id="company-maps" className="grid scroll-mt-24 grid-cols-1 gap-4 md:scroll-mt-28 md:grid-cols-3">
             {[
               {
                 label: '2ГИС',

@@ -49,9 +49,11 @@ test('repair page answer schema is backed by visible guide content and existing 
   assert.equal(faq.mainEntity.length, 7);
   const rearCover = faq.mainEntity.find(question => question.name === 'Сколько занимает замена задней крышки телефона?');
   assert.match(rearCover.acceptedAnswer.text, /от 3 часов/);
+  const panels = [...repair.matchAll(/<details\b[^>]*>[\s\S]*?<\/details>/g)].map(([panel]) => panel);
+  assert.equal(panels.length, faq.mainEntity.length);
   for (const question of faq.mainEntity) {
-    assert.ok(repair.includes(`<h3 class="text-lg font-semibold">${question.name}</h3>`));
-    assert.ok(repair.includes(question.acceptedAnswer.text));
+    const panel = panels.find(html => html.includes(`<span>${question.name}</span>`));
+    assert.ok(panel?.includes(question.acceptedAnswer.text), question.name);
   }
   assert.match(repair, /id="repair-guide"/);
   assert.match(repair, /href="\/remont\/iphone-15-pro-max"/);
