@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { ChevronRight, X, ArrowLeft } from 'lucide-react';
 import { allModels } from '../data/repairModels';
+import { repairModelImage } from '../data/repairModelImage';
 
 const WA = 'https://wa.me/77775181111?text=';
 type Brand = 'Apple' | 'Samsung' | 'Xiaomi' | 'Oppo' | 'Vivo' | 'Huawei';
@@ -50,7 +51,7 @@ const OTHER_BRANDS: { id: Brand; name: string; sub: string; color: string; model
     id: 'Oppo', name: 'OPPO', sub: 'Find, Reno, A серии', color: '#1F2B5F',
     models: [
       'OPPO Find X8 Pro', 'OPPO Find X8',
-      'OPPO Find X7 Ultra', 'OPPO Find X7 Pro', 'OPPO Find X7',
+      'OPPO Find X7 Ultra', 'OPPO Find X7',
       'OPPO Reno 13 Pro', 'OPPO Reno 13',
       'OPPO Reno 12 Pro', 'OPPO Reno 12',
       'OPPO Reno 11 Pro', 'OPPO Reno 11',
@@ -82,44 +83,44 @@ const OTHER_BRANDS: { id: Brand; name: string; sub: string; color: string; model
   },
 ];
 
-const APPLE_DEVICES: { id: DeviceType; name: string; sub: string; img?: string; from: string }[] = [
+const APPLE_DEVICES: { id: DeviceType; name: string; sub: string; img: string; from: string }[] = [
   { id: 'iPhone',      name: 'iPhone',      sub: 'с X по 17 Pro Max',  img: '/devices/models/iphone-17-pro-max.webp', from: 'от 15 000 ₸' },
-  { id: 'MacBook',     name: 'MacBook',     sub: 'Air, Pro, M1–M4',                                                  from: 'от 20 000 ₸' },
-  { id: 'iPad',        name: 'iPad',        sub: 'Air, Pro, Mini',                                                   from: 'от 12 000 ₸' },
-  { id: 'Apple Watch', name: 'Apple Watch', sub: 'Series 4–10, Ultra',                                              from: 'от 8 000 ₸'  },
+  { id: 'MacBook',     name: 'MacBook',     sub: 'Air, Pro, M1–M4', img: '/devices/repair/macbook-air-m3.webp', from: 'от 20 000 ₸' },
+  { id: 'iPad',        name: 'iPad',        sub: 'Air, Pro, Mini', img: '/devices/repair/ipad-air.webp', from: 'от 12 000 ₸' },
+  { id: 'Apple Watch', name: 'Apple Watch', sub: 'Series 4–10, Ultra', img: '/devices/repair/apple-watch-10.webp', from: 'от 8 000 ₸' },
 ];
 
 type ModelCard = { name: string; img: string };
 
 const APPLE_WATCH_MODELS: ModelCard[] = [
-  { name: 'Apple Watch SE',      img: '/devices/models/apple-watch-se.webp'      },
-  { name: 'Apple Watch 4',       img: '/devices/models/apple-watch-4.webp'       },
-  { name: 'Apple Watch 5',       img: '/devices/models/apple-watch-5.webp'       },
-  { name: 'Apple Watch 6',       img: '/devices/models/apple-watch-6.webp'       },
-  { name: 'Apple Watch 7',       img: '/devices/models/apple-watch-7.webp'       },
-  { name: 'Apple Watch 8',       img: '/devices/models/apple-watch-8.webp'       },
-  { name: 'Apple Watch 9',       img: '/devices/models/apple-watch-9.webp'       },
-  { name: 'Apple Watch 10',      img: '/devices/models/apple-watch-10.webp'      },
-  { name: 'Apple Watch Ultra',   img: '/devices/models/apple-watch-ultra.webp'   },
-  { name: 'Apple Watch Ultra 2', img: '/devices/models/apple-watch-ultra-2.webp' },
+  { name: 'Apple Watch SE',      img: '/devices/repair/apple-watch-se.webp'      },
+  { name: 'Apple Watch 4',       img: '/devices/repair/apple-watch-4.webp'       },
+  { name: 'Apple Watch 5',       img: '/devices/repair/apple-watch-5.webp'       },
+  { name: 'Apple Watch 6',       img: '/devices/repair/apple-watch-6.webp'       },
+  { name: 'Apple Watch 7',       img: '/devices/repair/apple-watch-7.webp'       },
+  { name: 'Apple Watch 8',       img: '/devices/repair/apple-watch-8.webp'       },
+  { name: 'Apple Watch 9',       img: '/devices/repair/apple-watch-9.webp'       },
+  { name: 'Apple Watch 10',      img: '/devices/repair/apple-watch-10.webp'      },
+  { name: 'Apple Watch Ultra',   img: '/devices/repair/apple-watch-ultra.webp'   },
+  { name: 'Apple Watch Ultra 2', img: '/devices/repair/apple-watch-ultra-2.webp' },
 ];
 
 const MACBOOK_MODELS: ModelCard[] = [
-  { name: 'MacBook Air M1',  img: '/devices/models/macbook-air-m1.webp' },
-  { name: 'MacBook Air M2',  img: '/devices/models/macbook-air-m2.webp' },
-  { name: 'MacBook Air M3',  img: '/devices/models/macbook-air-m3.webp' },
-  { name: 'MacBook Pro 13"', img: '/devices/models/macbook-pro-13.webp' },
-  { name: 'MacBook Pro 14"', img: '/devices/models/macbook-pro-14.webp' },
-  { name: 'MacBook Pro 16"', img: '/devices/models/macbook-pro-16.webp' },
+  { name: 'MacBook Air M1',  img: '/devices/repair/macbook-air-m1.webp' },
+  { name: 'MacBook Air M2',  img: '/devices/repair/macbook-air-m2.webp' },
+  { name: 'MacBook Air M3',  img: '/devices/repair/macbook-air-m3.webp' },
+  { name: 'MacBook Pro 13"', img: '/devices/repair/macbook-pro-13.webp' },
+  { name: 'MacBook Pro 14"', img: '/devices/repair/macbook-pro-14.webp' },
+  { name: 'MacBook Pro 16"', img: '/devices/repair/macbook-pro-16.webp' },
 ];
 
 const IPAD_MODELS: ModelCard[] = [
-  { name: 'iPad Mini',    img: '/devices/models/ipad-mini.webp'   },
-  { name: 'iPad Air',     img: '/devices/models/ipad-air.webp'    },
-  { name: 'iPad Pro 11"', img: '/devices/models/ipad-pro-11.webp' },
-  { name: 'iPad Pro 13"', img: '/devices/models/ipad-pro-13.webp' },
-  { name: 'iPad 9',       img: '/devices/models/ipad-9.webp'      },
-  { name: 'iPad 10',      img: '/devices/models/ipad-10.webp'     },
+  { name: 'iPad Mini',    img: '/devices/repair/ipad-mini.webp'   },
+  { name: 'iPad Air',     img: '/devices/repair/ipad-air.webp'    },
+  { name: 'iPad Pro 11"', img: '/devices/repair/ipad-pro-11.webp' },
+  { name: 'iPad Pro 13"', img: '/devices/repair/ipad-pro-13.webp' },
+  { name: 'iPad 9',       img: '/devices/repair/ipad-9.webp'      },
+  { name: 'iPad 10',      img: '/devices/repair/ipad-10.webp'     },
 ];
 
 const IPHONE_GROUPS = [
@@ -146,17 +147,12 @@ const SamsungLogo = ({ className }: { className?: string }) => (
   </svg>
 );
 
-function ModelCardUI({ name, img, href, to }: { name: string; img?: string; href?: string; to?: string }) {
+function ModelCardUI({ name, img, href, to, action }: { name: string; img: string; href?: string; to?: string; action?: string }) {
   const inner = (
-    <div className="bg-white rounded-2xl p-3 flex flex-col items-center gap-2 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 cursor-pointer border border-gray-100 hover:border-blue-200">
-      {img && (
-        <div className="w-full h-20 flex items-center justify-center">
-          <img src={img} alt={name} className="max-h-full max-w-full object-contain drop-shadow-sm"
-            onError={e => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
-          />
-        </div>
-      )}
+    <div className="flex h-full flex-col items-center gap-2 rounded-2xl border border-gray-100 bg-white p-3 transition duration-200 hover:-translate-y-0.5 hover:border-blue-200 hover:shadow-md">
+      <img src={img} alt="" loading="lazy" decoding="async" className="h-20 w-full object-contain" />
       <p className="text-xs font-semibold text-[#1D1D1F] text-center leading-tight">{name}</p>
+      {action && <span className="text-center text-xs text-gray-500">{action}</span>}
     </div>
   );
   if (to) return <Link to={to}>{inner}</Link>;
@@ -233,7 +229,7 @@ export default function DeviceRepairSection() {
             <SamsungLogo className="h-5 w-32 text-white/20 mb-4" />
             <div>
               <h3 className="text-4xl md:text-5xl font-bold text-white tracking-tight mb-1">Samsung</h3>
-              <p className="text-white/40 text-sm">Galaxy S, A, Z серии</p>
+              <p className="text-white/40 text-sm">Galaxy S и A серии</p>
             </div>
             <div className="flex items-center justify-between mt-5">
               <p className="text-white/40 text-sm">от 10 000 ₸</p>
@@ -329,12 +325,7 @@ export default function DeviceRepairSection() {
                       {APPLE_DEVICES.map(d => (
                         <button key={d.id} onClick={() => openDevice(d.id)}
                           className="bg-white rounded-2xl p-5 flex flex-col items-center gap-3 hover:bg-gray-50 transition-colors text-center group border border-gray-100">
-                          {d.img && (
-                            <div className="w-full h-24 flex items-center justify-center">
-                              <img src={d.img} alt={d.name} className="max-h-full object-contain drop-shadow-sm"
-                                onError={e => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }} />
-                            </div>
-                          )}
+                          <img src={d.img} alt="" decoding="async" className="h-24 w-full object-contain" />
                           <div>
                             <p className="text-sm font-bold text-[#1D1D1F]">{d.name}</p>
                             <p className="text-xs text-gray-400">{d.sub}</p>
@@ -365,7 +356,7 @@ export default function DeviceRepairSection() {
                                 <div className="grid grid-cols-3 sm:grid-cols-4 gap-3">
                                   {models.map(m => (
                                     <ModelCardUI key={m.slug} name={m.name}
-                                      img={['iphone-17-pro-max','iphone-17-pro'].includes(m.slug) ? `/devices/models/${m.slug}.webp` : undefined}
+                                      img={repairModelImage(m.slug)}
                                       to={`/remont/${m.slug}`} />
                                   ))}
                                 </div>
@@ -425,7 +416,7 @@ export default function DeviceRepairSection() {
                               {models.map(m => (
                                 <ModelCardUI key={m.slug}
                                   name={m.name.replace('Samsung Galaxy ', '')}
-                                  img={`/devices/models/${m.slug}.jpg`}
+                                  img={repairModelImage(m.slug)}
                                   to={`/remont/${m.slug}`}
                                 />
                               ))}
@@ -441,18 +432,13 @@ export default function DeviceRepairSection() {
                     <motion.div key={selectedBrand}
                       initial={{ opacity: 0, x: -16 }} animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, x: -16 }} transition={{ duration: 0.18 }}
-                      className="grid grid-cols-2 gap-2"
+                      className="grid grid-cols-2 gap-3 sm:grid-cols-4"
                     >
-                      {otherBrand.models.map((name, i) => (
-                        <a key={i}
-                          href={`${WA}${encodeURIComponent(`Здравствуйте, нужен ремонт ${name}. Хочу узнать цену.`)}`}
-                          target="_blank" rel="noopener noreferrer"
-                          className="bg-[#F5F5F7] rounded-xl px-4 py-3 flex flex-col gap-0.5 hover:bg-[#1D1D1F] group transition-colors duration-200"
-                        >
-                          <span className="text-sm font-semibold text-[#1D1D1F] group-hover:text-white leading-tight">{name}</span>
-                          <span className="text-xs text-gray-400 group-hover:text-white/60">Узнать цену →</span>
-                        </a>
-                      ))}
+                      {otherBrand.models.map(name => {
+                        const slug = name.toLowerCase().replace(/\+/g, ' plus').replace(/[^a-z0-9]+/g, '-').replace(/-$/, '');
+                        return <ModelCardUI key={name} name={name} img={`/devices/repair/${slug}.jpg`} action="Узнать цену →"
+                          href={`${WA}${encodeURIComponent(`Здравствуйте, нужен ремонт ${name}. Хочу узнать цену.`)}`} />;
+                      })}
                     </motion.div>
                   )}
 

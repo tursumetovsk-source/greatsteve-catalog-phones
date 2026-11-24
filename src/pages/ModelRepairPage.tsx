@@ -7,7 +7,10 @@ import Footer from '../components/Footer';
 import SEOHead from '../components/SEOHead';
 import { modelsBySlug } from '../data/repairModels';
 import { modelRepairContent } from '../data/modelRepairContent';
+import { repairModelImage } from '../data/repairModelImage';
 import { formatTenge, gsiOfferForModel, GSI_PATH } from '../data/gsiBatteryOffers';
+
+const WHITE_BACKGROUND_IPHONES = new Set(['iphone-12-pro-max', 'iphone-11-pro-max', 'iphone-11', 'iphone-xr']);
 
 export default function ModelRepairPage() {
   const { model } = useParams<{ model: string }>();
@@ -17,6 +20,8 @@ export default function ModelRepairPage() {
   if (!data) return <Navigate to="/remont" replace />;
   const gsiOffer = gsiOfferForModel(data.slug);
   const { title, description, summary, bookingUrl } = modelRepairContent(data);
+  const image = repairModelImage(data.slug);
+  const imageHasBackground = image.endsWith('.jpg') || WHITE_BACKGROUND_IPHONES.has(data.slug);
 
   const schema = [
     {
@@ -65,6 +70,7 @@ export default function ModelRepairPage() {
         description={description}
         keywords={`ремонт ${data.name} Алматы, замена экрана ${data.name} Алматы, замена аккумулятора ${data.name} Алматы, сервис ${data.name} Алматы`}
         canonical={`/remont/${data.slug}`}
+        ogImage={image}
         schema={schema}
       />
       <Navbar />
@@ -128,16 +134,20 @@ export default function ModelRepairPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            style={{ background: 'rgba(255,255,255,0.06)', borderRadius: 28, display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: 320 }}
+            className="flex min-h-72 flex-col items-center justify-center gap-5 rounded-[28px] bg-white/[0.06] p-6 sm:p-8"
           >
-            {gsiOffer && <div style={{ padding: 32, color: '#F6F7F2' }}><p style={{ color: '#C1FF72', fontWeight: 600 }}>Усиленный аккумулятор JCID</p><p style={{ fontSize: 44, fontWeight: 800, margin: '16px 0' }}>{formatTenge(gsiOffer.price)}</p><p>Аккумулятор и замена включены.<br />Гарантия 6 месяцев.</p><Link to={GSI_PATH} style={{ display: 'inline-block', marginTop: 24, color: '#C1FF72' }}>Все цены и условия акции →</Link></div>}
-            {['iphone-17-pro-max', 'iphone-17-pro'].includes(data.slug) && (
-              <img
-                src={`/devices/models/${data.slug}.webp`}
-                alt={data.name}
-                onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
-                style={{ height: 300, width: 'auto', objectFit: 'contain', filter: 'drop-shadow(0 24px 64px rgba(0,0,0,0.6))' }}
-              />
+            <div className={imageHasBackground
+              ? 'flex w-full max-w-[25rem] items-center justify-center rounded-3xl bg-white p-5 sm:p-6'
+              : 'flex w-full max-w-[31rem] items-center justify-center'}>
+              <img src={image} alt={data.name} decoding="async" fetchPriority="high"
+                className={gsiOffer ? 'h-44 w-full object-contain sm:h-56' : 'h-56 w-full object-contain sm:h-[300px]'} />
+            </div>
+            {gsiOffer && (
+              <div className="w-full max-w-[31rem] rounded-2xl border border-white/10 px-4 py-3 text-left text-white">
+                <p className="flex flex-wrap items-center justify-between gap-x-2 font-semibold"><span>Усиленный аккумулятор JCID</span><span className="text-[#C1FF72]">{formatTenge(gsiOffer.price)}</span></p>
+                <p className="mt-1 text-sm text-white/70">Замена включена. Гарантия 6 месяцев.</p>
+                <Link to={GSI_PATH} className="mt-2 inline-block text-sm font-medium text-[#C1FF72] underline underline-offset-4">Все цены и условия акции</Link>
+              </div>
             )}
           </motion.div>
 

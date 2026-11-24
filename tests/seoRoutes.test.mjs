@@ -71,6 +71,18 @@ test('priority service pages show current offers and provide WhatsApp booking wi
   }
 });
 
+test('all model repair pages include their own product photo', () => {
+  const modelPages = [...pages].filter(([path]) => /^\/remont\/(?:iphone|samsung)-/.test(path));
+  assert.equal(modelPages.length, 45);
+  for (const [path, html] of modelPages) {
+    const slug = path.split('/').at(-1);
+    const photo = html.match(/<img src="(\/devices\/(?:models|repair)\/[^"]+)" alt="[^"]+"[^>]*>/)?.[1];
+    assert.ok(photo?.split('/').at(-1).startsWith(`${slug}.`), path);
+    assert.ok(existsSync(new URL(`../dist${photo}`, import.meta.url)), path);
+    assert.ok(html.includes(`<meta property="og:image" content="https://greatsteve.kz${photo}"`), path);
+  }
+});
+
 test('homepage no longer contains the price guide or its FAQ schema', () => {
   const home = pages.get('/');
   assert.doesNotMatch(home, /id="repair-guide"|"@type":"FAQPage"/);

@@ -10,9 +10,9 @@ const WA_URL = 'https://wa.me/77775181111';
 
 const CAROUSEL_IMAGES = [
   { src: '/devices/models/iphone-17-pro-max.webp', bg: '#1a1a2e', panel: '#2a2a4e' },
-  { src: '/devices/models/iphone-16-pro.jpg', bg: '#0f3460', panel: '#1a4a7a' },
-  { src: '/devices/models/iphone-15-pro-max.jpg', bg: '#533483', panel: '#6a4a9a' },
-  { src: '/devices/models/iphone-14-pro.jpg', bg: '#e94560', panel: '#f06070' },
+  { src: '/devices/tradein/iphone-16-pro.png', bg: '#0f3460', panel: '#1a4a7a' },
+  { src: '/devices/tradein/iphone-15-pro-max.png', bg: '#533483', panel: '#6a4a9a' },
+  { src: '/devices/tradein/iphone-14-pro.png', bg: '#e94560', panel: '#f06070' },
 ];
 
 const GRAIN_SVG = "data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E";
@@ -125,13 +125,6 @@ export default function TradeinPage() {
   const animTimer = useRef<ReturnType<typeof setTimeout>>(null);
 
   useEffect(() => {
-    CAROUSEL_IMAGES.forEach((img) => {
-      const i = new Image();
-      i.src = img.src;
-    });
-  }, []);
-
-  useEffect(() => {
     return () => { if (animTimer.current) clearTimeout(animTimer.current); };
   }, []);
 
@@ -212,7 +205,8 @@ export default function TradeinPage() {
         <div style={{ position: 'absolute', inset: 0, zIndex: 3 }}>
           {CAROUSEL_IMAGES.map((img, idx) => (
             <div key={idx} style={getCarouselStyle(idx)}>
-              <img src={img.src} alt="" draggable={false} style={{ width: '100%', height: '100%', objectFit: 'contain', objectPosition: 'bottom center', borderRadius: 20 }} />
+              <img src={img.src} alt="" draggable={false} decoding="async" fetchPriority={idx === 0 ? 'high' : 'low'}
+                style={{ width: '100%', height: '100%', objectFit: 'contain', objectPosition: 'bottom center', borderRadius: 20 }} />
             </div>
           ))}
         </div>

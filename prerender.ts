@@ -8,6 +8,7 @@ import RepairModelDirectory from './src/components/RepairModelDirectory';
 import { featuredRepairSlugs, repairGuideFaqSchema } from './src/data/repairGuide';
 import { allModels, type ModelData } from './src/data/repairModels';
 import { modelRepairContent } from './src/data/modelRepairContent';
+import { repairModelImage } from './src/data/repairModelImage';
 import { GSI_DESCRIPTION, GSI_PATH, GSI_TITLE, formatTenge, gsiBatteryOffers, gsiFaq } from './src/data/gsiBatteryOffers';
 
 /**
@@ -172,6 +173,7 @@ const STATIC_ROUTES: Route[] = [
 
 function modelRoute(m: ModelData): Route {
   const routePath = `/remont/${m.slug}`;
+  const modelImage = repairModelImage(m.slug);
   const url = `${SITE}${routePath}`;
   const repairs = m.repairs.map((item) => `<li>${escText(item.name)} — ${escText(item.price)}, ${escText(item.time)}</li>`).join('');
   const problems = m.problems.map((item) => `<li>${escText(item)}</li>`).join('');
@@ -183,11 +185,12 @@ function modelRoute(m: ModelData): Route {
     lastmod: '2026-11-24',
     title,
     description,
+    ogImage: modelImage,
     keywords: `ремонт ${m.name} Алматы, замена экрана ${m.name} Алматы, замена аккумулятора ${m.name} Алматы, сервис ${m.name} Алматы`,
     content: pageShell(
       `Ремонт ${m.name} в Алматы`,
       summary,
-      `<p><a href="${bookingUrl}">Записаться в WhatsApp</a></p><section><h2>Цены на ремонт ${escText(m.name)}</h2><ul>${repairs}</ul>${batteryGuide ? `<p><a href="${batteryGuide}">Все цены и условия замены аккумуляторов JCID</a></p>` : ''}</section><section><h2>Частые неисправности</h2><ul>${problems}</ul></section><section><h2>Частые вопросы</h2>${faq}</section><p><a href="/remont">Все услуги по ремонту телефонов</a></p>`,
+      `<p><a href="${bookingUrl}">Записаться в WhatsApp</a></p><img src="${modelImage}" alt="${escAttr(m.name)}" style="display:block;width:auto;height:auto;max-width:min(100%,480px);max-height:320px;object-fit:contain" /><section><h2>Цены на ремонт ${escText(m.name)}</h2><ul>${repairs}</ul>${batteryGuide ? `<p><a href="${batteryGuide}">Все цены и условия замены аккумуляторов JCID</a></p>` : ''}</section><section><h2>Частые неисправности</h2><ul>${problems}</ul></section><section><h2>Частые вопросы</h2>${faq}</section><p><a href="/remont">Все услуги по ремонту телефонов</a></p>`,
     ),
     schema: [
       BUSINESS,
