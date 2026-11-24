@@ -214,7 +214,7 @@ const OTHER_BRANDS: { id: Brand; name: string; sub: string; color: string; logo:
 ];
 
 const APPLE_DEVICES: { id: DeviceType; name: string; sub: string; img: string; from: string }[] = [
-  { id: 'iPhone',      name: 'iPhone',      sub: 'Все поколения, в том числе mini, Plus и SE', img: repairModelImage('iphone-18-pro-max'), from: 'от 15 000 ₸' },
+  { id: 'iPhone',      name: 'iPhone',      sub: 'От iPhone 8, включая mini, Plus и SE 2–3', img: repairModelImage('iphone-18-pro-max'), from: 'от 15 000 ₸' },
   { id: 'MacBook',     name: 'MacBook',     sub: 'Neo, Air, Pro', img: '/devices/repair/macbook-neo.webp', from: 'от 20 000 ₸' },
   { id: 'iPad',        name: 'iPad',        sub: 'Air, Pro, mini', img: '/devices/repair/ipad-air-11-m4.webp', from: 'от 12 000 ₸' },
   { id: 'Apple Watch', name: 'Apple Watch', sub: 'Series 4–12, SE, Ultra', img: '/devices/repair/apple-watch-12.webp', from: 'от 8 000 ₸' },

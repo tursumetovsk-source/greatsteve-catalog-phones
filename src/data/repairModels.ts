@@ -68,8 +68,7 @@ const QUOTE_MODELS: ModelData[] = [
   { slug: 'iphone-11-pro', name: 'iPhone 11 Pro', year: 2019, screen: '5,8″ Super Retina XDR OLED', chip: 'A13 Bionic', photoOnWhite: true },
   { slug: 'iphone-xs', name: 'iPhone XS', year: 2018, screen: '5,8″ Super Retina OLED', chip: 'A12 Bionic', photoOnWhite: true },
   { slug: 'iphone-xs-max', name: 'iPhone XS Max', year: 2018, screen: '6,5″ Super Retina OLED', chip: 'A12 Bionic', photoOnWhite: true },
-  { slug: 'iphone-xr', name: 'iPhone XR', year: 2018, screen: '6,1″ Liquid Retina LCD', chip: 'A12 Bionic', photoOnWhite: true, customerPartOnly: true },
-  { slug: 'iphone-x', name: 'iPhone X', year: 2017, screen: '5,8″ Super Retina OLED', chip: 'A11 Bionic', photoOnWhite: true, customerPartOnly: true },
+  { slug: 'iphone-x', name: 'iPhone X', year: 2017, screen: '5,8″ Super Retina OLED', chip: 'A11 Bionic', photoOnWhite: true },
   { slug: 'iphone-8', name: 'iPhone 8', year: 2017, screen: '4,7″ Retina HD', chip: 'A11 Bionic', photoOnWhite: true, customerPartOnly: true },
   { slug: 'iphone-8-plus', name: 'iPhone 8 Plus', year: 2017, screen: '5,5″ Retina HD', chip: 'A11 Bionic', photoOnWhite: true, customerPartOnly: true },
   { slug: 'samsung-s26-ultra', name: 'Samsung Galaxy S26 Ultra', year: 2026, screen: '6,9″', chip: 'Snapdragon 8 Elite Gen 5' },
@@ -714,6 +713,36 @@ const MODELS: ModelData[] = [
       { q: 'Даёте ли гарантию на ремонт iPhone 11?', a: 'Да, гарантия до 12 месяцев. Оплата только после ремонта.' },
     ],
   },
+  {
+    slug: 'iphone-xr',
+    name: 'iPhone XR',
+    year: 2018,
+    screen: '6.1″ Liquid Retina IPS LCD',
+    chip: 'A12 Bionic',
+    intro: 'iPhone XR — бестселлер Apple 2018 года с Face ID и ярким LCD Liquid Retina. К 2025 году ему 7 лет — аккумулятор деградировал до 50–65%, это главная причина обращений. Ремонт быстрый и доступный.',
+    problems: [
+      'Деградация аккумулятора (7 лет) — у большинства ниже 70%',
+      'Трещина Liquid Retina LCD-дисплея',
+      'Неработающий Lightning-разъём',
+      'Проблемы с Face ID (датчики глубины)',
+    ],
+    repairs: [
+      { name: 'Замена экрана (дисплея)', price: 'от 16 000 ₸', time: '30–60 мин' },
+      { name: 'Замена аккумулятора', price: 'от 6 000 ₸', time: REPAIR_TIMES.battery },
+      { name: 'Замена камеры', price: 'от 8 000 ₸', time: REPAIR_TIMES.camera },
+      { name: 'Замена разъёма зарядки', price: 'от 4 000 ₸', time: REPAIR_TIMES.chargingPort },
+      { name: 'Замена задней крышки', price: 'от 5 500 ₸', time: BACK_COVER_REPAIR_TIME },
+      { name: 'Диагностика', price: 'Бесплатно', time: REPAIR_TIMES.diagnostic },
+    ],
+    faq: [
+      { q: 'Сколько стоит замена экрана iPhone XR в Алматы?', a: 'Замена экрана iPhone XR в GreatSteve — от 16 000 ₸. Оригинальный Liquid Retina LCD с True Tone. Ремонт 30–60 минут при вас.' },
+      { q: 'Сколько стоит замена аккумулятора iPhone XR?', a: `Замена аккумулятора iPhone XR — от 6 000 ₸. После 7 лет это необходимость — батарея не может держать заряд. Замена занимает ${REPAIR_TIMES.battery}.` },
+      { q: 'Стоит ли ремонтировать iPhone XR в 2025 году?', a: 'Если аппарат в порядке — замена аккумулятора за 6 000 ₸ продлит жизнь ещё на год-два. Выгоднее нового телефона.' },
+      { q: 'Сколько времени занимает ремонт iPhone XR?', a: `Замена аккумулятора — ${REPAIR_TIMES.battery}. Замена экрана — 30–60 минут. Работаем ежедневно 10:00–20:00.` },
+      { q: 'Даёте ли гарантию на ремонт iPhone XR?', a: 'Да, гарантия до 12 месяцев на все виды ремонта.' },
+    ],
+  },
+
   // ── Samsung S25 ──────────────────────────────────────────────
   {
     slug: 'samsung-s25-ultra',

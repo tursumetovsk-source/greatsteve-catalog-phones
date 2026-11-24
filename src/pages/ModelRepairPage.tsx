@@ -10,7 +10,7 @@ import { modelRepairContent } from '../data/modelRepairContent';
 import { repairModelImage } from '../data/repairModelImage';
 import { formatTenge, gsiOfferForModel, GSI_PATH } from '../data/gsiBatteryOffers';
 
-const WHITE_BACKGROUND_IPHONES = new Set(['iphone-12-pro-max', 'iphone-11-pro-max', 'iphone-11']);
+const WHITE_BACKGROUND_IPHONES = new Set(['iphone-12-pro-max', 'iphone-11-pro-max', 'iphone-11', 'iphone-xr']);
 
 export default function ModelRepairPage() {
   const { model } = useParams<{ model: string }>();

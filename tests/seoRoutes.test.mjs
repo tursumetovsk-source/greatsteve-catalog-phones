@@ -119,7 +119,7 @@ test('retired Galaxy Z repairs are absent from site content and have no static m
   assert.doesNotMatch(selector, /Galaxy Z|samsung-z/i);
 });
 
-test('iPhone repairs start at iPhone 8, with customer-supplied parts required for four models', () => {
+test('iPhone repairs start at iPhone 8, with customer-supplied parts required for iPhone 8 and 8 Plus', () => {
   const repair = pages.get('/remont');
   const retired = ['2g', '3g', '3gs', '4', '4s', '5', '5c', '5s', '6', '6-plus', '6s', '6s-plus', 'se-1', '7', '7-plus'];
   for (const model of retired) {
@@ -129,7 +129,7 @@ test('iPhone repairs start at iPhone 8, with customer-supplied parts required fo
     assert.ok(!existsSync(new URL(`../dist${path}/index.html`, import.meta.url)), path);
   }
 
-  for (const model of ['8', '8-plus', 'x', 'xr']) {
+  for (const model of ['8', '8-plus']) {
     const path = `/remont/iphone-${model}`;
     const html = pages.get(path);
     assert.ok(repair.includes(`href="${path}"`), path);
@@ -138,7 +138,8 @@ test('iPhone repairs start at iPhone 8, with customer-supplied parts required fo
     assert.match(decodeURIComponent(html.match(/wa\.me\/77775181111\?text=([^"]+)/)[1]), /У меня есть запчасть/, path);
   }
 
-  for (const model of ['xs', 'xs-max', 'se-2', 'se-3']) {
+  for (const model of ['x', 'xr', 'xs', 'xs-max', 'se-2', 'se-3']) {
     assert.doesNotMatch(pages.get(`/remont/iphone-${model}`), /только с вашей запчастью/i, model);
   }
+  assert.match(pages.get('/remont/iphone-xr'), /Замена экрана \(дисплея\) — от 16 000 ₸/);
 });
