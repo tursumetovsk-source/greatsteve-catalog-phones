@@ -86,8 +86,8 @@ export default function Footer() {
               8 777 518 11 11
               <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
             </a>
-            <a href="mailto:greatstevekz1@icloud.com" className="group flex items-center justify-between text-base font-medium text-white/70 hover:text-white transition-colors">
-              greatstevekz1@icloud.com
+            <a href="mailto:greatstevekz1@gmail.com" className="group flex items-center justify-between text-base font-medium text-white/70 hover:text-white transition-colors">
+              greatstevekz1@gmail.com
               <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
             </a>
           </div>
