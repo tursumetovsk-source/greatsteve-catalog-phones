@@ -46,7 +46,9 @@ test('all sitemap pages are reachable from the homepage through HTML links witho
 test('repair page answer schema is backed by visible guide content and existing model prices', () => {
   const repair = pages.get('/remont');
   const faq = [...repair.matchAll(/<script type="application\/ld\+json" data-seo-page="[^"]*">([\s\S]*?)<\/script>/g)].map(match => JSON.parse(match[1])).find(schema => schema['@type'] === 'FAQPage');
-  assert.equal(faq.mainEntity.length, 7);
+  assert.equal(faq.mainEntity.length, 8);
+  const iphoneCoverage = faq.mainEntity.find(question => question.name === 'Какие модели iPhone вы ремонтируете?');
+  assert.match(iphoneCoverage.acceptedAnswer.text, /начиная с iPhone 8.*Для iPhone 8 и 8 Plus нужна ваша запчасть.*Для iPhone X и XR подтвердим наличие/);
   const rearCover = faq.mainEntity.find(question => question.name === 'Сколько занимает замена задней крышки телефона?');
   assert.match(rearCover.acceptedAnswer.text, /от 3 часов/);
   const panels = [...repair.matchAll(/<details\b[^>]*>[\s\S]*?<\/details>/g)].map(([panel]) => panel);
@@ -68,6 +70,28 @@ test('priority service pages show current offers and provide WhatsApp booking wi
   assert.match(display, /Замена экрана — от 75 000 ₸, 1–2 часа при наличии детали/);
   for (const html of [battery, display]) {
     assert.match(html, /href="https:\/\/wa\.me\/77775181111\?text=[^"]+">Записаться в WhatsApp/);
+  }
+});
+
+test('updated service pages describe one Almaty location and publish the refreshed JCID page', () => {
+  const jcid = '/remont/akkumulyator-iphone';
+  assert.ok(sitemap.includes(`<loc>https://greatsteve.kz${jcid}</loc><lastmod>2026-11-24</lastmod>`));
+  assert.match(pages.get(jcid), /<img src="\/remont\/jcid\/iphone-repair\.png" alt="iPhone в разборе с аккумулятором"/);
+
+  for (const path of ['/remont', jcid, '/remont/iphone-8', '/remont/iphone-8-plus', '/remont/iphone-x', '/remont/iphone-xr']) {
+    const html = pages.get(path);
+    const schemas = [...html.matchAll(/<script type="application\/ld\+json" data-seo-page="[^\"]*">([\s\S]*?)<\/script>/g)].map(match => JSON.parse(match[1]));
+    const business = schemas.find(schema => schema['@type'] === 'LocalBusiness');
+    assert.equal(business['@id'], 'https://greatsteve.kz/#organization', path);
+    assert.match(business.address.streetAddress, /Гоголя 75\/1/, path);
+    assert.equal(business.address.addressLocality, 'Алматы', path);
+    assert.equal(business.openingHoursSpecification.opens, '10:00', path);
+    assert.equal(business.openingHoursSpecification.closes, '20:00', path);
+    if (path !== '/remont') {
+      const service = schemas.find(schema => schema['@type'] === 'Service');
+      assert.equal(service.provider['@id'], business['@id'], path);
+      assert.ok(html.includes(service.description), path);
+    }
   }
 });
 

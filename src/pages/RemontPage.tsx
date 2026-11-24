@@ -5,6 +5,7 @@ import GsiBatteryBanner from '../components/GsiBatteryBanner';
 import DeviceRepairSection from '../components/DeviceRepairSection';
 import RepairGuide from '../components/RepairGuide';
 import { repairGuideFaqSchema } from '../data/repairGuide';
+import { BUSINESS, breadcrumb } from '../data/repairSchema';
 import { REPAIR_TIMES } from '../data/repairTimes';
 import UseCasesSection from '../components/UseCasesSection';
 import Footer from '../components/Footer';
@@ -13,38 +14,12 @@ import { motion } from 'motion/react';
 import { CheckCircle } from 'lucide-react';
 
 const SCHEMA = {
-  '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
-  '@id': 'https://greatsteve.kz/remont#repair',
-  name: 'GreatSteve — Ремонт телефонов и ноутбуков в Алматы',
-  url: 'https://greatsteve.kz/remont',
-  telephone: '+77775181111',
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: 'Гоголя 75/1 уг. ул.Тулебаева',
-    addressLocality: 'Алматы',
-    addressCountry: 'KZ',
-  },
-  geo: {
-    '@type': 'GeoCoordinates',
-    latitude: 43.260296,
-    longitude: 76.947493,
-  },
-  areaServed: {
-    '@type': 'City',
-    name: 'Алматы',
-  },
-  openingHoursSpecification: {
-    '@type': 'OpeningHoursSpecification',
-    dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'],
-    opens: '10:00',
-    closes: '20:00',
-  },
+  ...BUSINESS,
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
     name: 'Виды ремонта',
     itemListElement: [
-      { '@type': 'Offer', itemOffered: { '@type': 'RepairAction', name: 'Замена экрана iPhone', description: 'Оригинальный дисплей с сохранением True Tone и влагозащиты. От 30 минут.' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'RepairAction', name: 'Замена экрана iPhone', description: 'Тип дисплея, стоимость и срок согласуем до ремонта.' } },
       { '@type': 'Offer', itemOffered: { '@type': 'RepairAction', name: 'Замена аккумулятора iPhone', description: `Усиленные аккумуляторы JCID для iPhone 11–16. От 12 000 ₸ с заменой, гарантия 6 месяцев. Замена занимает ${REPAIR_TIMES.battery}.` } },
       { '@type': 'Offer', itemOffered: { '@type': 'RepairAction', name: 'Ремонт MacBook в Алматы', description: 'Замена клавиатуры, дисплея, SSD. Ремонт платы MacBook Air и Pro.' } },
       { '@type': 'Offer', itemOffered: { '@type': 'RepairAction', name: 'Ремонт Samsung в Алматы', description: 'Замена AMOLED дисплея, батареи, корпуса Samsung Galaxy.' } },
@@ -53,14 +28,7 @@ const SCHEMA = {
   },
 };
 
-const BREADCRUMB = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'GreatSteve', item: 'https://greatsteve.kz/' },
-    { '@type': 'ListItem', position: 2, name: 'Ремонт iPhone и MacBook', item: 'https://greatsteve.kz/remont' },
-  ],
-};
+const BREADCRUMB = breadcrumb({ name: 'GreatSteve', path: '/' }, { name: 'Ремонт', path: '/remont' });
 
 const FAQ = {
   '@context': 'https://schema.org',
@@ -69,7 +37,7 @@ const FAQ = {
     {
       '@type': 'Question',
       name: 'Сколько стоит замена экрана iPhone в Алматы?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Замена экрана iPhone в GreatSteve от 15 000 ₸. iPhone X–11 от 15 000 ₸, iPhone 12–13 от 22 000 ₸, iPhone 14–15 от 28 000 ₸. Оригинальные дисплеи с True Tone и влагозащитой. Ремонт за 30–60 минут при вас.' },
+      acceptedAnswer: { '@type': 'Answer', text: 'Цена зависит от модели и типа дисплея. Ориентиры указаны в каталоге по моделям. Наличие дисплея, итоговую цену и срок согласуем до ремонта.' },
     },
     {
       '@type': 'Question',

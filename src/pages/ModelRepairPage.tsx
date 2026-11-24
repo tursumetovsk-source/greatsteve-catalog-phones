@@ -8,6 +8,7 @@ import SEOHead from '../components/SEOHead';
 import { modelsBySlug } from '../data/repairModels';
 import { modelRepairContent } from '../data/modelRepairContent';
 import { repairModelImage } from '../data/repairModelImage';
+import { BUSINESS, breadcrumb, repairServiceSchema } from '../data/repairSchema';
 import { formatTenge, gsiOfferForModel, GSI_PATH } from '../data/gsiBatteryOffers';
 
 const WHITE_BACKGROUND_IPHONES = new Set(['iphone-12-pro-max', 'iphone-11-pro-max', 'iphone-11', 'iphone-xr']);
@@ -23,35 +24,11 @@ export default function ModelRepairPage() {
   const image = repairModelImage(data.slug);
   const imageHasBackground = data.photoOnWhite || image.endsWith('.jpg') || WHITE_BACKGROUND_IPHONES.has(data.slug);
 
+  const path = `/remont/${data.slug}`;
   const schema = [
-    {
-      '@context': 'https://schema.org',
-      '@type': 'LocalBusiness',
-      name: 'GreatSteve — Сервисный центр в Алматы',
-      url: `https://greatsteve.kz/remont/${data.slug}`,
-      telephone: '+77775181111',
-      address: {
-        '@type': 'PostalAddress',
-        streetAddress: 'Гоголя 75/1 уг. ул.Тулебаева',
-        addressLocality: 'Алматы',
-        addressCountry: 'KZ',
-      },
-      openingHoursSpecification: {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'],
-        opens: '10:00',
-        closes: '20:00',
-      },
-    },
-    {
-      '@context': 'https://schema.org',
-      '@type': 'BreadcrumbList',
-      itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'GreatSteve', item: 'https://greatsteve.kz/' },
-        { '@type': 'ListItem', position: 2, name: 'Ремонт', item: 'https://greatsteve.kz/remont' },
-        { '@type': 'ListItem', position: 3, name: `Ремонт ${data.name}`, item: `https://greatsteve.kz/remont/${data.slug}` },
-      ],
-    },
+    BUSINESS,
+    breadcrumb({ name: 'GreatSteve', path: '/' }, { name: 'Ремонт', path: '/remont' }, { name: `Ремонт ${data.name}`, path }),
+    repairServiceSchema(`Ремонт ${data.name} в Алматы`, path, summary),
     {
       '@context': 'https://schema.org',
       '@type': 'FAQPage',
@@ -69,7 +46,7 @@ export default function ModelRepairPage() {
         title={title}
         description={description}
         keywords={`ремонт ${data.name} Алматы, замена экрана ${data.name} Алматы, замена аккумулятора ${data.name} Алматы, сервис ${data.name} Алматы`}
-        canonical={`/remont/${data.slug}`}
+        canonical={path}
         ogImage={image}
         schema={schema}
       />

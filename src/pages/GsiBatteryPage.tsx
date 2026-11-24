@@ -2,7 +2,7 @@ import { ArrowDown, ArrowUpRight, MapPin, Plus } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import SEOHead from '../components/SEOHead';
-import { GSI_DESCRIPTION, GSI_PATH, GSI_TITLE, formatTenge, gsiBatteryOffers, gsiFaq } from '../data/gsiBatteryOffers';
+import { GSI_DESCRIPTION, GSI_IMAGE, GSI_PATH, GSI_TITLE, formatTenge, gsiBatteryOffers, gsiFaq, gsiPageSchema } from '../data/gsiBatteryOffers';
 import { REPAIR_TIMES } from '../data/repairTimes';
 
 const WA_URL = `https://wa.me/77775181111?text=${encodeURIComponent('Здравствуйте! Хочу заменить аккумулятор на усиленный JCID по акции. Моя модель iPhone: ')}`;
@@ -15,10 +15,7 @@ const offerDetails = [
 export default function GsiBatteryPage() {
   return (
     <div className="bg-[#f1f4f8] text-[#171e29]">
-      <SEOHead title={GSI_TITLE} description={GSI_DESCRIPTION} canonical={GSI_PATH} schema={[
-        { '@context': 'https://schema.org', '@type': 'Service', name: 'Замена усиленного аккумулятора JCID для iPhone в Алматы', url: `https://greatsteve.kz${GSI_PATH}`, areaServed: { '@type': 'City', name: 'Алматы' }, provider: { '@type': 'LocalBusiness', name: 'Greatsteve', telephone: '+77775181111', address: { '@type': 'PostalAddress', streetAddress: 'Гоголя 75/1 уг. ул. Тулебаева', addressLocality: 'Алматы', addressCountry: 'KZ' } } },
-        { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: gsiFaq.map(item => ({ '@type': 'Question', name: item.q, acceptedAnswer: { '@type': 'Answer', text: item.a } })) },
-      ]} />
+      <SEOHead title={GSI_TITLE} description={GSI_DESCRIPTION} canonical={GSI_PATH} schema={gsiPageSchema} />
       <Navbar />
       <main>
         <section className="bg-[#111923] text-[#f6f7f2]">
@@ -52,7 +49,7 @@ export default function GsiBatteryPage() {
               ))}
             </dl>
 
-            <img src="/remont/jcid/iphone-repair.png" alt="" width="935" height="760" decoding="async" fetchPriority="high"
+            <img {...GSI_IMAGE} decoding="async" fetchPriority="high"
               className="h-auto max-h-[17rem] w-full max-w-[34rem] justify-self-center object-contain sm:max-h-80 lg:col-start-2 lg:row-start-1 lg:max-h-[23rem]" />
           </div>
         </section>

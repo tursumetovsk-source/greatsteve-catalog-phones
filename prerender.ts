@@ -9,7 +9,8 @@ import { featuredRepairSlugs, repairGuideFaqSchema } from './src/data/repairGuid
 import { allModels, type ModelData } from './src/data/repairModels';
 import { modelRepairContent } from './src/data/modelRepairContent';
 import { repairModelImage } from './src/data/repairModelImage';
-import { GSI_DESCRIPTION, GSI_PATH, GSI_TITLE, formatTenge, gsiBatteryOffers, gsiFaq } from './src/data/gsiBatteryOffers';
+import { GSI_DESCRIPTION, GSI_IMAGE, GSI_PATH, GSI_TITLE, formatTenge, gsiBatteryOffers, gsiFaq, gsiPageSchema } from './src/data/gsiBatteryOffers';
+import { BUSINESS, SITE, breadcrumb, repairServiceSchema } from './src/data/repairSchema';
 
 /**
  * Build-time SEO rendering.
@@ -19,7 +20,6 @@ import { GSI_DESCRIPTION, GSI_PATH, GSI_TITLE, formatTenge, gsiBatteryOffers, gs
  * starts, while crawlers can understand the page without executing JavaScript.
  */
 
-const SITE = 'https://greatsteve.kz';
 const DEFAULT_OG = '/main/gs-main1.jpeg';
 
 // Only these card fields belong in the guide, not the full model catalogue.
@@ -42,55 +42,6 @@ interface Route {
 const escAttr = (s: string) => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;');
 const escText = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
-const BUSINESS = {
-  '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
-  '@id': `${SITE}/#organization`,
-  name: 'GreatSteve',
-  description: 'Ремонт iPhone, Samsung, Xiaomi, MacBook и другой техники в Алматы.',
-  url: SITE,
-  telephone: '+77775181111',
-  image: `${SITE}/logo-gs.webp`,
-  priceRange: '₸₸',
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: 'Гоголя 75/1 уг. ул.Тулебаева',
-    addressLocality: 'Алматы',
-    addressCountry: 'KZ',
-  },
-  geo: {
-    '@type': 'GeoCoordinates',
-    latitude: 43.260296,
-    longitude: 76.947493,
-  },
-  areaServed: { '@type': 'City', name: 'Алматы' },
-  openingHoursSpecification: {
-    '@type': 'OpeningHoursSpecification',
-    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
-    opens: '10:00',
-    closes: '20:00',
-  },
-  sameAs: [
-    'https://maps.app.goo.gl/Utn9cuXYm2JBEHfg7',
-    'https://2gis.kz/almaty/firm/70000001040518505',
-    'https://yandex.kz/maps/ru/org/greatsteve/5393916179/',
-    'https://www.instagram.com/greatstevekz/',
-    'https://www.tiktok.com/@greatstevekz02',
-    'https://www.threads.com/@greatstevekz',
-  ],
-};
-
-const breadcrumb = (...items: Array<{ name: string; path: string }>) => ({
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: items.map((item, index) => ({
-    '@type': 'ListItem',
-    position: index + 1,
-    name: item.name,
-    item: `${SITE}${item.path}`,
-  })),
-});
-
 const pageShell = (title: string, intro: string, body: string) => `
   <main data-static-seo="true" style="max-width:1120px;margin:0 auto;padding:96px 24px 64px;font-family:system-ui,-apple-system,sans-serif;color:#111">
     <nav aria-label="Основная навигация" style="display:flex;gap:20px;flex-wrap:wrap;margin-bottom:48px">
@@ -105,14 +56,15 @@ const pageShell = (title: string, intro: string, body: string) => `
 const STATIC_ROUTES: Route[] = [
   {
     path: GSI_PATH,
+    lastmod: '2026-11-24',
     title: GSI_TITLE,
     description: GSI_DESCRIPTION,
     content: pageShell(
       'Замена аккумулятора iPhone в Алматы — усиленный JCID по акции',
       'Цена включает усиленный аккумулятор JCID и работу по замене. Гарантия 6 месяцев. Одна цена для всех версий внутри каждой линейки iPhone 11–16. Перед визитом подтвердим наличие для вашей модели.',
-      `<section><h2>Цена с заменой</h2><ul>${gsiBatteryOffers.map(offer => `<li>Линейка iPhone ${offer.series}: <s>${formatTenge(offer.previousPrice)}</s> — ${formatTenge(offer.price)}</li>`).join('')}</ul></section><section><h2>Перед визитом</h2>${gsiFaq.map(item => `<article><h3>${escText(item.q)}</h3><p>${escText(item.a)}</p></article>`).join('')}</section><p><a href="https://wa.me/77775181111?text=${encodeURIComponent('Здравствуйте! Хочу заменить аккумулятор на усиленный JCID по акции. Моя модель iPhone: ')}">Записаться в WhatsApp</a></p>`,
+      `<img src="${GSI_IMAGE.src}" alt="${escAttr(GSI_IMAGE.alt)}" width="${GSI_IMAGE.width}" height="${GSI_IMAGE.height}" style="width:min(100%,480px);height:auto" /><section><h2>Цена с заменой</h2><ul>${gsiBatteryOffers.map(offer => `<li>Линейка iPhone ${offer.series}: <s>${formatTenge(offer.previousPrice)}</s> — ${formatTenge(offer.price)}</li>`).join('')}</ul></section><section><h2>Перед визитом</h2>${gsiFaq.map(item => `<article><h3>${escText(item.q)}</h3><p>${escText(item.a)}</p></article>`).join('')}</section><p><a href="https://wa.me/77775181111?text=${encodeURIComponent('Здравствуйте! Хочу заменить аккумулятор на усиленный JCID по акции. Моя модель iPhone: ')}">Записаться в WhatsApp</a></p>`,
     ),
-    schema: [BUSINESS, breadcrumb({ name: 'Greatsteve', path: '/' }, { name: 'Ремонт', path: '/remont' }, { name: 'Аккумуляторы JCID', path: GSI_PATH }), { '@context': 'https://schema.org', '@type': 'Service', name: 'Замена усиленного аккумулятора JCID для iPhone в Алматы', url: `${SITE}${GSI_PATH}`, areaServed: { '@type': 'City', name: 'Алматы' }, provider: { '@id': `${SITE}/#organization` } }, { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: gsiFaq.map(item => ({ '@type': 'Question', name: item.q, acceptedAnswer: { '@type': 'Answer', text: item.a } })) }],
+    schema: gsiPageSchema,
   },
   {
     path: '/',
@@ -174,7 +126,6 @@ const STATIC_ROUTES: Route[] = [
 function modelRoute(m: ModelData): Route {
   const routePath = `/remont/${m.slug}`;
   const modelImage = repairModelImage(m.slug);
-  const url = `${SITE}${routePath}`;
   const repairs = m.repairs.map((item) => `<li>${escText(item.name)} — ${escText(item.price)}, ${escText(item.time)}</li>`).join('');
   const problems = m.problems.map((item) => `<li>${escText(item)}</li>`).join('');
   const faq = m.faq.map((item) => `<article><h3>${escText(item.q)}</h3><p>${escText(item.a)}</p></article>`).join('');
@@ -208,14 +159,7 @@ function modelRoute(m: ModelData): Route {
           acceptedAnswer: { '@type': 'Answer', text: item.a },
         })),
       },
-      {
-        '@context': 'https://schema.org',
-        '@type': 'Service',
-        name: `Ремонт ${m.name} в Алматы`,
-        url,
-        areaServed: { '@type': 'City', name: 'Алматы' },
-        provider: { '@id': `${SITE}/#organization` },
-      },
+      repairServiceSchema(`Ремонт ${m.name} в Алматы`, routePath, summary),
     ],
   };
 }
