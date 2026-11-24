@@ -29,12 +29,12 @@ export default function ServicesCards() {
                   Сервисный центр
                 </h2>
                 <p className="text-base md:text-lg text-white/90 leading-relaxed max-w-sm drop-shadow">
-                  Ремонтируем всю линейку техники Apple и все модели смартфонов Android. Ремонт ноутбуков и установка программного обеспечения для Windows.
+                  Ремонтируем iPhone, MacBook, iPad и смартфоны Samsung, Xiaomi и других брендов. Выберите свою модель, чтобы посмотреть услуги и цены.
                 </p>
               </div>
               <div className="mt-10">
                 <Link to="/remont" className="inline-block bg-[#007AFF] hover:bg-[#0066CC] transition-colors text-white px-8 py-3.5 rounded-full font-medium text-base">
-                  К ремонту
+                  Цены на ремонт
                 </Link>
               </div>
             </div>

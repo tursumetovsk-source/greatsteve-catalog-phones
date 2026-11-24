@@ -486,7 +486,7 @@ export default function CompanyPage() {
             {[
               {
                 label: '2ГИС',
-                href: 'https://go.2gis.com/BrzTD',
+                href: 'https://2gis.kz/almaty/firm/70000001040518505',
                 src: null,
                 logo: 'https://2gis.kz/favicon.ico',
                 color: '#00B341',
@@ -494,7 +494,7 @@ export default function CompanyPage() {
               },
               {
                 label: 'Яндекс Карты',
-                href: 'https://yandex.kz/maps/-/CPgzmULh',
+                href: 'https://yandex.kz/maps/ru/org/greatsteve/5393916179/',
                 src: 'https://yandex.kz/map-widget/v1/?text=Greatsteve.kz+%D0%90%D0%BB%D0%BC%D0%B0%D1%82%D1%8B+%D0%93%D0%BE%D0%B3%D0%BE%D0%BB%D1%8F+75%2F1&z=17&l=map',
                 logo: 'https://yastatic.net/s3/home/serp/yandex-logo-ru_0b98e76.svg',
                 color: '#FC3F1D',

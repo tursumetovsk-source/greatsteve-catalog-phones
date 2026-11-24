@@ -41,7 +41,7 @@ const SCHEMA = {
     itemListElement: [
       { '@type': 'Offer', itemOffered: { '@type': 'Product', name: 'iPhone б/у Алматы', description: 'Подержанные iPhone 13, 14, 15 с гарантией. Полная диагностика перед продажей.' } },
       { '@type': 'Offer', itemOffered: { '@type': 'Product', name: 'MacBook б/у Алматы', description: 'Б/У MacBook Air и Pro M1–M4. Проверены перед продажей, гарантия.' } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Выкуп iPhone в Алматы', description: 'Продайте iPhone за 10 минут. Бесплатная оценка, оплата сразу наличными или переводом.' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Выкуп iPhone в Алматы', description: 'Предварительная оценка в WhatsApp. После осмотра и согласования цены оплата наличными или переводом.' } },
       { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Trade-in iPhone Алматы', description: 'Сдайте старый iPhone — получите скидку на покупку нового.' } },
       { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Выкуп Samsung и Android', description: 'Выкупаем Samsung Galaxy, Xiaomi, Redmi и другие Android-устройства.' } },
     ],
@@ -78,7 +78,7 @@ const FAQ = {
     {
       '@type': 'Question',
       name: 'Как продать iPhone в Алматы быстро?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Пришлите фото iPhone в WhatsApp на +7 777 518 11 11 — ответим с ценой за 10 минут. Приедьте на Гоголя 75/1 уг. ул.Тулебаева, проверим устройство и выплатим сразу наличными или переводом.' },
+      acceptedAnswer: { '@type': 'Answer', text: 'Пришлите модель, фото и описание состояния iPhone в WhatsApp на +7 777 518 11 11. Проверим устройство в Алматы на Гоголя, 75/1, и после согласования цены оплатим наличными или переводом.' },
     },
     {
       '@type': 'Question',
@@ -104,7 +104,7 @@ const FAQ = {
 };
 
 const STEPS = [
-  { num: '01', title: 'Оценка',  desc: 'Пришлите фото в WhatsApp — ответим с ценой за 10 минут.' },
+  { num: '01', title: 'Оценка',  desc: 'Пришлите модель, фото и описание состояния устройства в WhatsApp для предварительной оценки.' },
   { num: '02', title: 'Осмотр', desc: 'Ждём Вас на Гоголя 75/1 уг. ул. Тулебаева. Проверим устройство на месте.' },
   { num: '03', title: 'Оплата', desc: 'Выплатим сразу наличными или переводом. Без ожиданий.' },
 ];
@@ -167,7 +167,7 @@ export default function TradeinPage() {
     },
     'Выкуп': {
       title: 'Выкупаем',
-      text: 'iPhone, MacBook, iPad, Apple Watch, Samsung Galaxy, Xiaomi, Redmi и другие Android-устройства. Оценка за 10 минут, оплата сразу.',
+      text: 'Выкупаем iPhone, MacBook, iPad, Apple Watch, Samsung Galaxy, Xiaomi, Redmi и другие Android-устройства. Итоговую цену подтверждаем после осмотра.',
     },
     'Trade-in': {
       title: 'Trade-in',
@@ -179,7 +179,7 @@ export default function TradeinPage() {
     <div className="min-h-screen overflow-x-hidden">
       <SEOHead
         title="Купить и продать iPhone, MacBook в Алматы — GreatSteve"
-        description="Купите б/у iPhone 13, 14, 15 с гарантией или продайте свой за 10 минут. Выкуп MacBook, Samsung, Android. Trade-in. Оплата сразу наличными. Алматы, Гоголя 75/1 уг. ул.Тулебаева."
+        description="Купить, продать или обменять б/у iPhone, Samsung и MacBook в Алматы. Предварительная оценка в WhatsApp, проверка на Гоголя, 75/1."
         keywords="купить б/у iPhone Алматы, продать iPhone Алматы, скупка iPhone Алматы, б/у iPhone с гарантией, купить подержанный iPhone, б/у MacBook Алматы, продать MacBook Алматы, trade-in iPhone Алматы, выкуп телефонов Алматы, скупка Samsung Алматы, б/у телефоны Алматы"
         canonical="/tradein"
         ogImage="/tradein-bg.jpg"
@@ -222,7 +222,7 @@ export default function TradeinPage() {
             Продажа · Выкуп · Trade-in
           </p>
           <p className="hidden sm:block text-sm sm:text-base" style={{ color: '#fff', opacity: 0.85, lineHeight: 1.6, marginBottom: 20 }}>
-            Купить и продать iPhone, MacBook, Samsung в Алматы. Оценка за 10 минут, оплата сразу наличными или переводом.
+            Покупка, выкуп и обмен iPhone, MacBook и Samsung в Алматы. Предварительная оценка в WhatsApp, оплата после осмотра.
           </p>
           <div style={{ display: 'flex', gap: 12 }}>
             <button

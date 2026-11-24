@@ -117,7 +117,7 @@ export default function AboutBentoSection() {
                 </div>
               </div>
               <p className="text-gray-600 leading-relaxed text-sm md:text-base">
-                Используем только оригинальные запчасти и оборудование. Контролируем каждый этап и ведём отчётность.
+                Перед ремонтом согласуем тип детали, стоимость работы и условия гарантии.
               </p>
             </div>
           </motion.div>

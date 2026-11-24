@@ -2,6 +2,15 @@ User-agent: Yandex
 Allow: /
 Clean-param: a&back_url_admin&clear_cache&bxajaxid&AJAX_CALL&action&NAME&QUESTION&PHONE&EMAIL
 
+# Search and on-demand retrieval for AI assistants
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+Allow: /
+
 User-agent: *
 Allow: /
 

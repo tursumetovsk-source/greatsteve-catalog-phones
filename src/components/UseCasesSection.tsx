@@ -6,7 +6,7 @@ import { openWhatsApp } from '../lib/contactTracking';
 const PERKS = [
   { icon: Coffee, text: 'Угостим кофе пока ждёте' },
   { icon: Zap,    text: 'Ремонт при вас от 30 минут' },
-  { icon: Search, text: 'Бесплатная диагностика' },
+  { icon: Search, text: 'Диагностика бесплатна при ремонте' },
   { icon: Package, text: 'Оригинальные запчасти' },
 ];
 

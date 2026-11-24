@@ -6,9 +6,8 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import SEOHead from '../components/SEOHead';
 import { modelsBySlug } from '../data/repairModels';
+import { modelRepairContent } from '../data/modelRepairContent';
 import { formatTenge, gsiOfferForModel, GSI_PATH } from '../data/gsiBatteryOffers';
-
-const WA_URL = 'https://wa.me/77775181111';
 
 export default function ModelRepairPage() {
   const { model } = useParams<{ model: string }>();
@@ -17,9 +16,7 @@ export default function ModelRepairPage() {
 
   if (!data) return <Navigate to="/remont" replace />;
   const gsiOffer = gsiOfferForModel(data.slug);
-  const battery = data.repairs.find(repair => /аккумулятор/i.test(repair.name))!;
-
-  const waMsg = encodeURIComponent(`Здравствуйте, нужен ремонт ${data.name}. Хочу узнать цену.`);
+  const { title, description, summary, bookingUrl } = modelRepairContent(data);
 
   const schema = [
     {
@@ -64,8 +61,8 @@ export default function ModelRepairPage() {
   return (
     <div className="min-h-screen overflow-x-hidden bg-white">
       <SEOHead
-        title={`Ремонт ${data.name} в Алматы — GreatSteve | Цены и гарантия`}
-        description={gsiOffer ? `Замена усиленного аккумулятора JCID для ${data.name} в Алматы — ${formatTenge(gsiOffer.price)} с работой. Гарантия 6 месяцев. Гоголя 75/1, ежедневно 10:00–20:00.` : `Ремонт ${data.name} в Алматы. Замена экрана ${data.repairs[0].price}, аккумулятора ${battery.price}. Гарантия 12 месяцев. Ежедневно 10:00–20:00. Гоголя 75/1 уг. ул.Тулебаева.`}
+        title={title}
+        description={description}
         keywords={`ремонт ${data.name} Алматы, замена экрана ${data.name} Алматы, замена аккумулятора ${data.name} Алматы, сервис ${data.name} Алматы`}
         canonical={`/remont/${data.slug}`}
         schema={schema}
@@ -104,18 +101,18 @@ export default function ModelRepairPage() {
                 </span>
               </h1>
 
-              <p style={{ fontSize: 16, color: 'rgba(255,255,255,0.5)', lineHeight: 1.6 }}>
-                {data.intro}
+              <p style={{ fontSize: 16, color: 'rgba(255,255,255,0.82)', lineHeight: 1.6 }}>
+                {summary}
               </p>
             </div>
 
             <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
               <a
-                href={`${WA_URL}?text=${waMsg}`}
+                href={bookingUrl}
                 target="_blank" rel="noopener noreferrer"
                 style={{ background: '#fff', color: '#111', borderRadius: 100, padding: '14px 32px', fontSize: 15, fontWeight: 600, textDecoration: 'none' }}
               >
-                Узнать точную цену
+                Записаться в WhatsApp
               </a>
               <a
                 href="tel:+77775181111"
@@ -187,7 +184,7 @@ export default function ModelRepairPage() {
           </div>
 
           <p style={{ textAlign: 'center', marginTop: 24, fontSize: 13, color: 'rgba(0,0,0,0.35)' }}>
-            {gsiOffer ? 'Цена аккумулятора JCID по акции включает замену. Стоимость других работ согласуем перед ремонтом.' : 'Точная стоимость определяется после бесплатной диагностики. Цены указаны с учётом работы.'}
+            {gsiOffer ? 'Цена аккумулятора JCID по акции включает замену. Стоимость других работ согласуем перед ремонтом.' : 'Цены указаны с учётом работы. Точную стоимость согласуем после диагностики. При ремонте диагностика бесплатна.'}
           </p>
         </div>
       </section>
@@ -260,10 +257,9 @@ export default function ModelRepairPage() {
               <h3 style={{ fontSize: 24, fontWeight: 700, color: '#fff', marginBottom: 24 }}>Почему GreatSteve</h3>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
                 {[
-                  gsiOffer ? 'Усиленный аккумулятор JCID по акции' : 'Оригинальные запчасти',
-                  gsiOffer ? 'Гарантия на JCID — 6 месяцев' : 'Гарантия до 12 месяцев',
-                  'Ремонт при вас',
-                  'Бесплатная диагностика',
+                  'Тип детали согласуем до ремонта',
+                  gsiOffer ? 'Гарантия на JCID — 6 месяцев' : 'Гарантия до 12 месяцев в зависимости от работы',
+                  'Диагностика бесплатна при ремонте',
                   'Ежедневно 10:00–20:00',
                   'Оплата после ремонта',
                 ].map(item => (
@@ -302,6 +298,7 @@ export default function ModelRepairPage() {
               >
                 <button
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                  aria-expanded={openFaq === i}
                   style={{
                     width: '100%', padding: '20px 24px', display: 'flex', justifyContent: 'space-between',
                     alignItems: 'center', gap: 12, background: 'none', border: 'none', cursor: 'pointer', textAlign: 'left',
@@ -339,7 +336,7 @@ export default function ModelRepairPage() {
         </p>
         <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
           <a
-            href={`${WA_URL}?text=${waMsg}`}
+            href={bookingUrl}
             target="_blank" rel="noopener noreferrer"
             style={{ background: '#fff', color: '#111', borderRadius: 100, padding: '14px 36px', fontSize: 15, fontWeight: 600, textDecoration: 'none' }}
           >
