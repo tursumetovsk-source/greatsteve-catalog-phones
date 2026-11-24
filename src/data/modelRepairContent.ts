@@ -13,7 +13,7 @@ export function modelRepairContent(model: ModelData) {
   const summary = model.slug === 'iphone-17-pro-max'
     ? `${screenPrice}, ${screen.time === '1–2 ч' ? '1–2 часа' : screen.time} при наличии детали. Тип дисплея и гарантию согласуем до ремонта.`
     : model.slug === 'iphone-15-pro-max' ? batteryPrice
-    : screen.price === 'По запросу' ? 'Стоимость ремонта и наличие детали уточним по модели и неисправности.' : `${screenPrice}. ${batteryPrice}`;
+    : screen.price === 'По запросу' ? 'Возможность ремонта, стоимость и наличие запчастей уточним по модели и неисправности.' : `${screenPrice}. ${batteryPrice}`;
   const description = `${model.name} в Алматы. ${summary} Гоголя, 75/1.`;
   const message = model.slug === 'iphone-15-pro-max'
     ? `Здравствуйте! Хочу заменить аккумулятор на ${model.name}. Подскажите наличие и время записи.`

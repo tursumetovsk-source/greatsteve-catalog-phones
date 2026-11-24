@@ -7,10 +7,10 @@ const paths = [...sitemap.matchAll(/<loc>https:\/\/greatsteve\.kz([^<]*)<\/loc>/
 const pages = new Map(paths.map(path => [path, readFileSync(new URL(`../dist${path === '/' ? '' : path}/index.html`, import.meta.url), 'utf8')]));
 
 test('sitemap contains every canonical HTML page once, never redirected legacy URLs', () => {
-  assert.equal(paths.length, 52);
+  assert.equal(paths.length, 99);
   assert.equal(new Set(paths).size, paths.length);
   const rearCoverPages = [...pages].filter(([, html]) => html.includes('<li>Замена задней крышки —'));
-  assert.equal(rearCoverPages.length, 37);
+  assert.equal(rearCoverPages.length, 84);
   for (const [path, html] of rearCoverPages) {
     assert.match(html, /<li>Замена задней крышки — [^<]+, от 3 часов<\/li>/, path);
     assert.ok(sitemap.includes(`<loc>https://greatsteve.kz${path}</loc><lastmod>2026-11-24</lastmod>`), path);
@@ -73,7 +73,7 @@ test('priority service pages show current offers and provide WhatsApp booking wi
 
 test('all model repair pages show their product photo and current repair times', () => {
   const modelPages = [...pages].filter(([path]) => /^\/remont\/(?:iphone|samsung)-/.test(path));
-  assert.equal(modelPages.length, 47);
+  assert.equal(modelPages.length, 94);
   for (const [path, html] of modelPages) {
     const slug = path.split('/').at(-1);
     const photo = slug.startsWith('iphone-') ? `/devices/repair/${slug}.webp` : `/devices/models/${slug}.jpg`;

@@ -21,7 +21,7 @@ export default function ModelRepairPage() {
   const gsiOffer = gsiOfferForModel(data.slug);
   const { title, description, summary, bookingUrl } = modelRepairContent(data);
   const image = repairModelImage(data.slug);
-  const imageHasBackground = image.endsWith('.jpg') || WHITE_BACKGROUND_IPHONES.has(data.slug);
+  const imageHasBackground = data.photoOnWhite || image.endsWith('.jpg') || WHITE_BACKGROUND_IPHONES.has(data.slug);
 
   const schema = [
     {
@@ -126,7 +126,7 @@ export default function ModelRepairPage() {
             className="flex min-w-0 flex-col items-center justify-center gap-5"
           >
             <img src={image} alt={data.name} decoding="async" fetchPriority="high" width="560" height="350"
-              className="h-48 w-full max-w-[35rem] object-contain sm:h-72 lg:h-[350px]" />
+              className="h-48 w-full max-w-[35rem] object-scale-down sm:h-72 lg:h-[350px]" />
             {gsiOffer && (
               <div className="w-full max-w-[31rem] text-center">
                 <p className="font-semibold">Усиленный аккумулятор JCID · {formatTenge(gsiOffer.price)}</p>
@@ -232,7 +232,7 @@ export default function ModelRepairPage() {
                   ['Год выпуска', data.year],
                   ['Дисплей', data.screen],
                   ['Чип', data.chip],
-                ].map(([label, val], idx, arr) => (
+                ].filter(([, value]) => value).map(([label, val], idx, arr) => (
                   <div key={String(label)} style={{ display: 'flex', flexDirection: 'column', gap: 4, paddingTop: idx > 0 ? 16 : 0, paddingBottom: idx < arr.length - 1 ? 16 : 0, borderBottom: idx < arr.length - 1 ? '1px solid rgba(0,0,0,0.07)' : 'none' }}>
                     <span style={{ fontSize: 13, color: 'rgba(0,0,0,0.45)', textTransform: 'uppercase', letterSpacing: '0.06em' }}>{label}</span>
                     <span style={{ fontSize: 17, fontWeight: 600, color: '#111' }}>{val}</span>

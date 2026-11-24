@@ -12,7 +12,8 @@ export interface ModelData {
   slug: string;
   year: number;
   screen: string;
-  chip: string;
+  chip?: string;
+  photoOnWhite?: boolean;
   intro: string;
   problems: string[];
   repairs: RepairItem[];
@@ -21,51 +22,87 @@ export interface ModelData {
 
 export const BACK_COVER_REPAIR_TIME = 'от 3 часов';
 
-const IPHONE_18_PRO_REPAIRS = [
+const QUOTE_REPAIRS: RepairItem[] = [
   { name: 'Замена экрана (дисплея)', price: 'По запросу', time: 'По согласованию' },
   { name: 'Замена аккумулятора', price: 'По запросу', time: REPAIR_TIMES.battery },
   { name: 'Замена задней камеры', price: 'По запросу', time: REPAIR_TIMES.camera },
-  { name: 'Замена разъёма зарядки (USB-C)', price: 'По запросу', time: REPAIR_TIMES.chargingPort },
+  { name: 'Замена разъёма зарядки', price: 'По запросу', time: REPAIR_TIMES.chargingPort },
   { name: 'Замена задней крышки', price: 'По запросу', time: BACK_COVER_REPAIR_TIME },
   { name: 'Диагностика', price: 'Бесплатно при ремонте', time: REPAIR_TIMES.diagnostic },
 ];
 
-const IPHONE_18_PRO_PROBLEMS = [
+const QUOTE_PROBLEMS = [
   'Трещины, полосы или пятна на дисплее',
   'Быстрая разрядка или отключение телефона',
   'Проблемы с фокусировкой камеры',
-  'Нестабильная зарядка через USB-C',
+  'Нестабильная зарядка через разъём',
 ];
 
-const IPHONE_18_PRO_FAQ = [
-  { q: 'Сколько стоит ремонт?', a: 'Стоимость и наличие детали уточним по точной модели и неисправности. Напишите нам в WhatsApp.' },
-  { q: 'Сколько времени занимает ремонт?', a: `Замена аккумулятора занимает ${REPAIR_TIMES.battery}, замена камеры или разъёма зарядки — ${REPAIR_TIMES.camera}. Диагностика занимает ${REPAIR_TIMES.diagnostic}.` },
+const QUOTE_FAQ = [
+  { q: 'Сколько стоит ремонт?', a: 'Возможность ремонта, стоимость и наличие запчастей уточним по модели и неисправности. Напишите нам в WhatsApp.' },
+  { q: 'Сколько времени занимает ремонт?', a: `Замена аккумулятора занимает ${REPAIR_TIMES.battery}, замена камеры — ${REPAIR_TIMES.camera}, замена разъёма зарядки — ${REPAIR_TIMES.chargingPort}. Диагностика занимает ${REPAIR_TIMES.diagnostic}.` },
 ];
+
+const QUOTE_MODELS: ModelData[] = [
+  { slug: 'iphone-18-pro-max', name: 'iPhone 18 Pro Max', year: 2026, screen: '6,9″ Super Retina XDR OLED ProMotion', chip: 'A20 Pro' },
+  { slug: 'iphone-18-pro', name: 'iPhone 18 Pro', year: 2026, screen: '6,3″ Super Retina XDR OLED ProMotion', chip: 'A20 Pro' },
+  { slug: 'iphone-duo', name: 'iPhone Duo', year: 2026, screen: '7,6″ и 5,4″ Super Retina XDR', chip: 'A20 Pro' },
+  { slug: 'iphone-17e', name: 'iPhone 17e', year: 2026, screen: '6,1″ Super Retina XDR OLED', chip: 'A19' },
+  { slug: 'iphone-16e', name: 'iPhone 16e', year: 2025, screen: '6,1″ Super Retina XDR OLED', chip: 'A18' },
+  { slug: 'iphone-15-plus', name: 'iPhone 15 Plus', year: 2023, screen: '6,7″ Super Retina XDR OLED', chip: 'A16 Bionic' },
+  { slug: 'iphone-14-plus', name: 'iPhone 14 Plus', year: 2022, screen: '6,7″ Super Retina XDR OLED', chip: 'A15 Bionic' },
+  { slug: 'iphone-se-3', name: 'iPhone SE (3-го поколения)', year: 2022, screen: '4,7″ Retina HD', chip: 'A15 Bionic' },
+  { slug: 'iphone-13-mini', name: 'iPhone 13 mini', year: 2021, screen: '5,4″ Super Retina XDR OLED', chip: 'A15 Bionic' },
+  { slug: 'iphone-12-pro', name: 'iPhone 12 Pro', year: 2020, screen: '6,1″ Super Retina XDR OLED', chip: 'A14 Bionic', photoOnWhite: true },
+  { slug: 'iphone-12-mini', name: 'iPhone 12 mini', year: 2020, screen: '5,4″ Super Retina XDR OLED', chip: 'A14 Bionic' },
+  { slug: 'iphone-se-2', name: 'iPhone SE (2-го поколения)', year: 2020, screen: '4,7″ Retina HD', chip: 'A13 Bionic', photoOnWhite: true },
+  { slug: 'iphone-11-pro', name: 'iPhone 11 Pro', year: 2019, screen: '5,8″ Super Retina XDR OLED', chip: 'A13 Bionic', photoOnWhite: true },
+  { slug: 'iphone-xs', name: 'iPhone XS', year: 2018, screen: '5,8″ Super Retina OLED', chip: 'A12 Bionic', photoOnWhite: true },
+  { slug: 'iphone-xs-max', name: 'iPhone XS Max', year: 2018, screen: '6,5″ Super Retina OLED', chip: 'A12 Bionic', photoOnWhite: true },
+  { slug: 'iphone-x', name: 'iPhone X', year: 2017, screen: '5,8″ Super Retina OLED', chip: 'A11 Bionic', photoOnWhite: true },
+  { slug: 'iphone-8', name: 'iPhone 8', year: 2017, screen: '4,7″ Retina HD', chip: 'A11 Bionic', photoOnWhite: true },
+  { slug: 'iphone-8-plus', name: 'iPhone 8 Plus', year: 2017, screen: '5,5″ Retina HD', chip: 'A11 Bionic', photoOnWhite: true },
+  { slug: 'iphone-7', name: 'iPhone 7', year: 2016, screen: '4,7″ Retina HD', chip: 'A10 Fusion', photoOnWhite: true },
+  { slug: 'iphone-7-plus', name: 'iPhone 7 Plus', year: 2016, screen: '5,5″ Retina HD', chip: 'A10 Fusion', photoOnWhite: true },
+  { slug: 'iphone-se-1', name: 'iPhone SE (1-го поколения)', year: 2016, screen: '4″ Retina', chip: 'A9', photoOnWhite: true },
+  { slug: 'iphone-6s', name: 'iPhone 6s', year: 2015, screen: '4,7″ Retina HD', chip: 'A9', photoOnWhite: true },
+  { slug: 'iphone-6s-plus', name: 'iPhone 6s Plus', year: 2015, screen: '5,5″ Retina HD', chip: 'A9', photoOnWhite: true },
+  { slug: 'iphone-6', name: 'iPhone 6', year: 2014, screen: '4,7″ Retina HD', chip: 'A8', photoOnWhite: true },
+  { slug: 'iphone-6-plus', name: 'iPhone 6 Plus', year: 2014, screen: '5,5″ Retina HD', chip: 'A8', photoOnWhite: true },
+  { slug: 'iphone-5s', name: 'iPhone 5s', year: 2013, screen: '4″ Retina', chip: 'A7', photoOnWhite: true },
+  { slug: 'iphone-5c', name: 'iPhone 5c', year: 2013, screen: '4″ Retina', chip: 'A6', photoOnWhite: true },
+  { slug: 'iphone-5', name: 'iPhone 5', year: 2012, screen: '4″ Retina', chip: 'A6', photoOnWhite: true },
+  { slug: 'iphone-4s', name: 'iPhone 4s', year: 2011, screen: '3,5″ Retina', chip: 'A5', photoOnWhite: true },
+  { slug: 'iphone-4', name: 'iPhone 4', year: 2010, screen: '3,5″ Retina', chip: 'A4', photoOnWhite: true },
+  { slug: 'iphone-3gs', name: 'iPhone 3GS', year: 2009, screen: '3,5″', photoOnWhite: true },
+  { slug: 'iphone-3g', name: 'iPhone 3G', year: 2008, screen: '3,5″', photoOnWhite: true },
+  { slug: 'iphone-2g', name: 'iPhone (1-го поколения)', year: 2007, screen: '3,5″', photoOnWhite: true },
+  { slug: 'samsung-s26-ultra', name: 'Samsung Galaxy S26 Ultra', year: 2026, screen: '6,9″', chip: 'Snapdragon 8 Elite Gen 5' },
+  { slug: 'samsung-s26-plus', name: 'Samsung Galaxy S26+', year: 2026, screen: '6,7″', chip: 'Exynos 2600 / Snapdragon 8 Elite Gen 5' },
+  { slug: 'samsung-s26', name: 'Samsung Galaxy S26', year: 2026, screen: '6,3″', chip: 'Exynos 2600 / Snapdragon 8 Elite Gen 5' },
+  { slug: 'samsung-s26-fe', name: 'Samsung Galaxy S26 FE', year: 2026, screen: '6,7″', chip: 'Exynos 2500' },
+  { slug: 'samsung-s25-edge', name: 'Samsung Galaxy S25 Edge', year: 2025, screen: '6,7″', chip: 'Snapdragon 8 Elite' },
+  { slug: 'samsung-s25-fe', name: 'Samsung Galaxy S25 FE', year: 2025, screen: '6,7″', chip: 'Exynos 2400' },
+  { slug: 'samsung-a57', name: 'Samsung Galaxy A57 5G', year: 2026, screen: '6,7″', chip: 'Exynos 1680' },
+  { slug: 'samsung-a37', name: 'Samsung Galaxy A37 5G', year: 2026, screen: '6,7″', chip: 'Exynos 1480' },
+  { slug: 'samsung-a27', name: 'Samsung Galaxy A27 5G', year: 2026, screen: '6,7″', chip: 'Snapdragon 6 Gen 3' },
+  { slug: 'samsung-a18-4g', name: 'Samsung Galaxy A18 4G', year: 2026, screen: '6,7″', chip: 'Exynos 1610' },
+  { slug: 'samsung-a17', name: 'Samsung Galaxy A17 5G', year: 2025, screen: '6,7″', chip: 'Exynos 1330' },
+  { slug: 'samsung-a17-4g', name: 'Samsung Galaxy A17 4G', year: 2025, screen: '6,7″', chip: 'Helio G99' },
+  { slug: 'samsung-a08-4g', name: 'Samsung Galaxy A08 4G', year: 2026, screen: '6,7″', chip: 'Helio G99' },
+  { slug: 'samsung-a07s', name: 'Samsung Galaxy A07s', year: 2026, screen: '6,7″', chip: 'Helio G99+' },
+  { slug: 'samsung-a07', name: 'Samsung Galaxy A07 5G', year: 2026, screen: '6,7″', chip: 'Dimensity 6300' },
+  { slug: 'samsung-a07-4g', name: 'Samsung Galaxy A07 4G', year: 2025, screen: '6,7″', chip: 'Helio G99' },
+].map(model => ({
+  ...model,
+  intro: `Сервис GreatSteve в Алматы. Возможность ремонта ${model.name} и наличие запчастей уточним перед визитом.`,
+  problems: QUOTE_PROBLEMS,
+  repairs: QUOTE_REPAIRS,
+  faq: QUOTE_FAQ,
+}));
 
 const MODELS: ModelData[] = [
-  // ── iPhone 18 ──────────────────────────────────────────────
-  {
-    slug: 'iphone-18-pro-max',
-    name: 'iPhone 18 Pro Max',
-    year: 2026,
-    screen: '6,9″ Super Retina XDR OLED ProMotion',
-    chip: 'A20 Pro',
-    intro: 'Сервис GreatSteve в Алматы принимает iPhone 18 Pro Max на диагностику. Перед визитом уточним неисправность и проверим наличие детали для вашей модели.',
-    problems: IPHONE_18_PRO_PROBLEMS,
-    repairs: IPHONE_18_PRO_REPAIRS,
-    faq: IPHONE_18_PRO_FAQ,
-  },
-  {
-    slug: 'iphone-18-pro',
-    name: 'iPhone 18 Pro',
-    year: 2026,
-    screen: '6,3″ Super Retina XDR OLED ProMotion',
-    chip: 'A20 Pro',
-    intro: 'Сервис GreatSteve в Алматы принимает iPhone 18 Pro на диагностику. Перед визитом уточним неисправность и проверим наличие детали для вашей модели.',
-    problems: IPHONE_18_PRO_PROBLEMS,
-    repairs: IPHONE_18_PRO_REPAIRS,
-    faq: IPHONE_18_PRO_FAQ,
-  },
+  ...QUOTE_MODELS,
   // ── iPhone 17 ──────────────────────────────────────────────
   {
     slug: 'iphone-17-pro-max',
@@ -127,11 +164,11 @@ const MODELS: ModelData[] = [
   },
   {
     slug: 'iphone-17-air',
-    name: 'iPhone 17 Air',
+    name: 'iPhone Air',
     year: 2025,
-    screen: '6.6″ Super Retina XDR OLED',
-    chip: 'A19',
-    intro: 'iPhone 17 Air — самый тонкий iPhone в истории Apple (около 6 мм): OLED 6.6″, чип A19 и одна основная камера в ультратонком корпусе. Из-за плотной компоновки ремонт требует особых инструментов — мастера GreatSteve подготовлены к работе с Air-серией.',
+    screen: '6,5″ Super Retina XDR OLED',
+    chip: 'A19 Pro',
+    intro: 'iPhone Air — самый тонкий iPhone в истории Apple (5,6 мм): OLED 6,5″, чип A19 Pro и одна основная камера в ультратонком корпусе. Из-за плотной компоновки ремонт требует особых инструментов — мастера GreatSteve подготовлены к работе с Air-серией.',
     problems: [
       'Трещина OLED-экрана — тонкий корпус не прощает падений',
       'Деградация аккумулятора уменьшенной ёмкости',
@@ -147,11 +184,11 @@ const MODELS: ModelData[] = [
       { name: 'Диагностика', price: 'Бесплатно', time: REPAIR_TIMES.diagnostic },
     ],
     faq: [
-      { q: 'Сколько стоит замена экрана iPhone 17 Air в Алматы?', a: 'Замена экрана iPhone 17 Air в GreatSteve — от 60 000 ₸. Тонкий корпус Air требует аккуратного подхода, ремонт 1–2 часа при вас.' },
-      { q: 'Сколько стоит замена аккумулятора iPhone 17 Air?', a: `Замена аккумулятора iPhone 17 Air — от 15 000 ₸. Замена занимает ${REPAIR_TIMES.battery}. Устанавливаем оригинальную батарею с учётом тонкого корпуса.` },
-      { q: 'Сложнее ли ремонтировать iPhone 17 Air?', a: 'Да, Air-корпус плотнее обычного iPhone. Наши мастера прошли подготовку по этой модели — ремонт выполняется на специализированном инструменте.' },
-      { q: 'Сколько времени занимает ремонт iPhone 17 Air?', a: `Замена аккумулятора — ${REPAIR_TIMES.battery}. Замена экрана — 1–2 часа. Работаем ежедневно 10:00–20:00.` },
-      { q: 'Даёте ли гарантию на ремонт iPhone 17 Air?', a: 'Да, гарантия до 12 месяцев на все виды ремонта.' },
+      { q: 'Сколько стоит замена экрана iPhone Air в Алматы?', a: 'Замена экрана iPhone Air в GreatSteve — от 60 000 ₸. Тонкий корпус Air требует аккуратного подхода, ремонт 1–2 часа при вас.' },
+      { q: 'Сколько стоит замена аккумулятора iPhone Air?', a: `Замена аккумулятора iPhone Air — от 15 000 ₸. Замена занимает ${REPAIR_TIMES.battery}. Устанавливаем оригинальную батарею с учётом тонкого корпуса.` },
+      { q: 'Сложнее ли ремонтировать iPhone Air?', a: 'Да, Air-корпус плотнее обычного iPhone. Наши мастера прошли подготовку по этой модели — ремонт выполняется на специализированном инструменте.' },
+      { q: 'Сколько времени занимает ремонт iPhone Air?', a: `Замена аккумулятора — ${REPAIR_TIMES.battery}. Замена экрана — 1–2 часа. Работаем ежедневно 10:00–20:00.` },
+      { q: 'Даёте ли гарантию на ремонт iPhone Air?', a: 'Да, гарантия до 12 месяцев на все виды ремонта.' },
     ],
   },
   {
