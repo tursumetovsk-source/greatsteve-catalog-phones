@@ -76,8 +76,8 @@ test('all model repair pages include their own product photo', () => {
   assert.equal(modelPages.length, 45);
   for (const [path, html] of modelPages) {
     const slug = path.split('/').at(-1);
-    const photo = html.match(/<img src="(\/devices\/(?:models|repair)\/[^"]+)" alt="[^"]+"[^>]*>/)?.[1];
-    assert.ok(photo?.split('/').at(-1).startsWith(`${slug}.`), path);
+    const photo = slug.startsWith('iphone-') ? `/devices/repair/${slug}.webp` : `/devices/models/${slug}.jpg`;
+    assert.ok(html.includes(`<img src="${photo}" alt="`), path);
     assert.ok(existsSync(new URL(`../dist${photo}`, import.meta.url)), path);
     assert.ok(html.includes(`<meta property="og:image" content="https://greatsteve.kz${photo}"`), path);
   }
